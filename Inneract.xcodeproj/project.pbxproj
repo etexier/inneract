@@ -32,6 +32,8 @@
 		329F00851AA820650089C0E2 /* LearningLabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00831AA820650089C0E2 /* LearningLabViewController.xib */; };
 		329F00891AA8207F0089C0E2 /* TeachOrTAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00871AA8207F0089C0E2 /* TeachOrTAViewController.m */; };
 		329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00881AA8207F0089C0E2 /* TeachOrTAViewController.xib */; };
+		329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F008C1AA8DC3C0089C0E2 /* EditProfileViewController.m */; };
+		329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,9 @@
 		329F00861AA8207F0089C0E2 /* TeachOrTAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachOrTAViewController.h; sourceTree = "<group>"; };
 		329F00871AA8207F0089C0E2 /* TeachOrTAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachOrTAViewController.m; sourceTree = "<group>"; };
 		329F00881AA8207F0089C0E2 /* TeachOrTAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeachOrTAViewController.xib; sourceTree = "<group>"; };
+		329F008B1AA8DC3C0089C0E2 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		329F008C1AA8DC3C0089C0E2 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +206,9 @@
 				329F00591AA81E550089C0E2 /* ProfilesViewController.h */,
 				329F005A1AA81E550089C0E2 /* ProfilesViewController.m */,
 				329F005B1AA81E550089C0E2 /* ProfilesViewController.xib */,
+				329F008B1AA8DC3C0089C0E2 /* EditProfileViewController.h */,
+				329F008C1AA8DC3C0089C0E2 /* EditProfileViewController.m */,
+				329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */,
 			);
 			name = Profiles;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				329F00711AA81EE80089C0E2 /* LoginViewController.xib in Resources */,
+				329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */,
 				329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */,
 				329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */,
 				329F00671AA81EC90089C0E2 /* LandingViewController.xib in Resources */,
@@ -348,6 +357,7 @@
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
 				329F00571AA81D930089C0E2 /* FeedsViewController.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
+				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,
 				329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */,
 				329F00841AA820650089C0E2 /* LearningLabViewController.m in Sources */,
 				329F00891AA8207F0089C0E2 /* TeachOrTAViewController.m in Sources */,
