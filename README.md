@@ -38,7 +38,7 @@ An app would drastically simplify communication directly from our organization t
    - For Form: TypeForm
    - For payment: Paypal
 -  Where can we access the back-end data
-   - Back-end is hosted on Parse, including some assets such as the profile images
+   - Back-end is hosted on Parse, including some assets such as the profile images, go to: https://www.parse.com/apps/ipios
    - Other media: video, photos gallery will be located on some CDNs
    - Full profile, articles will be available on the web sites
 
