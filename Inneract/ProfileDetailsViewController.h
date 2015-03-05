@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ProfileDetailsViewController.h
 //  Inneract
 //
 //  Created by Emmanuel Texier on 3/4/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ProfileDetailsViewController : UIViewController
 
 @end
-
