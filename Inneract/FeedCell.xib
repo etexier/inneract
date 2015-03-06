@@ -76,7 +76,6 @@
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="rsu-rp-GfW" secondAttribute="leading" id="7cO-vT-1PG"/>
                     <constraint firstItem="tts-yH-mFW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="9tZ-AI-Wwq"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="trailing" secondItem="rsu-rp-GfW" secondAttribute="trailing" id="AR8-tt-QBc"/>
-                    <constraint firstItem="Omc-iC-8wI" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="8" id="AnY-yL-K3b"/>
                     <constraint firstItem="EgW-T2-wEE" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="8" id="DJP-6V-LiH"/>
                     <constraint firstItem="7Do-qD-8IQ" firstAttribute="leading" secondItem="OuB-Jo-Ib5" secondAttribute="trailing" constant="8" id="G9m-Iv-ewZ"/>
                     <constraint firstAttribute="trailing" secondItem="S3k-es-wEL" secondAttribute="trailing" constant="8" id="HJQ-Xq-JsL"/>
@@ -97,11 +96,6 @@
                     <constraint firstItem="Omc-iC-8wI" firstAttribute="top" secondItem="OuB-Jo-Ib5" secondAttribute="bottom" constant="8" id="uMy-ZJ-TCs"/>
                     <constraint firstItem="MTr-Kb-bG6" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="19" id="vTc-is-D93"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="AnY-yL-K3b"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <point key="canvasLocation" x="185" y="420"/>
         </tableViewCell>
