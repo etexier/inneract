@@ -25,19 +25,11 @@
                         <tabBarItem systemItem="more" id="ICV-Iy-LSW"/>
                     </items>
                 </tabBar>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmW-QH-psl" customClass="IntroductionContainerView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="509"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Qbf-O5-Mau" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8fE-Lj-51s"/>
-                <constraint firstItem="HmW-QH-psl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GL7-hi-Q4x"/>
                 <constraint firstAttribute="trailing" secondItem="Qbf-O5-Mau" secondAttribute="trailing" id="HlD-do-rML"/>
-                <constraint firstItem="HmW-QH-psl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OXt-x8-s9D"/>
-                <constraint firstItem="Qbf-O5-Mau" firstAttribute="top" secondItem="HmW-QH-psl" secondAttribute="bottom" constant="10" id="gCv-bO-cxg"/>
-                <constraint firstAttribute="trailing" secondItem="HmW-QH-psl" secondAttribute="trailing" id="krh-PW-kHq"/>
                 <constraint firstAttribute="bottom" secondItem="Qbf-O5-Mau" secondAttribute="bottom" id="zsb-AO-rnx"/>
             </constraints>
             <point key="canvasLocation" x="322" y="367"/>

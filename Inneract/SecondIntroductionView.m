@@ -17,6 +17,15 @@
 
 @implementation SecondIntroductionView
 
+-(id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initSubViews];
+    }
+    return self;
+    
+}
+
 -(id) initWithCoder:(NSCoder *) coder {
     self = [super initWithCoder:coder];
     if (self) {

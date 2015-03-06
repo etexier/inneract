@@ -11,7 +11,10 @@
 #import "SecondIntroductionView.h"
 #import "ThirdIntroductionView.h"
 
+
+
 @interface IntroductionContainerView()
+@property (strong, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -20,10 +23,22 @@
 
 @end
 
-@implementation IntroductionContainerView
+@implementation IntroductionContainerView {
+    NSInteger _lastPanelIndex;
+    NSInteger _currentPanelIndex;
+}
 
 -(id) initWithCoder:(NSCoder *) coder {
     self = [super initWithCoder:coder];
+    if (self) {
+        [self initSubViews];
+    }
+    return self;
+    
+}
+
+-(id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         [self initSubViews];
     }
@@ -47,10 +62,10 @@
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    //self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     self.scrollView.delegate = self;
     
-    FirstIntroductionView *first = [[FirstIntroductionView alloc] init];
+    FirstIntroductionView *first = [[FirstIntroductionView alloc] initWithFrame:self.frame];
     SecondIntroductionView *second = [[SecondIntroductionView alloc] init];
     ThirdIntroductionView *third = [[ThirdIntroductionView alloc] init];
     
@@ -63,12 +78,22 @@
     [self.scrollView addSubview:second];
     [self.scrollView addSubview:third];
     
-    self.scrollView.frame = self.bounds;
+    //self.scrollView.frame = self.bounds;
     
     [self makePanelVisibleAtIndex:0];
     //self.scrollView.contentSize = CGSizeMake(0, self.scrollView.frame.size.height);
     
-    [self addSubview:self.scrollView];
+    [self.contentView addSubview:self.scrollView];
+    
+    //self.PageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, (self.scrollView.frame.origin.y + self.scrollView.frame.size.height - 60), self.frame.size.width, 36)];
+    //[self.pageControl setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [self.pageControl addTarget:self action:@selector(showPanelAtPageControl) forControlEvents:UIControlEventValueChanged];
+    
+    self.pageControl.numberOfPages = self.panels.count;
+    [self.contentView addSubview:self.pageControl];
+    
+    self.contentView.frame = self.bounds;
+    [self addSubview:self.contentView];
 }
 
 -(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
@@ -82,6 +107,18 @@
             }
         }
     }];
+}
+
+-(void)showPanelAtPageControl {
+    
+    _lastPanelIndex = self.pageControl.currentPage;
+    _currentPanelIndex = self.pageControl.currentPage;
+    
+    //Format and show new content
+    //[self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
+    [self makePanelVisibleAtIndex:_currentPanelIndex];
+    
+    [self.scrollView setContentOffset:CGPointMake(_currentPanelIndex * 320, 0) animated:YES];
 }
 
 /*

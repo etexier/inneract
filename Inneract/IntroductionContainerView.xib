@@ -6,22 +6,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroductionContainerView">
             <connections>
-                <outlet property="pageControl" destination="4vU-Wx-omU" id="IR4-Gj-D6K"/>
-                <outlet property="scrollView" destination="o0t-gj-VTI" id="6v4-Ss-9i8"/>
+                <outlet property="contentView" destination="TRf-0R-hdN" id="qmo-tb-NIb"/>
+                <outlet property="pageControl" destination="DyQ-R3-S3d" id="cCV-Pk-hj3"/>
+                <outlet property="scrollView" destination="wg3-5O-EBp" id="Fvh-Vx-JBk"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="o0t-gj-VTI">
+        <view contentMode="scaleToFill" id="TRf-0R-hdN">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="4vU-Wx-omU">
-                    <rect key="frame" x="141" y="523" width="39" height="37"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg3-5O-EBp">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="531"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DyQ-R3-S3d">
+                    <rect key="frame" x="141" y="531" width="39" height="37"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="4GK-kh-WaH"/>
+                    </constraints>
                 </pageControl>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wg3-5O-EBp" firstAttribute="leading" secondItem="TRf-0R-hdN" secondAttribute="leading" id="513-Sk-xZd"/>
+                <constraint firstAttribute="centerX" secondItem="DyQ-R3-S3d" secondAttribute="centerX" id="Dpe-kJ-hPk"/>
+                <constraint firstAttribute="bottom" secondItem="DyQ-R3-S3d" secondAttribute="bottom" id="O8d-rK-1gA"/>
+                <constraint firstItem="wg3-5O-EBp" firstAttribute="top" secondItem="TRf-0R-hdN" secondAttribute="top" id="fDS-tZ-gjN"/>
+                <constraint firstItem="DyQ-R3-S3d" firstAttribute="top" secondItem="wg3-5O-EBp" secondAttribute="bottom" id="ivZ-Tc-JQJ"/>
+                <constraint firstAttribute="trailing" secondItem="wg3-5O-EBp" secondAttribute="trailing" id="yxV-Yv-lvk"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="316" y="268"/>
-        </scrollView>
+            <point key="canvasLocation" x="329" y="292"/>
+        </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

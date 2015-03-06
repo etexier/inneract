@@ -19,7 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
+    IntroductionContainerView *instroductionView = [[IntroductionContainerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49)];
+    [self.view addSubview:instroductionView];
 }
 
 - (void)didReceiveMemoryWarning {
