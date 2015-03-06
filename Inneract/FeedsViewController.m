@@ -7,9 +7,11 @@
 //
 
 #import "FeedsViewController.h"
+#import "FeedCell.h"
 
 @interface FeedsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *feeds;
 
 @end
 
@@ -28,6 +30,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.feeds.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
+    cell.feed = self.businesses[(NSUInteger) indexPath.row];
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation

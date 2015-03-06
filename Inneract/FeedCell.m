@@ -1,14 +1,21 @@
 //
-//  FeedCellTableViewCell.m
+//  FeedCell.m
 //  Inneract
 //
 //  Created by Emmanuel Texier on 3/6/15.
 //  Copyright (c) 2015 Emmanuel Texier. All rights reserved.
 //
 
-#import "FeedCellTableViewCell.h"
+#import "FeedCell.h"
+#import "Feed.h"
 
-@implementation FeedCellTableViewCell
+@interface FeedCell()
+
+@property (weak, nonatomic) Feed *feed;
+@end
+@implementation FeedCell
+
+
 
 - (void)awakeFromNib {
     // Initialization code

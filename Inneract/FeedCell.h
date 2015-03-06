@@ -1,5 +1,5 @@
 //
-//  FeedCellTableViewCell.h
+//  FeedCell.h
 //  Inneract
 //
 //  Created by Emmanuel Texier on 3/6/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedCellTableViewCell : UITableViewCell
+@interface FeedCell : UITableViewCell
 
 @end
