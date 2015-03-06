@@ -8,7 +8,8 @@
 
 #import "FeedsViewController.h"
 
-@interface FeedsViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface FeedsViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -19,7 +20,6 @@
     // Do any additional setup after loading the view from its nib.
 
     // delegates
-    self.searchBar.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
