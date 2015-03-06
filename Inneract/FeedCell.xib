@@ -14,42 +14,63 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tts-yH-mFW">
-                        <rect key="frame" x="8" y="9" width="80" height="80"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tts-yH-mFW">
+                        <rect key="frame" x="8" y="8" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="3ZF-8N-GhI"/>
                             <constraint firstAttribute="height" constant="80" id="ERx-hu-rfJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="posted 1/1/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-T2-wEE">
-                        <rect key="frame" x="96" y="9" width="78" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-T2-wEE">
+                        <rect key="frame" x="96" y="8" width="78" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="An Interview with IBM’s Doug Powell about design’s impact on business" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-NB-2KQ">
-                        <rect key="frame" x="96" y="29" width="208" height="51"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Interview with IBM’s Doug Powell about design’s impact on business" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-NB-2KQ">
+                        <rect key="frame" x="96" y="28" width="208" height="51"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Our CEO Ginni Rommetty is a strong believer in the power of design to..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsu-rp-GfW">
-                        <rect key="frame" x="96" y="88" width="208" height="29"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our CEO Ginni Rommetty is a strong believer in the power of design to..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsu-rp-GfW">
+                        <rect key="frame" x="96" y="87" width="208" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-iC-8wI">
-                        <rect key="frame" x="8" y="206" width="304" height="135"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-iC-8wI">
+                        <rect key="frame" x="8" y="163" width="304" height="178"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OuB-Jo-Ib5">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OuB-Jo-Ib5">
                         <rect key="frame" x="96" y="135" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="DTh-FK-c5V"/>
+                            <constraint firstAttribute="width" constant="20" id="nAO-cI-3nN"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
-                        <rect key="frame" x="210" y="135" width="20" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Do-qD-8IQ">
+                        <rect key="frame" x="124" y="138" width="33" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3k-es-wEL">
+                        <rect key="frame" x="255" y="138" width="57" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
+                        <rect key="frame" x="227" y="135" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="JmR-AJ-JCf"/>
+                            <constraint firstAttribute="height" constant="20" id="NTu-wL-hwI"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="S3k-es-wEL" firstAttribute="leading" secondItem="MTr-Kb-bG6" secondAttribute="trailing" constant="8" id="3EM-6z-ix0"/>
                     <constraint firstAttribute="trailing" secondItem="Omc-iC-8wI" secondAttribute="trailing" constant="8" id="5AP-tD-izZ"/>
                     <constraint firstItem="EgW-T2-wEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="6bs-QL-TPv"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="rsu-rp-GfW" secondAttribute="leading" id="7cO-vT-1PG"/>
@@ -57,14 +78,24 @@
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="trailing" secondItem="rsu-rp-GfW" secondAttribute="trailing" id="AR8-tt-QBc"/>
                     <constraint firstItem="Omc-iC-8wI" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="8" id="AnY-yL-K3b"/>
                     <constraint firstItem="EgW-T2-wEE" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="8" id="DJP-6V-LiH"/>
+                    <constraint firstItem="7Do-qD-8IQ" firstAttribute="leading" secondItem="OuB-Jo-Ib5" secondAttribute="trailing" constant="8" id="G9m-Iv-ewZ"/>
+                    <constraint firstAttribute="trailing" secondItem="S3k-es-wEL" secondAttribute="trailing" constant="8" id="HJQ-Xq-JsL"/>
+                    <constraint firstItem="OuB-Jo-Ib5" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="19" id="K6y-4G-eF4"/>
+                    <constraint firstItem="OuB-Jo-Ib5" firstAttribute="centerY" secondItem="MTr-Kb-bG6" secondAttribute="centerY" id="LI5-1t-zZe"/>
                     <constraint firstItem="rsu-rp-GfW" firstAttribute="top" secondItem="8o0-NB-2KQ" secondAttribute="bottom" constant="8" id="OZ8-8R-eXJ"/>
                     <constraint firstItem="Omc-iC-8wI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Ogy-B6-3OX"/>
                     <constraint firstItem="tts-yH-mFW" firstAttribute="top" secondItem="EgW-T2-wEE" secondAttribute="top" id="QEV-9w-4Ww"/>
+                    <constraint firstItem="OuB-Jo-Ib5" firstAttribute="centerY" secondItem="7Do-qD-8IQ" secondAttribute="centerY" id="UDY-YX-O7f"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Omc-iC-8wI" secondAttribute="bottom" constant="8" id="aH9-1B-ADH"/>
                     <constraint firstAttribute="bottom" secondItem="Omc-iC-8wI" secondAttribute="bottom" constant="8" id="aKc-jd-VGc"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="8" id="blH-fi-IyZ"/>
+                    <constraint firstItem="S3k-es-wEL" firstAttribute="centerY" secondItem="7Do-qD-8IQ" secondAttribute="centerY" id="hea-aK-hVq"/>
+                    <constraint firstItem="OuB-Jo-Ib5" firstAttribute="leading" secondItem="rsu-rp-GfW" secondAttribute="leading" id="lQQ-Us-uZL"/>
                     <constraint firstItem="tts-yH-mFW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="lnV-Vj-Tms"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="8o0-NB-2KQ" secondAttribute="trailing" constant="8" id="sRr-Fb-Q1p"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="top" secondItem="EgW-T2-wEE" secondAttribute="bottom" constant="8" id="tkg-ca-59E"/>
+                    <constraint firstItem="Omc-iC-8wI" firstAttribute="top" secondItem="OuB-Jo-Ib5" secondAttribute="bottom" constant="8" id="uMy-ZJ-TCs"/>
+                    <constraint firstItem="MTr-Kb-bG6" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="19" id="vTc-is-D93"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -72,7 +103,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="185" y="422"/>
+            <point key="canvasLocation" x="185" y="420"/>
         </tableViewCell>
     </objects>
 </document>
