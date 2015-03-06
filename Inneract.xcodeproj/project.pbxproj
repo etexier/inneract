@@ -18,8 +18,6 @@
 		329F00671AA81EC90089C0E2 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00651AA81EC90089C0E2 /* LandingViewController.xib */; };
 		329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00691AA81ED90089C0E2 /* ProfileDetailsViewController.m */; };
 		329F006C1AA81ED90089C0E2 /* ProfileDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F006A1AA81ED90089C0E2 /* ProfileDetailsViewController.xib */; };
-		329F00701AA81EE80089C0E2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F006E1AA81EE80089C0E2 /* LoginViewController.m */; };
-		329F00711AA81EE80089C0E2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F006F1AA81EE80089C0E2 /* LoginViewController.xib */; };
 		329F00751AA81F0F0089C0E2 /* JoinUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00731AA81F0F0089C0E2 /* JoinUsViewController.m */; };
 		329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00741AA81F0F0089C0E2 /* JoinUsViewController.xib */; };
 		329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F007D1AA820300089C0E2 /* RegisterClassViewController.m */; };
@@ -46,6 +44,8 @@
 		38973B471AA9802000FE3707 /* ThirdIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B461AA9802000FE3707 /* ThirdIntroductionView.m */; };
 		38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B481AA9803100FE3707 /* ThirdIntroductionView.xib */; };
 		55DC7EF816D4A88069AEE296 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A086406A431B260C1E9CB0 /* libPods.a */; };
+		FACFAB661AAA5B9C003D874F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFAB641AAA5B9C003D874F /* LoginViewController.m */; };
+		FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACFAB651AAA5B9C003D874F /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +78,6 @@
 		329F00681AA81ED90089C0E2 /* ProfileDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDetailsViewController.h; sourceTree = "<group>"; };
 		329F00691AA81ED90089C0E2 /* ProfileDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailsViewController.m; sourceTree = "<group>"; };
 		329F006A1AA81ED90089C0E2 /* ProfileDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDetailsViewController.xib; sourceTree = "<group>"; };
-		329F006D1AA81EE80089C0E2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		329F006E1AA81EE80089C0E2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		329F006F1AA81EE80089C0E2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		329F00721AA81F0F0089C0E2 /* JoinUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinUsViewController.h; sourceTree = "<group>"; };
 		329F00731AA81F0F0089C0E2 /* JoinUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinUsViewController.m; sourceTree = "<group>"; };
 		329F00741AA81F0F0089C0E2 /* JoinUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinUsViewController.xib; sourceTree = "<group>"; };
@@ -122,6 +119,9 @@
 		4ECDD04D533F5A98F8FDB7F6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7943AFF2952E65725200025B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F3A086406A431B260C1E9CB0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACFAB631AAA5B9C003D874F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FACFAB641AAA5B9C003D874F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FACFAB651AAA5B9C003D874F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,9 +218,9 @@
 		329F00771AA81F950089C0E2 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				329F006D1AA81EE80089C0E2 /* LoginViewController.h */,
-				329F006E1AA81EE80089C0E2 /* LoginViewController.m */,
-				329F006F1AA81EE80089C0E2 /* LoginViewController.xib */,
+				FACFAB631AAA5B9C003D874F /* LoginViewController.h */,
+				FACFAB641AAA5B9C003D874F /* LoginViewController.m */,
+				FACFAB651AAA5B9C003D874F /* LoginViewController.xib */,
 				329F00721AA81F0F0089C0E2 /* JoinUsViewController.h */,
 				329F00731AA81F0F0089C0E2 /* JoinUsViewController.m */,
 				329F00741AA81F0F0089C0E2 /* JoinUsViewController.xib */,
@@ -438,7 +438,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				329F00711AA81EE80089C0E2 /* LoginViewController.xib in Resources */,
 				329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */,
 				329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */,
 				329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */,
@@ -447,6 +446,7 @@
 				38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */,
 				329F003F1AA81B180089C0E2 /* LaunchScreen.xib in Resources */,
 				329F00801AA820300089C0E2 /* RegisterClassViewController.xib in Resources */,
+				FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */,
 				32C4397A1AAA19550011FEA0 /* FeedCell.xib in Resources */,
 				329F006C1AA81ED90089C0E2 /* ProfileDetailsViewController.xib in Resources */,
 				38973B3F1AA97C7900FE3707 /* FirstIntroductionView.xib in Resources */,
@@ -506,7 +506,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				329F00701AA81EE80089C0E2 /* LoginViewController.m in Sources */,
 				32C439791AAA19550011FEA0 /* FeedCell.m in Sources */,
 				329F00751AA81F0F0089C0E2 /* JoinUsViewController.m in Sources */,
 				329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */,
@@ -522,6 +521,7 @@
 				38973B421AA97EB600FE3707 /* SecondIntroductionView.m in Sources */,
 				329F00841AA820650089C0E2 /* LearningLabViewController.m in Sources */,
 				329F00891AA8207F0089C0E2 /* TeachOrTAViewController.m in Sources */,
+				FACFAB661AAA5B9C003D874F /* LoginViewController.m in Sources */,
 				330656E5273CC70A39B87BAA /* Feed.m in Sources */,
 				3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */,
 				3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */,

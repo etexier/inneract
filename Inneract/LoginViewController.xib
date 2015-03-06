@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -11,9 +11,80 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login using Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-SS-NTh">
+                    <rect key="frame" x="75" y="118" width="170" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUX-qx-6o8">
+                    <rect key="frame" x="75" y="151" width="170" height="30"/>
+                    <state key="normal" title="Facebook">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-CN-Bco">
+                    <rect key="frame" x="8" y="358" width="304" height="30"/>
+                    <state key="normal" title="Login">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ipAppIcon_2X_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-hu-f1d">
+                    <rect key="frame" x="124" y="50" width="60" height="60"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aG-er-xqg">
+                    <rect key="frame" x="8" y="499" width="304" height="30"/>
+                    <state key="normal" title="Create an account">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i92-3F-zOX">
+                    <rect key="frame" x="15" y="304" width="290" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xXG-3d-PGt">
+                    <rect key="frame" x="15" y="233" width="290" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1aG-er-xqg" secondAttribute="bottom" constant="25" id="5Ri-uv-aNi"/>
+                <constraint firstAttribute="trailing" secondItem="1aG-er-xqg" secondAttribute="trailing" constant="8" id="6Rm-7a-rb0"/>
+                <constraint firstAttribute="trailing" secondItem="i92-3F-zOX" secondAttribute="trailing" constant="15" id="BMI-TI-WNq"/>
+                <constraint firstItem="lUX-qx-6o8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="75" id="HeG-Of-IQl"/>
+                <constraint firstAttribute="trailing" secondItem="lUX-qx-6o8" secondAttribute="trailing" constant="75" id="I42-Yy-DOP"/>
+                <constraint firstItem="xXG-3d-PGt" firstAttribute="top" secondItem="lUX-qx-6o8" secondAttribute="bottom" constant="52" id="JDR-ce-PO6"/>
+                <constraint firstItem="i92-3F-zOX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="KIY-1Y-1Hq"/>
+                <constraint firstAttribute="trailing" secondItem="x8S-CN-Bco" secondAttribute="trailing" constant="8" id="MUY-op-zO1"/>
+                <constraint firstAttribute="bottom" secondItem="1aG-er-xqg" secondAttribute="bottom" constant="39" id="OgC-ih-gAU"/>
+                <constraint firstItem="lUX-qx-6o8" firstAttribute="top" secondItem="0IV-SS-NTh" secondAttribute="bottom" constant="12" id="Ork-nC-ayT"/>
+                <constraint firstItem="x8S-CN-Bco" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="PCe-N7-sJ4"/>
+                <constraint firstAttribute="centerX" secondItem="0IV-SS-NTh" secondAttribute="centerX" id="Smj-fl-FfG"/>
+                <constraint firstItem="x8S-CN-Bco" firstAttribute="top" secondItem="i92-3F-zOX" secondAttribute="bottom" constant="24" id="WPP-p2-Hyr"/>
+                <constraint firstItem="1aG-er-xqg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="XrS-Sz-FXt"/>
+                <constraint firstItem="pC0-hu-f1d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="YSg-7C-sWg"/>
+                <constraint firstItem="i92-3F-zOX" firstAttribute="top" secondItem="xXG-3d-PGt" secondAttribute="bottom" constant="41" id="aaN-we-e9z"/>
+                <constraint firstAttribute="centerX" secondItem="pC0-hu-f1d" secondAttribute="centerX" constant="6" id="gTH-ro-rjY"/>
+                <constraint firstItem="0IV-SS-NTh" firstAttribute="top" secondItem="pC0-hu-f1d" secondAttribute="bottom" constant="8" id="j5L-Sb-iWE"/>
+                <constraint firstAttribute="centerX" secondItem="lUX-qx-6o8" secondAttribute="centerX" id="m3q-Td-kMV"/>
+                <constraint firstAttribute="trailing" secondItem="xXG-3d-PGt" secondAttribute="trailing" constant="15" id="ndc-8o-4mM"/>
+                <constraint firstItem="xXG-3d-PGt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wAQ-Xf-TjN"/>
+            </constraints>
+            <point key="canvasLocation" x="371" y="390"/>
         </view>
     </objects>
+    <resources>
+        <image name="ipAppIcon_2X_iPhone" width="60" height="60"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
