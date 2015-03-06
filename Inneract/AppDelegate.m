@@ -8,22 +8,41 @@
 
 #import "AppDelegate.h"
 #import "LandingViewController.h"
+#import "Parse.h"
+
+//Parse Keys
+NSString const *kParseApplicationId = @"fqoCAqnAX9dcjrJSpxENnHsOkt1WTuFv8aJhfPH6";
+NSString const *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 
 @interface AppDelegate ()
 
 @end
 
+
+
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    // init parse
+    [self parseInit];
+
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.rootViewController = [[LandingViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+# pragma mark - Parse
+- (void)parseInit {
+    [Parse setApplicationId:kParseApplicationId clientKey:kParseClientKey];
+
+}
+
+#pragma mark -
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

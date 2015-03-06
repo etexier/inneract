@@ -8,7 +8,7 @@
 
 #import "FeedsViewController.h"
 
-@interface FeedsViewController ()
+@interface FeedsViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    // delegates
+    self.searchBar.delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {

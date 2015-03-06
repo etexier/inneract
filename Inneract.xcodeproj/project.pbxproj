@@ -12,12 +12,8 @@
 		329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329F003B1AA81B180089C0E2 /* Images.xcassets */; };
 		329F003F1AA81B180089C0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F003D1AA81B180089C0E2 /* LaunchScreen.xib */; };
 		329F004B1AA81B180089C0E2 /* InneractTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F004A1AA81B180089C0E2 /* InneractTests.m */; };
-		329F00571AA81D930089C0E2 /* FeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00551AA81D930089C0E2 /* FeedsViewController.m */; };
-		329F00581AA81D930089C0E2 /* FeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00561AA81D930089C0E2 /* FeedsViewController.xib */; };
 		329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F005A1AA81E550089C0E2 /* ProfilesViewController.m */; };
 		329F005D1AA81E550089C0E2 /* ProfilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F005B1AA81E550089C0E2 /* ProfilesViewController.xib */; };
-		329F00611AA81E740089C0E2 /* FeedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F005F1AA81E740089C0E2 /* FeedDetailsViewController.m */; };
-		329F00621AA81E740089C0E2 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00601AA81E740089C0E2 /* FeedDetailsViewController.xib */; };
 		329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00641AA81EC90089C0E2 /* LandingViewController.m */; };
 		329F00671AA81EC90089C0E2 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00651AA81EC90089C0E2 /* LandingViewController.xib */; };
 		329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00691AA81ED90089C0E2 /* ProfileDetailsViewController.m */; };
@@ -34,6 +30,13 @@
 		329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F00881AA8207F0089C0E2 /* TeachOrTAViewController.xib */; };
 		329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F008C1AA8DC3C0089C0E2 /* EditProfileViewController.m */; };
 		329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */; };
+		330653CF7B866801B4D96452 /* FeedCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3306574A6C042C3CE78E479E /* FeedCellTableViewCell.m */; };
+		3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330651719605A51AB3D91F51 /* FeedDetailsViewController.m */; };
+		3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3306545DC4732F14585ECAAC /* FeedsViewController.m */; };
+		330656E5273CC70A39B87BAA /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = 330653DF6C85481811DA302F /* Feed.m */; };
+		3306578FD98D4F639F3BFCC9 /* FeedCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33065F96A54CE3BA04A5D659 /* FeedCellTableViewCell.xib */; };
+		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
+		33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330656776BEB2AF56D2540BB /* FeedsViewController.xib */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
 		38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B3C1AA97C6500FE3707 /* FirstIntroductionView.m */; };
@@ -66,15 +69,9 @@
 		329F00441AA81B180089C0E2 /* InneractTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InneractTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		329F00491AA81B180089C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329F004A1AA81B180089C0E2 /* InneractTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InneractTests.m; sourceTree = "<group>"; };
-		329F00541AA81D930089C0E2 /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
-		329F00551AA81D930089C0E2 /* FeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsViewController.m; sourceTree = "<group>"; };
-		329F00561AA81D930089C0E2 /* FeedsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedsViewController.xib; sourceTree = "<group>"; };
 		329F00591AA81E550089C0E2 /* ProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilesViewController.h; sourceTree = "<group>"; };
 		329F005A1AA81E550089C0E2 /* ProfilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilesViewController.m; sourceTree = "<group>"; };
 		329F005B1AA81E550089C0E2 /* ProfilesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilesViewController.xib; sourceTree = "<group>"; };
-		329F005E1AA81E740089C0E2 /* FeedDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailsViewController.h; sourceTree = "<group>"; };
-		329F005F1AA81E740089C0E2 /* FeedDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailsViewController.m; sourceTree = "<group>"; };
-		329F00601AA81E740089C0E2 /* FeedDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailsViewController.xib; sourceTree = "<group>"; };
 		329F00631AA81EC90089C0E2 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		329F00641AA81EC90089C0E2 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		329F00651AA81EC90089C0E2 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
@@ -99,6 +96,17 @@
 		329F008B1AA8DC3C0089C0E2 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		329F008C1AA8DC3C0089C0E2 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		330651719605A51AB3D91F51 /* FeedDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailsViewController.m; sourceTree = "<group>"; };
+		33065203601594D7AF42A0C0 /* FeedDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailsViewController.h; sourceTree = "<group>"; };
+		330653DF6C85481811DA302F /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
+		3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedDetailsViewController.xib; sourceTree = "<group>"; };
+		3306545DC4732F14585ECAAC /* FeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsViewController.m; sourceTree = "<group>"; };
+		3306555660FF648B1B8D4929 /* FeedCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCellTableViewCell.h; sourceTree = "<group>"; };
+		3306557A14B641540E9087FA /* Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
+		330656776BEB2AF56D2540BB /* FeedsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedsViewController.xib; sourceTree = "<group>"; };
+		3306574A6C042C3CE78E479E /* FeedCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCellTableViewCell.m; sourceTree = "<group>"; };
+		33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
+		33065F96A54CE3BA04A5D659 /* FeedCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCellTableViewCell.xib; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
 		38973B371AA9791B00FE3707 /* IntroductionContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionContainerView.m; sourceTree = "<group>"; };
 		38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionContainerView.xib; sourceTree = "<group>"; };
@@ -223,12 +231,9 @@
 		329F00781AA81FBA0089C0E2 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
-				329F005E1AA81E740089C0E2 /* FeedDetailsViewController.h */,
-				329F005F1AA81E740089C0E2 /* FeedDetailsViewController.m */,
-				329F00601AA81E740089C0E2 /* FeedDetailsViewController.xib */,
-				329F00541AA81D930089C0E2 /* FeedsViewController.h */,
-				329F00551AA81D930089C0E2 /* FeedsViewController.m */,
-				329F00561AA81D930089C0E2 /* FeedsViewController.xib */,
+				33065DFA3D4D3200A0D7982D /* Views */,
+				3306506D42372ED963AB1E56 /* Controllers */,
+				330657452A9CCE65C98CE026 /* Model */,
 			);
 			name = Feeds;
 			sourceTree = "<group>";
@@ -274,6 +279,54 @@
 				329F00881AA8207F0089C0E2 /* TeachOrTAViewController.xib */,
 			);
 			name = Forms;
+			sourceTree = "<group>";
+		};
+		33065002B0EF57E4FCF180F7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				330656776BEB2AF56D2540BB /* FeedsViewController.xib */,
+				33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */,
+				3306545DC4732F14585ECAAC /* FeedsViewController.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		3306506D42372ED963AB1E56 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33065002B0EF57E4FCF180F7 /* List */,
+				33065FB310028CB75047974D /* Details */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		330657452A9CCE65C98CE026 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				330653DF6C85481811DA302F /* Feed.m */,
+				3306557A14B641540E9087FA /* Feed.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		33065DFA3D4D3200A0D7982D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3306555660FF648B1B8D4929 /* FeedCellTableViewCell.h */,
+				33065F96A54CE3BA04A5D659 /* FeedCellTableViewCell.xib */,
+				3306574A6C042C3CE78E479E /* FeedCellTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		33065FB310028CB75047974D /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */,
+				33065203601594D7AF42A0C0 /* FeedDetailsViewController.h */,
+				330651719605A51AB3D91F51 /* FeedDetailsViewController.m */,
+			);
+			name = Details;
 			sourceTree = "<group>";
 		};
 		38973B351AA978D800FE3707 /* Introduction */ = {
@@ -395,13 +448,14 @@
 				329F003F1AA81B180089C0E2 /* LaunchScreen.xib in Resources */,
 				329F00801AA820300089C0E2 /* RegisterClassViewController.xib in Resources */,
 				329F006C1AA81ED90089C0E2 /* ProfileDetailsViewController.xib in Resources */,
-				329F00621AA81E740089C0E2 /* FeedDetailsViewController.xib in Resources */,
 				38973B3F1AA97C7900FE3707 /* FirstIntroductionView.xib in Resources */,
-				329F00581AA81D930089C0E2 /* FeedsViewController.xib in Resources */,
 				329F005D1AA81E550089C0E2 /* ProfilesViewController.xib in Resources */,
 				329F00851AA820650089C0E2 /* LearningLabViewController.xib in Resources */,
 				38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */,
 				329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */,
+				3306578FD98D4F639F3BFCC9 /* FeedCellTableViewCell.xib in Resources */,
+				330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */,
+				33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,14 +515,16 @@
 				38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */,
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
-				329F00571AA81D930089C0E2 /* FeedsViewController.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
 				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,
 				329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */,
 				38973B421AA97EB600FE3707 /* SecondIntroductionView.m in Sources */,
 				329F00841AA820650089C0E2 /* LearningLabViewController.m in Sources */,
 				329F00891AA8207F0089C0E2 /* TeachOrTAViewController.m in Sources */,
-				329F00611AA81E740089C0E2 /* FeedDetailsViewController.m in Sources */,
+				330653CF7B866801B4D96452 /* FeedCellTableViewCell.m in Sources */,
+				330656E5273CC70A39B87BAA /* Feed.m in Sources */,
+				3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */,
+				3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
