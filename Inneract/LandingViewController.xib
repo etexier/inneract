@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController">
@@ -11,9 +11,41 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-O5-Mau">
+                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="SdO-VV-hLp"/>
+                    </constraints>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="zKt-5E-N0C"/>
+                        <tabBarItem systemItem="more" id="ICV-Iy-LSW"/>
+                    </items>
+                </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmW-QH-psl" customClass="IntroductionContainerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="509"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Qbf-O5-Mau" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8fE-Lj-51s"/>
+                <constraint firstItem="HmW-QH-psl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GL7-hi-Q4x"/>
+                <constraint firstAttribute="trailing" secondItem="Qbf-O5-Mau" secondAttribute="trailing" id="HlD-do-rML"/>
+                <constraint firstItem="HmW-QH-psl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OXt-x8-s9D"/>
+                <constraint firstItem="Qbf-O5-Mau" firstAttribute="top" secondItem="HmW-QH-psl" secondAttribute="bottom" constant="10" id="gCv-bO-cxg"/>
+                <constraint firstAttribute="trailing" secondItem="HmW-QH-psl" secondAttribute="trailing" id="krh-PW-kHq"/>
+                <constraint firstAttribute="bottom" secondItem="Qbf-O5-Mau" secondAttribute="bottom" id="zsb-AO-rnx"/>
+            </constraints>
+            <point key="canvasLocation" x="322" y="367"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

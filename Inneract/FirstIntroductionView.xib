@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstIntroductionView">
+            <connections>
+                <outlet property="contentView" destination="ZQX-8b-GyF" id="ZLy-yZ-z0v"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ZQX-8b-GyF">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipAppIcon_2X_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-68-trg">
+                    <rect key="frame" x="130" y="204" width="60" height="60"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U6-Bbg">
+                    <rect key="frame" x="87" y="272" width="146.5" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bringing Design to the Community" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc8-Lq-v2z">
+                    <rect key="frame" x="35" y="304" width="250" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="SRu-U6-Bbg" secondAttribute="centerY" id="4LI-5i-d29"/>
+                <constraint firstItem="Bc8-Lq-v2z" firstAttribute="top" secondItem="SRu-U6-Bbg" secondAttribute="bottom" constant="8" id="8do-lF-Fg6"/>
+                <constraint firstAttribute="centerX" secondItem="aCr-68-trg" secondAttribute="centerX" id="SdY-dE-3lC"/>
+                <constraint firstAttribute="centerX" secondItem="SRu-U6-Bbg" secondAttribute="centerX" id="bdO-xe-CeT"/>
+                <constraint firstItem="SRu-U6-Bbg" firstAttribute="top" secondItem="aCr-68-trg" secondAttribute="bottom" constant="8" id="ntF-Qb-Jg0"/>
+                <constraint firstAttribute="centerX" secondItem="Bc8-Lq-v2z" secondAttribute="centerX" id="pGS-wd-MeB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="217" y="292"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ipAppIcon_2X_iPhone" width="60" height="60"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
