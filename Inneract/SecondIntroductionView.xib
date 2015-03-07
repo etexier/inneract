@@ -15,14 +15,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsV-aL-RQu">
-                    <rect key="frame" x="16" y="140" width="288" height="172"/>
+                    <rect key="frame" x="16" y="160" width="288" height="172"/>
                     <string key="text">Bringing Design to the Community Bringing Design to the CommunityBringing Design to the CommunityBringing Design to the CommunityBringing Design to the CommunityBringing Design to the CommunityBringing Design to the CommunityBringing Design to the Community</string>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-Lm-5We">
-                    <rect key="frame" x="57" y="100" width="207" height="24"/>
+                    <rect key="frame" x="57" y="120" width="207" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -30,7 +30,7 @@
             <constraints>
                 <constraint firstItem="bsV-aL-RQu" firstAttribute="leading" secondItem="kUQ-jW-xKu" secondAttribute="leading" constant="16" id="AnN-Ik-BaX"/>
                 <constraint firstAttribute="centerX" secondItem="4DO-Lm-5We" secondAttribute="centerX" id="EXY-BB-okX"/>
-                <constraint firstItem="4DO-Lm-5We" firstAttribute="top" secondItem="kUQ-jW-xKu" secondAttribute="top" constant="100" id="JZC-fU-yjP"/>
+                <constraint firstItem="4DO-Lm-5We" firstAttribute="top" secondItem="kUQ-jW-xKu" secondAttribute="top" constant="120" id="JZC-fU-yjP"/>
                 <constraint firstItem="bsV-aL-RQu" firstAttribute="top" secondItem="4DO-Lm-5We" secondAttribute="bottom" constant="16" id="Xab-1B-C8W"/>
                 <constraint firstAttribute="trailing" secondItem="bsV-aL-RQu" secondAttribute="trailing" constant="16" id="ZRW-pi-SKH"/>
             </constraints>

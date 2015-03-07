@@ -97,7 +97,7 @@
 }
 
 -(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
-    NSLog(@"Making %lu page visible", panelIndex);
+//    NSLog(@"Making %lu page visible", panelIndex);
 //    [UIView animateWithDuration:0.3 animations:^{
 //        for (int i = 0; i < self.panels.count; i++) {
 //            UIView *page = self.panels[i];

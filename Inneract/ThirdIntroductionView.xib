@@ -15,30 +15,30 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-eO-0ah">
-                    <rect key="frame" x="16" y="60" width="262" height="24"/>
+                    <rect key="frame" x="16" y="80" width="262" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Connect volunteers to IP opportunities" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtB-MV-L6n">
-                    <rect key="frame" x="16" y="100" width="262" height="38.5"/>
+                    <rect key="frame" x="16" y="120" width="262" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Connect parents to classes for youth" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-TH-T2B">
-                    <rect key="frame" x="16" y="146" width="262" height="38.5"/>
+                    <rect key="frame" x="16" y="166" width="262" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Display the latest IP news or social events" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-b6-9N4">
-                    <rect key="frame" x="16" y="192" width="262" height="38.5"/>
+                    <rect key="frame" x="16" y="212" width="262" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-TP-BFT">
-                    <rect key="frame" x="16" y="238" width="262" height="107.5"/>
+                    <rect key="frame" x="16" y="258" width="262" height="107.5"/>
                     <string key="text">Whether you are a parent, volunteer, or just interested in what we are doing, stay connected to all our design initiatives throughout the year.</string>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                 <constraint firstItem="UtB-MV-L6n" firstAttribute="top" secondItem="lbQ-eO-0ah" secondAttribute="bottom" constant="16" id="epP-Va-Og4"/>
                 <constraint firstItem="7hl-TH-T2B" firstAttribute="top" secondItem="UtB-MV-L6n" secondAttribute="bottom" constant="8" id="fXE-Pe-SJP"/>
                 <constraint firstItem="lbQ-eO-0ah" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="hrY-uN-tEm"/>
-                <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="60" id="pC1-lD-58f"/>
+                <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="80" id="pC1-lD-58f"/>
                 <constraint firstAttribute="trailing" secondItem="DdH-TP-BFT" secondAttribute="trailing" constant="16" id="xVq-r4-Ehk"/>
                 <constraint firstItem="DdH-TP-BFT" firstAttribute="top" secondItem="WUE-b6-9N4" secondAttribute="bottom" constant="8" id="xjM-u9-viX"/>
             </constraints>
