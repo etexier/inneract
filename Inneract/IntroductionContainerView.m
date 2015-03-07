@@ -59,15 +59,9 @@
     UINib *nib = [UINib nibWithNibName:@"IntroductionContainerView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    //self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    self.scrollView.delegate = self;
-    
-    FirstIntroductionView *first = [[FirstIntroductionView alloc] initWithFrame:self.frame];
-    SecondIntroductionView *second = [[SecondIntroductionView alloc] init];
-    ThirdIntroductionView *third = [[ThirdIntroductionView alloc] init];
+    FirstIntroductionView *first = [[FirstIntroductionView alloc] initWithFrame:[self frameByIndex:0]];
+    SecondIntroductionView *second = [[SecondIntroductionView alloc] initWithFrame:[self frameByIndex:1]];
+    ThirdIntroductionView *third = [[ThirdIntroductionView alloc] initWithFrame:[self frameByIndex:2]];
     
     _panels = [NSMutableArray arrayWithCapacity:3];
     [_panels addObject:first];
@@ -78,9 +72,14 @@
     [self.scrollView addSubview:second];
     [self.scrollView addSubview:third];
     
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    //self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    self.scrollView.delegate = self;
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4, [UIScreen mainScreen].bounds.size.height);
     //self.scrollView.frame = self.bounds;
     
-    [self makePanelVisibleAtIndex:0];
     //self.scrollView.contentSize = CGSizeMake(0, self.scrollView.frame.size.height);
     
     [self.contentView addSubview:self.scrollView];
@@ -88,37 +87,56 @@
     //self.PageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, (self.scrollView.frame.origin.y + self.scrollView.frame.size.height - 60), self.frame.size.width, 36)];
     //[self.pageControl setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [self.pageControl addTarget:self action:@selector(showPanelAtPageControl) forControlEvents:UIControlEventValueChanged];
-    
     self.pageControl.numberOfPages = self.panels.count;
     [self.contentView addSubview:self.pageControl];
     
     self.contentView.frame = self.bounds;
     [self addSubview:self.contentView];
+    
+    [self makePanelVisibleAtIndex:0];
 }
 
 -(void)makePanelVisibleAtIndex:(NSInteger)panelIndex{
-    [UIView animateWithDuration:0.3 animations:^{
-        for (int i = 0; i < self.panels.count; i++) {
-            if (i == panelIndex) {
-                [self.panels[i] setAlpha:1];
-            }
-            else {
-                [self.panels[i] setAlpha:0];
-            }
-        }
-    }];
+    NSLog(@"Making %lu page visible", panelIndex);
+//    [UIView animateWithDuration:0.3 animations:^{
+//        for (int i = 0; i < self.panels.count; i++) {
+//            UIView *page = self.panels[i];
+//            if (i == panelIndex) {
+//                page.alpha = 1;
+//            } else {
+//                page.alpha = 0;
+//            }
+//            NSLog(@"Page %d is %@", i, page);
+//        }
+//    }];
 }
 
 -(void)showPanelAtPageControl {
-    
-    _lastPanelIndex = self.pageControl.currentPage;
-    _currentPanelIndex = self.pageControl.currentPage;
-    
     //Format and show new content
     //[self setContentScrollViewHeightForPanelIndex:self.CurrentPanelIndex animated:YES];
-    [self makePanelVisibleAtIndex:_currentPanelIndex];
+    [self makePanelVisibleAtIndex:self.pageControl.currentPage];
     
-    [self.scrollView setContentOffset:CGPointMake(_currentPanelIndex * 320, 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(self.pageControl.currentPage * [[UIScreen mainScreen] bounds].size.width, 0) animated:YES];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender{
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    if(page <= self.panels.count) {
+        self.pageControl.currentPage = page;
+    }
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    //Update Page Control
+    //Format and show new content
+    [self makePanelVisibleAtIndex:self.pageControl.currentPage];
+}
+
+- (CGRect) frameByIndex:(NSInteger) index {
+    CGRect mainScreenBounds = [[UIScreen mainScreen] bounds];
+    return CGRectMake(mainScreenBounds.size.width * index, 0, mainScreenBounds.size.width, mainScreenBounds.size.height);
 }
 
 /*

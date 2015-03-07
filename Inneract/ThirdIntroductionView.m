@@ -10,8 +10,7 @@
 
 @interface ThirdIntroductionView ()
 
-@property (strong, nonatomic) IBOutlet ThirdIntroductionView *contentView;
-
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -45,7 +44,7 @@
 }
 
 -(void) initSubViews {
-    UINib *nib = [UINib nibWithNibName:@"FirstIntroductionView" bundle:nil];
+    UINib *nib = [UINib nibWithNibName:@"ThirdIntroductionView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     self.contentView.frame = self.bounds;
     [self addSubview:self.contentView];

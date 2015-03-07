@@ -6,11 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondIntroductionView">
             <connections>
-                <outlet property="contentView" destination="kUQ-jW-xKu" id="BMr-nt-Ifw"/>
+                <outlet property="contentView" destination="kUQ-jW-xKu" id="KIG-jI-ClM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="kUQ-jW-xKu" customClass="SecondIntroductionView">
+        <view contentMode="scaleToFill" id="kUQ-jW-xKu">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -27,7 +27,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="bsV-aL-RQu" firstAttribute="leading" secondItem="kUQ-jW-xKu" secondAttribute="leading" constant="16" id="AnN-Ik-BaX"/>
                 <constraint firstAttribute="centerX" secondItem="4DO-Lm-5We" secondAttribute="centerX" id="EXY-BB-okX"/>
@@ -36,7 +35,7 @@
                 <constraint firstAttribute="trailing" secondItem="bsV-aL-RQu" secondAttribute="trailing" constant="16" id="ZRW-pi-SKH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="204" y="354"/>
+            <point key="canvasLocation" x="291" y="308"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

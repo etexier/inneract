@@ -21,13 +21,13 @@
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DyQ-R3-S3d">
                     <rect key="frame" x="141" y="531" width="39" height="37"/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="4GK-kh-WaH"/>
                     </constraints>
+                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.92558426810000005" blue="0.13604983840000001" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wg3-5O-EBp" firstAttribute="leading" secondItem="TRf-0R-hdN" secondAttribute="leading" id="513-Sk-xZd"/>
                 <constraint firstAttribute="centerX" secondItem="DyQ-R3-S3d" secondAttribute="centerX" id="Dpe-kJ-hPk"/>

@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipAppIcon_2X_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-68-trg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ipAppIcon_2X_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-68-trg">
                     <rect key="frame" x="130" y="204" width="60" height="60"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U6-Bbg">
@@ -29,7 +29,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="SRu-U6-Bbg" secondAttribute="centerY" id="4LI-5i-d29"/>
                 <constraint firstItem="Bc8-Lq-v2z" firstAttribute="top" secondItem="SRu-U6-Bbg" secondAttribute="bottom" constant="8" id="8do-lF-Fg6"/>

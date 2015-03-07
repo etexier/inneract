@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    IntroductionContainerView *instroductionView = [[IntroductionContainerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 49)];
+    self.view.frame = self.view.bounds;
+    IntroductionContainerView *instroductionView = [[IntroductionContainerView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 49)];
     [self.view addSubview:instroductionView];
 }
 

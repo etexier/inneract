@@ -6,11 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThirdIntroductionView">
             <connections>
-                <outlet property="contentView" destination="2dE-kc-ngY" id="Bvg-Wr-pdm"/>
+                <outlet property="contentView" destination="2dE-kc-ngY" id="7EB-HC-fBs"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="2dE-kc-ngY" customClass="ThirdIntroductionView">
+        <view contentMode="scaleToFill" id="2dE-kc-ngY">
             <rect key="frame" x="0.0" y="0.0" width="294" height="459"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -44,7 +44,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="UtB-MV-L6n" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="3dU-fC-ibd"/>
                 <constraint firstItem="WUE-b6-9N4" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="Hoh-iW-HAz"/>

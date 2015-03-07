@@ -10,7 +10,7 @@
 
 @interface SecondIntroductionView()
 
-@property (strong, nonatomic) IBOutlet SecondIntroductionView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 
 @end
@@ -22,8 +22,7 @@
     if (self) {
         [self initSubViews];
     }
-    return self;
-    
+    return self;    
 }
 
 -(id) initWithCoder:(NSCoder *) coder {
@@ -45,18 +44,10 @@
 }
 
 -(void) initSubViews {
-    UINib *nib = [UINib nibWithNibName:@"FirstIntroductionView" bundle:nil];
+    UINib *nib = [UINib nibWithNibName:@"SecondIntroductionView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     self.contentView.frame = self.bounds;
     [self addSubview:self.contentView];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
