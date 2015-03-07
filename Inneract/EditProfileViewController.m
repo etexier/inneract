@@ -19,10 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-	
-	CGRect rect = CGRectMake(self.professionTextField.frame.origin.x, self.professionTextField.frame.origin.y, self.professionTextField.frame.size.width, 200);
-	self.professionTextField.inputView.frame = rect;
+    // Do any additional setup after loading the view from its nib
+}
+
+-(void) onCancelButton {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) onApplySearch {
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
