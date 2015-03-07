@@ -8,8 +8,21 @@
 
 #import "LoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
+#import "MainViewController.h"
+#import "FeedsViewController.h"
+#import "ProfilesViewController.h"
+#import "ProfileDetailsViewController.h"
 
 @interface LoginViewController () <FBLoginViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *userNameText;
+@property (weak, nonatomic) IBOutlet UITextField *passwordText;
+
+
+- (IBAction)onLogin:(id)sender;
+- (IBAction)onSignUp:(id)sender;
+
 
 @end
 
@@ -92,6 +105,71 @@
 						  cancelButtonTitle:@"OK"
 						  otherButtonTitles:nil] show];
 	}
+}
+
+- (IBAction)onLogin:(id)sender {
+    if(self.userNameText.text.length < 1) {
+        [[[UIAlertView alloc] initWithTitle:@"UserName is empty"
+                                    message:@"Please input your user name"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
+    if(self.passwordText.text.length < 1) {
+        [[[UIAlertView alloc] initWithTitle:@"Password is empty"
+                                    message:@"Please input your password"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
+    [PFUser logInWithUsernameInBackground:self.userNameText.text password:self.passwordText.text
+        block:^(PFUser *user, NSError *error) {
+            if (user) {
+                // TODO save current user in UserDefaults
+                [self presentViewController:[self setupTabBar] animated:YES completion:nil];
+            } else {
+                // The login failed. Check error to see why.
+            }
+        }];
+}
+
+- (IBAction)onSignUp:(id)sender {
+}
+
+- (UITabBarController *)setupTabBar {
+    FeedsViewController *feedsVc = [[FeedsViewController alloc] init];
+    FeedsViewController *bookmarkVc = [[FeedsViewController alloc] init];
+    ProfilesViewController *peopleVc = [[ProfilesViewController alloc] init];
+    ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] init];
+    
+    //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.magentaColor()], forState:.Normal)
+    //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.redColor()], forState:.Selected)
+    
+    UIImage *feedImage = [UIImage imageNamed:@"news"];
+    UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTitle:@"Feed" image:[feedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[feedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    feedsVc.tabBarItem = barItem1;
+    
+    UIImage *bookmarkImage = [UIImage imageNamed:@"bookmark"];
+    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTitle:@"Bookmark" image:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    bookmarkVc.tabBarItem = barItem2;
+    
+    UIImage *peopleImage = [UIImage imageNamed:@"people"];
+    UITabBarItem *barItem3 = [[UITabBarItem alloc] initWithTitle:@"People" image:[peopleImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[peopleImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    peopleVc.tabBarItem = barItem3;
+    
+    UIImage *profileImage = [UIImage imageNamed:@"profile"];
+    UITabBarItem *barItem4 = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[profileImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[profileImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    profileVc.tabBarItem = barItem4;
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.view.frame = [[UIScreen mainScreen] bounds];
+    //tabBarController.tabBar.items = [NSArray arrayWithObjects:barItem1, barItem2, barItem3, barItem4, nil];
+    NSArray* controllers = [NSArray arrayWithObjects:feedsVc, bookmarkVc, peopleVc, profileVc, nil];
+    tabBarController.viewControllers = controllers;
+    
+    return tabBarController;
 }
 
 @end
