@@ -37,7 +37,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
-    cell.feed = self.businesses[(NSUInteger) indexPath.row];
+    //cell = self.businesses[(NSUInteger) indexPath.row];
     return cell;
 }
 
