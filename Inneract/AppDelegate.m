@@ -52,7 +52,13 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 	//self.window.rootViewController = [[LoginViewController alloc] init];
 	//self.window.rootViewController = [[EditProfileViewController alloc] init];
 
-    //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[FeedsViewController alloc] init]];
+    // Here's the feed controller
+//    FeedsViewController *fvc = [[FeedsViewController alloc] init];
+//    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:fvc];
+//    nvc.navigationBar.translucent = NO;
+//    self.window.rootViewController = nvc;
+
+
 
     [self.window makeKeyAndVisible];
     return YES;
