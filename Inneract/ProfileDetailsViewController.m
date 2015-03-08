@@ -7,8 +7,12 @@
 //
 
 #import "ProfileDetailsViewController.h"
+#import <Parse/Parse.h>
 
 @interface ProfileDetailsViewController ()
+
+- (IBAction)onLogout:(id)sender;
+
 
 @end
 
@@ -34,4 +38,8 @@
 }
 */
 
+- (IBAction)onLogout:(id)sender {
+    [PFUser logOut];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLogoutNotification" object:nil];
+}
 @end

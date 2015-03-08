@@ -46,6 +46,7 @@
 		38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B481AA9803100FE3707 /* ThirdIntroductionView.xib */; };
 		38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B681AABA09E00FE3707 /* MainViewController.m */; };
 		38973B6B1AABA09E00FE3707 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B691AABA09E00FE3707 /* MainViewController.xib */; };
+		38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE1F1AAC215300930AFE /* MainViewHelper.m */; };
 		55DC7EF816D4A88069AEE296 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A086406A431B260C1E9CB0 /* libPods.a */; };
 		FACFAB661AAA5B9C003D874F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFAB641AAA5B9C003D874F /* LoginViewController.m */; };
 		FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACFAB651AAA5B9C003D874F /* LoginViewController.xib */; };
@@ -124,6 +125,8 @@
 		38973B671AABA09E00FE3707 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		38973B681AABA09E00FE3707 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		38973B691AABA09E00FE3707 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		38DAAE1E1AAC215300930AFE /* MainViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewHelper.h; sourceTree = "<group>"; };
+		38DAAE1F1AAC215300930AFE /* MainViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewHelper.m; sourceTree = "<group>"; };
 		4ECDD04D533F5A98F8FDB7F6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7943AFF2952E65725200025B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F3A086406A431B260C1E9CB0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +276,8 @@
 				38973B671AABA09E00FE3707 /* MainViewController.h */,
 				38973B681AABA09E00FE3707 /* MainViewController.m */,
 				38973B691AABA09E00FE3707 /* MainViewController.xib */,
+				38DAAE1E1AAC215300930AFE /* MainViewHelper.h */,
+				38DAAE1F1AAC215300930AFE /* MainViewHelper.m */,
 			);
 			name = Landing;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */,
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
+				38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
 				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,
 				329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */,

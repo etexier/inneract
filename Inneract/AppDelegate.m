@@ -14,6 +14,7 @@
 #import "FeedsViewController.h"
 
 #import "Parse.h"
+#import "MainViewHelper.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 //Parse Keys
@@ -35,11 +36,18 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
     [self parseInit];
 	// Override point for customization after application launch.
 	[FBLoginView class];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:@"UserDidLogoutNotification" object:nil];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.rootViewController = [[LandingViewController alloc] init];
-//	self.window.rootViewController = [[LoginViewController alloc] init];
+	
+    PFUser *currentUser = [PFUser currentUser];
+    if(!currentUser) {
+        self.window.rootViewController = [[LandingViewController alloc] init];
+    } else {
+        self.window.rootViewController = [MainViewHelper setupMainViewTabBar];
+    }
 	//self.window.rootViewController = [[JoinUsViewController alloc] init];
 	//self.window.rootViewController = [[LoginViewController alloc] init];
 	//self.window.rootViewController = [[EditProfileViewController alloc] init];
@@ -54,6 +62,10 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 - (void)parseInit {
     [Parse setApplicationId:kParseApplicationId clientKey:kParseClientKey];
 
+}
+
+- (void) userDidLogout {
+    self.window.rootViewController = [[LandingViewController alloc] init];
 }
 
 #pragma mark -
