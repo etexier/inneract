@@ -48,7 +48,7 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
 	NSLog(@"loginViewShowingLoggedInUser");
 	[self showSpinnerWithText:@"Login using Facebook..."];
-	[self presentViewController:[self setupTabBar] animated:YES completion:nil];
+	[self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
