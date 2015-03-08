@@ -10,5 +10,6 @@
 #import <ParseUI/PFQueryTableViewController.h>
 
 @interface FeedsViewController : PFQueryTableViewController
+- (void) filterQuery:(PFQuery *) query;
 
 @end

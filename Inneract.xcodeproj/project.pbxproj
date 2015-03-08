@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		326EA4361AAC318700C6B51B /* VolunteerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EA4351AAC318700C6B51B /* VolunteerViewController.m */; };
+		326EA4391AAC319800C6B51B /* ClassesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EA4381AAC319800C6B51B /* ClassesViewController.m */; };
 		329F00311AA81B180089C0E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00301AA81B180089C0E2 /* main.m */; };
 		329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00331AA81B180089C0E2 /* AppDelegate.m */; };
 		329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329F003B1AA81B180089C0E2 /* Images.xcassets */; };
@@ -64,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		326EA4341AAC318700C6B51B /* VolunteerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteerViewController.h; sourceTree = "<group>"; };
+		326EA4351AAC318700C6B51B /* VolunteerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerViewController.m; sourceTree = "<group>"; };
+		326EA4371AAC319800C6B51B /* ClassesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassesViewController.h; sourceTree = "<group>"; };
+		326EA4381AAC319800C6B51B /* ClassesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassesViewController.m; sourceTree = "<group>"; };
 		329F002B1AA81B180089C0E2 /* Inneract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inneract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329F002F1AA81B180089C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329F00301AA81B180089C0E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -302,23 +308,34 @@
 			name = Forms;
 			sourceTree = "<group>";
 		};
-		33065002B0EF57E4FCF180F7 /* List */ = {
+		33065002B0EF57E4FCF180F7 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
 				330656776BEB2AF56D2540BB /* FeedsViewController.xib */,
 				33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */,
 				3306545DC4732F14585ECAAC /* FeedsViewController.m */,
 			);
-			name = List;
+			name = Feeds;
 			sourceTree = "<group>";
 		};
 		3306506D42372ED963AB1E56 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				33065002B0EF57E4FCF180F7 /* List */,
+				33065002B0EF57E4FCF180F7 /* Feeds */,
 				33065FB310028CB75047974D /* Details */,
+				3306594359A41FEC6BA20EEA /* Volunteer */,
+				330650A6EF94A72165A015C7 /* Classes */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		330650A6EF94A72165A015C7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				326EA4371AAC319800C6B51B /* ClassesViewController.h */,
+				326EA4381AAC319800C6B51B /* ClassesViewController.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		330657452A9CCE65C98CE026 /* Model */ = {
@@ -328,6 +345,15 @@
 				3306557A14B641540E9087FA /* Feed.h */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		3306594359A41FEC6BA20EEA /* Volunteer */ = {
+			isa = PBXGroup;
+			children = (
+				326EA4341AAC318700C6B51B /* VolunteerViewController.h */,
+				326EA4351AAC318700C6B51B /* VolunteerViewController.m */,
+			);
+			name = Volunteer;
 			sourceTree = "<group>";
 		};
 		33065DF4CA1569613FDDCD48 /* Utils */ = {
@@ -556,11 +582,13 @@
 				38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */,
 				38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */,
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
+				326EA4361AAC318700C6B51B /* VolunteerViewController.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
 				38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
 				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,
 				329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */,
+				326EA4391AAC319800C6B51B /* ClassesViewController.m in Sources */,
 				38973B421AA97EB600FE3707 /* SecondIntroductionView.m in Sources */,
 				329F00841AA820650089C0E2 /* LearningLabViewController.m in Sources */,
 				329F00891AA8207F0089C0E2 /* TeachOrTAViewController.m in Sources */,

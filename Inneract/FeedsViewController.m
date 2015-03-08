@@ -16,7 +16,6 @@ NSString *const kTitle = @"Feeds";
 NSString *const kFeedCellNibId = @"FeedCell";
 
 @interface FeedsViewController ()
-@property(strong, nonatomic) NSArray *feeds;
 
 @end
 
@@ -27,7 +26,6 @@ NSString *const kFeedCellNibId = @"FeedCell";
     self = [super init];
 
     if (self) {
-        self.feeds = [NSMutableArray array];
 
         // This table displays items in the Todo class
         self.parseClassName = @"IPNews";
@@ -46,6 +44,7 @@ NSString *const kFeedCellNibId = @"FeedCell";
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
 
+    [self filterQuery:query];
     // If no objects are loaded in memory, we look to the cache
     // first to fill the table and then subsequently do a query
     // against the network.
@@ -61,12 +60,6 @@ NSString *const kFeedCellNibId = @"FeedCell";
 #pragma mark -
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
-    // delegates
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-
     // cell registration
     [self.tableView registerNib:[UINib nibWithNibName:kFeedCellNibId bundle:nil] forCellReuseIdentifier:kFeedCellNibId];
 
@@ -118,7 +111,13 @@ NSString *const kFeedCellNibId = @"FeedCell";
 
     return cell;
 }
-#pragma mark - 
+
+- (void)filterQuery:(PFQuery *)query {
+    return;
+}
+
+
+#pragma mark -
 
 
 @end
