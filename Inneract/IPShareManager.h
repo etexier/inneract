@@ -13,6 +13,6 @@
 
 + (IPShareManager *)sharedInstance;
 
-- (void) shareItemWith:(NSString *) title andUrl:(NSString *) url fromViewController:(UIViewController *) viewController
+- (void) shareItemWithTitle:(NSString *) title andUrl:(NSString *) url fromViewController:(UIViewController *) viewController
 
 @end
