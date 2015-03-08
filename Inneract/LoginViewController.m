@@ -12,7 +12,10 @@
 #import <Parse/Parse.h>
 
 
+#import "SVProgressHUD.h"
+
 @interface LoginViewController () <FBLoginViewDelegate>
+@property (weak, nonatomic) IBOutlet FBLoginView *loginViewFB;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
@@ -31,6 +34,8 @@
 	
     // Do any additional setup after loading the view from its nib.
 	
+	// In your viewDidLoad method:
+	//self.loginViewFB.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,11 +47,15 @@
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
 	NSLog(@"loginViewShowingLoggedInUser");
+	[self showSpinnerWithText:@"Login using Facebook..."];
+	[self presentViewController:[self setupTabBar] animated:YES completion:nil];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
 							user:(id<FBGraphUser>)user{
+	
 	NSLog(@"loginViewFetchedUserInfo");
+	
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
@@ -105,6 +114,13 @@
 	}
 }
 
+-(void) showSpinnerWithText:(NSString *)text{
+	[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+	[SVProgressHUD showWithStatus:text maskType:SVProgressHUDMaskTypeNone];
+	[SVProgressHUD setBackgroundColor:[UIColor blueColor]];
+}
+
+
 - (IBAction)onLogin:(id)sender {
     if(self.userNameText.text.length < 1) {
         [[[UIAlertView alloc] initWithTitle:@"UserName is empty"
@@ -122,6 +138,8 @@
                           otherButtonTitles:nil] show];
         return;
     }
+	[self showSpinnerWithText:@"Login..."];
+	
     [PFUser logInWithUsernameInBackground:self.userNameText.text password:self.passwordText.text
         block:^(PFUser *user, NSError *error) {
             if (user) {
