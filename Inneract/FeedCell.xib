@@ -42,7 +42,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-iC-8wI">
                         <rect key="frame" x="8" y="163" width="304" height="178"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OuB-Jo-Ib5">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OuB-Jo-Ib5">
                         <rect key="frame" x="96" y="135" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="DTh-FK-c5V"/>
@@ -97,6 +97,7 @@
                     <constraint firstItem="MTr-Kb-bG6" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="19" id="vTc-is-D93"/>
                 </constraints>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <connections>
                 <outlet property="bookmarkImage" destination="MTr-Kb-bG6" id="y9D-W1-NKe"/>
                 <outlet property="mediaImage" destination="Omc-iC-8wI" id="nae-fa-Egd"/>

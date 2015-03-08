@@ -10,12 +10,13 @@
 #import "FeedCell.h"
 #import "FeedDetailsViewController.h"
 #import <Parse/PFQuery.h>
+#import "IPShareManager.h"
 
 
 NSString *const kTitle = @"Feeds";
 NSString *const kFeedCellNibId = @"FeedCell";
 
-@interface FeedsViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
+@interface FeedsViewController () <UISearchDisplayDelegate, UISearchBarDelegate, FeedCellProtocol>
 @property(nonatomic, strong) UISearchBar *searchBar;
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
@@ -162,14 +163,14 @@ NSString *const kFeedCellNibId = @"FeedCell";
         }
     }
 
-
-
+    cell.feedCellHandler = self;
 
     if (tableView == self.tableView) {
         cell.feed = object;
     } else {
        cell.feed = self.searchResults[(NSUInteger) indexPath.row];
     }
+    
     return cell;
 }
 
@@ -232,4 +233,11 @@ NSString *const kFeedCellNibId = @"FeedCell";
     [self filterResults:searchString];
     return YES;
 }
+
+#pragma mark - feed cell protocol
+- (void) feedCell:(FeedCell *) tweetCell didShareFeedWithTitle:(NSString *) title
+           andUrl:(NSString *) url {
+    [[IPShareManager sharedInstance] shareItemWithTitle:title andUrl:url fromViewController:self];
+}
+
 @end

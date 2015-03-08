@@ -82,7 +82,8 @@
 
 
 - (void)setFeed:(PFObject *)feed {
-
+    _feed = feed;
+    
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
     NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
@@ -104,7 +105,15 @@
 
     // share
     self.shareImage.image = [UIImage imageNamed:@"share27"];
+    
+    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
+    [self.shareImage addGestureRecognizer:shareTap];
 
 }
+
+- (IBAction)didShare:(id)sender {
+    [self.feedCellHandler feedCell:self didShareFeedWithTitle:[self.feed objectForKey:@"title"] andUrl:[self.feed objectForKey:@"link"]];
+}
+
 
 @end
