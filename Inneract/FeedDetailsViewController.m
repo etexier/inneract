@@ -14,6 +14,7 @@
 @interface FeedDetailsViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *topImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *nestedImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *postedLabel;
 
@@ -72,9 +73,7 @@ summary
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
     NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImageWithURL:imageUrl];
-    [self.topImageView addSubview:imageView];
+    [self.nestedImageView setImageWithURL:imageUrl];
 
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedDetailsViewController">
             <connections>
                 <outlet property="bookmarkImage" destination="im3-da-IWJ" id="BLi-FP-nxw"/>
+                <outlet property="nestedImageView" destination="TfY-bs-f2v" id="uYH-aw-4NW"/>
                 <outlet property="postedLabel" destination="zxm-Ig-lKH" id="08Q-tp-VNZ"/>
                 <outlet property="shareImage" destination="cJh-Fb-HpW" id="Ymt-ed-jOH"/>
                 <outlet property="summaryLabel" destination="qtd-zV-OOK" id="o4M-hQ-nKx"/>
@@ -23,21 +24,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-yW-70u">
-                    <rect key="frame" x="8" y="8" width="304" height="230"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-bs-f2v">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="230" id="DeI-NG-Vmj"/>
+                        <constraint firstItem="TfY-bs-f2v" firstAttribute="leading" secondItem="IA1-yW-70u" secondAttribute="leading" id="Er4-Bl-24j"/>
+                        <constraint firstItem="TfY-bs-f2v" firstAttribute="top" secondItem="IA1-yW-70u" secondAttribute="top" id="W0k-Wc-2Hl"/>
+                        <constraint firstAttribute="trailing" secondItem="TfY-bs-f2v" secondAttribute="trailing" id="ggQ-Sr-xRT"/>
+                        <constraint firstAttribute="bottom" secondItem="TfY-bs-f2v" secondAttribute="bottom" id="v1y-Jq-8vA"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-zV-OOK">
-                    <rect key="frame" x="8" y="329" width="304" height="134"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-zV-OOK">
+                    <rect key="frame" x="8" y="321" width="304" height="134"/>
                     <string key="text">Ralph Gilles, the designer of the Chrysler 300 is coming to talk to students at Kennedy High School in Richmond California. His appearance marks the first to connect youth in the community to design, specifically industrial design. We look forward to his appearance, and a long time relation with our friends at Chrysler. Hope to see you there!</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Read Full Story" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEE-NV-rCb">
-                    <rect key="frame" x="213" y="471" width="99" height="17"/>
+                    <rect key="frame" x="213" y="463" width="99" height="17"/>
                     <gestureRecognizers/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +56,7 @@
                         <outletCollection property="gestureRecognizers" destination="gfU-t0-mZR" appends="YES" id="gis-V4-nEw"/>
                     </connections>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-Fb-HpW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-Fb-HpW">
                     <rect key="frame" x="8" y="540" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="tnW-Lk-CH8"/>
@@ -59,7 +69,7 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="im3-da-IWJ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="im3-da-IWJ">
                     <rect key="frame" x="227" y="540" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="brQ-mn-no6"/>
@@ -73,13 +83,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxm-Ig-lKH">
-                    <rect key="frame" x="8" y="246" width="85" height="16"/>
+                    <rect key="frame" x="8" y="238" width="85" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Interview with IBM’s Doug Powell about design’s impact on business" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2G-3E-4f3">
-                    <rect key="frame" x="8" y="270" width="304" height="41"/>
+                    <rect key="frame" x="8" y="262" width="304" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -87,10 +97,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="IA1-yW-70u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="0Z8-AD-0eV"/>
+                <constraint firstItem="IA1-yW-70u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0Z8-AD-0eV"/>
                 <constraint firstItem="pdH-3e-cnY" firstAttribute="centerY" secondItem="im3-da-IWJ" secondAttribute="centerY" id="3ON-t2-cGU"/>
                 <constraint firstItem="pdH-3e-cnY" firstAttribute="centerY" secondItem="cJh-Fb-HpW" secondAttribute="centerY" id="7xA-0H-quM"/>
-                <constraint firstAttribute="trailing" secondItem="IA1-yW-70u" secondAttribute="trailing" constant="8" id="8fy-65-f66"/>
+                <constraint firstAttribute="trailing" secondItem="IA1-yW-70u" secondAttribute="trailing" id="8fy-65-f66"/>
                 <constraint firstItem="zxm-Ig-lKH" firstAttribute="top" secondItem="IA1-yW-70u" secondAttribute="bottom" constant="8" id="8qF-Ea-AwB"/>
                 <constraint firstItem="im3-da-IWJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WEE-NV-rCb" secondAttribute="bottom" constant="16" id="9Y4-bB-vLa"/>
                 <constraint firstItem="qtd-zV-OOK" firstAttribute="top" secondItem="H2G-3E-4f3" secondAttribute="bottom" constant="18" id="G32-7n-hs5"/>
@@ -98,7 +108,7 @@
                 <constraint firstAttribute="bottom" secondItem="cJh-Fb-HpW" secondAttribute="bottom" constant="8" id="MpE-Ef-RlI"/>
                 <constraint firstAttribute="trailing" secondItem="H2G-3E-4f3" secondAttribute="trailing" constant="8" id="NWC-c0-wnK"/>
                 <constraint firstItem="qtd-zV-OOK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Omt-xW-led"/>
-                <constraint firstItem="IA1-yW-70u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="QoS-Kk-JBN"/>
+                <constraint firstItem="IA1-yW-70u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QoS-Kk-JBN"/>
                 <constraint firstItem="WEE-NV-rCb" firstAttribute="top" secondItem="qtd-zV-OOK" secondAttribute="bottom" constant="8" id="U0x-e4-XSR"/>
                 <constraint firstItem="H2G-3E-4f3" firstAttribute="top" secondItem="zxm-Ig-lKH" secondAttribute="bottom" constant="8" id="fbp-w8-zl2"/>
                 <constraint firstItem="zxm-Ig-lKH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="iEG-jJ-hns"/>
