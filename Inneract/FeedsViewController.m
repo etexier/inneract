@@ -15,8 +15,13 @@
 NSString *const kTitle = @"Feeds";
 NSString *const kFeedCellNibId = @"FeedCell";
 
-@interface FeedsViewController ()
+@interface FeedsViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
+@property(nonatomic, strong) UISearchBar *searchBar;
 
+@property(nonatomic, strong) UISearchDisplayController *searchController;
+@property(nonatomic, strong) NSMutableArray *searchResults;
+
+- (void)filterResults:(NSString *)text;
 @end
 
 @implementation FeedsViewController
@@ -58,15 +63,53 @@ NSString *const kFeedCellNibId = @"FeedCell";
 }
 
 #pragma mark -
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // cell registration
     [self.tableView registerNib:[UINib nibWithNibName:kFeedCellNibId bundle:nil] forCellReuseIdentifier:kFeedCellNibId];
 
     // cell auto dim.
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 150;
-    self.title = kTitle; // not seen anyway
+    [self initTableView:self.tableView];
+
+    // Title (can be overridden)
+    self.title = kTitle;
+
+    // search
+    [self initSearchBar];
+
+
+}
+
+- (void)initTableView:(UITableView *)view {
+    view.rowHeight = UITableViewAutomaticDimension;
+    view.estimatedRowHeight = 150;
+}
+
+
+- (void)initSearchBar {
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+
+    self.tableView.tableHeaderView = self.searchBar;
+
+    self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+
+    self.searchController.searchResultsDataSource = self;
+    self.searchController.searchResultsDelegate = self;
+    self.searchController.delegate = self;
+
+
+    CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
+    self.tableView.contentOffset = offset;
+
+    self.searchResults = [NSMutableArray array];
+
+//    self.searchBar = [[UISearchBar alloc] init];
+//    self.navigationItem.titleView = self.searchBar;
+//    self.searchBar.text = nil;
+//    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
+//    self.searchBar.delegate = self;
+
 
 }
 
@@ -80,7 +123,7 @@ NSString *const kFeedCellNibId = @"FeedCell";
 //  could be a iOS bug: the cell were squished when going back and forth b/w views
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCellNibId];
-//    cell.feed = self.feeds[(NSUInteger) indexPath.row];
+//    cell.feed = self.objects[(NSUInteger) indexPath.row];
 //    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
 //    return size.height + 1;
 //}
@@ -99,25 +142,94 @@ NSString *const kFeedCellNibId = @"FeedCell";
 }
 
 
-
 #pragma mark - Table View Data source methods
 
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object {
-    FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCellNibId];
-    cell.feed = object;
 
+    FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCellNibId];
+
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kFeedCellNibId owner:nil options:nil];
+
+        for (id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[FeedCell class]]) {
+                cell = (FeedCell *)currentObject;
+                break;
+            }
+        }
+    }
+
+
+
+
+    if (tableView == self.tableView) {
+        cell.feed = object;
+    } else {
+       cell.feed = self.searchResults[(NSUInteger) indexPath.row];
+    }
     return cell;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    if (tableView == self.tableView) {
+        return self.objects.count;
+    } else {
+        return self.searchResults.count;
+    }
+
+}
+
+#pragma mark - can be overridden
 
 - (void)filterQuery:(PFQuery *)query {
     return;
 }
 
 
-#pragma mark -
+#pragma mark - Search bar delegate methods
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder]; // hide keyboard
+    // do search
+    [self filterResults:self.searchBar.text];
+}
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder]; // hide keyboard
+}
+
+#pragma mark - search method
+
+- (void)filterResults:(NSString *)searchTerm {
+
+    [self.searchResults removeAllObjects];
+
+    // search in titles
+    PFQuery *titleQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [self filterQuery:titleQuery];
+    [titleQuery whereKey:@"title" containsString:searchTerm];
+
+    // search in summary
+    PFQuery *summaryQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [self filterQuery:summaryQuery];
+    [titleQuery whereKey:@"summary" containsString:searchTerm];
+
+    // or' queries
+    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[titleQuery, summaryQuery]];
+
+    NSArray *results = [mainQuery findObjects];
+    NSLog(@"%@", results);
+    NSLog(@"%u", results.count);
+
+    [self.searchResults addObjectsFromArray:results];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterResults:searchString];
+    return YES;
+}
 @end
