@@ -70,6 +70,7 @@
 		326EA4351AAC318700C6B51B /* VolunteerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerViewController.m; sourceTree = "<group>"; };
 		326EA4371AAC319800C6B51B /* ClassesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassesViewController.h; sourceTree = "<group>"; };
 		326EA4381AAC319800C6B51B /* ClassesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassesViewController.m; sourceTree = "<group>"; };
+		326EA4411AAD102E00C6B51B /* IPColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPColors.h; sourceTree = "<group>"; };
 		329F002B1AA81B180089C0E2 /* Inneract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inneract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329F002F1AA81B180089C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329F00301AA81B180089C0E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -361,6 +362,7 @@
 			children = (
 				33065CDAFD2FE9A5F6C42180 /* Helper.m */,
 				33065960353F636E5711A196 /* Helper.h */,
+				326EA4411AAD102E00C6B51B /* IPColors.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
