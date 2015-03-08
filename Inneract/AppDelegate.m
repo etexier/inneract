@@ -15,6 +15,8 @@
 
 #import "Parse.h"
 #import "MainViewHelper.h"
+#import "VolunteerViewController.h"
+#import "ClassesViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 //Parse Keys
@@ -52,11 +54,14 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 	//self.window.rootViewController = [[LoginViewController alloc] init];
 	//self.window.rootViewController = [[EditProfileViewController alloc] init];
 
-    // Here's the feed controller
-//    FeedsViewController *fvc = [[FeedsViewController alloc] init];
+    // feed controllers START
+//  UIViewController *fvc = [[FeedsViewController alloc] init];
+//    UIViewController *fvc = [[VolunteerViewController alloc] init];
+//    UIViewController *fvc = [[ClassesViewController alloc] init];
 //    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:fvc];
 //    nvc.navigationBar.translucent = NO;
 //    self.window.rootViewController = nvc;
+    // feed controllers END
 
 
 
