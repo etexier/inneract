@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Emmanuel Texier. All rights reserved.
 //
 
+#import <AFNetworking/UIImageView+AFNetworking.h>
 #import "FeedDetailsViewController.h"
-#import "Feed.h"
+#import <Parse/PFObject.h>
+#import "Helper.h"
 
-@interface FeedDetailsViewController ()
+@interface FeedDetailsViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *topImageView;
 
 
@@ -47,10 +49,11 @@ summary
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initLayoutFromFeed:self.feed];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (id)initWithFeed:(Feed *)feed {
+- (id)initWithFeed:(PFObject *)feed {
     self = [super init];
     if (self) {
         self.feed = feed;
@@ -64,4 +67,53 @@ summary
 }
 
 
+- (void)initLayoutFromFeed:(PFObject *)feed {
+
+    // thumbnail
+    NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
+    NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView setImageWithURL:imageUrl];
+    [self.topImageView addSubview:imageView];
+
+    // title
+    self.titleLabel.text = [feed objectForKey:@"title"];
+
+    // posted date
+    NSDate *createdAt = feed.createdAt;
+    NSString *dateString = [Helper postedDate:createdAt];
+    self.postedLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
+
+    // summary
+    self.summaryLabel.text = [feed objectForKey:@"summary"];
+
+    // bookmark
+    self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
+
+    // share
+    self.shareImage.image = [UIImage imageNamed:@"share27"];
+
+    // web link
+    // tap registered in IB
+
+}
+
+#pragma mark - tap gesture
+- (IBAction)onWebLinkTap:(UITapGestureRecognizer *)sender {
+    NSString *urlAddress = [self.feed objectForKey:@"link"];
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    UIWebView *webView = [[UIWebView alloc] init];
+    [self webView:webView shouldStartLoadWithRequest:urlRequest navigationType:UIWebViewNavigationTypeLinkClicked];
+}
+
+#pragma mark - UIWebViewDelegate
+- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSString *url = request.URL.absoluteString;
+    NSLog(@"opening web link: %@",url);
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    return NO;
+}
 @end

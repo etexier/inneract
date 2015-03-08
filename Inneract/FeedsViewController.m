@@ -98,7 +98,7 @@ NSString *const kFeedCellNibId = @"FeedCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:self.feeds[(NSUInteger) indexPath.row]];
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:self.objects[(NSUInteger) indexPath.row]];
 
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];

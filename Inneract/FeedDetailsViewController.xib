@@ -36,11 +36,15 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read Full Story" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEE-NV-rCb">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read Full Story" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEE-NV-rCb">
                     <rect key="frame" x="213" y="471" width="99" height="17"/>
+                    <gestureRecognizers/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="gfU-t0-mZR" appends="YES" id="gis-V4-nEw"/>
+                    </connections>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-Fb-HpW">
                     <rect key="frame" x="8" y="540" width="20" height="20"/>
@@ -99,6 +103,7 @@
                 <constraint firstItem="H2G-3E-4f3" firstAttribute="top" secondItem="zxm-Ig-lKH" secondAttribute="bottom" constant="8" id="fbp-w8-zl2"/>
                 <constraint firstItem="zxm-Ig-lKH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="iEG-jJ-hns"/>
                 <constraint firstItem="WEE-NV-rCb" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="mRY-G4-J3F"/>
+                <constraint firstAttribute="trailing" secondItem="WEE-NV-rCb" secondAttribute="trailing" constant="8" id="qd6-de-rgW"/>
                 <constraint firstAttribute="trailing" secondItem="mJ8-4n-xoS" secondAttribute="trailing" constant="8" id="qsN-9a-oCl"/>
                 <constraint firstItem="mJ8-4n-xoS" firstAttribute="leading" secondItem="im3-da-IWJ" secondAttribute="trailing" constant="8" id="s3C-0T-rNK"/>
                 <constraint firstItem="H2G-3E-4f3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tRT-ZU-wlG"/>
@@ -108,6 +113,11 @@
             </constraints>
             <point key="canvasLocation" x="199" y="283"/>
         </view>
+        <tapGestureRecognizer id="gfU-t0-mZR">
+            <connections>
+                <action selector="onWebLinkTap:" destination="-1" id="iMT-wJ-PYd"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
