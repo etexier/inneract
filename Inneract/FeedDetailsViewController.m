@@ -11,7 +11,7 @@
 #import <Parse/PFObject.h>
 #import "Helper.h"
 
-@interface FeedDetailsViewController () <UIWebViewDelegate>
+@interface FeedDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *nestedImageView;
@@ -99,20 +99,20 @@ summary
 
 #pragma mark - tap gesture
 - (IBAction)onWebLinkTap:(UITapGestureRecognizer *)sender {
+    UIViewController *webViewController = [[UIViewController alloc] init];
+
+
     NSString *urlAddress = [self.feed objectForKey:@"link"];
     NSURL *url = [NSURL URLWithString:urlAddress];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    UIWebView *webView = [[UIWebView alloc] init];
-    [self webView:webView shouldStartLoadWithRequest:urlRequest navigationType:UIWebViewNavigationTypeLinkClicked];
-}
-
-#pragma mark - UIWebViewDelegate
-- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    NSString *url = request.URL.absoluteString;
     NSLog(@"opening web link: %@",url);
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-    return NO;
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+
+    UIWebView *uiWebView = [[UIWebView alloc] initWithFrame: self.view.bounds];
+    [uiWebView loadRequest:urlRequest];
+
+    [webViewController.view addSubview: uiWebView];
+
+    [self.navigationController
+            pushViewController:webViewController animated:YES];
 }
 @end
