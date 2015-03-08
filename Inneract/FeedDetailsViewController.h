@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedDetailsViewController : UIViewController
+@class Feed;
 
+@interface FeedDetailsViewController : UIViewController
+@property (weak, nonatomic) Feed *feed;
+- (id)initWithFeed:(Feed *)feed;
 @end

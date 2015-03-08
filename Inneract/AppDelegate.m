@@ -11,13 +11,14 @@
 #import "LoginViewController.h"
 #import "JoinUsViewController.h"
 #import "EditProfileViewController.h"
+#import "FeedsViewController.h"
 
 #import "Parse.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 //Parse Keys
-NSString const *kParseApplicationId = @"fqoCAqnAX9dcjrJSpxENnHsOkt1WTuFv8aJhfPH6";
-NSString const *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
+NSString *kParseApplicationId = @"fqoCAqnAX9dcjrJSpxENnHsOkt1WTuFv8aJhfPH6";
+NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 
 @interface AppDelegate ()
 
@@ -37,9 +38,9 @@ NSString const *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-	
-	
     self.window.rootViewController = [[LandingViewController alloc] init];
+//	self.window.rootViewController = [[LoginViewController alloc] init];
+//    self.window.rootViewController = [[FeedsViewController alloc] init];
 	//self.window.rootViewController = [[JoinUsViewController alloc] init];
 	//self.window.rootViewController = [[LoginViewController alloc] init];
 	//self.window.rootViewController = [[EditProfileViewController alloc] init];

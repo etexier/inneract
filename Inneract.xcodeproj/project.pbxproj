@@ -35,6 +35,7 @@
 		330656E5273CC70A39B87BAA /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = 330653DF6C85481811DA302F /* Feed.m */; };
 		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
 		33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330656776BEB2AF56D2540BB /* FeedsViewController.xib */; };
+		33065EAFB6D45024FCC40393 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33065CDAFD2FE9A5F6C42180 /* Helper.m */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
 		38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B3C1AA97C6500FE3707 /* FirstIntroductionView.m */; };
@@ -105,7 +106,9 @@
 		3306545DC4732F14585ECAAC /* FeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsViewController.m; sourceTree = "<group>"; };
 		3306557A14B641540E9087FA /* Feed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feed.h; sourceTree = "<group>"; };
 		330656776BEB2AF56D2540BB /* FeedsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedsViewController.xib; sourceTree = "<group>"; };
+		33065960353F636E5711A196 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
+		33065CDAFD2FE9A5F6C42180 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
 		38973B371AA9791B00FE3707 /* IntroductionContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionContainerView.m; sourceTree = "<group>"; };
 		38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionContainerView.xib; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 				329F003B1AA81B180089C0E2 /* Images.xcassets */,
 				329F003D1AA81B180089C0E2 /* LaunchScreen.xib */,
 				329F002E1AA81B180089C0E2 /* Supporting Files */,
+				33065DF4CA1569613FDDCD48 /* Utils */,
 			);
 			path = Inneract;
 			sourceTree = "<group>";
@@ -315,6 +319,15 @@
 				3306557A14B641540E9087FA /* Feed.h */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		33065DF4CA1569613FDDCD48 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				33065CDAFD2FE9A5F6C42180 /* Helper.m */,
+				33065960353F636E5711A196 /* Helper.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		33065DFA3D4D3200A0D7982D /* Views */ = {
@@ -535,6 +548,7 @@
 				330656E5273CC70A39B87BAA /* Feed.m in Sources */,
 				3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */,
 				3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */,
+				33065EAFB6D45024FCC40393 /* Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +668,7 @@
 				INFOPLIST_FILE = Inneract/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -665,6 +680,7 @@
 				INFOPLIST_FILE = Inneract/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

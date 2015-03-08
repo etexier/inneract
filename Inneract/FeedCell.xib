@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tts-yH-mFW">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tts-yH-mFW">
                         <rect key="frame" x="8" y="8" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="3ZF-8N-GhI"/>
@@ -39,10 +39,10 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-iC-8wI">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-iC-8wI">
                         <rect key="frame" x="8" y="163" width="304" height="178"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OuB-Jo-Ib5">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OuB-Jo-Ib5">
                         <rect key="frame" x="96" y="135" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="DTh-FK-c5V"/>
@@ -61,7 +61,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
                         <rect key="frame" x="227" y="135" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="JmR-AJ-JCf"/>
@@ -97,6 +97,15 @@
                     <constraint firstItem="MTr-Kb-bG6" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="19" id="vTc-is-D93"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bookmarkImage" destination="MTr-Kb-bG6" id="y9D-W1-NKe"/>
+                <outlet property="mediaImage" destination="Omc-iC-8wI" id="nae-fa-Egd"/>
+                <outlet property="postedDateLabel" destination="EgW-T2-wEE" id="MDK-Lc-fkb"/>
+                <outlet property="shareImage" destination="OuB-Jo-Ib5" id="bKr-PA-tIC"/>
+                <outlet property="summaryLabel" destination="rsu-rp-GfW" id="oCW-xY-Ysa"/>
+                <outlet property="thumbnail" destination="tts-yH-mFW" id="ygS-lq-FbB"/>
+                <outlet property="titleLabel" destination="8o0-NB-2KQ" id="oXP-7A-1NV"/>
+            </connections>
             <point key="canvasLocation" x="185" y="420"/>
         </tableViewCell>
     </objects>

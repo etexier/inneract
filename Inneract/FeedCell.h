@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/PFTableViewCell.h>
+#import <Parse/PFObject.h>
 
-@interface FeedCell : UITableViewCell
+@interface FeedCell : PFTableViewCell
+@property (weak, nonatomic) PFObject *feed;
+
 
 @end

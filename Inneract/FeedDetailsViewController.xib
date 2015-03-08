@@ -1,19 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedDetailsViewController">
             <connections>
+                <outlet property="bookmarkImage" destination="im3-da-IWJ" id="BLi-FP-nxw"/>
+                <outlet property="postedLabel" destination="zxm-Ig-lKH" id="08Q-tp-VNZ"/>
+                <outlet property="shareImage" destination="cJh-Fb-HpW" id="Ymt-ed-jOH"/>
+                <outlet property="summaryLabel" destination="qtd-zV-OOK" id="o4M-hQ-nKx"/>
+                <outlet property="titleLabel" destination="H2G-3E-4f3" id="S81-9I-05N"/>
+                <outlet property="topImageView" destination="IA1-yW-70u" id="dBH-BP-uJ5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webLinkLabel" destination="WEE-NV-rCb" id="V5L-hT-iOL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-yW-70u">
+                    <rect key="frame" x="8" y="8" width="304" height="230"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="230" id="DeI-NG-Vmj"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-zV-OOK">
+                    <rect key="frame" x="8" y="329" width="304" height="134"/>
+                    <string key="text">Ralph Gilles, the designer of the Chrysler 300 is coming to talk to students at Kennedy High School in Richmond California. His appearance marks the first to connect youth in the community to design, specifically industrial design. We look forward to his appearance, and a long time relation with our friends at Chrysler. Hope to see you there!</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read Full Story" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEE-NV-rCb">
+                    <rect key="frame" x="213" y="471" width="99" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-Fb-HpW">
+                    <rect key="frame" x="8" y="540" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="tnW-Lk-CH8"/>
+                        <constraint firstAttribute="height" constant="20" id="vya-6s-OS0"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-3e-cnY">
+                    <rect key="frame" x="36" y="542" width="33" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="im3-da-IWJ">
+                    <rect key="frame" x="227" y="540" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="brQ-mn-no6"/>
+                        <constraint firstAttribute="width" constant="20" id="xLq-l8-sSk"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ8-4n-xoS">
+                    <rect key="frame" x="255" y="542" width="57" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxm-Ig-lKH">
+                    <rect key="frame" x="8" y="246" width="85" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Interview with IBM’s Doug Powell about design’s impact on business" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2G-3E-4f3">
+                    <rect key="frame" x="8" y="270" width="304" height="41"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IA1-yW-70u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="0Z8-AD-0eV"/>
+                <constraint firstItem="pdH-3e-cnY" firstAttribute="centerY" secondItem="im3-da-IWJ" secondAttribute="centerY" id="3ON-t2-cGU"/>
+                <constraint firstItem="pdH-3e-cnY" firstAttribute="centerY" secondItem="cJh-Fb-HpW" secondAttribute="centerY" id="7xA-0H-quM"/>
+                <constraint firstAttribute="trailing" secondItem="IA1-yW-70u" secondAttribute="trailing" constant="8" id="8fy-65-f66"/>
+                <constraint firstItem="zxm-Ig-lKH" firstAttribute="top" secondItem="IA1-yW-70u" secondAttribute="bottom" constant="8" id="8qF-Ea-AwB"/>
+                <constraint firstItem="im3-da-IWJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WEE-NV-rCb" secondAttribute="bottom" constant="16" id="9Y4-bB-vLa"/>
+                <constraint firstItem="qtd-zV-OOK" firstAttribute="top" secondItem="H2G-3E-4f3" secondAttribute="bottom" constant="18" id="G32-7n-hs5"/>
+                <constraint firstItem="pdH-3e-cnY" firstAttribute="leading" secondItem="cJh-Fb-HpW" secondAttribute="trailing" constant="8" id="MaL-VN-F25"/>
+                <constraint firstAttribute="bottom" secondItem="cJh-Fb-HpW" secondAttribute="bottom" constant="8" id="MpE-Ef-RlI"/>
+                <constraint firstAttribute="trailing" secondItem="H2G-3E-4f3" secondAttribute="trailing" constant="8" id="NWC-c0-wnK"/>
+                <constraint firstItem="qtd-zV-OOK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Omt-xW-led"/>
+                <constraint firstItem="IA1-yW-70u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="QoS-Kk-JBN"/>
+                <constraint firstItem="WEE-NV-rCb" firstAttribute="top" secondItem="qtd-zV-OOK" secondAttribute="bottom" constant="8" id="U0x-e4-XSR"/>
+                <constraint firstItem="H2G-3E-4f3" firstAttribute="top" secondItem="zxm-Ig-lKH" secondAttribute="bottom" constant="8" id="fbp-w8-zl2"/>
+                <constraint firstItem="zxm-Ig-lKH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="iEG-jJ-hns"/>
+                <constraint firstItem="WEE-NV-rCb" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="mRY-G4-J3F"/>
+                <constraint firstAttribute="trailing" secondItem="mJ8-4n-xoS" secondAttribute="trailing" constant="8" id="qsN-9a-oCl"/>
+                <constraint firstItem="mJ8-4n-xoS" firstAttribute="leading" secondItem="im3-da-IWJ" secondAttribute="trailing" constant="8" id="s3C-0T-rNK"/>
+                <constraint firstItem="H2G-3E-4f3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tRT-ZU-wlG"/>
+                <constraint firstItem="cJh-Fb-HpW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tYK-gY-eVF"/>
+                <constraint firstAttribute="trailing" secondItem="qtd-zV-OOK" secondAttribute="trailing" constant="8" id="v7J-aj-MlK"/>
+                <constraint firstItem="pdH-3e-cnY" firstAttribute="centerY" secondItem="mJ8-4n-xoS" secondAttribute="centerY" id="vnA-br-pc0"/>
+            </constraints>
+            <point key="canvasLocation" x="199" y="283"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

@@ -7,16 +7,55 @@
 //
 
 #import "FeedDetailsViewController.h"
+#import "Feed.h"
 
 @interface FeedDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UIView *topImageView;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *postedLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *webLinkLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *shareImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
+
+
 
 @end
 
 @implementation FeedDetailsViewController
 
+/*
+feedCategory
+imageUrl
+link
+renderingStyle
+shareCount
+bookmarkCount
+title
+createdAt
+updatedAt
+summary
+
+*/
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (id)initWithFeed:(Feed *)feed {
+    self = [super init];
+    if (self) {
+        self.feed = feed;
+    }
+    return self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +63,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
