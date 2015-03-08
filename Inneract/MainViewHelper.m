@@ -50,6 +50,7 @@
     profileNvc.tabBarItem = barItem4;
 
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.tabBar.translucent = NO;
     tabBarController.view.frame = [[UIScreen mainScreen] bounds];
     //tabBarController.tabBar.items = [NSArray arrayWithObjects:barItem1, barItem2, barItem3, barItem4, nil];
     NSArray* controllers = [NSArray arrayWithObjects:feedsNvc, bookmarkNvc, peopleNvc, profileNvc, nil];
