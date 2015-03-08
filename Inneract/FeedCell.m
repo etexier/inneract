@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *shareImage;
 @property (weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
+@property (weak, nonatomic) IBOutlet UILabel *bookMarkLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *mediaImage;
 @end
 @implementation FeedCell
@@ -101,7 +103,14 @@
     self.summaryLabel.text = [feed objectForKey:@"summary"];
 
     // bookmark
-    self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
+    if(!self.isForBookmark) {
+        self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
+        UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
+        [self.bookmarkImage addGestureRecognizer:bookmarkTap];
+    } else {
+        self.bookmarkImage.hidden = YES;
+        self.bookMarkLabel.hidden = YES;
+    }
 
     // share
     self.shareImage.image = [UIImage imageNamed:@"share27"];
@@ -112,7 +121,11 @@
 }
 
 - (IBAction)didShare:(id)sender {
-    [self.feedCellHandler feedCell:self didShareFeedWithTitle:[self.feed objectForKey:@"title"] andUrl:[self.feed objectForKey:@"link"]];
+    [self.feedCellHandler feedCell:self didShareFeed:self.feed];
+}
+
+- (IBAction)didBookmark:(id)sender {
+    [self.feedCellHandler feedCell:self didBookmarkFeed:self.feed];
 }
 
 

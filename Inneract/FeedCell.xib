@@ -61,7 +61,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
                         <rect key="frame" x="227" y="135" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="JmR-AJ-JCf"/>
@@ -99,6 +99,7 @@
             </tableViewCellContentView>
             <gestureRecognizers/>
             <connections>
+                <outlet property="bookMarkLabel" destination="S3k-es-wEL" id="caD-JC-x5W"/>
                 <outlet property="bookmarkImage" destination="MTr-Kb-bG6" id="y9D-W1-NKe"/>
                 <outlet property="mediaImage" destination="Omc-iC-8wI" id="nae-fa-Egd"/>
                 <outlet property="postedDateLabel" destination="EgW-T2-wEE" id="MDK-Lc-fkb"/>

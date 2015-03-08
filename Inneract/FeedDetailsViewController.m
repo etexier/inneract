@@ -57,7 +57,7 @@ summary
 - (id)initWithFeed:(PFObject *)feed {
     self = [super init];
     if (self) {
-        self.feed = feed;
+        _feed = feed;
     }
     return self;
 }

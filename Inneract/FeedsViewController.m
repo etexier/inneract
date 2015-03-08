@@ -16,33 +16,50 @@
 NSString *const kTitle = @"Feeds";
 NSString *const kFeedCellNibId = @"FeedCell";
 
+NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
+
 @interface FeedsViewController () <UISearchDisplayDelegate, UISearchBarDelegate, FeedCellProtocol>
 @property(nonatomic, strong) UISearchBar *searchBar;
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
 @property(nonatomic, strong) NSMutableArray *searchResults;
 
+@property (nonatomic, assign) BOOL isForBookmark;
+
 - (void)filterResults:(NSString *)text;
 @end
 
 @implementation FeedsViewController
 
-- (id)initWithFeedCategory:(NSString *) feedCategory {
+- (id)init {
     NSLog(@"Initializing new FeedsViewController");
     self = [super init];
 
     if (self) {
-        _feedCategory = feedCategory;
-
-        // This table displays items in the Todo class
-        self.parseClassName = @"IPNews";
-        self.pullToRefreshEnabled = YES;
-        self.paginationEnabled = NO;
-        self.objectsPerPage = 10;
-
+        [self setupTableView];
     }
 
     return self;
+}
+
+- (id)initForBookmark {
+    NSLog(@"Initializing new FeedsViewController for bookmark");
+    self = [super init];
+
+    if (self) {
+        _isForBookmark = YES;
+        [self setupTableView];
+    }
+
+    return self;
+}
+
+- (void) setupTableView {
+    // This table displays items in the Todo class
+    self.parseClassName = @"IPNews";
+    self.pullToRefreshEnabled = YES;
+    self.paginationEnabled = NO;
+    self.objectsPerPage = 10;
 }
 
 
@@ -50,10 +67,15 @@ NSString *const kFeedCellNibId = @"FeedCell";
 
 - (PFQuery *)queryForTable {
     PFQuery *query;
-    if(self.feedCategory) {
-        query = [PFQuery queryWithClassName:self.parseClassName predicate:[NSPredicate predicateWithFormat:@"feedCategory=%@", self.feedCategory]];
-    } else {
+    if(self.isForBookmark) {
         query = [PFQuery queryWithClassName:self.parseClassName];
+        [query whereKey:kFeedBookmarkRelationshipName equalTo:[PFUser currentUser]];
+    } else {
+        if (self.feedCategory) {
+            query = [PFQuery queryWithClassName:self.parseClassName predicate:[NSPredicate predicateWithFormat:@"feedCategory=%@", self.feedCategory]];
+        } else {
+            query = [PFQuery queryWithClassName:self.parseClassName];
+        }
     }
 
     [self filterQuery:query];
@@ -170,6 +192,7 @@ NSString *const kFeedCellNibId = @"FeedCell";
     }
 
     cell.feedCellHandler = self;
+    cell.isForBookmark = self.isForBookmark;
 
     if (tableView == self.tableView) {
         cell.feed = object;
@@ -241,9 +264,21 @@ NSString *const kFeedCellNibId = @"FeedCell";
 }
 
 #pragma mark - feed cell protocol
-- (void) feedCell:(FeedCell *) tweetCell didShareFeedWithTitle:(NSString *) title
-           andUrl:(NSString *) url {
-    [[IPShareManager sharedInstance] shareItemWithTitle:title andUrl:url fromViewController:self];
+- (void) feedCell:(FeedCell *) tweetCell didShareFeed:(PFObject *) feed {
+    [[IPShareManager sharedInstance] shareItemWithTitle:[feed objectForKey:@"title"] andUrl:[feed objectForKey:@"link"] fromViewController:self];
+}
+
+- (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject *) feed {
+    if(feed) {
+        [feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
+        [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(error) {
+                NSLog(@"failed to save %@ for feed \n%@", kFeedBookmarkRelationshipName, feed);
+            } else {
+                NSLog(@"User %@ bookmarked feed \n%@", [PFUser currentUser], feed);
+            }
+        }];
+    }
 }
 
 @end

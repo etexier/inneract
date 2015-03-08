@@ -14,13 +14,15 @@
 
 @protocol FeedCellProtocol <NSObject>
 
-- (void) feedCell:(FeedCell *) tweetCell didShareFeedWithTitle:(NSString *) title
-           andUrl:(NSString *) url;
+- (void) feedCell:(FeedCell *) tweetCell didShareFeed:(PFObject*) feed;
+
+- (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject*) feed;
 
 @end
 
 @interface FeedCell : PFTableViewCell
 @property (weak, nonatomic) PFObject *feed;
 @property (nonatomic, weak) id<FeedCellProtocol> feedCellHandler;
+@property (nonatomic, assign) BOOL isForBookmark;
 
 @end
