@@ -102,10 +102,20 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     [self initTableView:self.tableView];
 
     // Title (can be overridden)
-    self.title = kTitle;
+    //self.title = kTitle;
 
     // search
     [self initSearchBar];
+
+    // navigation bar
+    if(!self.isForBookmark) {
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"IP News", @"Get Involved", @"Youth Classes", nil]];
+        //[statFilter setSegmentedControlStyle:UISegmentedControlStyleBar];
+        [segmentedControl sizeToFit];
+        [segmentedControl addTarget:self action:@selector(categoryDidSelected:) forControlEvents:UIControlEventValueChanged];
+        self.navigationItem.titleView = segmentedControl;
+        segmentedControl.selectedSegmentIndex = 0;
+    }
 
 
 }
@@ -263,6 +273,24 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     return YES;
 }
 
+- (void) categoryDidSelected:(UISegmentedControl *) sender {
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            self.feedCategory = @"news";
+            break;
+        case 1:
+            self.feedCategory = @"volunteer";
+            break;
+        case 2:
+            self.feedCategory = @"classes";
+            break;
+        default:
+            break;
+    }
+
+    [self loadObjects];
+}
+
 #pragma mark - feed cell protocol
 - (void) feedCell:(FeedCell *) tweetCell didShareFeed:(PFObject *) feed {
     [[IPShareManager sharedInstance] shareItemWithTitle:[feed objectForKey:@"title"] andUrl:[feed objectForKey:@"link"] fromViewController:self];
@@ -275,7 +303,7 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
             if(error) {
                 NSLog(@"failed to save %@ for feed \n%@", kFeedBookmarkRelationshipName, feed);
             } else {
-                NSLog(@"User %@ bookmarked feed \n%@", [PFUser currentUser], feed);
+                //NSLog(@"User %@ bookmarked feed \n%@", [PFUser currentUser], feed);
             }
         }];
     }
