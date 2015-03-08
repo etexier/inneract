@@ -10,6 +10,11 @@
 #import <ParseUI/PFQueryTableViewController.h>
 
 @interface FeedsViewController : PFQueryTableViewController
+
+@property (nonatomic, strong) NSString *feedCategory;
+
+- (id)initWithFeedCategory:(NSString *) feedCategory;
+
 - (void) filterQuery:(PFQuery *) query;
 
 @end

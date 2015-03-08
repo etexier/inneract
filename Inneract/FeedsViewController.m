@@ -27,11 +27,12 @@ NSString *const kFeedCellNibId = @"FeedCell";
 
 @implementation FeedsViewController
 
-- (id)init {
+- (id)initWithFeedCategory:(NSString *) feedCategory {
     NSLog(@"Initializing new FeedsViewController");
     self = [super init];
 
     if (self) {
+        _feedCategory = feedCategory;
 
         // This table displays items in the Todo class
         self.parseClassName = @"IPNews";
@@ -48,7 +49,12 @@ NSString *const kFeedCellNibId = @"FeedCell";
 #pragma mark - Parse
 
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    PFQuery *query;
+    if(self.feedCategory) {
+        query = [PFQuery queryWithClassName:self.parseClassName predicate:[NSPredicate predicateWithFormat:@"feedCategory=%@", self.feedCategory]];
+    } else {
+        query = [PFQuery queryWithClassName:self.parseClassName];
+    }
 
     [self filterQuery:query];
     // If no objects are loaded in memory, we look to the cache

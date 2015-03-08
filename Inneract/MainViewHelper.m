@@ -14,7 +14,7 @@
 @implementation MainViewHelper
 
 + (UITabBarController *)setupMainViewTabBar {
-    FeedsViewController *feedsVc = [[FeedsViewController alloc] init];
+    FeedsViewController *feedsVc = [[FeedsViewController alloc] initWithFeedCategory:nil];
     FeedsViewController *bookmarkVc = [[FeedsViewController alloc] init];
     ProfilesViewController *peopleVc = [[ProfilesViewController alloc] init];
     ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] init];
