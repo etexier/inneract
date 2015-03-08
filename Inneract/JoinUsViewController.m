@@ -6,9 +6,22 @@
 //  Copyright (c) 2015 Emmanuel Texier. All rights reserved.
 //
 
+// Third party SDKs
+#import "SVProgressHUD.h"
+#import <Parse/Parse.h>
+
+// View Controllers
 #import "JoinUsViewController.h"
+#import "EditProfileViewController.h"
+
 
 @interface JoinUsViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *firstName;
+@property (weak, nonatomic) IBOutlet UITextField *lastName;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UITextField *emailAddress;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITextField *confirmPassword;
 
 @end
 
@@ -24,14 +37,75 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) showSpinnerWithText:(NSString *)text{
+	[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+	[SVProgressHUD showWithStatus:text maskType:SVProgressHUDMaskTypeNone];
+	[SVProgressHUD setBackgroundColor:[UIColor blueColor]];
 }
-*/
 
+-(void) showAlert:(NSString *)title withMessage:(NSString *) message{
+	[[[UIAlertView alloc] initWithTitle:title
+								message:message
+							   delegate:nil
+					  cancelButtonTitle:@"OK"
+					  otherButtonTitles:nil] show];
+}
+
+- (IBAction)onJoinUs:(UIButton *)sender {
+	if(self.firstName.text.length < 1) {
+		[self showAlert:@"First Name is empty" withMessage:@"Please input your first name"];
+		return;
+	}
+	
+	if(self.lastName.text.length < 1) {
+		[self showAlert:@"Last Name is empty" withMessage:@"Please input your last name"];
+		return;
+	}
+	
+	if(self.userName.text.length < 1) {
+		[self showAlert:@"Username is empty" withMessage:@"Please input your username"];
+		return;
+	}
+	
+	if(self.emailAddress.text.length < 1) {
+		[self showAlert:@"email is empty" withMessage:@"Please input your email"];
+		return;
+	}
+	
+	if(self.password.text.length < 1) {
+		[self showAlert:@"Password is empty" withMessage:@"Please input your password"];
+		return;
+	}
+	
+	if(self.password.text.length < 1) {
+		[self showAlert:@"Confirm password is empty" withMessage:@"Please input your confirm password"];
+		return;
+	}
+	
+	if(![self.password.text isEqualToString:self.confirmPassword.text]) {
+		[self showAlert:@"Password doesn't match" withMessage:@"Please fix your password"];
+		return;
+	}
+	
+	[self showSpinnerWithText:@"SignUp in progress..."];
+	
+	PFUser *user = [PFUser user];
+	user.username = self.userName.text;
+	user.password = self.password.text;
+	user.email = self.emailAddress.text;
+	
+	[user signUpInBackgroundWithBlock: ^(BOOL succeeded, NSError *error) {
+		[SVProgressHUD dismiss];
+		if (succeeded) {
+			NSLog(@"OK");
+			[self presentViewController:[[EditProfileViewController alloc]init] animated:YES completion:nil];
+		} else {
+			NSLog(@"FAIL");
+		}
+	}];
+}
+
+- (IBAction)onLogin:(UIButton *)sender {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

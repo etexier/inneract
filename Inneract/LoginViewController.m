@@ -6,13 +6,15 @@
 //  Copyright (c) 2015 Emmanuel Texier. All rights reserved.
 //
 
-#import "LoginViewController.h"
+// Third party SDKs
+#import <Parse/Parse.h>				// parse
+#import "SVProgressHUD.h"			// Spinner
+#import <FacebookSDK/FacebookSDK.h>	// Facebook
+
+// ViewControllers
 #import "MainViewHelper.h"
-#import <FacebookSDK/FacebookSDK.h>
-#import <Parse/Parse.h>
-
-
-#import "SVProgressHUD.h"
+#import "LoginViewController.h"
+#import "JoinUsViewController.h"
 
 @interface LoginViewController () <FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet FBLoginView *loginViewFB;
@@ -120,7 +122,6 @@
 	[SVProgressHUD setBackgroundColor:[UIColor blueColor]];
 }
 
-
 - (IBAction)onLogin:(id)sender {
     if(self.userNameText.text.length < 1) {
         [[[UIAlertView alloc] initWithTitle:@"UserName is empty"
@@ -152,6 +153,7 @@
 }
 
 - (IBAction)onSignUp:(id)sender {
+	[self presentViewController:[[JoinUsViewController alloc]init] animated:YES completion:nil];
 }
 
 
