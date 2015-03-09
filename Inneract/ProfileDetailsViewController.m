@@ -7,6 +7,7 @@
 //
 
 #import "ProfileDetailsViewController.h"
+#import "PFObject.h"
 #import <Parse/Parse.h>
 
 @interface ProfileDetailsViewController ()
@@ -17,6 +18,15 @@
 @end
 
 @implementation ProfileDetailsViewController
+
+- (instancetype)initWithUser:(PFObject *)user {
+    self = [super init];
+    if (self) {
+        self.user = user;
+    }
+
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

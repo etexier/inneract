@@ -14,8 +14,6 @@
 #import "IPColors.h"
 #import <SVProgressHUD.h>
 
-
-NSString *const kTitle = @"Feeds";
 NSString *const kFeedCellNibId = @"FeedCell";
 
 NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
@@ -62,6 +60,10 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     self.pullToRefreshEnabled = YES;
     self.paginationEnabled = NO;
     self.objectsPerPage = 10;
+
+    // cell auto dim.
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 150;
 }
 
 
@@ -100,9 +102,6 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     // cell registration
     [self.tableView registerNib:[UINib nibWithNibName:kFeedCellNibId bundle:nil] forCellReuseIdentifier:kFeedCellNibId];
 
-    // cell auto dim.
-    [self initTableView:self.tableView];
-
     // Title (can be overridden)
     //self.title = kTitle;
 
@@ -130,12 +129,6 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
 
 
 }
-
-- (void)initTableView:(UITableView *)view {
-    view.rowHeight = UITableViewAutomaticDimension;
-    view.estimatedRowHeight = 150;
-}
-
 
 - (void)initSearchBar {
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];

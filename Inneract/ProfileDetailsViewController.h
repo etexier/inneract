@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface ProfileDetailsViewController : UIViewController
+
+@property (nonatomic, strong) PFObject *user;
+
+- (instancetype)initWithUser:(PFObject *)user;
+
 
 @end

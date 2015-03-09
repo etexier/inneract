@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <ParseUI.h>
+#import <Parse/PFObject.h>
 
 @interface PeopleCell : PFTableViewCell
+
+@property (weak, nonatomic) PFObject *user;
 
 @end

@@ -75,6 +75,13 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="designationLabel" destination="aRr-9p-cvQ" id="67u-cj-N3X"/>
+                <outlet property="nameLabel" destination="dn8-l3-blb" id="ktz-hm-tyc"/>
+                <outlet property="professionLabel" destination="XM2-Os-Pco" id="Dlt-oG-BDe"/>
+                <outlet property="profileImage" destination="THX-4h-ZCM" id="KHH-3z-sna"/>
+                <outlet property="shareImage" destination="J7H-GI-IAf" id="oro-EF-Vk7"/>
+            </connections>
             <point key="canvasLocation" x="372" y="190.5"/>
         </tableViewCell>
     </objects>

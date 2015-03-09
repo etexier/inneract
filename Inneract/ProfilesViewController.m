@@ -7,21 +7,209 @@
 //
 
 #import "ProfilesViewController.h"
+#import <Parse/PFQuery.h>
+#import "IPShareManager.h"
+#import "IPColors.h"
+#import "ProfileDetailsViewController.h"
+#import "PeopleCell.h"
+#import <SVProgressHUD.h>
 
-@interface ProfilesViewController ()
+NSString *const kPeopleCellNibId = @"PeopleCell";
+
+@interface ProfilesViewController ()  <UISearchDisplayDelegate, UISearchBarDelegate>
+@property(nonatomic, strong) UISearchBar *searchBar;
+
+@property(nonatomic, strong) UISearchDisplayController *searchController;
+@property(nonatomic, strong) NSMutableArray *searchResults;
 
 @end
 
 @implementation ProfilesViewController
 
+- (id)init {
+    NSLog(@"Initializing new FeedsViewController");
+    self = [super init];
+
+    if (self) {
+        [self setupTableView];
+    }
+
+    return self;
+}
+
+- (void) setupTableView {
+    // This table displays items in the Todo class
+    self.parseClassName = @"User";
+    self.pullToRefreshEnabled = YES;
+    self.paginationEnabled = NO;
+    self.objectsPerPage = 10;
+
+    // cell auto dim.
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 80;
+}
+
+- (PFQuery *)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+
+    // If no objects are loaded in memory, we look to the cache
+    // first to fill the table and then subsequently do a query
+    // against the network.
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+
+    [query orderByDescending:@"createdAt"];
+
+    return query;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    // cell registration
+    [self.tableView registerNib:[UINib nibWithNibName:kPeopleCellNibId bundle:nil] forCellReuseIdentifier:kPeopleCellNibId];
+
+    // search
+    [self initSearchBar];
+}
+
+- (void)initSearchBar {
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+
+    self.tableView.tableHeaderView = self.searchBar;
+
+    self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+
+    self.searchController.searchResultsDataSource = self;
+    self.searchController.searchResultsDelegate = self;
+    self.searchController.delegate = self;
+
+
+    CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
+    self.tableView.contentOffset = offset;
+
+    self.searchResults = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table View delegate  methods
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ProfileDetailsViewController *detailsVc = [[ProfileDetailsViewController alloc] initWithUser:self.objects[(NSUInteger) indexPath.row]];
+
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [self.navigationController pushViewController:detailsVc animated:YES];
+
+}
+
+#pragma mark - Table View Data source methods
+
+- (PFTableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                        object:(PFObject *)object {
+
+    PeopleCell *cell = [tableView dequeueReusableCellWithIdentifier:kPeopleCellNibId];
+
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kPeopleCellNibId owner:nil options:nil];
+
+        for (id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[PeopleCell class]]) {
+                cell = (PeopleCell *)currentObject;
+                break;
+            }
+        }
+    }
+
+    if (tableView == self.tableView) {
+        cell.user = object;
+    } else {
+        cell.user = self.searchResults[(NSUInteger) indexPath.row];
+    }
+
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    if (tableView == self.tableView) {
+        return self.objects.count;
+    } else {
+        return self.searchResults.count;
+    }
+
+}
+
+#pragma mark - Search bar delegate methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder]; // hide keyboard
+    // do search
+    [self filterResults:self.searchBar.text];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder]; // hide keyboard
+}
+
+#pragma mark - search method
+
+- (void)filterResults:(NSString *)searchTerm {
+
+    [self.searchResults removeAllObjects];
+
+    // search in first name
+    PFQuery *firstNameQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [firstNameQuery whereKey:@"firstName" containsString:searchTerm];
+
+    // search in last name
+    PFQuery *lastNameQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [firstNameQuery whereKey:@"lastName" containsString:searchTerm];
+
+    // search in disignation
+    PFQuery *designationQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [designationQuery whereKey:@"designation" containsString:searchTerm];
+
+    // search in title
+    PFQuery *titleQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [titleQuery whereKey:@"profession" containsString:searchTerm];
+
+    // or' queries
+    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[firstNameQuery, lastNameQuery, designationQuery, titleQuery]];
+
+    NSArray *results = [mainQuery findObjects];
+    NSLog(@"%@", results);
+    NSLog(@"%lu", (unsigned long)results.count);
+
+    [self.searchResults removeAllObjects];
+    [self.searchResults addObjectsFromArray:results];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterResults:searchString];
+    return YES;
+}
+
+- (void)objectsWillLoad {
+    [super objectsWillLoad];
+    //[SVProgressHUD show];
+}
+
+- (void)objectsDidLoad:(NSError *)error {
+    [super objectsDidLoad:error];
+
+    [SVProgressHUD dismiss];
 }
 
 /*

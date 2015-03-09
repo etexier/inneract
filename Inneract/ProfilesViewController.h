@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/PFQueryTableViewController.h>
 
-@interface ProfilesViewController : UIViewController
+@interface ProfilesViewController : PFQueryTableViewController
 
 @end
