@@ -11,6 +11,7 @@
 #import "FeedDetailsViewController.h"
 #import <Parse/PFQuery.h>
 #import "IPShareManager.h"
+#import <SVProgressHUD.h>
 
 
 NSString *const kTitle = @"Feeds";
@@ -265,6 +266,7 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     NSLog(@"%@", results);
     NSLog(@"%u", results.count);
 
+    [self.searchResults removeAllObjects];
     [self.searchResults addObjectsFromArray:results];
 }
 
@@ -288,7 +290,14 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
             break;
     }
 
+    [SVProgressHUD show];
     [self loadObjects];
+}
+
+- (void)objectsDidLoad:(NSError *)error {
+   [super objectsDidLoad:error];
+
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - feed cell protocol
