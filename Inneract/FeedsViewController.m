@@ -11,6 +11,7 @@
 #import "FeedDetailsViewController.h"
 #import <Parse/PFQuery.h>
 #import "IPShareManager.h"
+#import "IPColors.h"
 #import <SVProgressHUD.h>
 
 
@@ -110,10 +111,19 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
 
     // navigation bar
     if(!self.isForBookmark) {
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"IP News", @"Get Involved", @"Youth Classes", nil]];
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
         //[statFilter setSegmentedControlStyle:UISegmentedControlStyleBar];
         [segmentedControl sizeToFit];
         [segmentedControl addTarget:self action:@selector(categoryDidSelected:) forControlEvents:UIControlEventValueChanged];
+
+        NSDictionary *attributesNormalState = @{NSForegroundColorAttributeName : ipPrimaryMidnightBlue};
+        [segmentedControl setTitleTextAttributes:attributesNormalState forState:UIControlStateNormal];
+
+        NSDictionary *attributesHighlightedState = @{NSForegroundColorAttributeName : ipPrimaryMidnightBlue};
+        [segmentedControl setTitleTextAttributes:attributesHighlightedState forState:UIControlStateHighlighted];
+
+        segmentedControl.tintColor = ipPrimaryOrange;
+        
         self.navigationItem.titleView = segmentedControl;
         segmentedControl.selectedSegmentIndex = 0;
     }
