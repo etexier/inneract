@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileViewController">
             <connections>
+                <outlet property="emailLabel" destination="rP2-Ed-0Jm" id="8oF-4f-Quz"/>
+                <outlet property="nameLabel" destination="PLH-38-sPK" id="hda-1q-3oK"/>
+                <outlet property="popupView" destination="U5Y-X2-jR1" id="rEx-Xk-nFz"/>
                 <outlet property="professionTextField" destination="JdP-jR-IV7" id="6HP-K2-ZTd"/>
                 <outlet property="profileImageView" destination="71y-cl-yoX" id="7mj-CL-HgZ"/>
                 <outlet property="profileLinkEditText" destination="goS-QF-GPx" id="XKv-FJ-00A"/>
@@ -101,36 +104,44 @@
                 <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5Y-X2-jR1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-HO-e6W">
-                            <rect key="frame" x="40" y="268" width="241" height="67"/>
-                            <string key="text">You have scuccessfully created your profile. An email confirmation has ben sent to your email address. Please verify your account. Your email confirmation helps to maintain honet IP community.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                        </label>
-                        <view hidden="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt7-tp-h4p">
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt7-tp-h4p">
                             <rect key="frame" x="23" y="203" width="274" height="161"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks for joining the Inneract Project Family!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-ZN-aXT">
-                                    <rect key="frame" x="31" y="12" width="220" height="58"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for joining the Inneract Project Family!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-ZN-aXT">
+                                    <rect key="frame" x="31" y="12" width="212" height="38.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-HO-e6W">
+                                    <rect key="frame" x="17" y="65.5" width="240" height="66"/>
+                                    <string key="text">You have scuccessfully created your profile. An email confirmation has ben sent to your email address. Please verify your account. Your email confirmation helps to maintain honet IP community.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="lhh-ZN-aXT" firstAttribute="top" secondItem="tt7-tp-h4p" secondAttribute="top" constant="12" id="FY5-qu-A0D"/>
                                 <constraint firstAttribute="height" constant="161" id="GrA-g0-Ino"/>
+                                <constraint firstItem="Qhf-HO-e6W" firstAttribute="leading" secondItem="tt7-tp-h4p" secondAttribute="leading" constant="17" id="V0u-Bt-fKU"/>
+                                <constraint firstItem="lhh-ZN-aXT" firstAttribute="leading" secondItem="tt7-tp-h4p" secondAttribute="leading" constant="31" id="YZf-ah-4rg"/>
+                                <constraint firstAttribute="trailing" secondItem="lhh-ZN-aXT" secondAttribute="trailing" constant="31" id="aJr-rx-Hlj"/>
+                                <constraint firstAttribute="trailing" secondItem="Qhf-HO-e6W" secondAttribute="trailing" constant="17" id="uPO-6H-sBy"/>
                                 <constraint firstAttribute="width" constant="274" id="ugu-ot-2ol"/>
+                                <constraint firstItem="Qhf-HO-e6W" firstAttribute="top" secondItem="lhh-ZN-aXT" secondAttribute="bottom" constant="15" id="uvi-xI-fjH"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="centerY" secondItem="tt7-tp-h4p" secondAttribute="centerY" constant="0.5" id="3h6-A5-Ort"/>
+                        <constraint firstAttribute="trailing" secondItem="tt7-tp-h4p" secondAttribute="trailing" constant="23" id="Tel-UY-UcB"/>
                         <constraint firstAttribute="centerX" secondItem="tt7-tp-h4p" secondAttribute="centerX" id="gzS-0c-s5F"/>
+                        <constraint firstItem="tt7-tp-h4p" firstAttribute="leading" secondItem="U5Y-X2-jR1" secondAttribute="leading" constant="23" id="mtx-33-YHo"/>
                     </constraints>
                 </view>
             </subviews>

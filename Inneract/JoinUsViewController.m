@@ -18,7 +18,6 @@
 @interface JoinUsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
-@property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddress;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPassword;
@@ -62,11 +61,6 @@
 		return;
 	}
 	
-	if(self.userName.text.length < 1) {
-		[self showAlert:@"Username is empty" withMessage:@"Please input your username"];
-		return;
-	}
-	
 	if(self.emailAddress.text.length < 1) {
 		[self showAlert:@"email is empty" withMessage:@"Please input your email"];
 		return;
@@ -90,7 +84,7 @@
 	[self showSpinnerWithText:@"SignUp in progress..."];
 	
 	PFUser *user = [PFUser user];
-	user.username = self.userName.text;
+	user.username = self.emailAddress.text;
 	user.password = self.password.text;
 	user.email = self.emailAddress.text;
 	
@@ -98,7 +92,10 @@
 		[SVProgressHUD dismiss];
 		if (succeeded) {
 			NSLog(@"OK");
-			[self presentViewController:[[EditProfileViewController alloc]init] animated:YES completion:nil];
+			EditProfileViewController *epvc = [[EditProfileViewController alloc]init];
+			epvc.name =	self.firstName.text;
+			epvc.email = self.emailAddress.text;
+			[self presentViewController:epvc animated:YES completion:nil];
 		} else {
 			NSLog(@"FAIL");
 		}
