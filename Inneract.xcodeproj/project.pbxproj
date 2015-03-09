@@ -50,6 +50,8 @@
 		38973B6B1AABA09E00FE3707 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B691AABA09E00FE3707 /* MainViewController.xib */; };
 		38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE1F1AAC215300930AFE /* MainViewHelper.m */; };
 		38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE371AAC349600930AFE /* IPShareManager.m */; };
+		38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE3D1AAD714100930AFE /* PeopleCell.m */; };
+		38DAAE401AAD714100930AFE /* PeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DAAE3E1AAD714100930AFE /* PeopleCell.xib */; };
 		55DC7EF816D4A88069AEE296 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A086406A431B260C1E9CB0 /* libPods.a */; };
 		FACFAB661AAA5B9C003D874F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFAB641AAA5B9C003D874F /* LoginViewController.m */; };
 		FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACFAB651AAA5B9C003D874F /* LoginViewController.xib */; };
@@ -137,6 +139,9 @@
 		38DAAE1F1AAC215300930AFE /* MainViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewHelper.m; sourceTree = "<group>"; };
 		38DAAE361AAC349600930AFE /* IPShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPShareManager.h; sourceTree = "<group>"; };
 		38DAAE371AAC349600930AFE /* IPShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPShareManager.m; sourceTree = "<group>"; };
+		38DAAE3C1AAD714100930AFE /* PeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleCell.h; sourceTree = "<group>"; };
+		38DAAE3D1AAD714100930AFE /* PeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleCell.m; sourceTree = "<group>"; };
+		38DAAE3E1AAD714100930AFE /* PeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleCell.xib; sourceTree = "<group>"; };
 		4ECDD04D533F5A98F8FDB7F6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7943AFF2952E65725200025B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F3A086406A431B260C1E9CB0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +278,9 @@
 				329F008B1AA8DC3C0089C0E2 /* EditProfileViewController.h */,
 				329F008C1AA8DC3C0089C0E2 /* EditProfileViewController.m */,
 				329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */,
+				38DAAE3C1AAD714100930AFE /* PeopleCell.h */,
+				38DAAE3D1AAD714100930AFE /* PeopleCell.m */,
+				38DAAE3E1AAD714100930AFE /* PeopleCell.xib */,
 			);
 			name = Profiles;
 			sourceTree = "<group>";
@@ -517,6 +525,7 @@
 				FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */,
 				32C4397A1AAA19550011FEA0 /* FeedCell.xib in Resources */,
 				329F006C1AA81ED90089C0E2 /* ProfileDetailsViewController.xib in Resources */,
+				38DAAE401AAD714100930AFE /* PeopleCell.xib in Resources */,
 				38973B3F1AA97C7900FE3707 /* FirstIntroductionView.xib in Resources */,
 				329F005D1AA81E550089C0E2 /* ProfilesViewController.xib in Resources */,
 				329F00851AA820650089C0E2 /* LearningLabViewController.xib in Resources */,
@@ -582,6 +591,7 @@
 				38973B471AA9802000FE3707 /* ThirdIntroductionView.m in Sources */,
 				38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */,
 				38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */,
+				38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */,
 				38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */,
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
 				326EA4361AAC318700C6B51B /* VolunteerViewController.m in Sources */,
