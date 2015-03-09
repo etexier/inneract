@@ -12,11 +12,12 @@
 #import "JoinUsViewController.h"
 #import "EditProfileViewController.h"
 #import "FeedsViewController.h"
-
-#import "Parse.h"
 #import "MainViewHelper.h"
 #import "VolunteerViewController.h"
 #import "ClassesViewController.h"
+
+#import <Parse/Parse.h>
+#import <ParseCrashReporting/ParseCrashReporting.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 //Parse Keys
@@ -71,8 +72,8 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 
 # pragma mark - Parse
 - (void)parseInit {
+    [ParseCrashReporting enable];
     [Parse setApplicationId:kParseApplicationId clientKey:kParseClientKey];
-
 }
 
 - (void) userDidLogout {
