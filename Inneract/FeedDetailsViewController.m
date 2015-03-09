@@ -108,6 +108,9 @@ summary
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
 
     UIWebView *uiWebView = [[UIWebView alloc] initWithFrame: self.view.bounds];
+    uiWebView.dataDetectorTypes = UIDataDetectorTypeAll;
+    uiWebView.scalesPageToFit = YES;
+
     [uiWebView loadRequest:urlRequest];
 
     [webViewController.view addSubview: uiWebView];

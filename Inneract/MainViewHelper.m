@@ -17,6 +17,7 @@
     FeedsViewController *feedsVc = [[FeedsViewController alloc] init];
     UINavigationController *feedsNvc = [[UINavigationController alloc] initWithRootViewController:feedsVc];
     feedsNvc.title = @"Feeds";
+    feedsNvc.navigationBar.translucent = NO; // so it does not hide details views
 
     FeedsViewController *bookmarkVc = [[FeedsViewController alloc] initForBookmark];
     UINavigationController *bookmarkNvc = [[UINavigationController alloc] initWithRootViewController:bookmarkVc];
