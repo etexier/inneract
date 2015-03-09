@@ -10,6 +10,7 @@
 #import "FeedDetailsViewController.h"
 #import <Parse/PFObject.h>
 #import "Helper.h"
+#import "IPColors.h"
 
 @interface FeedDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topImageView;
@@ -77,14 +78,19 @@ summary
 
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
+    self.titleLabel.textColor = ipPrimaryMidnightBlue;
+
 
     // posted date
     NSDate *createdAt = feed.createdAt;
     NSString *dateString = [Helper postedDate:createdAt];
+
     self.postedLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
+    self.postedLabel.textColor = ipPrimaryMidnightBlue;
 
     // summary
     self.summaryLabel.text = [feed objectForKey:@"summary"];
+    self.summaryLabel.textColor = ipSecondaryGrey;
 
     // bookmark
     self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
@@ -93,6 +99,7 @@ summary
     self.shareImage.image = [UIImage imageNamed:@"share27"];
 
     // web link
+    self.webLinkLabel.textColor = ipPrimaryMidnightBlue;
     // tap registered in IB
 
 }

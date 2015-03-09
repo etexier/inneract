@@ -15,7 +15,8 @@
 #define ipPrimaryOrange [UIColor colorWithRed:1 green:0.702 blue:0.008 alpha:1] /*#ffb302*/
 #define ipPrimaryMidnightBlue [UIColor colorWithRed:0.22 green:0.243 blue:0.478 alpha:1] /*#383e7a*/
 #define ipPrimaryBlack [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1] /*#333333*/
-#define ipPrimaryLightGrey [UIColor colorWithRed:0.976 green:0.976 blue:0.976 alpha:1] /*#f9f9f9*/
+#define ipPrimaryLightGrey [UIColor colorWithRed:0.976 green:0.976 blue:0.976 alpha:1] /*#f9f9f9*/ // does not see anything!
+//#define ipPrimaryLightGrey [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] /*#f9f9f9*/
 
 
 // secondary accent colors

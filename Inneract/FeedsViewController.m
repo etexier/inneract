@@ -123,7 +123,7 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
         [segmentedControl setTitleTextAttributes:attributesHighlightedState forState:UIControlStateHighlighted];
 
         segmentedControl.tintColor = ipPrimaryOrange;
-        
+
         self.navigationItem.titleView = segmentedControl;
         segmentedControl.selectedSegmentIndex = 0;
     }

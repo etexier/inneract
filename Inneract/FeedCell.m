@@ -9,6 +9,7 @@
 #import "FeedCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "Helper.h"
+#import "IPColors.h"
 
 
 @interface FeedCell()
@@ -55,32 +56,7 @@
 //
 //}
 
-- (void)renderCell {
-    
-    PFObject *feed = self.feed;
-    // thumbnail
-    NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
-    NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
-    [self.thumbnail setImageWithURL:imageUrl];
-    
-    // title
-    self.titleLabel.text = [feed objectForKey:@"title"];
-    
-    // posted date
-    NSDate *createdAt = feed.createdAt;
-    NSString *dateString = [Helper postedDate:createdAt];
-    self.postedDateLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
-    
-    // summary
-    self.summaryLabel.text = [feed objectForKey:@"summary"];
-    
-    // bookmark
-    self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
-    
-    // share
-    self.shareImage.image = [UIImage imageNamed:@"share27"];
-    
-}
+
 
 
 - (void)setFeed:(PFObject *)feed {
@@ -91,16 +67,20 @@
     NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
     [self.thumbnail setImageWithURL:imageUrl];
 
+
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
+    self.titleLabel.textColor = ipPrimaryMidnightBlue;
 
     // posted date
     NSDate *createdAt = feed.createdAt;
     NSString *dateString = [Helper postedDate:createdAt];
     self.postedDateLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
+    self.postedDateLabel.textColor = ipPrimaryMidnightBlue;
 
     // summary
     self.summaryLabel.text = [feed objectForKey:@"summary"];
+    self.summaryLabel.textColor = ipSecondaryGrey;
 
     // bookmark
     if(!self.isForBookmark) {
@@ -112,11 +92,16 @@
         self.bookMarkLabel.hidden = YES;
     }
 
+    self.bookmarkImage.tintColor = ipSecondaryCyan;
+
     // share
     self.shareImage.image = [UIImage imageNamed:@"share27"];
+    self.shareImage.tintColor = ipPrimaryOrange;
     
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
     [self.shareImage addGestureRecognizer:shareTap];
+
+
 
 }
 
