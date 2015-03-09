@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <ParseUI.h>
 #import <Parse/PFObject.h>
+#import <Parse/PFFile.h>
 
 @interface PeopleCell : PFTableViewCell
 

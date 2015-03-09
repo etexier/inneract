@@ -36,7 +36,14 @@
     _user = user;
 
     // thumbnail
-    self.profileImage.image = [UIImage imageWithData:[user objectForKey:@"profileImage"]];
+    PFFile *profileFile = [user objectForKey:@"profileImage"];
+    if(profileFile) {
+        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                self.profileImage.image = [UIImage imageWithData:[user objectForKey:@"profileImage"]];
+            }
+        }];
+    }
 
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
     self.designationLabel.text = [user objectForKey:@"designation"];

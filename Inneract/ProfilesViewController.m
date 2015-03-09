@@ -46,11 +46,15 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
     // cell auto dim.
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 80;
+    self.tableView.estimatedRowHeight = 120;
+
+    self.searchController.searchResultsTableView.rowHeight = UITableViewAutomaticDimension;
+    self.searchController.searchResultsTableView.estimatedRowHeight = 120;
 }
 
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    //PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    PFQuery *query = [PFUser query];
 
     // If no objects are loaded in memory, we look to the cache
     // first to fill the table and then subsequently do a query
