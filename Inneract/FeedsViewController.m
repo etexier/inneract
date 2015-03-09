@@ -274,7 +274,7 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
 
     NSArray *results = [mainQuery findObjects];
     NSLog(@"%@", results);
-    NSLog(@"%u", results.count);
+    NSLog(@"%lu", (unsigned long)results.count);
 
     [self.searchResults removeAllObjects];
     [self.searchResults addObjectsFromArray:results];
