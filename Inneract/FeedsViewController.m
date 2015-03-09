@@ -294,6 +294,11 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     [self loadObjects];
 }
 
+- (void)objectsWillLoad {
+    [super objectsWillLoad];
+    //[SVProgressHUD show];
+}
+
 - (void)objectsDidLoad:(NSError *)error {
    [super objectsDidLoad:error];
 
