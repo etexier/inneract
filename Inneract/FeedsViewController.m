@@ -64,6 +64,9 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     // cell auto dim.
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 150;
+
+    self.searchController.searchResultsTableView.rowHeight = UITableViewAutomaticDimension;
+    self.searchController.searchResultsTableView.estimatedRowHeight = 150;
 }
 
 
