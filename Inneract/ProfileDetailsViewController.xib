@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="aboutButton" destination="R2R-eP-Wxc" id="tml-nh-5hk"/>
                 <outlet property="designatoinLabel" destination="JOa-yi-5w2" id="6sB-9M-Fca"/>
+                <outlet property="editProfileButton" destination="zJI-xg-ulk" id="YN3-iF-f2V"/>
                 <outlet property="nameLabel" destination="6QZ-tu-BCD" id="FQK-QJ-Daz"/>
                 <outlet property="profession" destination="Pny-hS-hlg" id="hxI-PB-qXT"/>
                 <outlet property="profileImage" destination="5Rn-dz-GKj" id="5GB-fQ-qHi"/>
@@ -101,6 +102,15 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJI-xg-ulk">
+                    <rect key="frame" x="237" y="72" width="75" height="30"/>
+                    <state key="normal" title="Edit Profile">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onEditProfile:" destination="-1" eventType="touchUpInside" id="DsI-0D-dkk"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -121,6 +131,7 @@
                 <constraint firstItem="JOa-yi-5w2" firstAttribute="top" secondItem="QqD-Hp-Zfw" secondAttribute="bottom" constant="8" id="WuE-vF-Od6"/>
                 <constraint firstItem="ZDt-xv-lsl" firstAttribute="top" secondItem="5Rn-dz-GKj" secondAttribute="bottom" constant="8" id="hvg-SS-QFM"/>
                 <constraint firstItem="LTs-ad-65g" firstAttribute="top" secondItem="qLr-UO-Chj" secondAttribute="bottom" constant="8" id="jFG-pk-GtJ"/>
+                <constraint firstAttribute="trailing" secondItem="zJI-xg-ulk" secondAttribute="trailing" constant="8" id="kWS-29-nEd"/>
                 <constraint firstItem="qLr-UO-Chj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="kdX-sL-nby"/>
                 <constraint firstItem="qLr-UO-Chj" firstAttribute="top" secondItem="R2R-eP-Wxc" secondAttribute="bottom" constant="8" id="nA8-05-I8f"/>
                 <constraint firstItem="sVh-T8-DGs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qCi-am-NKb"/>
@@ -130,6 +141,7 @@
                 <constraint firstItem="6QZ-tu-BCD" firstAttribute="centerY" secondItem="5Rn-dz-GKj" secondAttribute="centerY" constant="-0.75" id="xLd-tB-dLG"/>
                 <constraint firstAttribute="trailing" secondItem="Ope-g1-JkK" secondAttribute="trailing" constant="8" id="xST-jp-br0"/>
                 <constraint firstItem="sVh-T8-DGs" firstAttribute="top" secondItem="Ope-g1-JkK" secondAttribute="bottom" constant="8" id="yI5-Ja-1bU"/>
+                <constraint firstItem="zJI-xg-ulk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="zcS-xn-abI"/>
             </constraints>
             <point key="canvasLocation" x="256" y="367"/>
         </view>

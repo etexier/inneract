@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *designatoinLabel;
 @property (weak, nonatomic) IBOutlet UIButton *aboutButton;
 @property (weak, nonatomic) IBOutlet UILabel *profession;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+
 
 @property (nonatomic, assign) BOOL isSelfProfile;
 
@@ -61,9 +63,10 @@
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
     if(!self.isSelfProfile) {
+        self.editProfileButton.hidden = YES;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"label36"] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
     } else {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
     }
     
     // thumbnail
