@@ -68,9 +68,19 @@ ComboBox* combo1;
 	//self.profileTypePicker.dataSource = self;
 
     if(self.user) {
+        PFFile *profileFile = [self.user objectForKey:@"profileImage"];
+        if(profileFile) {
+            [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                if (!error) {
+                    self.profileImageView.image = [UIImage imageWithData:data];
+                }
+            }];
+        }
         self.firstName = [self.user valueForKey:@"firstName"];
         self.lastName = [self.user valueForKey:@"lastName"];
         self.email = [self.user valueForKey:@"email"];
+        self.profileLinkEditText.text = [self.user valueForKey:@"profileLink"];
+        self.professionTextField.text = [self.user valueForKey:@"profession"];
     }
 	
 	self.firstNameEdit.text = self.firstName;
