@@ -16,7 +16,7 @@
 
 NSString *const kPeopleCellNibId = @"PeopleCell";
 
-@interface ProfilesViewController ()  <UISearchDisplayDelegate, UISearchBarDelegate>
+@interface ProfilesViewController ()  <UISearchDisplayDelegate, UISearchBarDelegate, PeopleCellProtocol>
 @property(nonatomic, strong) UISearchBar *searchBar;
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
@@ -112,9 +112,9 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ProfileDetailsViewController *detailsVc = [[ProfileDetailsViewController alloc] initWithUser:self.objects[(NSUInteger) indexPath.row]];
+    ProfileDetailsViewController *detailsVc = [[ProfileDetailsViewController alloc] init];
+    detailsVc.user = (tableView == self.tableView) ? self.objects[(NSUInteger) indexPath.row] : self.searchResults[(NSUInteger) indexPath.row];
 
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
 
 }
@@ -137,6 +137,8 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
             }
         }
     }
+    
+    cell.userCellHandler = self;
 
     if (tableView == self.tableView) {
         cell.user = object;
@@ -225,6 +227,11 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     [super objectsDidLoad:error];
 
     [SVProgressHUD dismiss];
+}
+
+#pragma mark - feed cell protocol
+- (void) peopleCell:(PeopleCell *) tweetCell didSharePeople:(PFObject *) user {
+    [[IPShareManager sharedInstance] shareItemWithTitle:[NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]] andUrl:[user objectForKey:@"profileLink"] fromViewController:self];
 }
 
 /*

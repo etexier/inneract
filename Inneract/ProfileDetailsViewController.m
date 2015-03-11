@@ -7,35 +7,63 @@
 //
 
 #import "ProfileDetailsViewController.h"
-#import "PFObject.h"
-#import <Parse/Parse.h>
+#import "IPShareManager.h"
 
 @interface ProfileDetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *designatoinLabel;
+@property (weak, nonatomic) IBOutlet UIButton *aboutButton;
+@property (weak, nonatomic) IBOutlet UILabel *profession;
+
+
 - (IBAction)onLogout:(id)sender;
+- (IBAction)onProfileLink:(id)sender;
 
 
 @end
 
 @implementation ProfileDetailsViewController
 
-- (instancetype)initWithUser:(PFObject *)user {
-    self = [super init];
-    if (self) {
-        self.user = user;
-    }
-
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // round image
+    self.profileImage.layer.cornerRadius = 40; // self.thumbnail.frame.size.width / 2.0f;
+    self.profileImage.clipsToBounds = YES;
+    // for performance
+    self.profileImage.layer.shouldRasterize = YES;
+    self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"label36"] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setUser:(PFObject *)user {
+    _user = user;
+    
+    // thumbnail
+    PFFile *profileFile = [user objectForKey:@"profileImage"];
+    if(profileFile) {
+        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                self.profileImage.image = [UIImage imageWithData:data];
+            }
+        }];
+    }
+    
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
+    self.designatoinLabel.text = [user objectForKey:@"designation"];
+    self.profession.text = [user objectForKey:@"profession"];
+    self.profession.sizeToFit;
+    
+    self.aboutButton.titleLabel.text = self.nameLabel.text;
 }
 
 /*
@@ -48,8 +76,16 @@
 }
 */
 
+- (void)didShared:(id)sender {
+    [[IPShareManager sharedInstance] shareItemWithTitle:[NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]] andUrl:[self.user objectForKey:@"profileLink"] fromViewController:self];
+}
+
 - (IBAction)onLogout:(id)sender {
     [PFUser logOut];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLogoutNotification" object:nil];
+}
+
+- (IBAction)onProfileLink:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]];
 }
 @end

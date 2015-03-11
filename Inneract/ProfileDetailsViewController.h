@@ -13,7 +13,4 @@
 
 @property (nonatomic, strong) PFObject *user;
 
-- (instancetype)initWithUser:(PFObject *)user;
-
-
 @end

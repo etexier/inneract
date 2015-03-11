@@ -7,6 +7,7 @@
 //
 
 #import "PeopleCell.h"
+#import "IPShareManager.h"
 
 @interface PeopleCell()
 
@@ -25,7 +26,7 @@
     // Initialization code
 
     // round image
-    self.profileImage.layer.cornerRadius = 5; // self.thumbnail.frame.size.width / 2.0f;
+    self.profileImage.layer.cornerRadius = 40; // self.thumbnail.frame.size.width / 2.0f;
     self.profileImage.clipsToBounds = YES;
     // for performance
     self.profileImage.layer.shouldRasterize = YES;
@@ -49,12 +50,19 @@
     self.designationLabel.text = [user objectForKey:@"designation"];
     self.professionLabel.text = [user objectForKey:@"profession"];
     self.professionLabel.sizeToFit;
+    
+    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
+    [self.shareImage addGestureRecognizer:shareTap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)didShare:(id)sender {
+    [self.userCellHandler peopleCell:self didSharePeople:self.user];
 }
 
 @end

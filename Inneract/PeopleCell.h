@@ -11,8 +11,18 @@
 #import <Parse/PFObject.h>
 #import <Parse/PFFile.h>
 
+@class PeopleCell;
+
+@protocol PeopleCellProtocol <NSObject>
+
+- (void) peopleCell:(PeopleCell *) tweetCell didSharePeople:(PFObject*) user;
+
+@end
+
 @interface PeopleCell : PFTableViewCell
 
 @property (weak, nonatomic) PFObject *user;
+
+@property (nonatomic, weak) id<PeopleCellProtocol> userCellHandler;
 
 @end
