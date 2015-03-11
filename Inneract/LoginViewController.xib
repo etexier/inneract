@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -20,7 +20,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login using Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-SS-NTh">
                     <rect key="frame" x="75" y="118" width="170" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-CN-Bco">
@@ -66,6 +66,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1aG-er-xqg" secondAttribute="bottom" constant="25" id="5Ri-uv-aNi"/>
                 <constraint firstAttribute="trailing" secondItem="1aG-er-xqg" secondAttribute="trailing" constant="8" id="6Rm-7a-rb0"/>
@@ -88,8 +89,16 @@
                 <constraint firstItem="xXG-3d-PGt" firstAttribute="top" secondItem="wDC-ML-dU9" secondAttribute="bottom" constant="51" id="u38-8H-q38"/>
                 <constraint firstItem="xXG-3d-PGt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wAQ-Xf-TjN"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="vHl-fd-iaW" appends="YES" id="SKB-ct-6Wu"/>
+            </connections>
             <point key="canvasLocation" x="371" y="390"/>
         </view>
+        <tapGestureRecognizer id="vHl-fd-iaW">
+            <connections>
+                <action selector="onTap:" destination="-1" id="nr3-zA-r7Q"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="ipAppIcon_2X_iPhone" width="60" height="60"/>

@@ -27,6 +27,7 @@
 
 - (IBAction)onLogin:(id)sender;
 - (IBAction)onSignUp:(id)sender;
+- (IBAction)onTap:(UITapGestureRecognizer *)sender;
 
 
 @end
@@ -183,6 +184,11 @@
 
 - (IBAction)onSignUp:(id)sender {
 	[self presentViewController:[[JoinUsViewController alloc]init] animated:YES completion:nil];
+}
+
+- (IBAction)onTap:(UITapGestureRecognizer *)sender {
+    [self.userNameText endEditing:YES];
+    [self.passwordText endEditing:YES];
 }
 
 
