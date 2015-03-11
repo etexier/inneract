@@ -8,6 +8,7 @@
 
 #import "ProfileDetailsViewController.h"
 #import "IPShareManager.h"
+#import "EditProfileViewController.h"
 
 @interface ProfileDetailsViewController ()
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *aboutButton;
 @property (weak, nonatomic) IBOutlet UILabel *profession;
 
-@property (nonatomic, assign) BOOL isSelf;
+@property (nonatomic, assign) BOOL isSelfProfile;
 
 - (IBAction)onLogout:(id)sender;
 - (IBAction)onProfileLink:(id)sender;
@@ -33,7 +34,7 @@
         if(user) {
             _user = user;
         } else {
-            _isSelf = YES;
+            _isSelfProfile = YES;
             
             PFQuery *query = [PFUser query];
             [query whereKey:@"username" equalTo:[PFUser currentUser].username];
@@ -59,7 +60,11 @@
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"label36"] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
+    if(!self.isSelfProfile) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"label36"] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
+    } else {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
+    }
     
     // thumbnail
     PFFile *profileFile = [self.user objectForKey:@"profileImage"];
@@ -111,4 +116,9 @@
 - (IBAction)onProfileLink:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]];
 }
+
+- (IBAction)onEditProfile:(id)sender {
+    [self.navigationController pushViewController:[[EditProfileViewController alloc] initWithUser:self.user] animated:YES];
+}
+
 @end

@@ -46,13 +46,32 @@ ComboBox* combo1;
 
 @implementation EditProfileViewController
 
+- (instancetype)initWithUser:(PFObject *)user {
+    self = [super init];
+    if (self) {
+        _user = user;
+    }
+
+    return self;
+}
+
++ (instancetype)controllerWithUser:(PFObject *)user {
+    return [[self alloc] initWithUser:user];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib
 	
 	//self.profileTypePicker.delegate = self;
 	//self.profileTypePicker.dataSource = self;
-	
+
+    if(self.user) {
+        self.firstName = [self.user valueForKey:@"firstName"];
+        self.lastName = [self.user valueForKey:@"lastName"];
+        self.email = [self.user valueForKey:@"email"];
+    }
 	
 	self.firstNameEdit.text = self.firstName;
 	self.lastNameEdit.text = self.lastName;
