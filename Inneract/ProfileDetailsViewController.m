@@ -85,7 +85,7 @@
     self.profession.sizeToFit;
     
 
-    [self.aboutButton setTitle:self.nameLabel.text forState:UIControlStateNormal];
+    [self.aboutButton setTitle:[NSString stringWithFormat:@"About %@", self.nameLabel.text] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
