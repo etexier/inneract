@@ -37,9 +37,10 @@
             _user = user;
         } else {
             _isSelfProfile = YES;
-            
             PFQuery *query = [PFUser query];
-            [query whereKey:@"username" equalTo:[PFUser currentUser].username];
+            PFUser *parseUser = [PFUser currentUser];
+            NSString *username = parseUser.username;
+            [query whereKey:@"username" equalTo:username];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if(!error && objects.count == 1) {
                     _user = objects[0];
