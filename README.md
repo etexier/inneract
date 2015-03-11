@@ -21,12 +21,17 @@ An app would drastically simplify communication directly from our organization t
 ## Group Milestones
 - [x] __Milestone 1 (due March 4):  Wireframes complete.__  
     These don't have to be visually polished, but they have to be "use case" complete. They should cover new user and existing user states. Don't use lorem ipsum text, it should be detailed enough to derive the app schema based on the wireframes.
-- [ ] __Milestone 2: (due March 11): Basic functionality complete.__
+- [X] __Milestone 2: (due March 11): Basic functionality complete.__
    Models implemented, backed by Parse. Can achieve the use cases. May be visually simple using stock controls and navigation.
 - [ ] __Milestone 3: (due March 18): Iteration sprint.__
    Start adding visual polish, augment and basic user stories with additional features.
 - [ ] __Milestone 4: (due March 25): Polish sprint. __
    Add final visual polish, add any bells and whistles (custom transitions, WatchKit integration, Push notification, etc).
+
+### Walkthrough
+![Demo](inneract-demo.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Q&A
 - What are the target devices?
