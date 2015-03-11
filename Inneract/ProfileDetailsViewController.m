@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *aboutButton;
 @property (weak, nonatomic) IBOutlet UILabel *profession;
 
+@property (nonatomic, assign) BOOL isSelf;
 
 - (IBAction)onLogout:(id)sender;
 - (IBAction)onProfileLink:(id)sender;
@@ -29,7 +30,19 @@
 - (instancetype)initWithUser:(PFObject *)user {
     self = [super init];
     if (self) {
-        self.user = user;
+        if(user) {
+            _user = user;
+        } else {
+            _isSelf = YES;
+            
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"username" equalTo:[PFUser currentUser].username];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error && objects.count == 1) {
+                    _user = objects[0];
+                }
+            }];
+        }
     }
 
     return self;
@@ -63,7 +76,8 @@
     self.profession.text = [self.user objectForKey:@"profession"];
     self.profession.sizeToFit;
     
-    self.aboutButton.titleLabel.text = self.nameLabel.text;
+
+    [self.aboutButton setTitle:self.nameLabel.text forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

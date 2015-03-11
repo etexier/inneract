@@ -27,7 +27,7 @@
     UINavigationController *peopleNvc = [[UINavigationController alloc] initWithRootViewController:peopleVc];
     peopleNvc.title = @"People";
 
-    ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] init];
+    ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] initWithUser:nil];
     UINavigationController *profileNvc = [[UINavigationController alloc] initWithRootViewController:profileVc];
     profileVc.title = @"My Profile";
 
