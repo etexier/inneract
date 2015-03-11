@@ -40,7 +40,7 @@
     if(profileFile) {
         [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
-                self.profileImage.image = [UIImage imageWithData:[user objectForKey:@"profileImage"]];
+                self.profileImage.image = [UIImage imageWithData:data];
             }
         }];
     }
@@ -48,6 +48,7 @@
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
     self.designationLabel.text = [user objectForKey:@"designation"];
     self.professionLabel.text = [user objectForKey:@"profession"];
+    self.professionLabel.sizeToFit;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

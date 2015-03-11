@@ -77,6 +77,8 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
     // search
     [self initSearchBar];
+    
+    self.title = @"People";
 }
 
 - (void)initSearchBar {
@@ -174,35 +176,44 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     [self.searchResults removeAllObjects];
 
     // search in first name
-    PFQuery *firstNameQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [firstNameQuery whereKey:@"firstName" containsString:searchTerm];
+    PFQuery *firstNameQuery = [PFUser query];
+    [firstNameQuery whereKey:@"firstName" hasPrefix:searchTerm];
 
     // search in last name
-    PFQuery *lastNameQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [firstNameQuery whereKey:@"lastName" containsString:searchTerm];
+    PFQuery *lastNameQuery = [PFUser query];
+    [firstNameQuery whereKey:@"lastName" hasPrefix:searchTerm];
 
-    // search in disignation
+    // search in designation
     PFQuery *designationQuery = [PFQuery queryWithClassName:self.parseClassName];
     [designationQuery whereKey:@"designation" containsString:searchTerm];
 
-    // search in title
-    PFQuery *titleQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [titleQuery whereKey:@"profession" containsString:searchTerm];
+    // search in professionQuery
+    PFQuery *professionQuery = [PFQuery queryWithClassName:self.parseClassName];
+    [professionQuery whereKey:@"profession" containsString:searchTerm];
 
     // or' queries
-    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[firstNameQuery, lastNameQuery, designationQuery, titleQuery]];
-
-    NSArray *results = [mainQuery findObjects];
-    NSLog(@"%@", results);
-    NSLog(@"%lu", (unsigned long)results.count);
-
-    [self.searchResults removeAllObjects];
-    [self.searchResults addObjectsFromArray:results];
+    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[firstNameQuery, lastNameQuery/**, designationQuery, professionQuery*/]];
+    //mainQuery.trace = YES;
+    [mainQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(!error) {
+                NSLog(@"people search result for query: %@ \n%@", mainQuery, objects);
+                NSLog(@"%lu", (unsigned long)objects.count);
+        
+                [self.searchResults removeAllObjects];
+                [self.searchResults addObjectsFromArray:objects];
+                [self.searchController.searchResultsTableView reloadData];
+        }
+    }];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     [self filterResults:searchString];
-    return YES;
+    return NO;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    NSLog(@"searchBarTextDidEndEditing");
+    //[self filterResults:searchBar.text];
 }
 
 - (void)objectsWillLoad {
