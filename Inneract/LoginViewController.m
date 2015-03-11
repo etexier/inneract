@@ -178,7 +178,15 @@
                 [self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
             } else {
                 // The login failed. Check error to see why.
+                UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Login Failed"
+                          message:@"Please check your username and password are correct"
+                         delegate:self
+                    cancelButtonTitle:@"OK"
+                    otherButtonTitles:nil];
+                [theAlert show];
             }
+            
+            [SVProgressHUD dismiss];
         }];
 }
 
