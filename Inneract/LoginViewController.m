@@ -10,18 +10,20 @@
 #import <Parse/Parse.h>				// parse
 #import "SVProgressHUD.h"			// Spinner
 #import <FacebookSDK/FacebookSDK.h>	// Facebook
+#import <FBGraphUser.h>
 
 // ViewControllers
 #import "MainViewHelper.h"
 #import "LoginViewController.h"
 #import "JoinUsViewController.h"
+#import "EditProfileViewController.h"
 
 @interface LoginViewController () <FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet FBLoginView *loginViewFB;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
-
+@property (assign, nonatomic) BOOL inProgress;
 
 - (IBAction)onLogin:(id)sender;
 - (IBAction)onSignUp:(id)sender;
@@ -37,7 +39,9 @@
     // Do any additional setup after loading the view from its nib.
 	
 	// In your viewDidLoad method:
-	//self.loginViewFB.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+	self.loginViewFB.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+	
+	self.inProgress = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,14 +54,39 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
 	NSLog(@"loginViewShowingLoggedInUser");
 	[self showSpinnerWithText:@"Login using Facebook..."];
-	[self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
+	//[self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
 							user:(id<FBGraphUser>)user{
 	
-	NSLog(@"loginViewFetchedUserInfo");
+	if(self.inProgress == YES)
+		return;
+	self.inProgress = YES;
 	
+	PFUser *parseUser = [PFUser user];
+	parseUser.username = user[@"email"];
+	parseUser.password = user[@"id"];
+	parseUser.email = user[@"email"];
+	
+	[parseUser signUpInBackgroundWithBlock: ^(BOOL succeeded, NSError *error) {
+		[SVProgressHUD dismiss];
+		if (succeeded) {
+			NSLog(@"OK");
+			[parseUser setObject:user[@"first_name"] forKey:@"firstName"];
+			[parseUser setObject:user[@"last_name"] forKey:@"lastName"];
+			[parseUser saveInBackground];
+			
+			EditProfileViewController *epvc = [[EditProfileViewController alloc]init];
+			UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:epvc];
+			epvc.firstName =	user[@"first_name"];
+			epvc.lastName =	user[@"last_name"];
+			epvc.email = user[@"email"];
+			[self presentViewController:nvc animated:YES completion:nil];
+		} else {
+			NSLog(@"FAIL");
+		}
+	}];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{

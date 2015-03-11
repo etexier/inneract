@@ -24,11 +24,15 @@
 
 @end
 
+
+
 @implementation JoinUsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+		
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,14 +92,21 @@
 	user.password = self.password.text;
 	user.email = self.emailAddress.text;
 	
+	
 	[user signUpInBackgroundWithBlock: ^(BOOL succeeded, NSError *error) {
 		[SVProgressHUD dismiss];
 		if (succeeded) {
 			NSLog(@"OK");
+			[user setObject:self.firstName.text forKey:@"firstName"];
+			[user setObject:self.lastName.text forKey:@"lastName"];
+			[user saveInBackground];
+			
 			EditProfileViewController *epvc = [[EditProfileViewController alloc]init];
-			epvc.name =	self.firstName.text;
+			UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:epvc];
+			epvc.firstName = self.firstName.text;
+			epvc.lastName =	self.lastName.text;
 			epvc.email = self.emailAddress.text;
-			[self presentViewController:epvc animated:YES completion:nil];
+			[self presentViewController:nvc animated:YES completion:nil];
 		} else {
 			NSLog(@"FAIL");
 		}

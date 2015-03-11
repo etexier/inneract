@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" promptedForUpgradeToXcode5="NO">
+    <dependencies>
+        <development version="5000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComboBox">
+            <connections>
+                <outlet property="textField" destination="4" id="9"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="showPicker:" destination="-1" eventType="touchDown" id="8"/>
+                        <outlet property="delegate" destination="-1" id="10"/>
+                    </connections>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A442583B-68C4-4FD7-8E83-311C84EBDE28" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                    <rect key="frame" x="292" y="5" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="QlH-jS-dkl"/>
+                        <constraint firstAttribute="height" constant="24" id="itj-J9-x7s"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="11"/>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="12"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" id="13"/>
+                <constraint firstItem="5" firstAttribute="top" secondItem="1" secondAttribute="top" constant="5" id="14"/>
+                <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="15"/>
+                <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" constant="4" id="16"/>
+                <constraint firstItem="5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1" secondAttribute="top" constant="5" id="Bsj-zJ-mr3"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5" secondAttribute="trailing" constant="4" id="X9p-dJ-BA9"/>
+                <constraint firstAttribute="bottom" secondItem="5" secondAttribute="bottom" constant="2" id="fbX-X3-CiL"/>
+                <constraint firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="kyL-69-ilP"/>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="xbY-Gx-SBw"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" id="xrx-ie-ZTf"/>
+                <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="z2z-uo-Ugz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="230" y="199.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="A442583B-68C4-4FD7-8E83-311C84EBDE28" width="24" height="24">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
+RkZSZXByZXNlbnRhdGlvboAGgAdPEQymTU0AKgAABsj/////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////+/v79
+/f3////+/v7////9/f329vb+/v7////9/f39/f38/Pz+/v78/Pz////9/f3////6+vr5+fn////+/v7/
+///////////////9/f3+/v7+/v7+/v7i4uKkpKTS0tL////////9/f3+/v79/f3+/v7+/v7////09PS7
+u7uzs7Pz8/P////////////////////9/f3+/v7+/v7Z2dmZmZl1dXWMjIzV1dX////+/v77+/v9/f38
+/Pz////29va4uLiAgIB7e3upqanw8PD////////////+/v7+/v7+/v79/f2ysrJ3d3d/f399fX2IiIjU
+1NT+/v79/f38/Pz9/f319fWtra1+fn5/f399fX1/f3/a2tr////////////9/f3+/v7+/v7////j4+Oj
+o6N4eHiBgYF6enqMjIzc3Nz////+/v74+Pizs7N/f398fHx/f3+EhITBwcH4+Pj/////////////////
+///+/v7+/v7////s7OycnJx8fHx8fHx9fX2NjY3Y2Nj29va3t7d5eXmAgIB8fHx+fn7Gxsb9/f3/////
+///////////////////////////////////j4+OXl5d8fHx/f396enqOjo6srKyBgYF+fn5+fn5+fn62
+trb7+/v////+/v7////////////////////////////////+/v7////q6uqjo6N8fHx+fn6AgIB5eXl+
+fn5+fn6BgYHBwcH5+fn9/f39/f38/Pz////////////////////////////////////9/f3////r6+uf
+n599fX18fHx+fn5+fn6CgoLDw8P6+vr+/v78/Pz8/Pz+/v7////////////////////////////////9
+/f38/Pz8/Pz////r6+uampp7e3t8fHx/f3+6urr39/f////8/Pz9/f3/////////////////////////
+///////////////9/f3+/v7+/v7+/v7////k5OSZmZl8fHy2trb6+vr////9/f3////+/v7////+/v7/
+///////////////////////////////////////////////////////r6+vU1NT39/f+/v7+/v7/////
+///////////////////////////////////////////////////////////////////8/Pz/////////
+///8/Pz+/v7/////////////////////////////////////////////////////////////////////
+///+/v7+/v7+/v7////+/v7+/v7/////////////////////////////////////////////////////
+///////////////////+/v79/f3////9/f3/////////////////////////////////////////////
+///////////////////////////////////////+/v7////+/v7/////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////////8ADQEAAAMAAAABABgAAAEBAAMAAAABABgAAAECAAMAAAADAAAHagED
+AAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAMAAAEW
+AAMAAAABABgAAAEXAAQAAAABAAAGwAEcAAMAAAABAAEAAAFTAAMAAAADAAAHcIdzAAcAAAUwAAAHdgAA
+AAAACAAIAAgAAQABAAEAAAUwYXBwbAIgAABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3NwQVBQTAAA
+AABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkc2NtAAABCAAAAvJkZXNjAAAD/AAAAG9nWFlaAAAEbAAA
+ABR3dHB0AAAEgAAAABRyWFlaAAAElAAAABRiWFlaAAAEqAAAABRyVFJDAAAEvAAAAA5jcHJ0AAAEzAAA
+ADhjaGFkAAAFBAAAACxnVFJDAAAEvAAAAA5iVFJDAAAEvAAAAA5tbHVjAAAAAAAAABEAAAAMZW5VUwAA
+ACYAAAJ+ZXNFUwAAACYAAAGCZGFESwAAAC4AAAHqZGVERQAAACwAAAGoZmlGSQAAACgAAADcZnJGVQAA
+ACgAAAEqaXRJVAAAACgAAAJWbmxOTAAAACgAAAIYbmJOTwAAACYAAAEEcHRCUgAAACYAAAGCc3ZTRQAA
+ACYAAAEEamFKUAAAABoAAAFSa29LUgAAABYAAAJAemhUVwAAABYAAAFsemhDTgAAABYAAAHUcnVSVQAA
+ACIAAAKkcGxQTAAAACwAAALGAFkAbABlAGkAbgBlAG4AIABSAEcAQgAtAHAAcgBvAGYAaQBpAGwAaQBH
+AGUAbgBlAHIAaQBzAGsAIABSAEcAQgAtAHAAcgBvAGYAaQBsAFAAcgBvAGYAaQBsACAARwDpAG4A6QBy
+AGkAcQB1AGUAIABSAFYAQk4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrkBp1KAAgAFIARwBCACCCcl9p
+Y8+P8ABQAGUAcgBmAGkAbAAgAFIARwBCACAARwBlAG4A6QByAGkAYwBvAEEAbABsAGcAZQBtAGUAaQBu
+AGUAcwAgAFIARwBCAC0AUAByAG8AZgBpAGxmbpAaACAAUgBHAEIAIGPPj/Blh072AEcAZQBuAGUAcgBl
+AGwAIABSAEcAQgAtAGIAZQBzAGsAcgBpAHYAZQBsAHMAZQBBAGwAZwBlAG0AZQBlAG4AIABSAEcAQgAt
+AHAAcgBvAGYAaQBlAGzHfLwYACAAUgBHAEIAINUEuFzTDMd8AFAAcgBvAGYAaQBsAG8AIABSAEcAQgAg
+AEcAZQBuAGUAcgBpAGMAbwBHAGUAbgBlAHIAaQBjACAAUgBHAEIAIABQAHIAbwBmAGkAbABlBB4EMQRJ
+BDgEOQAgBD8EQAQ+BEQEOAQ7BEwAIABSAEcAQgBVAG4AaQB3AGUAcgBzAGEAbABuAHkAIABwAHIAbwBm
+AGkAbAAgAFIARwBCAABkZXNjAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAUR2Vu
+ZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAWFlaIAAAAAAAAFp1AACscwAAFzRYWVogAAAAAAAA81IAAQAAAAEWz1hZWiAAAAAAAAB0TQAA
+Pe4AAAPQWFlaIAAAAAAAACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEBzQAAdGV4dAAAAABDb3B5cmlnaHQg
+MjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLgBzZjMyAAAAAAABDEIAAAXe///zJgAA
+B5IAAP2R///7ov///aMAAAPcAADAbNIiIyQlWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcElt
+YWdlUmVwoyYnKF8QEE5TQml0bWFwSW1hZ2VSZXBaTlNJbWFnZVJlcFhOU09iamVjdNIiIyorV05TQXJy
+YXmiKijSIiMtLl5OU011dGFibGVBcnJheaMtKijTMDEJMjM0V05TV2hpdGVcTlNDb2xvclNwYWNlRDAg
+MAAQA4AL0iIjNjdXTlNDb2xvcqI2KNIiIzk6V05TSW1hZ2WiOShfEA9OU0tleWVkQXJjaGl2ZXLRPT5U
+cm9vdIABAAgAEQAaACMALQAyADcARQBLAFQAWwBoAG8AdwB5AH4AgACCAIcAkgCUAJYAmACdAKAAogCk
+AKYAqACtAMQAxgDIDXINdw2CDYsNng2iDbUNwA3JDc4N1g3ZDd4N7Q3xDfgOAA4NDhIOFA4WDhsOIw4m
+DisOMw42DkgOSw5QAAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAADlI
+</mutableData>
+        </image>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
