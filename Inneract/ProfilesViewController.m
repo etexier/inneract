@@ -112,8 +112,7 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ProfileDetailsViewController *detailsVc = [[ProfileDetailsViewController alloc] init];
-    detailsVc.user = (tableView == self.tableView) ? self.objects[(NSUInteger) indexPath.row] : self.searchResults[(NSUInteger) indexPath.row];
+    ProfileDetailsViewController *detailsVc = [[ProfileDetailsViewController alloc] initWithUser:(tableView == self.tableView) ? self.objects[(NSUInteger) indexPath.row] : self.searchResults[(NSUInteger) indexPath.row]];
 
     [self.navigationController pushViewController:detailsVc animated:YES];
 
@@ -220,7 +219,7 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    //[SVProgressHUD show];
+    [SVProgressHUD show];
 }
 
 - (void)objectsDidLoad:(NSError *)error {

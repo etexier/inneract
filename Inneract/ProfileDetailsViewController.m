@@ -26,6 +26,15 @@
 
 @implementation ProfileDetailsViewController
 
+- (instancetype)initWithUser:(PFObject *)user {
+    self = [super init];
+    if (self) {
+        self.user = user;
+    }
+
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -38,6 +47,23 @@
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"label36"] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
+    
+    // thumbnail
+    PFFile *profileFile = [self.user objectForKey:@"profileImage"];
+    if(profileFile) {
+        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                self.profileImage.image = [UIImage imageWithData:data];
+            }
+        }];
+    }
+    
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]];
+    self.designatoinLabel.text = [self.user objectForKey:@"designation"];
+    self.profession.text = [self.user objectForKey:@"profession"];
+    self.profession.sizeToFit;
+    
+    self.aboutButton.titleLabel.text = self.nameLabel.text;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,23 +73,6 @@
 
 - (void)setUser:(PFObject *)user {
     _user = user;
-    
-    // thumbnail
-    PFFile *profileFile = [user objectForKey:@"profileImage"];
-    if(profileFile) {
-        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error) {
-                self.profileImage.image = [UIImage imageWithData:data];
-            }
-        }];
-    }
-    
-    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
-    self.designatoinLabel.text = [user objectForKey:@"designation"];
-    self.profession.text = [user objectForKey:@"profession"];
-    self.profession.sizeToFit;
-    
-    self.aboutButton.titleLabel.text = self.nameLabel.text;
 }
 
 /*
