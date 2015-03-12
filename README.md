@@ -47,36 +47,36 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x] User can log in with IP login
   - [x] and go to feeds page (ip news feeds) upon success​
 - [x] User can log in with FB
-  - [ ] and go to feeds page (ip news feeds) upon success​
+  - [ ] and go to feeds page (ip news feeds) upon success​ (Syed)
 - [x]  User can browse "IpNews" "feeds". Click to show details view with media (video, text, images​, buttons​)
-  - [ ] media and photo gallery support
-  - [ ] support for highlighted feed (different cell)
+  - [ ] media and photo gallery support (Manu)
+  - [ ] support for highlighted feed (different cell) (Manu)
 - [x] User can search feeds/volunteer/classes/profiles
-  - [ ] support for "no matching feed found" (different cell)
-  - [ ] support for global search (on all fields, not only title)
+  - [ ] support for "no matching feed found" (different cell) (Manu)
+  - [ ] support for global search (on all fields, not only title) (Manu)
 - [x] User, typically a volunteer, can browse "Volunteer" news from "feeds" 
   - [x] User can click to show details view, 
-  - [ ] User can apply after filling a form​
+  - [ ] User can apply after filling a form​(Jim)
 - [x] User, typically a parent, can browse "Class" news from "feeds". 
   - [x] User can click to show details view, 
-  - [ ] User can apply after filling a form​
-  - [ ] User can pay 
-- [ ] class, volunteer feeds can be shared 
-- [ ]  class, volunteer feeds can be bookmarked. 
-- [x] User can view her profile,  edit it, and logs out​ 
+  - [ ] User can apply after filling a form (Jim)
+  - [ ] User can pay (stripe/paypal SDK) (Syed)
+- [x] class, volunteer feeds can be shared 
+- [x]  class, volunteer feeds can be bookmarked. 
+- [x] User can view her profile, and log out​ 
+  - [ ] finish edit profile (combo box etc..) (Syed)
 - [x] User can browse people list, click to view details (same as profile but non editable)​
 
 
-### Refinements to be added
-- [ ] support for highlighted feeds with different rendering, paralax
-- [ ] global search
-- [ ] support for media (videos, gallery)
-- [ ] support for user "badge" (ex: gold/silver/bronze user)
-- [ ] use official colors/icons/rendering from Inneract
-- [ ] better layout/look and feel (use Maurice colors and icons too).
-- [ ] do not hide view when loading data
-- [ ] filter existing data for volunteer and classes (do not make again a network call)
-- [ ] 40x40 for share and book mark button, change state for share and bookmark buttons when chosen
+### Bugs
+- [ ] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
+- [ ] global search (Manu)
+- [ ] support for user "badge" (ex: gold/silver/bronze user) (Jim)
+- [ ] use official colors/icons/rendering from Inneract (All)
+- [ ] need real bookmark and share image, change state when clicked, and make it larger (button 40x40) (Syed)
+- [ ] need real image for tab bar (Jim)
+- [ ] filter existing data for volunteer and classes (do not make again a network call) (manu)
+- [ ] do not hide view when loading data, wheel at the top (Syed)
 
 Credits
 ---------
