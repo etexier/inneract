@@ -19,21 +19,13 @@
 										//UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UITextField *professionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *profileLinkEditText;
 @property (weak, nonatomic) IBOutlet UIView *popupView;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *profileTypePicker;
-@property (weak, nonatomic) IBOutlet UIView *comboBoxNew;
 
-@property (weak, nonatomic) IBOutlet UIView *viewForCombo;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UITextField *profileType;
+
 @property (weak, nonatomic) IBOutlet UITextView *professionTextView;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *linkedInTopConstraint;
-
 @property (strong, nonatomic) NSArray *profileNames;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameEdit;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameEdit;
@@ -87,9 +79,6 @@ ComboBox* combo1;
 	self.lastNameEdit.text = self.lastName;
 	self.emailAddressEdit.text = self.email;
 	
-	NSLog(@"name: %@", self.nameLabel.text);
-	NSLog(@"email: %@", self.emailLabel.text);
-	
 	UITapGestureRecognizer *singleFingerTap =
 	[[UITapGestureRecognizer alloc] initWithTarget:self
 											action:@selector(handleSingleTap:)];
@@ -114,16 +103,21 @@ ComboBox* combo1;
 //	NSLog(@"height: %f", combo1.view.frame.size.height);
 //	self.profileType.hidden = YES;
 	
-	self.linkedInTopConstraint.constant = 15;
-	
 	self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
 	[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
-
+	//self.firstNameEdit.enabled = NO;
+	self.firstLastNameEdit.enabled = NO;
+	
 	self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
 	[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
+	self.emailAddressEdit.enabled = NO;
 	
 	self.professionTextView.layer.borderWidth = 1.0f;
 	self.professionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+	
+	UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+	[self.firstLastNameEdit setFont:boldFont];
+	[self.emailAddressEdit setFont:boldFont];
 }
 
 #pragma mark PickerView DataSource
@@ -194,7 +188,7 @@ ComboBox* combo1;
 	// rounded corners
 	CALayer *layer = [self.profileImageView layer];
 	[layer setMasksToBounds:YES];
-	[layer setCornerRadius:25.0];
+	[layer setCornerRadius:32.0];
 
 	PFUser *parseUser = [PFUser currentUser];
 
@@ -235,7 +229,9 @@ ComboBox* combo1;
 		self.lastNameEdit.hidden = NO;
 		
 		self.emailAddressEdit.borderStyle = UITextBorderStyleRoundedRect;
-		
+		self.emailAddressEdit.enabled = YES;
+		self.firstNameEdit.enabled = YES;
+		self.lastNameEdit.enabled = YES;
 	} else if([buttonTitle isEqualToString:@"Save"]){
 		button.enabled = FALSE;
 		[button setTitle:@"Edit" forState:UIControlStateNormal];
@@ -244,12 +240,25 @@ ComboBox* combo1;
 		self.firstLastNameEdit.hidden = NO;
 		self.firstNameEdit.hidden = YES;
 		self.lastNameEdit.hidden = YES;
-
+		self.firstNameEdit.enabled = NO;
+		self.lastNameEdit.enabled = NO;
+		
 		self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
 		[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
+		self.emailAddressEdit.enabled = NO;
 		
 		self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
 		[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
+		self.firstLastNameEdit.enabled = NO;
+		
+		UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+		[self.firstLastNameEdit setFont:boldFont];
+		[self.emailAddressEdit setFont:boldFont];
+		
+		
+		CGRect frameRect = self.emailAddressEdit.frame;
+		frameRect.size.height = 25;
+		self.emailAddressEdit.frame = frameRect;
 		
 		NSString *name = self.firstNameEdit.text;
 		name = [name stringByAppendingString:@" "];
@@ -285,8 +294,6 @@ ComboBox* combo1;
 	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
 	
 	[parseUser saveInBackground];
-	
-
 }
 
 @end
