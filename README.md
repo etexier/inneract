@@ -33,6 +33,24 @@ An app would drastically simplify communication directly from our organization t
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+### Main Features
+- [x] people list, profile details, editing profile
+- [x] login/out, join, create account, login with facebook
+- [x] feeds, feeds details, share and bookmark
+- [ ] form/payments (deferred as initial design is not mobile friendly (thinking of leveraging typeform)
+
+### Refinements to be added
+- [ ] support for highlighted feeds with different rendering, paralax
+- [ ] support for media (videos, gallery)
+- [ ] support for user "badge" (ex: gold/silver/bronze user)
+- [ ] use official colors/icons/rendering from Inneract
+- [ ] better layout/look and feel
+- 
+Credits
+---------
+* [Facebook API](https://developers.facebook.com/)
+* [Parse API] (https://www.parse.com/docs/ios_guide)
+
 ## Q&A
 - What are the target devices?
    for the moment, app is for iPhone only
