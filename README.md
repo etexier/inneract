@@ -51,6 +51,8 @@ Credits
 ---------
 * [Facebook API](https://developers.facebook.com/)
 * [Parse API] (https://www.parse.com/docs/ios_guide)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+* [SVProgressHUD](https://github.com/TransitApp/SVProgressHUD)
 
 ## Q&A
 - What are the target devices?
