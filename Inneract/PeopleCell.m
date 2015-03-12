@@ -8,6 +8,7 @@
 
 #import "PeopleCell.h"
 #import "IPShareManager.h"
+#import "IPColors.h"
 
 @interface PeopleCell()
 
@@ -53,6 +54,10 @@
     
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
     [self.shareImage addGestureRecognizer:shareTap];
+    
+    self.nameLabel.textColor = ipPrimaryMidnightBlue;
+    self.designationLabel.textColor = ipPrimaryMidnightBlue;
+    self.professionLabel.textColor = ipPrimaryMidnightBlue;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

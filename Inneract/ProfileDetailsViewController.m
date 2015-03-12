@@ -9,6 +9,7 @@
 #import "ProfileDetailsViewController.h"
 #import "IPShareManager.h"
 #import "EditProfileViewController.h"
+#import "IPColors.h"
 
 @interface ProfileDetailsViewController ()
 
@@ -85,8 +86,11 @@
     self.profession.text = [self.user objectForKey:@"profession"];
     self.profession.sizeToFit;
     
-
     [self.aboutButton setTitle:[NSString stringWithFormat:@"About %@", self.nameLabel.text] forState:UIControlStateNormal];
+    
+    self.nameLabel.textColor = ipPrimaryMidnightBlue;
+    self.designatoinLabel.textColor = ipPrimaryMidnightBlue;
+    self.profession.textColor = ipPrimaryMidnightBlue;
 }
 
 - (void)didReceiveMemoryWarning {
