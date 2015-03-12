@@ -260,16 +260,17 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     [self filterQuery:titleQuery];
     [titleQuery whereKey:@"title" containsString:searchTerm];
 
-    // search in summary
-    PFQuery *summaryQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [self filterQuery:summaryQuery];
-    [titleQuery whereKey:@"summary" containsString:searchTerm];
-
-    // or' queries
-    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[titleQuery, summaryQuery]];
-
-    NSArray *results = [mainQuery findObjects];
-    NSLog(@"%@", results);
+//    // search in summary
+//    PFQuery *summaryQuery = [PFQuery queryWithClassName:self.parseClassName];
+//    [self filterQuery:summaryQuery];
+//    [titleQuery whereKey:@"summary" containsString:searchTerm];
+//
+//    // or' queries
+//    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[titleQuery, summaryQuery]];
+//
+//    NSArray *results = [mainQuery findObjects];
+    NSArray *results = [titleQuery findObjects];
+//    NSLog(@"%@", results);
     NSLog(@"%lu", (unsigned long)results.count);
 
     [self.searchResults removeAllObjects];
