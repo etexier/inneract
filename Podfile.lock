@@ -23,9 +23,6 @@ PODS:
   - Bolts (1.1.4)
   - Facebook-iOS-SDK (3.23.0):
     - Bolts (~> 1.0)
-  - Mantle (1.5.4):
-    - Mantle/extobjc (= 1.5.4)
-  - Mantle/extobjc (1.5.4)
   - Parse (1.6.4):
     - Bolts (~> 1.1)
   - ParseCrashReporting (1.6.4):
@@ -37,29 +34,24 @@ PODS:
     - Parse (~> 1.6)
     - ParseFacebookUtils (~> 1.6)
   - SVProgressHUD (1.1.2)
-  - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking
   - Facebook-iOS-SDK
-  - Mantle
   - Parse
   - ParseCrashReporting
   - ParseFacebookUtils
   - ParseUI
   - SVProgressHUD
-  - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   Facebook-iOS-SDK: 3d65f685348b789e46a9aacf92bfa85b60b63755
-  Mantle: d5fbaf30fbc58031223af13812c060e15934a1fe
   Parse: c2610f7a12ad0defc974803b819c4efe7746e6db
   ParseCrashReporting: 8be6e6000eb8dbcde9e077674f561ecda78df6a8
   ParseFacebookUtils: 00833ccf6fec7d6429e2403fe457496a5089358b
   ParseUI: f7e9e0e5271f75a19c74ead8fdd95d36160e268e
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
-  SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
 
 COCOAPODS: 0.35.0

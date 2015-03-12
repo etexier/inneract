@@ -60,18 +60,6 @@
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 23
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 0
 
-// Mantle
-#define COCOAPODS_POD_AVAILABLE_Mantle
-#define COCOAPODS_VERSION_MAJOR_Mantle 1
-#define COCOAPODS_VERSION_MINOR_Mantle 5
-#define COCOAPODS_VERSION_PATCH_Mantle 4
-
-// Mantle/extobjc
-#define COCOAPODS_POD_AVAILABLE_Mantle_extobjc
-#define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 1
-#define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
-#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 4
-
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1
@@ -101,10 +89,4 @@
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 2
-
-// SVPullToRefresh
-#define COCOAPODS_POD_AVAILABLE_SVPullToRefresh
-#define COCOAPODS_VERSION_MAJOR_SVPullToRefresh 0
-#define COCOAPODS_VERSION_MINOR_SVPullToRefresh 4
-#define COCOAPODS_VERSION_PATCH_SVPullToRefresh 1
 
