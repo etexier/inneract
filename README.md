@@ -65,6 +65,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x]  class, volunteer feeds can be bookmarked. 
 - [x] User can view her profile, and log out​ 
   - [ ] finish edit profile (combo box etc..) (Syed)
+  - [ ] user can get see her activities (Need to ask Maurice: Manu)
 - [x] User can browse people list, click to view details (same as profile but non editable)​
 
 
