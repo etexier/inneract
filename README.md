@@ -53,7 +53,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
   - [ ] support for highlighted feed (different cell)
 - [x] User can search feeds/volunteer/classes/profiles
   - [ ] support for "no matching feed found" (different cell)
-  - [ ] support for global cell (on all fields, not only title)
+  - [ ] support for global search (on all fields, not only title)
 - [x] User, typically a volunteer, can browse "Volunteer" news from "feeds" 
   - [x] User can click to show details view, 
   - [ ] User can apply after filling a form​
@@ -73,9 +73,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [ ] support for media (videos, gallery)
 - [ ] support for user "badge" (ex: gold/silver/bronze user)
 - [ ] use official colors/icons/rendering from Inneract
-- [ ] better layout/look and feel
+- [ ] better layout/look and feel (use Maurice colors and icons too).
 - [ ] do not hide view when loading data
-- [ ] filter existing data for volunteer and classes
+- [ ] filter existing data for volunteer and classes (do not make again a network call)
 - [ ] 40x40 for share and book mark button, change state for share and bookmark buttons when chosen
 
 Credits
