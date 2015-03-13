@@ -74,8 +74,6 @@ ComboBox* combo1;
         self.email = [self.user valueForKey:@"email"];
         self.profileLinkEditText.text = [self.user valueForKey:@"profileLink"];
         self.professionTextView.text = [self.user valueForKey:@"profession"];
-<<<<<<< HEAD
-
 
 		
 //		[self showEditMode:YES];
@@ -88,9 +86,6 @@ ComboBox* combo1;
 	} else {
 		self.finishedButton.hidden = NO;
 	}
-=======
-    }
->>>>>>> origin/master
 	
 	self.firstNameEdit.text = self.firstName;
 	self.lastNameEdit.text = self.lastName;
