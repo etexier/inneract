@@ -47,6 +47,8 @@
 //                self.profileImage.image = [UIImage imageWithData:data];
 //            }
 //        }];
+    } else {
+        self.profileImage.image = [UIImage imageNamed:@"user"];
     }
 
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
