@@ -11,6 +11,7 @@
 #import "EditProfileViewController.h"
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
+<<<<<<< HEAD
 
 
 
@@ -20,6 +21,8 @@
 #import "UIImageView+AFNetworking.h"
 
 
+=======
+>>>>>>> origin/master
 
 @interface ProfileDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIView *confirmPopupView;
@@ -134,11 +137,14 @@
     self.profession.sizeToFit;
     
     [self.aboutButton setTitle:[NSString stringWithFormat:@"About %@", self.nameLabel.text] forState:UIControlStateNormal];
+<<<<<<< HEAD
 	
 	UITapGestureRecognizer *singleFingerTap =
 	[[UITapGestureRecognizer alloc] initWithTarget:self
 											action:@selector(handleSingleTap:)];
 	[self.confirmPopupView addGestureRecognizer:singleFingerTap];
+=======
+>>>>>>> origin/master
     
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
     self.designatoinLabel.textColor = ipPrimaryMidnightBlue;
