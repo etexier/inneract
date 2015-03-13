@@ -70,7 +70,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 
 ### Bugs
-- [ ] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
+- [X] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
 - [ ] global search (Manu)
 - [ ] support for user "badge" (ex: gold/silver/bronze user) (Jim)
 - [ ] use official colors/icons/rendering from Inneract (All)
