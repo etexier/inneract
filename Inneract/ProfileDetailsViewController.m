@@ -10,6 +10,7 @@
 #import "IPShareManager.h"
 #import "EditProfileViewController.h"
 #import "IPColors.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ProfileDetailsViewController ()
 
@@ -74,11 +75,12 @@
     // thumbnail
     PFFile *profileFile = [self.user objectForKey:@"profileImage"];
     if(profileFile) {
-        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error) {
-                self.profileImage.image = [UIImage imageWithData:data];
-            }
-        }];
+        [self.profileImage setImageWithURL:[NSURL URLWithString:profileFile.url]];
+//        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//            if (!error) {
+//                self.profileImage.image = [UIImage imageWithData:data];
+//            }
+//        }];
     }
     
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]];

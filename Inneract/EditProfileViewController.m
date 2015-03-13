@@ -48,7 +48,7 @@ ComboBox* combo1;
 }
 
 + (instancetype)controllerWithUser:(PFObject *)user {
-    return [[self alloc] initWithUser:user];
+    return [[EditProfileViewController alloc] initWithUser:user];
 }
 
 
@@ -72,7 +72,7 @@ ComboBox* combo1;
         self.lastName = [self.user valueForKey:@"lastName"];
         self.email = [self.user valueForKey:@"email"];
         self.profileLinkEditText.text = [self.user valueForKey:@"profileLink"];
-        self.professionTextField.text = [self.user valueForKey:@"profession"];
+        self.professionTextView.text = [self.user valueForKey:@"profession"];
     }
 	
 	self.firstNameEdit.text = self.firstName;

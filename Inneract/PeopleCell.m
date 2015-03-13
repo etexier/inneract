@@ -9,6 +9,7 @@
 #import "PeopleCell.h"
 #import "IPShareManager.h"
 #import "IPColors.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PeopleCell()
 
@@ -40,11 +41,12 @@
     // thumbnail
     PFFile *profileFile = [user objectForKey:@"profileImage"];
     if(profileFile) {
-        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error) {
-                self.profileImage.image = [UIImage imageWithData:data];
-            }
-        }];
+        [self.profileImage setImageWithURL:[NSURL URLWithString:profileFile.url]];
+//        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//            if (!error) {
+//                self.profileImage.image = [UIImage imageWithData:data];
+//            }
+//        }];
     }
 
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
