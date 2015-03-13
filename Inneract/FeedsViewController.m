@@ -129,8 +129,6 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
         self.navigationItem.titleView = segmentedControl;
         segmentedControl.selectedSegmentIndex = 0;
     }
-
-
 }
 
 - (void)initSearchBar {

@@ -8,6 +8,8 @@
 
 #import "PeopleCell.h"
 #import "IPShareManager.h"
+#import "IPColors.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PeopleCell()
 
@@ -39,11 +41,14 @@
     // thumbnail
     PFFile *profileFile = [user objectForKey:@"profileImage"];
     if(profileFile) {
-        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error) {
-                self.profileImage.image = [UIImage imageWithData:data];
-            }
-        }];
+        [self.profileImage setImageWithURL:[NSURL URLWithString:profileFile.url]];
+//        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//            if (!error) {
+//                self.profileImage.image = [UIImage imageWithData:data];
+//            }
+//        }];
+    } else {
+        self.profileImage.image = [UIImage imageNamed:@"user"];
     }
 
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
@@ -53,6 +58,10 @@
     
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
     [self.shareImage addGestureRecognizer:shareTap];
+    
+    self.nameLabel.textColor = ipPrimaryMidnightBlue;
+    self.designationLabel.textColor = ipPrimaryMidnightBlue;
+    self.professionLabel.textColor = ipPrimaryMidnightBlue;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

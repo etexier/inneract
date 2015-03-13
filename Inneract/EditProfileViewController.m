@@ -12,6 +12,7 @@
 
 #import "ComboBox.h"
 #import "EditProfileViewController.h"
+#import "ProfileDetailsViewController.h"
 
 @interface EditProfileViewController () <UIImagePickerControllerDelegate,
 										UINavigationControllerDelegate>
@@ -20,7 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITextField *profileLinkEditText;
-@property (weak, nonatomic) IBOutlet UIView *popupView;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *profileTypePicker;
 
@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameEdit;
 @property (weak, nonatomic) IBOutlet UITextField *firstLastNameEdit;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressEdit;
+@property (weak, nonatomic) IBOutlet UIButton *finishedButton;
 
 @end
 
@@ -48,7 +49,7 @@ ComboBox* combo1;
 }
 
 + (instancetype)controllerWithUser:(PFObject *)user {
-    return [[self alloc] initWithUser:user];
+    return [[EditProfileViewController alloc] initWithUser:user];
 }
 
 
@@ -72,21 +73,30 @@ ComboBox* combo1;
         self.lastName = [self.user valueForKey:@"lastName"];
         self.email = [self.user valueForKey:@"email"];
         self.profileLinkEditText.text = [self.user valueForKey:@"profileLink"];
-        self.professionTextField.text = [self.user valueForKey:@"profession"];
-    }
+        self.professionTextView.text = [self.user valueForKey:@"profession"];
+
+
+		
+//		[self showEditMode:YES];
+		// rounded corners
+		CALayer *layer = [self.profileImageView layer];
+		[layer setMasksToBounds:YES];
+		[layer setCornerRadius:32.0];
+		
+		self.finishedButton.hidden = YES;
+	} else {
+		self.finishedButton.hidden = NO;
+	}
 	
 	self.firstNameEdit.text = self.firstName;
 	self.lastNameEdit.text = self.lastName;
 	self.emailAddressEdit.text = self.email;
 	
-	UITapGestureRecognizer *singleFingerTap =
-	[[UITapGestureRecognizer alloc] initWithTarget:self
-											action:@selector(handleSingleTap:)];
-	[self.popupView addGestureRecognizer:singleFingerTap];
+
 	
 	self.profileNames = @[@"IP Teacher/TA", @"Parent/Guardian",
-					  @"Follower"];
-	
+						  @"Follower"];
+	[self showEditMode:YES];
 	
 //	NSMutableArray* profileTypeArray = [[NSMutableArray alloc] init];
 //	[profileTypeArray addObject:@"IP Teacher/TA"];
@@ -103,21 +113,24 @@ ComboBox* combo1;
 //	NSLog(@"height: %f", combo1.view.frame.size.height);
 //	self.profileType.hidden = YES;
 	
-	self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
-	[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
-	//self.firstNameEdit.enabled = NO;
-	self.firstLastNameEdit.enabled = NO;
 	
-	self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
-	[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
-	self.emailAddressEdit.enabled = NO;
-	
-	self.professionTextView.layer.borderWidth = 1.0f;
-	self.professionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-	
-	UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
-	[self.firstLastNameEdit setFont:boldFont];
-	[self.emailAddressEdit setFont:boldFont];
+//	self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
+//	[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
+//	self.firstLastNameEdit.enabled = NO;
+//	NSString *name = self.firstNameEdit.text;
+//	name = [name stringByAppendingString:@" "];
+//	self.firstLastNameEdit.text = [name stringByAppendingString:self.lastNameEdit.text];
+//	
+//	self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
+//	[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
+//	self.emailAddressEdit.enabled = NO;
+//	
+//	self.professionTextView.layer.borderWidth = 1.0f;
+//	self.professionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+//	
+//	UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+//	[self.firstLastNameEdit setFont:boldFont];
+//	[self.emailAddressEdit setFont:boldFont];
 }
 
 #pragma mark PickerView DataSource
@@ -159,10 +172,7 @@ ComboBox* combo1;
 	return YES;
 }
 
-//The event handling method
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-	[self.popupView setHidden:YES];
-}
+
 
 -(void) onCancelButton {
 	[self dismissViewControllerAnimated:YES completion:nil];
@@ -196,7 +206,7 @@ ComboBox* combo1;
 	NSData* data = UIImageJPEGRepresentation(self.profileImageView.image, 0.5f);
 	PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
 
-	// Save the image to ParsE
+	// Save the image to Parse
 	//http://stackoverflow.com/questions/18839834/how-to-upload-an-image-to-parse-com-from-uiimageview
 	[imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (!error) {
@@ -215,6 +225,28 @@ ComboBox* combo1;
 	}];
 }
 
+-(void) showEditMode:(BOOL) mode{
+	self.firstLastNameEdit.hidden = mode;
+	self.firstNameEdit.hidden = !mode;
+	self.lastNameEdit.hidden = !mode;
+	
+	if(mode == YES){
+		self.emailAddressEdit.borderStyle = UITextBorderStyleRoundedRect;
+	}
+	else {
+		self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
+		[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
+	}
+	
+	self.emailAddressEdit.enabled = mode;
+	self.firstNameEdit.enabled = mode;
+	self.lastNameEdit.enabled = mode;
+	
+	self.professionTextView.layer.borderWidth = 1.0f;
+	self.professionTextView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+
+}
+
 - (IBAction)onEdit:(UIButton *)sender {
 	UIButton *button = (UIButton *)sender;
 	NSString *buttonTitle = button.currentTitle;
@@ -223,54 +255,56 @@ ComboBox* combo1;
 		button.enabled = FALSE;
 		[button setTitle:@"Save" forState:UIControlStateNormal];
 		button.enabled = TRUE;
-		
-		self.firstLastNameEdit.hidden = YES;
-		self.firstNameEdit.hidden = NO;
-		self.lastNameEdit.hidden = NO;
-		
-		self.emailAddressEdit.borderStyle = UITextBorderStyleRoundedRect;
-		self.emailAddressEdit.enabled = YES;
-		self.firstNameEdit.enabled = YES;
-		self.lastNameEdit.enabled = YES;
+		[self showEditMode:YES];
+//
+//		self.firstLastNameEdit.hidden = YES;
+//		self.firstNameEdit.hidden = NO;
+//		self.lastNameEdit.hidden = NO;
+//		
+//		self.emailAddressEdit.borderStyle = UITextBorderStyleRoundedRect;
+//		self.emailAddressEdit.enabled = YES;
+//		self.firstNameEdit.enabled = YES;
+//		self.lastNameEdit.enabled = YES;
 	} else if([buttonTitle isEqualToString:@"Save"]){
 		button.enabled = FALSE;
 		[button setTitle:@"Edit" forState:UIControlStateNormal];
 		button.enabled = TRUE;
+		[self showEditMode:NO];
 		
-		self.firstLastNameEdit.hidden = NO;
-		self.firstNameEdit.hidden = YES;
-		self.lastNameEdit.hidden = YES;
-		self.firstNameEdit.enabled = NO;
-		self.lastNameEdit.enabled = NO;
-		
-		self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
-		[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
-		self.emailAddressEdit.enabled = NO;
-		
-		self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
-		[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
-		self.firstLastNameEdit.enabled = NO;
-		
-		UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
-		[self.firstLastNameEdit setFont:boldFont];
-		[self.emailAddressEdit setFont:boldFont];
-		
-		
-		CGRect frameRect = self.emailAddressEdit.frame;
-		frameRect.size.height = 25;
-		self.emailAddressEdit.frame = frameRect;
-		
-		NSString *name = self.firstNameEdit.text;
-		name = [name stringByAppendingString:@" "];
-		self.firstLastNameEdit.text = [name stringByAppendingString:self.lastNameEdit.text];
+//		self.firstLastNameEdit.hidden = NO;
+//		self.firstNameEdit.hidden = YES;
+//		self.lastNameEdit.hidden = YES;
+//		self.firstNameEdit.enabled = NO;
+//		self.lastNameEdit.enabled = NO;
+//		
+//		self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
+//		[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
+//		self.emailAddressEdit.enabled = NO;
+//		
+//		self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
+//		[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
+//		self.firstLastNameEdit.enabled = NO;
+//		
+//		UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
+//		[self.firstLastNameEdit setFont:boldFont];
+//		[self.emailAddressEdit setFont:boldFont];
+//		
+//		
+//		CGRect frameRect = self.emailAddressEdit.frame;
+//		frameRect.size.height = 25;
+//		self.emailAddressEdit.frame = frameRect;
+//		
+//		NSString *name = self.firstNameEdit.text;
+//		name = [name stringByAppendingString:@" "];
+//		self.firstLastNameEdit.text = [name stringByAppendingString:self.lastNameEdit.text];
 
 		// add a check, if data is changed then save it.
-		PFUser *parseUser = [PFUser currentUser];
-		[parseUser setObject:self.firstNameEdit.text forKey:@"firstName"];
-		[parseUser setObject:self.lastNameEdit.text forKey:@"lastName"];
-		[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
+//		PFUser *parseUser = [PFUser currentUser];
+//		[parseUser setObject:self.firstNameEdit.text forKey:@"firstName"];
+//		[parseUser setObject:self.lastNameEdit.text forKey:@"lastName"];
+//		[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
 		
-		[parseUser saveInBackground];
+//		[parseUser saveInBackground];
 	}
 }
 
@@ -286,14 +320,21 @@ ComboBox* combo1;
 - (IBAction)onFinished:(UIButton *)sender {
 	if([self validateInput] == NO)
 		return;
-	
-	[self.popupView setHidden:NO];
 
 	PFUser *parseUser = [PFUser currentUser];
+	[parseUser setObject:self.firstNameEdit.text forKey:@"firstName"];
+	[parseUser setObject:self.lastNameEdit.text forKey:@"lastName"];
+	[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
 	[parseUser setObject:self.profileLinkEditText.text forKey:@"profileLink"];
 	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
 	
 	[parseUser saveInBackground];
+	
+	// finished button will be visible only when we will land here view account creation.
+	ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] initWithUser:parseUser fromAccountCreation:YES];
+	UINavigationController *profileNvc = [[UINavigationController alloc] initWithRootViewController:profileVc];
+	profileVc.title = @"My Profile";
+	[self presentViewController:profileNvc animated:YES completion:nil];
 }
 
 @end

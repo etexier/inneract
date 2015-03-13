@@ -80,12 +80,34 @@
 			
 			EditProfileViewController *epvc = [[EditProfileViewController alloc]init];
 			UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:epvc];
+
 			epvc.firstName =	user[@"first_name"];
 			epvc.lastName =	user[@"last_name"];
 			epvc.email = user[@"email"];
+			
 			[self presentViewController:nvc animated:YES completion:nil];
-		} else {
-			NSLog(@"FAIL");
+		} else if([error.userInfo[@"code"] intValue]== 202){
+			NSLog(@"FAIL: %@", error.userInfo);
+			[self showSpinnerWithText:@"Login..."];
+			
+			//User is already signed up. We will try to login as using FB credentials.
+			[PFUser logInWithUsernameInBackground:user[@"email"] password:user[@"id"]
+											block:^(PFUser *user, NSError *error) {
+				if (user) {
+					// TODO save current user in UserDefaults
+					[self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
+				} else {
+					// The login failed. Check error to see why.
+					UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Login Failed"
+							   message:@"Please check your username and password are correct"
+							  delegate:self
+					 cancelButtonTitle:@"OK"
+					 otherButtonTitles:nil];
+					[theAlert show];
+				}
+            
+				[SVProgressHUD dismiss];
+			}];
 		}
 	}];
 }

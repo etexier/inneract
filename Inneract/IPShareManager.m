@@ -24,6 +24,10 @@
 }
 
 - (void) shareItemWithTitle:(NSString *) title andUrl:(NSString *) url fromViewController:(UIViewController *) viewController {
+    if(!url) {
+        return;
+    }
+    
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[title, [NSURL URLWithString:url]]
                                       applicationActivities:nil];
     [viewController presentViewController:activityViewController

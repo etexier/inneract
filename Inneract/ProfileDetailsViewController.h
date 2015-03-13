@@ -14,5 +14,5 @@
 @property (nonatomic, strong) PFObject *user;
 
 - (instancetype)initWithUser:(PFObject *)user;
-
+- (instancetype)initWithUser:(PFObject *)user fromAccountCreation:(BOOL) fromAccountCreation;
 @end
