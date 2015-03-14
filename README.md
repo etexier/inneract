@@ -2,11 +2,11 @@
 
 ## About Inneract
 *  Who we are: 
-Our mission is to increase underserved students’ access to design, through free design education, resources and new career opportunities. We believe that by surfacing pathways to the field of design and providing professional mentorship, we can boost student success, ultimately leading to an increase in diversity in design and technology. To achieve this, we engage practicing designers and other professionals to teach students about their respective disciplines. 
+  * Our mission is to increase underserved students’ access to design, through free design education, resources and new career opportunities. We believe that by surfacing pathways to the field of design and providing professional mentorship, we can boost student success, ultimately leading to an increase in diversity in design and technology. To achieve this, we engage practicing designers and other professionals to teach students about their respective disciplines. 
 * We need an app to…
- Allow our team to communicate with volunteers, parents and the gener lnneract Project
+  * Allow our team to communicate with volunteers, parents and the gener lnneract Project
 * Why this app will make a meaningful impact for us: 
-An app would drastically simplify communication directly from our organization to our stakeholders. It would strengthen and increase our network and helps our team work more efficiently by providing a simple solution to managing interested volunteers and parents. 
+  * An app would drastically simplify communication directly from our organization to our stakeholders. It would strengthen and increase our network and helps our team work more efficiently by providing a simple solution to managing interested volunteers and parents. 
 * App Audience: 
    * Volunteers 
    * Parents 
@@ -25,7 +25,7 @@ An app would drastically simplify communication directly from our organization t
    Models implemented, backed by Parse. Can achieve the use cases. May be visually simple using stock controls and navigation.
 - [ ] __Milestone 3: (due March 18): Iteration sprint.__
    Start adding visual polish, augment and basic user stories with additional features.
-- [ ] __Milestone 4: (due March 25): Polish sprint. __
+- [ ] __Milestone 4: (due March 25): Polish sprint.__
    Add final visual polish, add any bells and whistles (custom transitions, WatchKit integration, Push notification, etc).
 
 ### Walkthrough
@@ -49,8 +49,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x] User can log in with FB
   - [ ] and go to feeds page (ip news feeds) upon success​ (Syed)
 - [x]  User can browse "IpNews" "feeds". Click to show details view with media (video, text, images​, buttons​)
-  - [ ] media and photo gallery support (Manu)
-  - [ ] support for highlighted feed (different cell) (Manu)
+  - [ ] media and photo gallery support (Manu). Try with: https://vimeo.com/109561086 and https://vimeo.com/109933873
+  - [ ] support for highlighted feed (different cell) (Manu). Will need paging controller where all highlighted feed are on top. See specs sheet for details.
+  - [ ] Need optional support for list of videos/articles within details view
+  - [ ] need support for RSVP (with link to EventBrite for instance)badge
 - [x] User can search feeds/volunteer/classes/profiles
   - [ ] support for "no matching feed found" (different cell) (Manu)
   - [ ] support for global search (on all fields, not only title) (Manu)
@@ -73,6 +75,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [X] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
 - [ ] global search (Manu)
 - [ ] support for user "badge" (ex: gold/silver/bronze user) (Jim)
+  - [ ] see spec sheet, no badge but ability to give points. Based on number of points the border of the profile will change color.
 - [ ] use official colors/icons/rendering from Inneract (All)
 - [ ] need real bookmark and share image, change state when clicked, and make it larger (button 40x40) (Syed)
 - [ ] need real image for tab bar (Jim)
