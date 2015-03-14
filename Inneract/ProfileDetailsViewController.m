@@ -97,12 +97,13 @@
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
-	
 	[self.confirmPopupView setHidden:YES];
 	
     if(!self.isSelfProfile) {
         self.editProfileButton.hidden = YES;
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
+
 		if(self.fromAccountCreation){
 			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"EditProfile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
 			
