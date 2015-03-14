@@ -12,7 +12,6 @@
 #import <Parse/PFQuery.h>
 #import "IPShareManager.h"
 #import "IPColors.h"
-#import <SVProgressHUD.h>
 
 NSString *const kFeedCellNibId = @"FeedCell";
 
@@ -296,20 +295,15 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
         default:
             break;
     }
-
-    [SVProgressHUD show];
     [self loadObjects];
 }
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    //[SVProgressHUD show];
 }
 
 - (void)objectsDidLoad:(NSError *)error {
    [super objectsDidLoad:error];
-
-    [SVProgressHUD dismiss];
 }
 
 #pragma mark - feed cell protocol
