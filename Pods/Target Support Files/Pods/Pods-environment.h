@@ -90,3 +90,15 @@
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 2
 
+// Stripe/Core
+#define COCOAPODS_POD_AVAILABLE_Stripe_Core
+#define COCOAPODS_VERSION_MAJOR_Stripe_Core 3
+#define COCOAPODS_VERSION_MINOR_Stripe_Core 1
+#define COCOAPODS_VERSION_PATCH_Stripe_Core 0
+
+// stripe
+#define COCOAPODS_POD_AVAILABLE_stripe
+#define COCOAPODS_VERSION_MAJOR_stripe 3
+#define COCOAPODS_VERSION_MINOR_stripe 1
+#define COCOAPODS_VERSION_PATCH_stripe 0
+

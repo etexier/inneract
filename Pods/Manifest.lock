@@ -33,6 +33,9 @@ PODS:
   - ParseUI (1.1.1):
     - Parse (~> 1.6)
     - ParseFacebookUtils (~> 1.6)
+  - Stripe (3.1.0):
+    - Stripe/Core (= 3.1.0)
+  - Stripe/Core (3.1.0)
   - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
@@ -42,6 +45,7 @@ DEPENDENCIES:
   - ParseCrashReporting
   - ParseFacebookUtils
   - ParseUI
+  - stripe
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -52,6 +56,7 @@ SPEC CHECKSUMS:
   ParseCrashReporting: 8be6e6000eb8dbcde9e077674f561ecda78df6a8
   ParseFacebookUtils: 00833ccf6fec7d6429e2403fe457496a5089358b
   ParseUI: f7e9e0e5271f75a19c74ead8fdd95d36160e268e
+  Stripe: aaa174b50fac40a16958cbc892457a241d0b4b08
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 
 COCOAPODS: 0.35.0

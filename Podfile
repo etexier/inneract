@@ -2,6 +2,8 @@ platform :ios, '7.0'
 
 pod 'AFNetworking'
 pod 'SVProgressHUD'
+pod 'stripe'
+
 #pod 'Mantle'
 #pod 'SVPullToRefresh'
 
