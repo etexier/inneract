@@ -13,14 +13,17 @@
 #import "ComboBox.h"
 #import "EditProfileViewController.h"
 #import "ProfileDetailsViewController.h"
+#import "NIDropDown.h"
+
 
 @interface EditProfileViewController () <UIImagePickerControllerDelegate,
-										UINavigationControllerDelegate>
-										//UIPickerViewDelegate,
+										UINavigationControllerDelegate,
+										NIDropDownDelegate>
 										//UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITextField *profileLinkEditText;
+@property (weak, nonatomic) IBOutlet UIButton *profileSelectButton;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *profileTypePicker;
 
@@ -33,9 +36,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressEdit;
 @property (weak, nonatomic) IBOutlet UIButton *finishedButton;
 
+
 @end
 
 ComboBox* combo1;
+NIDropDown *dropDown;
 
 @implementation EditProfileViewController
 
@@ -60,6 +65,12 @@ ComboBox* combo1;
 	//self.profileTypePicker.delegate = self;
 	//self.profileTypePicker.dataSource = self;
 
+	// Do any additional setup after loading the view from its nib.
+	self.profileSelectButton.layer.borderWidth = 1;
+	self.profileSelectButton.layer.borderColor = [[UIColor blackColor] CGColor];
+	self.profileSelectButton.layer.cornerRadius = 5;
+	
+	
     if(self.user) {
         PFFile *profileFile = [self.user objectForKey:@"profileImage"];
         if(profileFile) {
@@ -74,8 +85,10 @@ ComboBox* combo1;
         self.email = [self.user valueForKey:@"email"];
         self.profileLinkEditText.text = [self.user valueForKey:@"profileLink"];
         self.professionTextView.text = [self.user valueForKey:@"profession"];
-
+		//self.profileSelectButton.titleLabel.text = [self.user objectForKey:@"userType"];
+		[self.profileSelectButton setTitle: [self.user objectForKey:@"userType"] forState: UIControlStateNormal];
 		
+		NSLog(@"%@", [self.user objectForKey:@"userType"]);
 //		[self showEditMode:YES];
 		// rounded corners
 		CALayer *layer = [self.profileImageView layer];
@@ -90,6 +103,7 @@ ComboBox* combo1;
 		
 	} else {
 		self.finishedButton.hidden = NO;
+		[self.profileSelectButton setTitle: @"Select a profile type *" forState: UIControlStateNormal];
 	}
 	
 	self.firstNameEdit.text = self.firstName;
@@ -147,6 +161,7 @@ ComboBox* combo1;
 	[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
 	[parseUser setObject:self.profileLinkEditText.text forKey:@"profileLink"];
 	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
+	[parseUser setObject:self.profileSelectButton.titleLabel.text forKey:@"userType"];
 	
 	[parseUser saveInBackground];
 	
@@ -291,5 +306,22 @@ ComboBox* combo1;
 	profileVc.title = @"My Profile";
 	[self presentViewController:profileNvc animated:YES completion:nil];
 }
+
+- (IBAction)selectedClicked:(UIButton *)sender {
+	if(dropDown == nil) {
+		CGFloat f = 120;
+		dropDown = [[NIDropDown alloc]showDropDown:sender :&f :self.profileNames :nil :@"down"];
+		dropDown.delegate = self;
+	}
+	else {
+		[dropDown hideDropDown:sender];
+		dropDown = nil;
+	}
+}
+
+- (void) niDropDownDelegateMethod: (NIDropDown *) sender {
+	dropDown = nil;
+}
+
 
 @end
