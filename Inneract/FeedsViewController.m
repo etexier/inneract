@@ -115,7 +115,8 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
     if(!self.isForBookmark) {
         UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
         //[statFilter setSegmentedControlStyle:UISegmentedControlStyleBar];
-        [segmentedControl sizeToFit];
+        segmentedControl.frame = CGRectMake(0, 22, [UIScreen mainScreen].bounds.size.width, 40);
+        //[segmentedControl sizeToFit];
         [segmentedControl addTarget:self action:@selector(categoryDidSelected:) forControlEvents:UIControlEventValueChanged];
 
         NSDictionary *attributesNormalState = @{NSForegroundColorAttributeName : ipPrimaryMidnightBlue};
@@ -127,6 +128,7 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
         segmentedControl.tintColor = ipPrimaryOrange;
 
         self.navigationItem.titleView = segmentedControl;
+
         segmentedControl.selectedSegmentIndex = 0;
     }
 }

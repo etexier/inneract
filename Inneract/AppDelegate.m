@@ -64,6 +64,7 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 //    self.window.rootViewController = nvc;
     // feed controllers END
 
+     //[[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 
 
     [self.window makeKeyAndVisible];

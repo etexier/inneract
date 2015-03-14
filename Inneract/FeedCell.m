@@ -84,7 +84,7 @@
 
     // bookmark
     if(!self.isForBookmark) {
-        self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
+        self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGreenButton"];
         UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
         [self.bookmarkImage addGestureRecognizer:bookmarkTap];
     } else {
@@ -95,7 +95,7 @@
     self.bookmarkImage.tintColor = ipSecondaryCyan;
 
     // share
-    self.shareImage.image = [UIImage imageNamed:@"share27"];
+    self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
     self.shareImage.tintColor = ipPrimaryOrange;
     
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];

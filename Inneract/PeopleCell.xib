@@ -52,7 +52,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share11" translatesAutoresizingMaskIntoConstraints="NO" id="J7H-GI-IAf">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareYellowButton" translatesAutoresizingMaskIntoConstraints="NO" id="J7H-GI-IAf">
                         <rect key="frame" x="96" y="100" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="7Xa-A3-xoP"/>
@@ -100,6 +100,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="share11" width="24" height="24"/>
+        <image name="shareYellowButton" width="33" height="29"/>
     </resources>
 </document>

@@ -97,6 +97,8 @@
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
+    
     if(!self.isSelfProfile) {
         self.editProfileButton.hidden = YES;
 		if(self.fromAccountCreation){
@@ -104,7 +106,7 @@
 			
 			[self.confirmPopupView setHidden:NO];
 		} else {
-			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"label36"] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
+			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"shareYellowButton"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
 		}
     } else {
 //		if(self.fromAccountCreation){
@@ -165,6 +167,10 @@
 
 - (void)didShared:(id)sender {
     [[IPShareManager sharedInstance] shareItemWithTitle:[NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]] andUrl:[self.user objectForKey:@"profileLink"] fromViewController:self];
+}
+
+- (void)didBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)onLogout:(id)sender {

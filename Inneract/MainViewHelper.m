@@ -34,20 +34,24 @@
     //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.magentaColor()], forState:.Normal)
     //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.redColor()], forState:.Selected)
 
-    UIImage *feedImage = [UIImage imageNamed:@"news"];
-    UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTitle:@"Feed" image:[feedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[feedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    UIImage *feedImage = [UIImage imageNamed:@"feedNavB"];
+    UIImage *feedSelectedImage = [UIImage imageNamed:@"feedNavA"];
+    UITabBarItem *barItem1 = [[UITabBarItem alloc] initWithTitle:@"Feed" image:[feedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[feedSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     feedsNvc.tabBarItem = barItem1;
 
-    UIImage *bookmarkImage = [UIImage imageNamed:@"bookmark"];
-    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTitle:@"Bookmark" image:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    UIImage *bookmarkImage = [UIImage imageNamed:@"bookmarkNavB"];
+    UIImage *bookmarkSelectedImage = [UIImage imageNamed:@"bookmarkNavA"];
+    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTitle:@"Bookmark" image:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[bookmarkSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     bookmarkNvc.tabBarItem = barItem2;
 
-    UIImage *peopleImage = [UIImage imageNamed:@"people"];
-    UITabBarItem *barItem3 = [[UITabBarItem alloc] initWithTitle:@"People" image:[peopleImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[peopleImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    UIImage *peopleImage = [UIImage imageNamed:@"peopleNavB"];
+    UIImage *peopleSelectedImage = [UIImage imageNamed:@"peopleNavA"];
+    UITabBarItem *barItem3 = [[UITabBarItem alloc] initWithTitle:@"People" image:[peopleImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[peopleSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     peopleNvc.tabBarItem = barItem3;
 
-    UIImage *profileImage = [UIImage imageNamed:@"profile"];
-    UITabBarItem *barItem4 = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[profileImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[profileImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    UIImage *profileImage = [UIImage imageNamed:@"profileNavB"];
+    UIImage *profileSelectedImage = [UIImage imageNamed:@"profileNavA"];
+    UITabBarItem *barItem4 = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[profileImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[profileSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     profileNvc.tabBarItem = barItem4;
 
     UITabBarController *tabBarController = [[UITabBarController alloc] init];

@@ -53,6 +53,10 @@ summary
     [super viewDidLoad];
     [self initLayoutFromFeed:self.feed];
     // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
+    //[[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    //[[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 }
 
 - (id)initWithFeed:(PFObject *)feed {
@@ -93,10 +97,10 @@ summary
     self.summaryLabel.textColor = ipSecondaryGrey;
 
     // bookmark
-    self.bookmarkImage.image = [UIImage imageNamed:@"label36"];
+    self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGreenButton"];
 
     // share
-    self.shareImage.image = [UIImage imageNamed:@"share27"];
+    self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
 
     // web link
     self.webLinkLabel.textColor = ipPrimaryMidnightBlue;
@@ -125,4 +129,9 @@ summary
     [self.navigationController
             pushViewController:webViewController animated:YES];
 }
+
+- (void)didBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
