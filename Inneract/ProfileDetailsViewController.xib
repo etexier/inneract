@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileDetailsViewController">
             <connections>
                 <outlet property="aboutButton" destination="R2R-eP-Wxc" id="tml-nh-5hk"/>
-                <outlet property="confirmPopupView" destination="XmX-Od-oVk" id="PXx-52-XzL"/>
+                <outlet property="confirmPopupView" destination="f3x-8A-ibA" id="14W-8R-z0L"/>
                 <outlet property="designatoinLabel" destination="JOa-yi-5w2" id="6sB-9M-Fca"/>
                 <outlet property="editProfileButton" destination="zJI-xg-ulk" id="YN3-iF-f2V"/>
                 <outlet property="nameLabel" destination="6QZ-tu-BCD" id="FQK-QJ-Daz"/>
@@ -37,7 +37,7 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jim Liu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QZ-tu-BCD">
-                    <rect key="frame" x="104" y="103" width="47.5" height="17"/>
+                    <rect key="frame" x="104" y="103" width="48" height="17"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTs-ad-65g">
-                    <rect key="frame" x="8" y="266" width="68.5" height="17"/>
+                    <rect key="frame" x="8" y="266" width="69" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Activities" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVh-T8-DGs">
-                    <rect key="frame" x="8" y="325" width="102.5" height="17"/>
+                    <rect key="frame" x="8" y="325" width="103" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -113,14 +113,36 @@
                         <action selector="onEditProfile:" destination="-1" eventType="touchUpInside" id="DsI-0D-dkk"/>
                     </connections>
                 </button>
-                <view alpha="0.94999999999999996" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f3x-8A-ibA">
-                    <rect key="frame" x="0.0" y="-1" width="320" height="569"/>
+                <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3x-8A-ibA">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XmX-Od-oVk">
-                            <rect key="frame" x="25" y="207" width="270" height="155"/>
+                            <rect key="frame" x="25" y="206" width="270" height="172"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for joining the Inneract Project Family!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE5-ab-TO6">
+                                    <rect key="frame" x="20" y="8" width="230" height="41"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dun-09-pzw">
+                                    <rect key="frame" x="8" y="57" width="242" height="90"/>
+                                    <string key="text">You have successfully created your profile. An email confirmation has been sent to your email address. Please verify your account. Your email confirmation helps to maintain an honest IP community. </string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="155" id="ftp-wL-sCb"/>
+                                <constraint firstItem="FE5-ab-TO6" firstAttribute="top" secondItem="XmX-Od-oVk" secondAttribute="top" constant="8" id="4I2-Gm-drC"/>
+                                <constraint firstAttribute="trailing" secondItem="Dun-09-pzw" secondAttribute="trailing" constant="20" id="4bb-se-mbT"/>
+                                <constraint firstAttribute="bottom" secondItem="Dun-09-pzw" secondAttribute="bottom" constant="25" id="Gc5-EV-ta3"/>
+                                <constraint firstItem="FE5-ab-TO6" firstAttribute="leading" secondItem="XmX-Od-oVk" secondAttribute="leading" constant="20" id="OQL-q2-k5j"/>
+                                <constraint firstItem="Dun-09-pzw" firstAttribute="top" secondItem="FE5-ab-TO6" secondAttribute="bottom" constant="8" id="e7r-ks-MHn"/>
+                                <constraint firstAttribute="height" constant="172" id="ftp-wL-sCb"/>
+                                <constraint firstAttribute="trailing" secondItem="FE5-ab-TO6" secondAttribute="trailing" constant="20" id="kWi-7u-plo"/>
+                                <constraint firstItem="Dun-09-pzw" firstAttribute="leading" secondItem="XmX-Od-oVk" secondAttribute="leading" constant="8" id="yUZ-XX-kOU"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -128,7 +150,7 @@
                     <constraints>
                         <constraint firstItem="XmX-Od-oVk" firstAttribute="leading" secondItem="f3x-8A-ibA" secondAttribute="leading" constant="25" id="662-mr-694"/>
                         <constraint firstAttribute="centerX" secondItem="XmX-Od-oVk" secondAttribute="centerX" id="6MI-be-uAn"/>
-                        <constraint firstAttribute="centerY" secondItem="XmX-Od-oVk" secondAttribute="centerY" id="O5K-2e-akf"/>
+                        <constraint firstAttribute="centerY" secondItem="XmX-Od-oVk" secondAttribute="centerY" constant="-8" id="O5K-2e-akf"/>
                     </constraints>
                 </view>
             </subviews>
@@ -168,7 +190,7 @@
                 <constraint firstItem="sVh-T8-DGs" firstAttribute="top" secondItem="Ope-g1-JkK" secondAttribute="bottom" constant="8" id="yI5-Ja-1bU"/>
                 <constraint firstItem="zJI-xg-ulk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="zcS-xn-abI"/>
             </constraints>
-            <point key="canvasLocation" x="256" y="781"/>
+            <point key="canvasLocation" x="256" y="783"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

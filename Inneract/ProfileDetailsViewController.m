@@ -98,7 +98,9 @@
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
-    
+	
+	[self.confirmPopupView setHidden:YES];
+	
     if(!self.isSelfProfile) {
         self.editProfileButton.hidden = YES;
 		if(self.fromAccountCreation){
