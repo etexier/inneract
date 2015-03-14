@@ -11,11 +11,7 @@
 #import "EditProfileViewController.h"
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
-
-
-
 #import "MainViewHelper.h"
-
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
 
@@ -112,11 +108,7 @@
 			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"shareYellowButton"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
 		}
     } else {
-//		if(self.fromAccountCreation){
-//			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"EditProfile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
-//		} else {
-			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
-//		}
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
     }
     
     // thumbnail

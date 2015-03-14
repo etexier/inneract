@@ -31,6 +31,9 @@
     UINavigationController *profileNvc = [[UINavigationController alloc] initWithRootViewController:profileVc];
     profileVc.title = @"My Profile";
 
+	
+	
+	
     //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.magentaColor()], forState:.Normal)
     //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.redColor()], forState:.Selected)
 

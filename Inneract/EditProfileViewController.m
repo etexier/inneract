@@ -83,6 +83,11 @@ ComboBox* combo1;
 		[layer setCornerRadius:32.0];
 		
 		self.finishedButton.hidden = YES;
+		
+		UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(onSave)];
+		self.navigationItem.rightBarButtonItem = rightButton;
+		
+		
 	} else {
 		self.finishedButton.hidden = NO;
 	}
@@ -130,6 +135,26 @@ ComboBox* combo1;
 //	UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
 //	[self.firstLastNameEdit setFont:boldFont];
 //	[self.emailAddressEdit setFont:boldFont];
+}
+
+-(void) saveUserInfo{
+	if([self validateInput] == NO)
+		return;
+	
+	PFUser *parseUser = [PFUser currentUser];
+	[parseUser setObject:self.firstNameEdit.text forKey:@"firstName"];
+	[parseUser setObject:self.lastNameEdit.text forKey:@"lastName"];
+	[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
+	[parseUser setObject:self.profileLinkEditText.text forKey:@"profileLink"];
+	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
+	
+	[parseUser saveInBackground];
+	
+}
+-(void) onSave{
+	
+	[self saveUserInfo];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark PickerView DataSource
@@ -246,67 +271,6 @@ ComboBox* combo1;
 
 }
 
-- (IBAction)onEdit:(UIButton *)sender {
-	UIButton *button = (UIButton *)sender;
-	NSString *buttonTitle = button.currentTitle;
-	
-	if([buttonTitle isEqualToString:@"Edit"]){
-		button.enabled = FALSE;
-		[button setTitle:@"Save" forState:UIControlStateNormal];
-		button.enabled = TRUE;
-		[self showEditMode:YES];
-//
-//		self.firstLastNameEdit.hidden = YES;
-//		self.firstNameEdit.hidden = NO;
-//		self.lastNameEdit.hidden = NO;
-//		
-//		self.emailAddressEdit.borderStyle = UITextBorderStyleRoundedRect;
-//		self.emailAddressEdit.enabled = YES;
-//		self.firstNameEdit.enabled = YES;
-//		self.lastNameEdit.enabled = YES;
-	} else if([buttonTitle isEqualToString:@"Save"]){
-		button.enabled = FALSE;
-		[button setTitle:@"Edit" forState:UIControlStateNormal];
-		button.enabled = TRUE;
-		[self showEditMode:NO];
-		
-//		self.firstLastNameEdit.hidden = NO;
-//		self.firstNameEdit.hidden = YES;
-//		self.lastNameEdit.hidden = YES;
-//		self.firstNameEdit.enabled = NO;
-//		self.lastNameEdit.enabled = NO;
-//		
-//		self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
-//		[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
-//		self.emailAddressEdit.enabled = NO;
-//		
-//		self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
-//		[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
-//		self.firstLastNameEdit.enabled = NO;
-//		
-//		UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
-//		[self.firstLastNameEdit setFont:boldFont];
-//		[self.emailAddressEdit setFont:boldFont];
-//		
-//		
-//		CGRect frameRect = self.emailAddressEdit.frame;
-//		frameRect.size.height = 25;
-//		self.emailAddressEdit.frame = frameRect;
-//		
-//		NSString *name = self.firstNameEdit.text;
-//		name = [name stringByAppendingString:@" "];
-//		self.firstLastNameEdit.text = [name stringByAppendingString:self.lastNameEdit.text];
-
-		// add a check, if data is changed then save it.
-//		PFUser *parseUser = [PFUser currentUser];
-//		[parseUser setObject:self.firstNameEdit.text forKey:@"firstName"];
-//		[parseUser setObject:self.lastNameEdit.text forKey:@"lastName"];
-//		[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
-		
-//		[parseUser saveInBackground];
-	}
-}
-
 //http://stackoverflow.com/questions/7605845/how-to-load-photos-from-photo-gallery-and-store-it-into-application-project
 - (IBAction)onAddImage:(UIButton *)sender {
 	UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
@@ -317,17 +281,9 @@ ComboBox* combo1;
 }
 
 - (IBAction)onFinished:(UIButton *)sender {
-	if([self validateInput] == NO)
-		return;
-
-	PFUser *parseUser = [PFUser currentUser];
-	[parseUser setObject:self.firstNameEdit.text forKey:@"firstName"];
-	[parseUser setObject:self.lastNameEdit.text forKey:@"lastName"];
-	[parseUser setObject:self.emailAddressEdit.text forKey:@"email"];
-	[parseUser setObject:self.profileLinkEditText.text forKey:@"profileLink"];
-	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
+	[self saveUserInfo];
 	
-	[parseUser saveInBackground];
+	PFUser *parseUser = [PFUser currentUser];
 	
 	// finished button will be visible only when we will land here view account creation.
 	ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] initWithUser:parseUser fromAccountCreation:YES];

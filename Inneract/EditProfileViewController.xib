@@ -39,16 +39,6 @@
                         <action selector="onAddImage:" destination="-1" eventType="touchUpInside" id="lLR-ck-fSK"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ie6-ti-OfI">
-                    <rect key="frame" x="94" y="75" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="Edit">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onEdit:" destination="-1" eventType="touchUpInside" id="eS3-Rq-y3F"/>
-                    </connections>
-                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add LinkedIn or portfolio link" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goS-QF-GPx">
                     <rect key="frame" x="20" y="232" width="280" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -87,22 +77,22 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUj-du-dcF">
-                    <rect key="frame" x="94" y="101" width="92" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wiA-9i-8ge">
-                    <rect key="frame" x="94" y="139" width="206" height="30"/>
+                    <rect key="frame" x="94" y="80" width="92" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12q-J9-deV">
-                    <rect key="frame" x="188" y="101" width="112" height="30"/>
+                    <rect key="frame" x="188" y="80" width="112" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First, Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-9G-6DY">
-                    <rect key="frame" x="94" y="101" width="206" height="30"/>
+                    <rect key="frame" x="94" y="80" width="206" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wiA-9i-8ge">
+                    <rect key="frame" x="94" y="118" width="206" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -110,8 +100,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="wiA-9i-8ge" secondAttribute="trailing" constant="20" id="0I7-Kg-50i"/>
-                <constraint firstItem="12q-J9-deV" firstAttribute="leading" secondItem="PUj-du-dcF" secondAttribute="trailing" constant="3" id="4RE-Gk-1yF"/>
-                <constraint firstItem="PUj-du-dcF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="101" id="5I5-q3-aFf"/>
+                <constraint firstItem="12q-J9-deV" firstAttribute="leading" secondItem="PUj-du-dcF" secondAttribute="trailing" constant="2" id="4RE-Gk-1yF"/>
+                <constraint firstItem="PUj-du-dcF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="5I5-q3-aFf"/>
                 <constraint firstItem="LUf-eE-MaE" firstAttribute="top" secondItem="eIf-Oa-hLj" secondAttribute="bottom" constant="8" id="BYm-3p-ieg"/>
                 <constraint firstItem="N0U-wL-4dY" firstAttribute="leading" secondItem="71y-cl-yoX" secondAttribute="leading" id="DOC-Nr-LrR"/>
                 <constraint firstAttribute="trailing" secondItem="goS-QF-GPx" secondAttribute="trailing" constant="20" id="DVa-8U-6Ei"/>
@@ -121,29 +111,26 @@
                 <constraint firstItem="OmJ-5F-3Fa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Hdz-e5-rQF"/>
                 <constraint firstAttribute="trailing" secondItem="yoQ-9G-6DY" secondAttribute="trailing" constant="20" id="Jjk-Pb-4K5"/>
                 <constraint firstItem="71y-cl-yoX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="LyQ-Xh-Tbu"/>
-                <constraint firstItem="wiA-9i-8ge" firstAttribute="leading" secondItem="N0U-wL-4dY" secondAttribute="trailing" constant="18" id="NPN-iM-tGp"/>
                 <constraint firstAttribute="trailing" secondItem="OmJ-5F-3Fa" secondAttribute="trailing" constant="20" id="QGl-le-7Nl"/>
                 <constraint firstAttribute="trailing" secondItem="12q-J9-deV" secondAttribute="trailing" constant="20" id="RDh-nh-h9k"/>
                 <constraint firstItem="t0x-Px-rLM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SYJ-tn-zGd"/>
+                <constraint firstItem="wiA-9i-8ge" firstAttribute="leading" secondItem="71y-cl-yoX" secondAttribute="trailing" constant="8" id="UeI-lh-cJs"/>
                 <constraint firstItem="wiA-9i-8ge" firstAttribute="top" secondItem="12q-J9-deV" secondAttribute="bottom" constant="8" id="Whd-Xz-JJq"/>
                 <constraint firstItem="PUj-du-dcF" firstAttribute="leading" secondItem="71y-cl-yoX" secondAttribute="trailing" constant="8" id="Wyt-eV-mWB"/>
-                <constraint firstItem="12q-J9-deV" firstAttribute="leading" secondItem="PUj-du-dcF" secondAttribute="trailing" constant="3" id="XXZ-fI-V77"/>
+                <constraint firstItem="12q-J9-deV" firstAttribute="leading" secondItem="PUj-du-dcF" secondAttribute="trailing" constant="2" id="XXZ-fI-V77"/>
                 <constraint firstItem="LUf-eE-MaE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Y45-Nz-mQ5"/>
                 <constraint firstItem="goS-QF-GPx" firstAttribute="top" secondItem="t0x-Px-rLM" secondAttribute="bottom" constant="15" id="ba3-PN-FVV"/>
-                <constraint firstItem="12q-J9-deV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="101" id="cEx-fy-VLG"/>
+                <constraint firstItem="12q-J9-deV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="cEx-fy-VLG"/>
                 <constraint firstAttribute="trailing" secondItem="eIf-Oa-hLj" secondAttribute="trailing" constant="20" id="cPl-aG-CHD"/>
                 <constraint firstItem="eIf-Oa-hLj" firstAttribute="top" secondItem="goS-QF-GPx" secondAttribute="bottom" constant="22" id="dpr-At-rNQ"/>
                 <constraint firstItem="71y-cl-yoX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="fn8-Dr-cpf"/>
                 <constraint firstAttribute="trailing" secondItem="LUf-eE-MaE" secondAttribute="trailing" constant="20" id="gBG-N9-duM"/>
-                <constraint firstItem="wiA-9i-8ge" firstAttribute="top" secondItem="yoQ-9G-6DY" secondAttribute="bottom" constant="8" id="h1z-UX-IrA"/>
                 <constraint firstItem="N0U-wL-4dY" firstAttribute="top" secondItem="71y-cl-yoX" secondAttribute="bottom" constant="4" id="hxZ-sI-zYr"/>
                 <constraint firstAttribute="trailing" secondItem="t0x-Px-rLM" secondAttribute="trailing" constant="20" id="ivV-KR-dJa"/>
                 <constraint firstItem="N0U-wL-4dY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="kfy-WW-M3J"/>
                 <constraint firstAttribute="bottom" secondItem="OmJ-5F-3Fa" secondAttribute="bottom" constant="35" id="lWm-J0-FUD"/>
-                <constraint firstItem="Ie6-ti-OfI" firstAttribute="leading" secondItem="71y-cl-yoX" secondAttribute="trailing" constant="8" id="mgj-hm-CcM"/>
                 <constraint firstItem="goS-QF-GPx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="pfI-DU-dWo"/>
-                <constraint firstItem="Ie6-ti-OfI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="sIS-3N-SJC"/>
-                <constraint firstItem="yoQ-9G-6DY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="101" id="uKH-F7-dLh"/>
+                <constraint firstItem="yoQ-9G-6DY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="uKH-F7-dLh"/>
                 <constraint firstItem="eIf-Oa-hLj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="x6s-Ch-Huo"/>
             </constraints>
             <point key="canvasLocation" x="221" y="480"/>
