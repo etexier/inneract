@@ -75,11 +75,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [X] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
 - [ ] global search (Manu)
 - [ ] support for user "badge" (ex: gold/silver/bronze user) (Jim)
-  - [ ] see spec sheet, no badge but ability to give points. Based on number of points the border of the profile will change color.
+- [ ] see spec sheet, no badge but ability to give points. Based on number of points the border of the profile will change color.
 - [ ] use official colors/icons/rendering from Inneract (All)
 - [ ] need real bookmark and share image, change state when clicked, and make it larger (button 40x40) (Syed)
-- [ ] need real image for tab bar (Jim)
-- [ ] filter existing data for volunteer and classes (do not make again a network call) (manu)
+- [x] need real image for tab bar (Jim)
+- [x] filter existing data for volunteer and classes (do not make again a network call) (Jim)
 - [ ] do not hide view when loading data, wheel at the top (Syed)
 
 Credits
