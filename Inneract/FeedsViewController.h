@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <ParseUI/PFQueryTableViewController.h>
 
-@interface FeedsViewController : PFQueryTableViewController
+@interface FeedsViewController : UIViewController
 
 @property (nonatomic, strong) NSString *feedCategory;
 
