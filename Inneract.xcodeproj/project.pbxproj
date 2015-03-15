@@ -37,6 +37,7 @@
 		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
 		33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330656776BEB2AF56D2540BB /* FeedsViewController.xib */; };
 		33065EAFB6D45024FCC40393 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33065CDAFD2FE9A5F6C42180 /* Helper.m */; };
+		387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 387EB76B1AB5547200EDD7A0 /* IPColorManager.m */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
 		38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B3C1AA97C6500FE3707 /* FirstIntroductionView.m */; };
@@ -121,6 +122,8 @@
 		33065960353F636E5711A196 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
 		33065CDAFD2FE9A5F6C42180 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		387EB76A1AB5547200EDD7A0 /* IPColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPColorManager.h; sourceTree = "<group>"; };
+		387EB76B1AB5547200EDD7A0 /* IPColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPColorManager.m; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
 		38973B371AA9791B00FE3707 /* IntroductionContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionContainerView.m; sourceTree = "<group>"; };
 		38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionContainerView.xib; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 				FADAEF681AB42A7D0098E030 /* NIDropDown.m */,
 				38DAAE361AAC349600930AFE /* IPShareManager.h */,
 				38DAAE371AAC349600930AFE /* IPShareManager.m */,
+				387EB76A1AB5547200EDD7A0 /* IPColorManager.h */,
+				387EB76B1AB5547200EDD7A0 /* IPColorManager.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */,
 				329F00311AA81B180089C0E2 /* main.m in Sources */,
 				38973B471AA9802000FE3707 /* ThirdIntroductionView.m in Sources */,
+				387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */,
 				FADAEF651AAE44870098E030 /* ComboBox.m in Sources */,
 				38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */,
 				38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */,

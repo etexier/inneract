@@ -10,6 +10,7 @@
 #import "IPShareManager.h"
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
+#import "IPColorManager.h"
 
 @interface PeopleCell()
 
@@ -17,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *designationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *professionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *badgesLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *shareImage;
 
 
@@ -33,6 +36,14 @@
     // for performance
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
+    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
+    [self.shareImage addGestureRecognizer:shareTap];
+    
+    self.nameLabel.textColor = ipPrimaryMidnightBlue;
+    self.designationLabel.textColor = ipPrimaryMidnightBlue;
+    self.professionLabel.textColor = ipPrimaryMidnightBlue;
+    self.badgesLabel.textColor = ipPrimaryMidnightBlue;
 }
 
 - (void)setUser:(PFObject *)user {
@@ -56,12 +67,11 @@
     self.professionLabel.text = [user objectForKey:@"profession"];
     self.professionLabel.sizeToFit;
     
-    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
-    [self.shareImage addGestureRecognizer:shareTap];
-    
-    self.nameLabel.textColor = ipPrimaryMidnightBlue;
-    self.designationLabel.textColor = ipPrimaryMidnightBlue;
-    self.professionLabel.textColor = ipPrimaryMidnightBlue;
+    NSInteger badges = [[user objectForKey:@"badges"] integerValue];
+    self.badgesLabel.text = [NSString stringWithFormat:@"Badges : %lu", badges];
+
+    self.profileImage.layer.borderColor = [[[IPColorManager sharedInstance] getUserBadgeColor:badges] CGColor];
+    self.profileImage.layer.borderWidth = 3.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
