@@ -4,7 +4,7 @@ pod 'AFNetworking'
 pod 'SVProgressHUD'
 pod 'stripe'
 
-#pod 'Mantle'
+pod 'Mantle'
 #pod 'SVPullToRefresh'
 
 # Parse pods

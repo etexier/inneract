@@ -32,6 +32,10 @@
 		329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F008D1AA8DC3C0089C0E2 /* EditProfileViewController.xib */; };
 		32C439791AAA19550011FEA0 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C439771AAA19550011FEA0 /* FeedCell.m */; };
 		32C4397A1AAA19550011FEA0 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C439781AAA19550011FEA0 /* FeedCell.xib */; };
+		32D552381AB5182200250219 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D552371AB5182200250219 /* NSString+HTML.m */; };
+		32D5523B1AB5184300250219 /* NSMutableString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D5523A1AB5184300250219 /* NSMutableString+HTML.m */; };
+		32FF1C6D1AB6490B00238E19 /* HighlightedFeedsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */; };
+		32FF1C751AB65B9B00238E19 /* HighlightedFeedsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */; };
 		3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330651719605A51AB3D91F51 /* FeedDetailsViewController.m */; };
 		3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3306545DC4732F14585ECAAC /* FeedsViewController.m */; };
 		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
@@ -114,6 +118,13 @@
 		32C439761AAA19550011FEA0 /* FeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell.h; sourceTree = "<group>"; };
 		32C439771AAA19550011FEA0 /* FeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCell.m; sourceTree = "<group>"; };
 		32C439781AAA19550011FEA0 /* FeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		32D552361AB5182200250219 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		32D552371AB5182200250219 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		32D552391AB5184300250219 /* NSMutableString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+HTML.h"; sourceTree = "<group>"; };
+		32D5523A1AB5184300250219 /* NSMutableString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+HTML.m"; sourceTree = "<group>"; };
+		32FF1C6B1AB6490B00238E19 /* HighlightedFeedsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightedFeedsView.h; sourceTree = "<group>"; };
+		32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighlightedFeedsView.m; sourceTree = "<group>"; };
+		32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighlightedFeedsView.xib; sourceTree = "<group>"; };
 		330651719605A51AB3D91F51 /* FeedDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailsViewController.m; sourceTree = "<group>"; };
 		33065203601594D7AF42A0C0 /* FeedDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailsViewController.h; sourceTree = "<group>"; };
 		3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedDetailsViewController.xib; sourceTree = "<group>"; };
@@ -327,6 +338,26 @@
 			name = Forms;
 			sourceTree = "<group>";
 		};
+		32FF1C6E1AB6494200238E19 /* HighlightedFeeds */ = {
+			isa = PBXGroup;
+			children = (
+				32FF1C6B1AB6490B00238E19 /* HighlightedFeedsView.h */,
+				32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */,
+				32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */,
+			);
+			name = HighlightedFeeds;
+			sourceTree = "<group>";
+		};
+		32FF1C6F1AB6495900238E19 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				32C439761AAA19550011FEA0 /* FeedCell.h */,
+				32C439771AAA19550011FEA0 /* FeedCell.m */,
+				32C439781AAA19550011FEA0 /* FeedCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		33065002B0EF57E4FCF180F7 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +375,7 @@
 				33065FB310028CB75047974D /* Details */,
 				3306594359A41FEC6BA20EEA /* Volunteer */,
 				330650A6EF94A72165A015C7 /* Classes */,
+				33065ED75E2B4154D2D761D8 /* Web */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -372,6 +404,10 @@
 				33065CDAFD2FE9A5F6C42180 /* Helper.m */,
 				33065960353F636E5711A196 /* Helper.h */,
 				326EA4411AAD102E00C6B51B /* IPColors.h */,
+				32D552361AB5182200250219 /* NSString+HTML.h */,
+				32D552371AB5182200250219 /* NSString+HTML.m */,
+				32D552391AB5184300250219 /* NSMutableString+HTML.h */,
+				32D5523A1AB5184300250219 /* NSMutableString+HTML.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -379,11 +415,17 @@
 		33065DFA3D4D3200A0D7982D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				32C439761AAA19550011FEA0 /* FeedCell.h */,
-				32C439771AAA19550011FEA0 /* FeedCell.m */,
-				32C439781AAA19550011FEA0 /* FeedCell.xib */,
+				32FF1C6F1AB6495900238E19 /* Cells */,
+				32FF1C6E1AB6494200238E19 /* HighlightedFeeds */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		33065ED75E2B4154D2D761D8 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 		33065FB310028CB75047974D /* Details */ = {
@@ -556,6 +598,7 @@
 				38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */,
 				329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */,
 				FADAEF661AAE44870098E030 /* ComboBox.xib in Resources */,
+				32FF1C751AB65B9B00238E19 /* HighlightedFeedsView.xib in Resources */,
 				330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */,
 				FADAEF641AAE44870098E030 /* arrow.png in Resources */,
 				33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */,
@@ -610,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C439791AAA19550011FEA0 /* FeedCell.m in Sources */,
+				32D552381AB5182200250219 /* NSString+HTML.m in Sources */,
 				329F00751AA81F0F0089C0E2 /* JoinUsViewController.m in Sources */,
 				329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */,
 				38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */,
@@ -628,6 +672,8 @@
 				38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
 				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,
+				32FF1C6D1AB6490B00238E19 /* HighlightedFeedsView.m in Sources */,
+				32D5523B1AB5184300250219 /* NSMutableString+HTML.m in Sources */,
 				329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */,
 				326EA4391AAC319800C6B51B /* ClassesViewController.m in Sources */,
 				38973B421AA97EB600FE3707 /* SecondIntroductionView.m in Sources */,

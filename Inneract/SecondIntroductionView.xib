@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -20,7 +20,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsV-aL-RQu">
-                    <rect key="frame" x="16" y="160" width="288" height="279.5"/>
+                    <rect key="frame" x="16" y="160" width="288" height="280"/>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">Inneract Project offers underresourced youth skills and experiences that create early interest and access to the field of design, while also encouraging parents and communities to be engaged as well. We believe that youth learn better when they can relate to a subject, so rather than just developing a learning curriculum for students, we also focus on educating parents, the public at large and engaging current designers to teach students about their professions</string>

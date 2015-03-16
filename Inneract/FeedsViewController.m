@@ -12,6 +12,7 @@
 #import <Parse/PFQuery.h>
 #import "IPShareManager.h"
 #import "IPColors.h"
+#import "HighlightedFeedsView.h"
 
 NSString *const kFeedCellNibId = @"FeedCell";
 NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
@@ -130,7 +131,9 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+
+
     // Title (can be overridden)
     //self.title = kTitle;
     
@@ -160,11 +163,21 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         segmentedControl.selectedSegmentIndex = 0;
         self.feedCategory = @"news";
     }
-    
+
+    // init header
+    [self initHeaderView];
+
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
         [self.tableView reloadData];
     }];
     
+}
+
+- (void)initHeaderView {
+    CGRect frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 200);
+    HighlightedFeedsView *headerView = [[HighlightedFeedsView alloc] initWithFrame:frame];
+    [self.view addSubview:headerView];
+    self.tableView.tableHeaderView = headerView;
 }
 
 - (void)initSearchBar {

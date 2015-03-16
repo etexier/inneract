@@ -4,8 +4,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class UIWebView;
 
 
 @interface Helper : NSObject
 + (NSString *)postedDate:(NSDate *)date;
+
++ (NSString *)embeddedVimeoIFrameForId:(NSString *)id1;
+
++ (void)embedVimeoVideoId:(NSString *)videoId inView:(UIWebView *)view;
 @end
