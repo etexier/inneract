@@ -162,6 +162,7 @@ NIDropDown *dropDown;
 	[parseUser setObject:self.profileLinkEditText.text forKey:@"profileLink"];
 	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
 	[parseUser setObject:self.profileSelectButton.titleLabel.text forKey:@"userType"];
+    [parseUser setObject:self.profileSelectButton.titleLabel.text forKey:@"designation"];
 	
 	[parseUser saveInBackground];
 	

@@ -13,4 +13,6 @@
 
 + (UITabBarController *)setupMainViewTabBar;
 
++ (UITabBarController *)setupMainViewTabBarWithSelectedFeedsCategory:(NSString *) category;
+
 @end

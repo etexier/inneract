@@ -25,9 +25,9 @@
 }
 
 - (UIColor *) getUserBadgeColor:(NSInteger) badgeScore {
-    if(badgeScore > 10) {
+    if(badgeScore >= 10) {
         return ipPrimaryOrange;
-    } else if(badgeScore > 5) {
+    } else if(badgeScore >= 5) {
         return ipSecondaryCyan;
     } else {
         return ipPrimaryMidnightBlue;

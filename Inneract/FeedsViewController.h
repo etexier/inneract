@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSString *feedCategory;
 
-- (id)initForBookmark;
+- (id)initWithCategory:(NSString *) category;
 
 - (void) filterQuery:(PFQuery *) query;
 

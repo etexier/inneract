@@ -33,6 +33,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 @property (nonatomic, assign) BOOL isForBookmark;
 @property(nonatomic, strong) NSString *parseClassName;
+@property (nonatomic, assign) NSInteger preselectedCategoryIndex;
 
 - (void)filterResults:(NSString *)text;
 
@@ -41,22 +42,27 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 @implementation FeedsViewController
 
 - (id)init {
-    NSLog(@"Initializing new FeedsViewController");
-    self = [super init];
-    
-    if (self) {
-        //[self setupTableView];
-    }
-    
-    return self;
+    return [self initWithCategory:@"news"];
 }
 
-- (id)initForBookmark {
-    NSLog(@"Initializing new FeedsViewController for bookmark");
+- (id)initWithCategory:(NSString *) category {
+    NSLog(@"Initializing new FeedsViewController for category : %@", category);
     self = [super init];
     
     if (self) {
-        _isForBookmark = YES;
+        if([category isEqualToString:@"bookmark"]) {
+            _isForBookmark = YES;
+        } else {
+            self.feedCategory = category;
+
+            if([category isEqualToString:@"news"]) {
+                self.preselectedCategoryIndex = 0;
+            } else if([category isEqualToString:@"volunteer"]) {
+                self.preselectedCategoryIndex = 1;
+            } else if([category isEqualToString:@"classes"]) {
+                self.preselectedCategoryIndex = 2;
+            }
+        }
         //[self setupTableView];
     }
     
@@ -132,11 +138,6 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-
-    // Title (can be overridden)
-    //self.title = kTitle;
-    
     [self setupTableView];
     
     // search
@@ -160,8 +161,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         
         self.navigationItem.titleView = segmentedControl;
         
-        segmentedControl.selectedSegmentIndex = 0;
-        self.feedCategory = @"news";
+        segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
     }
 
     // init header

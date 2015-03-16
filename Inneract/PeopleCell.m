@@ -41,7 +41,7 @@
     [self.shareImage addGestureRecognizer:shareTap];
     
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
-    self.designationLabel.textColor = ipPrimaryMidnightBlue;
+    //self.designationLabel.textColor = ipPrimaryMidnightBlue;
     self.professionLabel.textColor = ipPrimaryMidnightBlue;
     self.badgesLabel.textColor = ipPrimaryMidnightBlue;
 }
@@ -61,13 +61,17 @@
     } else {
         self.profileImage.image = [UIImage imageNamed:@"user"];
     }
+    
+    NSInteger badges = [[user objectForKey:@"badges"] integerValue];
 
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
+    
     self.designationLabel.text = [user objectForKey:@"designation"];
+    self.designationLabel.textColor = [[IPColorManager sharedInstance] getUserBadgeColor:badges];
+    
     self.professionLabel.text = [user objectForKey:@"profession"];
     self.professionLabel.sizeToFit;
     
-    NSInteger badges = [[user objectForKey:@"badges"] integerValue];
     self.badgesLabel.text = [NSString stringWithFormat:@"Badges : %lu", badges];
 
     self.profileImage.layer.borderColor = [[[IPColorManager sharedInstance] getUserBadgeColor:badges] CGColor];

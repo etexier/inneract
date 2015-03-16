@@ -7,17 +7,13 @@
 //
 
 #import "ProfileDetailsViewController.h"
-#import "IPShareManager.h"
 #import "EditProfileViewController.h"
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
 #import "MainViewHelper.h"
-#import "IPColors.h"
-#import "UIImageView+AFNetworking.h"
 
 
 @interface ProfileDetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIView *confirmPopupView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -38,26 +34,7 @@
 @implementation ProfileDetailsViewController
 
 - (instancetype)initWithUser:(PFObject *)user {
-    self = [super init];
-    if (self) {
-		self.fromAccountCreation = NO;
-        if(user) {
-            _user = user;
-        } else {
-            _isSelfProfile = YES;
-            PFQuery *query = [PFUser query];
-            PFUser *parseUser = [PFUser currentUser];
-            NSString *username = parseUser.username;
-            [query whereKey:@"username" equalTo:username];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if(!error && objects.count == 1) {
-                    _user = objects[0];
-                }
-            }];
-        }
-    }
-
-    return self;
+    return [self initWithUser:user fromAccountCreation:NO];
 }
 
 - (instancetype)initWithUser:(PFObject *)user fromAccountCreation:(BOOL) fromAccountCreation{
@@ -92,8 +69,6 @@
     // for performance
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    
-	[self.confirmPopupView setHidden:YES];
 	
     if(!self.isSelfProfile) {
         self.editProfileButton.hidden = YES;
@@ -101,12 +76,21 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
 
 		if(self.fromAccountCreation){
-			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"EditProfile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
+			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit Profile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
 			
-			[self.confirmPopupView setHidden:NO];
-		} else {
-			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"shareYellowButton"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
+			//[self.confirmPopupView setHidden:NO];
+            UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Thanks for joining the Inneract Project Family!"
+                                                               message:@"You have successfully created your profile. An email confirmation has been sent to your email address. Please verify your account. Your email confirmation helps to maintain an honest IP community."
+                                                              delegate:self
+                                                     cancelButtonTitle:@"OK"
+                                                     otherButtonTitles:nil];
+            [theAlert show];
+            
 		}
+        //Share is removed from new design
+//        else {
+//			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"shareYellowButton"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
+//		}
     } else {
 		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
     }
@@ -130,11 +114,6 @@
     self.profession.sizeToFit;
     
     [self.aboutButton setTitle:[NSString stringWithFormat:@"About %@", self.nameLabel.text] forState:UIControlStateNormal];
-	
-	UITapGestureRecognizer *singleFingerTap =
-	[[UITapGestureRecognizer alloc] initWithTarget:self
-											action:@selector(handleSingleTap:)];
-	[self.confirmPopupView addGestureRecognizer:singleFingerTap];
     
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
     self.designatoinLabel.textColor = ipPrimaryMidnightBlue;
@@ -160,12 +139,25 @@
 }
 */
 
-- (void)didShared:(id)sender {
-    [[IPShareManager sharedInstance] shareItemWithTitle:[NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]] andUrl:[self.user objectForKey:@"profileLink"] fromViewController:self];
-}
+//- (void)didShared:(id)sender {
+//    [[IPShareManager sharedInstance] shareItemWithTitle:[NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]] andUrl:[self.user objectForKey:@"profileLink"] fromViewController:self];
+//}
 
 - (void)didBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    if(!self.fromAccountCreation) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        NSString *preselectedCategory;
+        NSString *userDesignation = [self.user valueForKey:@"userType"];
+        if([userDesignation hasPrefix:@"Teacher"]) {
+            preselectedCategory = @"volunteer";
+        } else if([userDesignation hasPrefix:@"Parent"]) {
+            preselectedCategory = @"classes";
+        } else {
+            preselectedCategory = @"news";
+        }
+        [self presentViewController:[MainViewHelper setupMainViewTabBarWithSelectedFeedsCategory:preselectedCategory] animated:YES completion:nil];
+    }
 }
 
 - (IBAction)onLogout:(id)sender {
@@ -179,12 +171,6 @@
 
 - (IBAction)onEditProfile:(id)sender {
     [self.navigationController pushViewController:[[EditProfileViewController alloc] initWithUser:self.user] animated:YES];
-}
-
-//The event handling method
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-	[self.confirmPopupView setHidden:YES];
-	[self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
 }
 
 @end

@@ -13,13 +13,13 @@
 
 @implementation MainViewHelper
 
-+ (UITabBarController *)setupMainViewTabBar {
-    FeedsViewController *feedsVc = [[FeedsViewController alloc] init];
++ (UITabBarController *)setupMainViewTabBarWithSelectedFeedsCategory:(NSString *) category {
+    FeedsViewController *feedsVc = [[FeedsViewController alloc] initWithCategory:category];
     UINavigationController *feedsNvc = [[UINavigationController alloc] initWithRootViewController:feedsVc];
     feedsNvc.title = @"Feeds";
     feedsNvc.navigationBar.translucent = NO; // so it does not hide details views
 
-    FeedsViewController *bookmarkVc = [[FeedsViewController alloc] initForBookmark];
+    FeedsViewController *bookmarkVc = [[FeedsViewController alloc] initWithCategory:@"bookmark"];
     UINavigationController *bookmarkNvc = [[UINavigationController alloc] initWithRootViewController:bookmarkVc];
     bookmarkNvc.title = @"Bookmarked";
 
@@ -65,6 +65,10 @@
     tabBarController.viewControllers = controllers;
 
     return tabBarController;
+}
+
++ (UITabBarController *)setupMainViewTabBar {
+    return [MainViewHelper setupMainViewTabBarWithSelectedFeedsCategory:@"news"];
 }
 
 @end
