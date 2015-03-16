@@ -6,29 +6,27 @@
 //  Copyright (c) 2015 Emmanuel Texier. All rights reserved.
 //
 
-#import "UIImage+WebP.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+IP.h"
 #import "FeedDetailsViewController.h"
 #import <Parse/PFObject.h>
 #import "Helper.h"
 #import "IPColors.h"
 
 @interface FeedDetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIView *topImageView;
+@property(weak, nonatomic) IBOutlet UIView *topImageView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *nestedImageView;
+@property(weak, nonatomic) IBOutlet UIImageView *nestedImageView;
 
-@property (weak, nonatomic) IBOutlet UILabel *postedLabel;
+@property(weak, nonatomic) IBOutlet UILabel *postedLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property(weak, nonatomic) IBOutlet UILabel *summaryLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *webLinkLabel;
+@property(weak, nonatomic) IBOutlet UILabel *webLinkLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *shareImage;
+@property(weak, nonatomic) IBOutlet UIImageView *shareImage;
 
-@property (weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
-
+@property(weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
 
 
 @end
@@ -54,7 +52,7 @@ summary
     [super viewDidLoad];
     [self initLayoutFromFeed:self.feed];
     // Do any additional setup after loading the view from its nib.
-    
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
     //[[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     //[[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
@@ -78,12 +76,8 @@ summary
 
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
-    if ([imageUrlString hasSuffix:@"webp"]) {
-        self.nestedImageView.image = [UIImage imageNamed:@"ipAppIcon_3X_IPhone6"];
-    } else {
-        NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
-        [self.nestedImageView setImageWithURL:imageUrl];
-    }
+    NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
+    [self.nestedImageView ip_setImageWithURL:imageUrl];
 
 
     // title
@@ -115,22 +109,23 @@ summary
 }
 
 #pragma mark - tap gesture
+
 - (IBAction)onWebLinkTap:(UITapGestureRecognizer *)sender {
     UIViewController *webViewController = [[UIViewController alloc] init];
 
 
     NSString *urlAddress = [self.feed objectForKey:@"link"];
     NSURL *url = [NSURL URLWithString:urlAddress];
-    NSLog(@"opening web link: %@",url);
+    NSLog(@"opening web link: %@", url);
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
 
-    UIWebView *uiWebView = [[UIWebView alloc] initWithFrame: self.view.bounds];
+    UIWebView *uiWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     uiWebView.dataDetectorTypes = UIDataDetectorTypeAll;
     uiWebView.scalesPageToFit = YES;
 
     [uiWebView loadRequest:urlRequest];
 
-    [webViewController.view addSubview: uiWebView];
+    [webViewController.view addSubview:uiWebView];
 
     [self.navigationController
             pushViewController:webViewController animated:YES];

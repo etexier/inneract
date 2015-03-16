@@ -4,7 +4,6 @@
 //
 
 #import "Helper.h"
-#import "UIImage+WebP.h"
 
 
 @implementation Helper
@@ -53,16 +52,4 @@ static NSDateFormatter *_dateFormatter = nil;
 
 }
 
-+(void) setImageFromWebPURL:(NSString *) urlString completion:(void (^)(UIImage * img)) completion {
-    dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 ), ^(void)
-    {
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *img = [UIImage imageWithWebPData:data];
-        dispatch_async( dispatch_get_main_queue(), ^(void){
-            completion(img);
-        });
-    });
-
-}
 @end

@@ -9,8 +9,7 @@
 #import "FeedCell.h"
 #import "Helper.h"
 #import "IPColors.h"
-#import "UIImage+WebP.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+IP.h"
 
 
 
@@ -66,20 +65,8 @@
 
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
-    if ([imageUrlString hasSuffix:@".webp"]) {
-
-        [Helper setImageFromWebPURL:imageUrlString completion:^(UIImage *img) {
-            self.thumbnail.image = img;
-
-        }];
-//        UIImage *defaultThumbnail = [UIImage imageNamed:@"ipAppIcon_3X_iPhone6"];
-//        UIImage *defaultThumbnail2 = [UIImage imageNamed:@"ipAppIcon_2X_iPhone"];
-//        UIImage *sharedButton = [UIImage imageNamed:@"shareYellowButton"];
-//        self.thumbnail.image = defaultThumbnail;
-    } else {
-        NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
-        [self.thumbnail setImageWithURL:imageUrl];
-    }
+    NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
+    [self.thumbnail ip_setImageWithURL:imageUrl];
 
 
     // title

@@ -14,5 +14,4 @@
 
 + (void)embedVimeoVideoId:(NSString *)videoId inView:(UIWebView *)view;
 
-+ (void)setImageFromWebPURL:(NSString *)urlString completion:(void (^)(UIImage *img))completion;
 @end

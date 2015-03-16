@@ -35,6 +35,7 @@
 		32C8EAE81AB68BB7008CC10D /* ImageToWebPDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C8EAE51AB68BB7008CC10D /* ImageToWebPDataTransformer.m */; };
 		32C8EAE91AB68BB7008CC10D /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C8EAE71AB68BB7008CC10D /* UIImage+WebP.m */; };
 		32C8EAEB1AB68BD4008CC10D /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C8EAEA1AB68BD4008CC10D /* WebP.framework */; };
+		32C8EAEE1AB69A0B008CC10D /* UIImageView+IP.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C8EAED1AB69A0B008CC10D /* UIImageView+IP.m */; };
 		32D552381AB5182200250219 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D552371AB5182200250219 /* NSString+HTML.m */; };
 		32D5523B1AB5184300250219 /* NSMutableString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D5523A1AB5184300250219 /* NSMutableString+HTML.m */; };
 		32FF1C6D1AB6490B00238E19 /* HighlightedFeedsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */; };
@@ -126,6 +127,8 @@
 		32C8EAE61AB68BB7008CC10D /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
 		32C8EAE71AB68BB7008CC10D /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		32C8EAEA1AB68BD4008CC10D /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = "Pods/../../others/WebP-UIImage/WebP.framework"; sourceTree = "<group>"; };
+		32C8EAEC1AB69A0B008CC10D /* UIImageView+IP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+IP.h"; sourceTree = "<group>"; };
+		32C8EAED1AB69A0B008CC10D /* UIImageView+IP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+IP.m"; sourceTree = "<group>"; };
 		32D552361AB5182200250219 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		32D552371AB5182200250219 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		32D552391AB5184300250219 /* NSMutableString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+HTML.h"; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				32D552371AB5182200250219 /* NSString+HTML.m */,
 				32D552391AB5184300250219 /* NSMutableString+HTML.h */,
 				32D5523A1AB5184300250219 /* NSMutableString+HTML.m */,
+				32C8EAEC1AB69A0B008CC10D /* UIImageView+IP.h */,
+				32C8EAED1AB69A0B008CC10D /* UIImageView+IP.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -676,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C439791AAA19550011FEA0 /* FeedCell.m in Sources */,
+				32C8EAEE1AB69A0B008CC10D /* UIImageView+IP.m in Sources */,
 				32D552381AB5182200250219 /* NSString+HTML.m in Sources */,
 				329F00751AA81F0F0089C0E2 /* JoinUsViewController.m in Sources */,
 				329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */,
