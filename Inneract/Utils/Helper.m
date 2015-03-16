@@ -4,7 +4,7 @@
 //
 
 #import "Helper.h"
-#import <UIWebView+AFNetworking.h>
+#import "UIImage+WebP.h"
 
 
 @implementation Helper
@@ -33,22 +33,36 @@ static NSDateFormatter *_dateFormatter = nil;
 }
 
 
-+ (void)embedVimeoVideoId:(NSString *)videoId inView:(UIWebView *) view{
-    NSString* templateString = @"<html>\n"
-    "\n"
-    "<style type=\"text/css\">\n"
-    "body {\n"
-    "  background-color: transparent;\"];\n"
-    "  color: white;\"];\n"
-    "}\n"
-    "</style>\n"
-    "</head>\n"
-    "<body style=\"margin:0\">\n"
-    "\n%@\n"
-    "</body>\n"
-    "\n"
-    "</html>";
-    NSString* html = [NSString stringWithFormat:templateString, [Helper embeddedVimeoIFrameForId:videoId]];
++ (void)embedVimeoVideoId:(NSString *)videoId inView:(UIWebView *) view {
+    NSString *templateString = @"<html>\n"
+            "\n"
+            "<style type=\"text/css\">\n"
+            "body {\n"
+            "  background-color: transparent;\"];\n"
+            "  color: white;\"];\n"
+            "}\n"
+            "</style>\n"
+            "</head>\n"
+            "<body style=\"margin:0\">\n"
+            "\n%@\n"
+            "</body>\n"
+            "\n"
+            "</html>";
+    NSString *html = [NSString stringWithFormat:templateString, [Helper embeddedVimeoIFrameForId:videoId]];
     [view loadHTMLString:html baseURL:nil];
+
+}
+
++(void) setImageFromWebPURL:(NSString *) urlString completion:(void (^)(UIImage * img)) completion {
+    dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 ), ^(void)
+    {
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *img = [UIImage imageWithWebPData:data];
+        dispatch_async( dispatch_get_main_queue(), ^(void){
+            completion(img);
+        });
+    });
+
 }
 @end

@@ -13,3 +13,7 @@ pod 'ParseFacebookUtils'
 pod 'ParseCrashReporting'
 pod 'ParseUI'
 pod 'Facebook-iOS-SDK'
+
+# for vimeo WebP image conversion 
+#pod 'iOS-WebP', '0.4'
+#pod 'SDWebImage', '~>3.6'

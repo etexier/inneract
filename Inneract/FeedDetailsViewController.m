@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Emmanuel Texier. All rights reserved.
 //
 
+#import "UIImage+WebP.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "FeedDetailsViewController.h"
 #import <Parse/PFObject.h>
@@ -77,8 +78,13 @@ summary
 
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
-    NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
-    [self.nestedImageView setImageWithURL:imageUrl];
+    if ([imageUrlString hasSuffix:@"webp"]) {
+        self.nestedImageView.image = [UIImage imageNamed:@"ipAppIcon_3X_IPhone6"];
+    } else {
+        NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
+        [self.nestedImageView setImageWithURL:imageUrl];
+    }
+
 
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];

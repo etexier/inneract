@@ -7,25 +7,27 @@
 //
 
 #import "FeedCell.h"
-#import "UIImageView+AFNetworking.h"
 #import "Helper.h"
 #import "IPColors.h"
+#import "UIImage+WebP.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 
-@interface FeedCell()
-@property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
-@property (weak, nonatomic) IBOutlet UILabel *postedDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *shareImage;
-@property (weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
-@property (weak, nonatomic) IBOutlet UILabel *bookMarkLabel;
+@interface FeedCell ()
+@property(weak, nonatomic) IBOutlet UIImageView *thumbnail;
+@property(weak, nonatomic) IBOutlet UILabel *postedDateLabel;
+@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *mediaImage;
+@property(weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property(weak, nonatomic) IBOutlet UIImageView *shareImage;
+@property(weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
+@property(weak, nonatomic) IBOutlet UILabel *bookMarkLabel;
+
+@property(weak, nonatomic) IBOutlet UIImageView *mediaImage;
 @end
-@implementation FeedCell
 
+@implementation FeedCell
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -61,11 +63,23 @@
 
 - (void)setFeed:(PFObject *)feed {
     _feed = feed;
-    
+
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
-    NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
-    [self.thumbnail setImageWithURL:imageUrl];
+    if ([imageUrlString hasSuffix:@".webp"]) {
+
+        [Helper setImageFromWebPURL:imageUrlString completion:^(UIImage *img) {
+            self.thumbnail.image = img;
+
+        }];
+//        UIImage *defaultThumbnail = [UIImage imageNamed:@"ipAppIcon_3X_iPhone6"];
+//        UIImage *defaultThumbnail2 = [UIImage imageNamed:@"ipAppIcon_2X_iPhone"];
+//        UIImage *sharedButton = [UIImage imageNamed:@"shareYellowButton"];
+//        self.thumbnail.image = defaultThumbnail;
+    } else {
+        NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
+        [self.thumbnail setImageWithURL:imageUrl];
+    }
 
 
     // title
@@ -83,7 +97,7 @@
     self.summaryLabel.textColor = ipSecondaryGrey;
 
     // bookmark
-    if(!self.isForBookmark) {
+    if (!self.isForBookmark) {
         self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGreenButton"];
         UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
         [self.bookmarkImage addGestureRecognizer:bookmarkTap];
@@ -97,10 +111,9 @@
     // share
     self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
     self.shareImage.tintColor = ipPrimaryOrange;
-    
+
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
     [self.shareImage addGestureRecognizer:shareTap];
-
 
 
 }

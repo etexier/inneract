@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class UIWebView;
+#import <UIKit/UIKit.h>
 
 
 @interface Helper : NSObject
@@ -13,4 +13,6 @@
 + (NSString *)embeddedVimeoIFrameForId:(NSString *)id1;
 
 + (void)embedVimeoVideoId:(NSString *)videoId inView:(UIWebView *)view;
+
++ (void)setImageFromWebPURL:(NSString *)urlString completion:(void (^)(UIImage *img))completion;
 @end
