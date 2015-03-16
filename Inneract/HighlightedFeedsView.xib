@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqP-yV-YWy">
+                <scrollView clipsSubviews="YES" contentMode="scaleAspectFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqP-yV-YWy">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ePs-Uo-Q80">
@@ -30,8 +30,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="DqP-yV-YWy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9pD-kd-yNz"/>
                 <constraint firstAttribute="centerX" secondItem="ePs-Uo-Q80" secondAttribute="centerX" id="Dkh-UJ-Xel"/>
+                <constraint firstItem="DqP-yV-YWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bCP-IX-A11"/>
+                <constraint firstAttribute="trailing" secondItem="DqP-yV-YWy" secondAttribute="trailing" id="fzH-F4-reS"/>
                 <constraint firstItem="ePs-Uo-Q80" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pi4-XD-jkw"/>
+                <constraint firstAttribute="bottom" secondItem="DqP-yV-YWy" secondAttribute="bottom" id="r7S-py-evl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

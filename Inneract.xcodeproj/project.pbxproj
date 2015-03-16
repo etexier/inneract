@@ -38,6 +38,7 @@
 		32C8EAEE1AB69A0B008CC10D /* UIImageView+IP.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C8EAED1AB69A0B008CC10D /* UIImageView+IP.m */; };
 		32D552381AB5182200250219 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D552371AB5182200250219 /* NSString+HTML.m */; };
 		32D5523B1AB5184300250219 /* NSMutableString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D5523A1AB5184300250219 /* NSMutableString+HTML.m */; };
+		32D61E621AB759CA00F7776A /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D61E611AB759CA00F7776A /* TestView.xib */; };
 		32FF1C6D1AB6490B00238E19 /* HighlightedFeedsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */; };
 		32FF1C751AB65B9B00238E19 /* HighlightedFeedsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */; };
 		3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330651719605A51AB3D91F51 /* FeedDetailsViewController.m */; };
@@ -133,6 +134,7 @@
 		32D552371AB5182200250219 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		32D552391AB5184300250219 /* NSMutableString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+HTML.h"; sourceTree = "<group>"; };
 		32D5523A1AB5184300250219 /* NSMutableString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+HTML.m"; sourceTree = "<group>"; };
+		32D61E611AB759CA00F7776A /* TestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		32FF1C6B1AB6490B00238E19 /* HighlightedFeedsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightedFeedsView.h; sourceTree = "<group>"; };
 		32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighlightedFeedsView.m; sourceTree = "<group>"; };
 		32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighlightedFeedsView.xib; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				32C439761AAA19550011FEA0 /* FeedCell.h */,
 				32C439771AAA19550011FEA0 /* FeedCell.m */,
 				32C439781AAA19550011FEA0 /* FeedCell.xib */,
+				32D61E611AB759CA00F7776A /* TestView.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D61E621AB759CA00F7776A /* TestView.xib in Resources */,
 				329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */,
 				329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */,
 				329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */,

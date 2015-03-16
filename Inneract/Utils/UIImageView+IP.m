@@ -26,11 +26,22 @@
 
 - (void)ip_setImageWithURL:(NSURL *)url {
 
-    NSString *urlString = url.absoluteString;
-    if ([urlString hasSuffix:@".webp"]) {
+    if ([url.absoluteString hasSuffix:@".webp"]) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+        
+        UIImage *cachedImage = [[[self class] sharedImageCache] cachedImageForRequest:request];
+        if (cachedImage) {
+            self.image = cachedImage;
+            return;
+        }
 
+        __weak __typeof(self)weakSelf = self;
         [self setImageFromWebPURL:url completion:^(UIImage *img) {
-            self.image = img;
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.image = img;
+            [[[strongSelf class] sharedImageCache] cacheImage:img forRequest:request];
+            
         }];
         return;
     }

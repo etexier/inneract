@@ -9,6 +9,7 @@
 #import "HighlightedFeedsView.h"
 #import "Helper.h"
 #import "IPColors.h"
+#import "UIImageView+IP.h"
 
 NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
 
@@ -65,21 +66,29 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     // init scrollView
 
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake(self.bounds.size.width * 2, self.bounds.size.height - 100);
-    
-    UIWebView *first  = [[UIWebView alloc] initWithFrame:[self frameByIndex:0]];
-    [first sizeToFit];
-    [Helper embedVimeoVideoId:@"109561086" inView:first];
-    UIWebView *second = [[UIWebView alloc] initWithFrame:[self frameByIndex:1]];
-    [second sizeToFit];
-    [Helper embedVimeoVideoId:@"109933873" inView:second];
+    CGRect main = [[UIScreen mainScreen] bounds];
+    self.scrollView.contentSize = CGSizeMake(main.size.width * 2, self.bounds.size.height - 100);
+
+    UIImageView *first = [[UIImageView alloc] initWithFrame:[self frameByIndex:0]];
+    [first ip_setImageWithURL:[NSURL URLWithString:@"https://i.vimeocdn.com/video/494016254_1280.webp"]];
+//    UIWebView *first  = [[UIWebView alloc] initWithFrame:[self frameByIndex:0]];
+//    [first sizeToFit];
+//    [Helper embedVimeoVideoId:@"109561086" inView:first];
+    UIImageView *second = [[UIImageView alloc] initWithFrame:[self frameByIndex:1]];
+    [second ip_setImageWithURL:[NSURL URLWithString:@"https://i.vimeocdn.com/video/493531925_640.webp"]];
+
+//    UIWebView *second = [[UIWebView alloc] initWithFrame:[self frameByIndex:1]];
+//    [second sizeToFit];
+//    [Helper embedVimeoVideoId:@"109933873" inView:second];
     
     _panels = [NSMutableArray arrayWithCapacity:2];
     [_panels addObject:first];
     [_panels addObject:second];
     
     [self.scrollView addSubview:first];
+    first.contentMode = UIViewContentModeScaleAspectFill;
     [self.scrollView addSubview:second];
+    second.contentMode = UIViewContentModeScaleAspectFill;
     
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -115,8 +124,9 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
 }
 
 - (CGRect) frameByIndex:(NSInteger) index {
+    CGRect main = [[UIScreen mainScreen] bounds];
     CGRect rect = self.bounds;
-    return CGRectMake(rect.size.width * index, 0, rect.size.width, rect.size.height);
+    return CGRectMake(main.size.width * index, 0, main.size.width, rect.size.height);
 }
 
 
