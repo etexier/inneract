@@ -33,21 +33,6 @@
 
 @implementation FeedDetailsViewController
 
-/*
-feedCategory
-imageUrl
-link
-renderingStyle
-shareCount
-bookmarkCount
-title
-createdAt
-updatedAt
-summary
-
-*/
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initLayoutFromFeed:self.feed];

@@ -19,7 +19,7 @@ NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
 
 typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
-@interface FeedsViewController () <UITableViewDataSource, UITableViewDelegate,UISearchDisplayDelegate, UISearchBarDelegate, FeedCellProtocol>
+@interface FeedsViewController () <UITableViewDataSource, UITableViewDelegate,UISearchDisplayDelegate, UISearchBarDelegate, FeedCellProtocol, HighlightedFeedsViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -28,6 +28,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
 @property(nonatomic, strong) NSMutableArray *feeds;
+@property(nonatomic, strong) NSMutableArray *highlightedFeeds;
 @property(nonatomic, strong) NSMutableArray *feedsOfCurrentCategory;
 @property(nonatomic, strong) NSMutableArray *searchResults;
 
@@ -89,7 +90,6 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 }
 
-
 #pragma mark - Parse
 
 - (void)queryForFeedsWithCompletion:(FeedQueryCompletion) block {
@@ -124,7 +124,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     }];
 }
 
-- (void) filterFeedsByCategory {
+- (void) filterFeedsByCategory{
     [self.feedsOfCurrentCategory removeAllObjects];
     if (self.feedCategory) {
         self.feedsOfCurrentCategory = [[self.feeds filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"feedCategory=%@", self.feedCategory]] mutableCopy];
@@ -140,9 +140,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
     [self setupTableView];
     
-    // search
-    [self initSearchBar];
-    
+
     // navigation bar
     if(!self.isForBookmark) {
         UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
@@ -164,53 +162,71 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
     }
 
-    // init header
-    [self initHeaderView];
 
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
-        [self.tableView reloadData];
+        [self reloadData];
     }];
     
 }
 
-- (void)initHeaderView {
-    CGRect frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 200);
-    HighlightedFeedsView *headerView = [[HighlightedFeedsView alloc] initWithFrame:frame];
-    [self.view addSubview:headerView];
-    self.tableView.tableHeaderView = headerView;
+- (void) reloadData {
+    [self.tableView reloadData];
+    [self setupHeaderView];
 }
 
-- (void)initSearchBar {
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    
-    self.tableView.tableHeaderView = self.searchBar;
-    
+- (void)setupHeaderView {
+
+    static const CGFloat ksearchBarHeight = 44;
+    static const CGFloat kHighlightedFeedsHeight = 200;
+
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ksearchBarHeight + kHighlightedFeedsHeight)];
+    [self.view addSubview:headerView];
+
+
+    // search bar on top of header
+
+
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ksearchBarHeight)];
+    [headerView addSubview:self.searchBar];
+
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    
+
     self.searchController.searchResultsDataSource = self;
     self.searchController.searchResultsDelegate = self;
     self.searchController.delegate = self;
-    
-    
+
+
     CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
     self.tableView.contentOffset = offset;
-    
+
     self.searchResults = [NSMutableArray array];
-    
+
     self.searchController.searchResultsTableView.rowHeight = UITableViewAutomaticDimension;
     self.searchController.searchResultsTableView.estimatedRowHeight = 150;
-    
+
     // cell registration
     [self.searchController.searchResultsTableView registerNib:[UINib nibWithNibName:kFeedCellNibId bundle:nil] forCellReuseIdentifier:kFeedCellNibId];
+
+
+    // highlighted feeds at bottom of headerview
     
-    //    self.searchBar = [[UISearchBar alloc] init];
-    //    self.navigationItem.titleView = self.searchBar;
-    //    self.searchBar.text = nil;
-    //    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
-    //    self.searchBar.delegate = self;
-    
-    
+    CGRect frame = CGRectMake(0, ksearchBarHeight, self.tableView.bounds.size.width, kHighlightedFeedsHeight);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"renderingStyle=%@", @"highlighted"];
+    NSMutableArray *highlightedFeeds = [[self.feedsOfCurrentCategory filteredArrayUsingPredicate:predicate] mutableCopy];
+    if (highlightedFeeds.count == 0) {
+        self.tableView.tableHeaderView = nil;
+        return;
+    }
+    HighlightedFeedsView *highlightedFeedsView = [[HighlightedFeedsView alloc] initWithFrame:frame];
+    [headerView addSubview:highlightedFeedsView];
+    highlightedFeedsView.delegate = self;
+    [self.highlightedFeeds removeAllObjects];
+    self.highlightedFeeds = highlightedFeeds;
+    highlightedFeedsView.feeds = self.highlightedFeeds;
+
+    self.tableView.tableHeaderView = headerView;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -261,7 +277,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (PFObject *) feedForTableView:(UITableView *) tableView atIndexPath:(NSIndexPath *) indexPath {
     PFObject *feed;
     if (tableView == self.tableView) {
-        feed = self.feedsOfCurrentCategory[indexPath.row];
+        feed = self.feedsOfCurrentCategory[(NSUInteger) indexPath.row];
     } else {
         feed = self.searchResults[(NSUInteger) indexPath.row];
     }
@@ -343,7 +359,8 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     }
     
     [self filterFeedsByCategory];
-    [self.tableView reloadData];
+    [self reloadData];
+
 }
 
 #pragma mark - feed cell protocol
@@ -363,10 +380,19 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         }];
     }
 }
+#pragma - HighlightedFeedsViewDelegate
+- (void) onHeaderTap:(PFObject *)object {
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:object];
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [self.navigationController pushViewController:detailsVc animated:YES];
+
+    
+}
 #pragma mark - private methods 
 -(void) onRefresh {
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
-        [self.tableView reloadData];
+        [self reloadData];
     }];
 }
 

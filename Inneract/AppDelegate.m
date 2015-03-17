@@ -13,8 +13,6 @@
 #import "EditProfileViewController.h"
 #import "FeedsViewController.h"
 #import "MainViewHelper.h"
-#import "VolunteerViewController.h"
-#import "ClassesViewController.h"
 
 #import <Parse/Parse.h>
 #import <ParseCrashReporting/ParseCrashReporting.h>
@@ -54,15 +52,6 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
 	//self.window.rootViewController = [[JoinUsViewController alloc] init];
 	//self.window.rootViewController = [[LoginViewController alloc] init];
 	//self.window.rootViewController = [[EditProfileViewController alloc] init];
-
-    // feed controllers START
-//  UIViewController *fvc = [[FeedsViewController alloc] init];
-//    UIViewController *fvc = [[VolunteerViewController alloc] init];
-//    UIViewController *fvc = [[ClassesViewController alloc] init];
-//    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:fvc];
-//    nvc.navigationBar.translucent = NO;
-//    self.window.rootViewController = nvc;
-    // feed controllers END
 
      //[[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 

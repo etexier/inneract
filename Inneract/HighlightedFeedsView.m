@@ -56,48 +56,49 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
 }
 
 - (void)initSubViews {
-
     UINib *nib = [UINib nibWithNibName:kHighlightedFeedsViewId bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     self.contentView.frame = self.bounds;
     [self addSubview:self.contentView];
+    
+}
 
-
+- (void) setFeeds:(NSArray *)feeds {
     // init scrollView
-
+    
     self.scrollView.delegate = self;
     CGRect main = [[UIScreen mainScreen] bounds];
-    self.scrollView.contentSize = CGSizeMake(main.size.width * 2, self.bounds.size.height - 100);
 
-    UIImageView *first = [[UIImageView alloc] initWithFrame:[self frameByIndex:0]];
-    [first ip_setImageWithURL:[NSURL URLWithString:@"https://i.vimeocdn.com/video/494016254_1280.webp"]];
-//    UIWebView *first  = [[UIWebView alloc] initWithFrame:[self frameByIndex:0]];
-//    [first sizeToFit];
-//    [Helper embedVimeoVideoId:@"109561086" inView:first];
-    UIImageView *second = [[UIImageView alloc] initWithFrame:[self frameByIndex:1]];
-    [second ip_setImageWithURL:[NSURL URLWithString:@"https://i.vimeocdn.com/video/493531925_640.webp"]];
+    // tap gesture recognizer
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [singleTap setNumberOfTouchesRequired:1];
 
-//    UIWebView *second = [[UIWebView alloc] initWithFrame:[self frameByIndex:1]];
-//    [second sizeToFit];
-//    [Helper embedVimeoVideoId:@"109933873" inView:second];
+    _panels = [NSMutableArray arrayWithCapacity:feeds.count];
+    self.scrollView.contentSize = CGSizeMake(main.size.width * feeds.count, self.bounds.size.height - 100);
+    for (int i = 0; i < feeds.count; i++) {
+        UIImageView *v = [[UIImageView alloc] initWithFrame:[self frameByIndex:i]];
+        NSString *urlString = feeds[i][@"imageUrl"];
+        [v ip_setImageWithURL:[NSURL URLWithString:urlString]];
+        [_panels addObject:v];
+        [self.scrollView addSubview:v];
+        v.contentMode = UIViewContentModeScaleAspectFill;
+        [v addGestureRecognizer:singleTap];
+        v.userInteractionEnabled = YES;
+        _feeds = feeds;
+        
+    }
     
-    _panels = [NSMutableArray arrayWithCapacity:2];
-    [_panels addObject:first];
-    [_panels addObject:second];
     
-    [self.scrollView addSubview:first];
-    first.contentMode = UIViewContentModeScaleAspectFill;
-    [self.scrollView addSubview:second];
-    second.contentMode = UIViewContentModeScaleAspectFill;
-    
+    // scrollview setup
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     
     [self.contentView addSubview:self.scrollView];
-
+    
     // page control
-
+    
     self.pageControl.currentPageIndicatorTintColor = ipPrimaryOrange;
     self.pageControl.tintColor = ipSecondaryGrey;
     
@@ -129,5 +130,9 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     return CGRectMake(main.size.width * index, 0, main.size.width, rect.size.height);
 }
 
+- (void)oneTap:(UIGestureRecognizer *)gesture {
+    NSLog(@"Tapped on %ld", self.pageControl.currentPage);
+    [self.delegate onHeaderTap:self.feeds[self.pageControl.currentPage ? 0: self.pageControl.currentPage]];
+}
 
 @end

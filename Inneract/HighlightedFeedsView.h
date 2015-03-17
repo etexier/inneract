@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+@protocol HighlightedFeedsViewDelegate<NSObject>
+- (void) onHeaderTap:(PFObject *)object;
+@end
 
 @interface HighlightedFeedsView : UIView
+@property (nonatomic, weak) id<HighlightedFeedsViewDelegate> delegate;
+@property (strong, nonatomic) NSArray *feeds;
 @end

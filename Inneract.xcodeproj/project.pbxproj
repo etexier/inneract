@@ -10,8 +10,6 @@
 		325243F81AB7A58900757638 /* ImageToWebPDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F51AB7A58900757638 /* ImageToWebPDataTransformer.m */; };
 		325243F91AB7A58900757638 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F71AB7A58900757638 /* UIImage+WebP.m */; };
 		325243FB1AB7A5A700757638 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325243FA1AB7A5A700757638 /* WebP.framework */; };
-		326EA4361AAC318700C6B51B /* VolunteerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EA4351AAC318700C6B51B /* VolunteerViewController.m */; };
-		326EA4391AAC319800C6B51B /* ClassesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EA4381AAC319800C6B51B /* ClassesViewController.m */; };
 		329F00311AA81B180089C0E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00301AA81B180089C0E2 /* main.m */; };
 		329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00331AA81B180089C0E2 /* AppDelegate.m */; };
 		329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329F003B1AA81B180089C0E2 /* Images.xcassets */; };
@@ -86,10 +84,6 @@
 		325243F61AB7A58900757638 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+WebP.h"; path = "WebP-UIImage/Classes/UIImage+WebP.h"; sourceTree = "<group>"; };
 		325243F71AB7A58900757638 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+WebP.m"; path = "WebP-UIImage/Classes/UIImage+WebP.m"; sourceTree = "<group>"; };
 		325243FA1AB7A5A700757638 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = "WebP-UIImage/WebP.framework"; sourceTree = "<group>"; };
-		326EA4341AAC318700C6B51B /* VolunteerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteerViewController.h; sourceTree = "<group>"; };
-		326EA4351AAC318700C6B51B /* VolunteerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerViewController.m; sourceTree = "<group>"; };
-		326EA4371AAC319800C6B51B /* ClassesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassesViewController.h; sourceTree = "<group>"; };
-		326EA4381AAC319800C6B51B /* ClassesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassesViewController.m; sourceTree = "<group>"; };
 		326EA4411AAD102E00C6B51B /* IPColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPColors.h; sourceTree = "<group>"; };
 		329F002B1AA81B180089C0E2 /* Inneract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inneract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329F002F1AA81B180089C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -400,29 +394,8 @@
 			children = (
 				33065002B0EF57E4FCF180F7 /* Feeds */,
 				33065FB310028CB75047974D /* Details */,
-				3306594359A41FEC6BA20EEA /* Volunteer */,
-				330650A6EF94A72165A015C7 /* Classes */,
-				33065ED75E2B4154D2D761D8 /* Web */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		330650A6EF94A72165A015C7 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				326EA4371AAC319800C6B51B /* ClassesViewController.h */,
-				326EA4381AAC319800C6B51B /* ClassesViewController.m */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
-		3306594359A41FEC6BA20EEA /* Volunteer */ = {
-			isa = PBXGroup;
-			children = (
-				326EA4341AAC318700C6B51B /* VolunteerViewController.h */,
-				326EA4351AAC318700C6B51B /* VolunteerViewController.m */,
-			);
-			name = Volunteer;
 			sourceTree = "<group>";
 		};
 		33065DF4CA1569613FDDCD48 /* Utils */ = {
@@ -448,13 +421,6 @@
 				32FF1C6E1AB6494200238E19 /* HighlightedFeeds */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		33065ED75E2B4154D2D761D8 /* Web */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Web;
 			sourceTree = "<group>";
 		};
 		33065FB310028CB75047974D /* Details */ = {
@@ -699,7 +665,6 @@
 				38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */,
 				38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */,
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
-				326EA4361AAC318700C6B51B /* VolunteerViewController.m in Sources */,
 				FADAEF691AB42A7D0098E030 /* NIDropDown.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
 				38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */,
@@ -709,7 +674,6 @@
 				32D5523B1AB5184300250219 /* NSMutableString+HTML.m in Sources */,
 				329F007F1AA820300089C0E2 /* RegisterClassViewController.m in Sources */,
 				325243F91AB7A58900757638 /* UIImage+WebP.m in Sources */,
-				326EA4391AAC319800C6B51B /* ClassesViewController.m in Sources */,
 				38973B421AA97EB600FE3707 /* SecondIntroductionView.m in Sources */,
 				329F00841AA820650089C0E2 /* LearningLabViewController.m in Sources */,
 				329F00891AA8207F0089C0E2 /* TeachOrTAViewController.m in Sources */,
@@ -835,7 +799,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/manu/projects/git/others/WebP-UIImage",
 					"$(PROJECT_DIR)/WebP-UIImage",
 				);
 				INFOPLIST_FILE = Inneract/Info.plist;
@@ -852,7 +815,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/manu/projects/git/others/WebP-UIImage",
 					"$(PROJECT_DIR)/WebP-UIImage",
 				);
 				INFOPLIST_FILE = Inneract/Info.plist;
