@@ -83,13 +83,13 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
         [v ip_setImageWithURL:[NSURL URLWithString:urlString]];
 
         // label
-        UILabel *label = [[UILabel alloc] initWithFrame:v.frame];
-        label.text = feed[@"title"];
-        [label sizeToFit];
-        [label setCenter:CGPointMake(v.frame.size.width / 2, v.frame.size.height / 2)];
-        label.textColor = [UIColor blackColor];
-        label.font = [UIFont boldSystemFontOfSize:14];
-        [v addSubview:label];
+//        UILabel *label = [[UILabel alloc] initWithFrame:v.frame];
+//        label.text = feed[@"title"];
+//        [label sizeToFit];
+//        [label setCenter:CGPointMake(v.frame.size.width / 2, v.frame.size.height / 2)];
+//        label.textColor = [UIColor blackColor];
+//        label.font = [UIFont boldSystemFontOfSize:14];
+//        [v addSubview:label];
 
 
         [_panels addObject:v];
