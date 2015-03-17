@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3246E6EF1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */; };
 		3246E6F21AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */; };
+		3246E6F91AB8A27B00F5DFC2 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6F51AB8A1CD00F5DFC2 /* CircularStd-Black.otf */; };
+		3246E6FA1AB8A27B00F5DFC2 /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6F61AB8A1CD00F5DFC2 /* CircularStd-Bold.otf */; };
+		3246E6FB1AB8A27B00F5DFC2 /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6F71AB8A1CD00F5DFC2 /* CircularStd-Book.otf */; };
+		3246E6FC1AB8A27B00F5DFC2 /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6F81AB8A1CD00F5DFC2 /* CircularStd-Medium.otf */; };
 		325243F81AB7A58900757638 /* ImageToWebPDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F51AB7A58900757638 /* ImageToWebPDataTransformer.m */; };
 		325243F91AB7A58900757638 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F71AB7A58900757638 /* UIImage+WebP.m */; };
 		325243FB1AB7A5A700757638 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325243FA1AB7A5A700757638 /* WebP.framework */; };
@@ -84,6 +88,10 @@
 		3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHighlightedFeedView.xib; sourceTree = "<group>"; };
 		3246E6F01AB7D85A00F5DFC2 /* SingleHighlightedFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleHighlightedFeedView.h; sourceTree = "<group>"; };
 		3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleHighlightedFeedView.m; sourceTree = "<group>"; };
+		3246E6F51AB8A1CD00F5DFC2 /* CircularStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Black.otf"; sourceTree = "<group>"; };
+		3246E6F61AB8A1CD00F5DFC2 /* CircularStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Bold.otf"; sourceTree = "<group>"; };
+		3246E6F71AB8A1CD00F5DFC2 /* CircularStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Book.otf"; sourceTree = "<group>"; };
+		3246E6F81AB8A1CD00F5DFC2 /* CircularStd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Medium.otf"; sourceTree = "<group>"; };
 		325243F41AB7A58900757638 /* ImageToWebPDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageToWebPDataTransformer.h; path = "WebP-UIImage/Classes/ImageToWebPDataTransformer.h"; sourceTree = "<group>"; };
 		325243F51AB7A58900757638 /* ImageToWebPDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageToWebPDataTransformer.m; path = "WebP-UIImage/Classes/ImageToWebPDataTransformer.m"; sourceTree = "<group>"; };
 		325243F61AB7A58900757638 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+WebP.h"; path = "WebP-UIImage/Classes/UIImage+WebP.h"; sourceTree = "<group>"; };
@@ -212,6 +220,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3246E6F31AB8A19000F5DFC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3246E6F41AB8A19700F5DFC2 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3246E6F41AB8A19700F5DFC2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3246E6F51AB8A1CD00F5DFC2 /* CircularStd-Black.otf */,
+				3246E6F61AB8A1CD00F5DFC2 /* CircularStd-Bold.otf */,
+				3246E6F71AB8A1CD00F5DFC2 /* CircularStd-Book.otf */,
+				3246E6F81AB8A1CD00F5DFC2 /* CircularStd-Medium.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		325243F31AB7A4CA00757638 /* WebP */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +274,7 @@
 		329F002D1AA81B180089C0E2 /* Inneract */ = {
 			isa = PBXGroup;
 			children = (
+				3246E6F31AB8A19000F5DFC2 /* Resources */,
 				38DAAE351AAC345B00930AFE /* Common */,
 				329F007B1AA8200A0089C0E2 /* Forms */,
 				329F007A1AA81FE50089C0E2 /* Landing */,
@@ -583,6 +611,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3246E6F91AB8A27B00F5DFC2 /* CircularStd-Black.otf in Resources */,
+				3246E6FA1AB8A27B00F5DFC2 /* CircularStd-Bold.otf in Resources */,
+				3246E6FB1AB8A27B00F5DFC2 /* CircularStd-Book.otf in Resources */,
+				3246E6FC1AB8A27B00F5DFC2 /* CircularStd-Medium.otf in Resources */,
 				32D61E621AB759CA00F7776A /* TestView.xib in Resources */,
 				329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */,
 				329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */,
