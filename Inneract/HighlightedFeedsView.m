@@ -70,13 +70,13 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     CGRect main = [[UIScreen mainScreen] bounds];
 
     // tap gesture recognizer
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
-    [singleTap setNumberOfTapsRequired:1];
-    [singleTap setNumberOfTouchesRequired:1];
 
     _panels = [NSMutableArray arrayWithCapacity:feeds.count];
     self.scrollView.contentSize = CGSizeMake(main.size.width * feeds.count, self.bounds.size.height - 100);
     for (int i = 0; i < feeds.count; i++) {
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
+        [singleTap setNumberOfTapsRequired:1];
+        [singleTap setNumberOfTouchesRequired:1];
         UIImageView *v = [[UIImageView alloc] initWithFrame:[self frameByIndex:i]];
         NSString *urlString = feeds[i][@"imageUrl"];
         [v ip_setImageWithURL:[NSURL URLWithString:urlString]];
@@ -85,7 +85,6 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
         v.contentMode = UIViewContentModeScaleAspectFill;
         [v addGestureRecognizer:singleTap];
         v.userInteractionEnabled = YES;
-        _feeds = feeds;
         
     }
     
@@ -105,6 +104,8 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     [self.pageControl addTarget:self action:@selector(showVideoPane) forControlEvents:UIControlEventValueChanged];
     self.pageControl.numberOfPages = self.panels.count;
     [self.contentView addSubview:self.pageControl];
+    _feeds = feeds;
+
     
 }
 
@@ -132,7 +133,9 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
 
 - (void)oneTap:(UIGestureRecognizer *)gesture {
     NSLog(@"Tapped on %ld", self.pageControl.currentPage);
-    [self.delegate onHeaderTap:self.feeds[self.pageControl.currentPage ? 0: self.pageControl.currentPage]];
+    int index = self.pageControl.currentPage ? self.pageControl.currentPage : 0;
+    PFObject *object = self.feeds[index];
+    [self.delegate onHeaderTap:object];
 }
 
 @end
