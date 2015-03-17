@@ -209,7 +209,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 
     // highlighted feeds at bottom of headerview
-    
+
     CGRect frame = CGRectMake(0, ksearchBarHeight, self.tableView.bounds.size.width, kHighlightedFeedsHeight);
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"renderingStyle=%@", @"highlighted"];
     NSMutableArray *highlightedFeeds = [[self.feedsOfCurrentCategory filteredArrayUsingPredicate:predicate] mutableCopy];

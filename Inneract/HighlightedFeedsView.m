@@ -74,12 +74,24 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     _panels = [NSMutableArray arrayWithCapacity:feeds.count];
     self.scrollView.contentSize = CGSizeMake(main.size.width * feeds.count, self.bounds.size.height - 100);
     for (int i = 0; i < feeds.count; i++) {
+        PFObject *feed = feeds[(NSUInteger) i];
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
         [singleTap setNumberOfTapsRequired:1];
         [singleTap setNumberOfTouchesRequired:1];
         UIImageView *v = [[UIImageView alloc] initWithFrame:[self frameByIndex:i]];
-        NSString *urlString = feeds[i][@"imageUrl"];
+        NSString *urlString = feed[@"imageUrl"];
         [v ip_setImageWithURL:[NSURL URLWithString:urlString]];
+
+        // label
+        UILabel *label = [[UILabel alloc] initWithFrame:v.frame];
+        label.text = feed[@"title"];
+        [label sizeToFit];
+        [label setCenter:CGPointMake(v.frame.size.width / 2, v.frame.size.height / 2)];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont boldSystemFontOfSize:14];
+        [v addSubview:label];
+
+
         [_panels addObject:v];
         [self.scrollView addSubview:v];
         v.contentMode = UIViewContentModeScaleAspectFill;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3246E6EF1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */; };
+		3246E6F21AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */; };
 		325243F81AB7A58900757638 /* ImageToWebPDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F51AB7A58900757638 /* ImageToWebPDataTransformer.m */; };
 		325243F91AB7A58900757638 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F71AB7A58900757638 /* UIImage+WebP.m */; };
 		325243FB1AB7A5A700757638 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325243FA1AB7A5A700757638 /* WebP.framework */; };
@@ -79,6 +81,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHighlightedFeedView.xib; sourceTree = "<group>"; };
+		3246E6F01AB7D85A00F5DFC2 /* SingleHighlightedFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleHighlightedFeedView.h; sourceTree = "<group>"; };
+		3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleHighlightedFeedView.m; sourceTree = "<group>"; };
 		325243F41AB7A58900757638 /* ImageToWebPDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageToWebPDataTransformer.h; path = "WebP-UIImage/Classes/ImageToWebPDataTransformer.h"; sourceTree = "<group>"; };
 		325243F51AB7A58900757638 /* ImageToWebPDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageToWebPDataTransformer.m; path = "WebP-UIImage/Classes/ImageToWebPDataTransformer.m"; sourceTree = "<group>"; };
 		325243F61AB7A58900757638 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+WebP.h"; path = "WebP-UIImage/Classes/UIImage+WebP.h"; sourceTree = "<group>"; };
@@ -364,6 +369,9 @@
 				32FF1C6B1AB6490B00238E19 /* HighlightedFeedsView.h */,
 				32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */,
 				32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */,
+				3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */,
+				3246E6F01AB7D85A00F5DFC2 /* SingleHighlightedFeedView.h */,
+				3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */,
 			);
 			name = HighlightedFeeds;
 			sourceTree = "<group>";
@@ -588,6 +596,7 @@
 				FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */,
 				32C4397A1AAA19550011FEA0 /* FeedCell.xib in Resources */,
 				329F006C1AA81ED90089C0E2 /* ProfileDetailsViewController.xib in Resources */,
+				3246E6EF1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib in Resources */,
 				38DAAE401AAD714100930AFE /* PeopleCell.xib in Resources */,
 				38973B3F1AA97C7900FE3707 /* FirstIntroductionView.xib in Resources */,
 				329F005D1AA81E550089C0E2 /* ProfilesViewController.xib in Resources */,
@@ -657,6 +666,7 @@
 				38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */,
 				329F00311AA81B180089C0E2 /* main.m in Sources */,
 				38973B471AA9802000FE3707 /* ThirdIntroductionView.m in Sources */,
+				3246E6F21AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m in Sources */,
 				387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */,
 				FADAEF651AAE44870098E030 /* ComboBox.m in Sources */,
 				38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */,
