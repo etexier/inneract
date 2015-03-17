@@ -71,17 +71,17 @@
 
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
-    self.titleLabel.textColor = ipPrimaryMidnightBlue;
+//    self.titleLabel.textColor = ipPrimaryMidnightBlue;
 
     // posted date
     NSDate *createdAt = feed.createdAt;
     NSString *dateString = [Helper postedDate:createdAt];
     self.postedDateLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
-    self.postedDateLabel.textColor = ipPrimaryMidnightBlue;
+//    self.postedDateLabel.textColor = ipPrimaryMidnightBlue;
 
     // summary
     self.summaryLabel.text = [feed objectForKey:@"summary"];
-    self.summaryLabel.textColor = ipSecondaryGrey;
+//    self.summaryLabel.textColor = ipSecondaryGrey;
 
     // bookmark
     if (!self.isForBookmark) {
@@ -93,11 +93,8 @@
         self.bookMarkLabel.hidden = YES;
     }
 
-    self.bookmarkImage.tintColor = ipSecondaryCyan;
-
     // share
     self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
-    self.shareImage.tintColor = ipPrimaryOrange;
 
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
     [self.shareImage addGestureRecognizer:shareTap];

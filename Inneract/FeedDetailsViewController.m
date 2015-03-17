@@ -67,7 +67,7 @@
 
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
-    self.titleLabel.textColor = ipPrimaryMidnightBlue;
+//    self.titleLabel.textColor = ipPrimaryMidnightBlue;
 
 
     // posted date
@@ -75,7 +75,7 @@
     NSString *dateString = [Helper postedDate:createdAt];
 
     self.postedLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
-    self.postedLabel.textColor = ipPrimaryMidnightBlue;
+//    self.postedLabel.textColor = ipPrimaryMidnightBlue;
 
     // summary
     self.summaryLabel.text = [feed objectForKey:@"summary"];
@@ -88,7 +88,7 @@
     self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
 
     // web link
-    self.webLinkLabel.textColor = ipPrimaryMidnightBlue;
+//    self.webLinkLabel.textColor = ipPrimaryMidnightBlue;
     // tap registered in IB
 
 }

@@ -110,8 +110,8 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     
     // page control
     
-    self.pageControl.currentPageIndicatorTintColor = ipPrimaryOrange;
-    self.pageControl.tintColor = ipSecondaryGrey;
+//    self.pageControl.currentPageIndicatorTintColor = ipPrimaryOrange; // done in XIB
+//    self.pageControl.tintColor = ipSecondaryGrey;
     
     [self.pageControl addTarget:self action:@selector(showVideoPane) forControlEvents:UIControlEventValueChanged];
     self.pageControl.numberOfPages = self.panels.count;

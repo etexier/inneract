@@ -155,7 +155,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         NSDictionary *attributesHighlightedState = @{NSForegroundColorAttributeName : ipPrimaryMidnightBlue};
         [segmentedControl setTitleTextAttributes:attributesHighlightedState forState:UIControlStateHighlighted];
         
-        segmentedControl.tintColor = ipPrimaryOrange;
+        segmentedControl.tintColor = ipPrimaryOrange; // done in XIB
         
         self.navigationItem.titleView = segmentedControl;
         
