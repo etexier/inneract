@@ -3,6 +3,15 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CircularStd-Book.otf">
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThirdIntroductionView">
             <connections>
@@ -11,36 +20,41 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2dE-kc-ngY">
-            <rect key="frame" x="0.0" y="0.0" width="294" height="459"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TipsBackImg_LaunchScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="Aww-Zs-8bb">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-eO-0ah">
-                    <rect key="frame" x="16" y="80" width="262" height="24"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <rect key="frame" x="16" y="80" width="288" height="26"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="20"/>
+                    <color key="textColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Connect parents to classes for youth" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-TH-T2B">
+                    <rect key="frame" x="16" y="171" width="288" height="21"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Display the latest IP news or social events" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-b6-9N4">
+                    <rect key="frame" x="16" y="200" width="288" height="41"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-TP-BFT">
+                    <rect key="frame" x="16" y="249" width="288" height="114"/>
+                    <string key="text">Whether you are a parent, volunteer, or just interested in what we are doing, stay connected to all our design initiatives throughout the year.</string>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Connect volunteers to IP opportunities" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtB-MV-L6n">
-                    <rect key="frame" x="16" y="120" width="262" height="39"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2. Connect parents to classes for youth" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-TH-T2B">
-                    <rect key="frame" x="16" y="166" width="262" height="39"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3. Display the latest IP news or social events" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-b6-9N4">
-                    <rect key="frame" x="16" y="212" width="262" height="39"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-TP-BFT">
-                    <rect key="frame" x="16" y="258" width="262" height="108"/>
-                    <string key="text">Whether you are a parent, volunteer, or just interested in what we are doing, stay connected to all our design initiatives throughout the year.</string>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <rect key="frame" x="16" y="122" width="288" height="41"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -50,13 +64,17 @@
                 <constraint firstItem="DdH-TP-BFT" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="Hsd-ur-gaV"/>
                 <constraint firstAttribute="trailing" secondItem="7hl-TH-T2B" secondAttribute="trailing" constant="16" id="IKG-4T-6JE"/>
                 <constraint firstAttribute="trailing" secondItem="UtB-MV-L6n" secondAttribute="trailing" constant="16" id="Kmq-ui-kbr"/>
+                <constraint firstItem="Aww-Zs-8bb" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" id="O0B-TR-X3s"/>
                 <constraint firstItem="WUE-b6-9N4" firstAttribute="top" secondItem="7hl-TH-T2B" secondAttribute="bottom" constant="8" id="Pnr-n0-9kv"/>
                 <constraint firstAttribute="trailing" secondItem="lbQ-eO-0ah" secondAttribute="trailing" constant="16" id="TbJ-g8-s3e"/>
+                <constraint firstAttribute="bottom" secondItem="Aww-Zs-8bb" secondAttribute="bottom" id="Ura-zg-GnI"/>
                 <constraint firstAttribute="trailing" secondItem="WUE-b6-9N4" secondAttribute="trailing" constant="16" id="VlZ-hY-6TP"/>
                 <constraint firstItem="7hl-TH-T2B" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="cP9-Ao-JcW"/>
                 <constraint firstItem="UtB-MV-L6n" firstAttribute="top" secondItem="lbQ-eO-0ah" secondAttribute="bottom" constant="16" id="epP-Va-Og4"/>
                 <constraint firstItem="7hl-TH-T2B" firstAttribute="top" secondItem="UtB-MV-L6n" secondAttribute="bottom" constant="8" id="fXE-Pe-SJP"/>
+                <constraint firstAttribute="trailing" secondItem="Aww-Zs-8bb" secondAttribute="trailing" id="h19-rb-WZp"/>
                 <constraint firstItem="lbQ-eO-0ah" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="hrY-uN-tEm"/>
+                <constraint firstItem="Aww-Zs-8bb" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" id="naa-Da-SlU"/>
                 <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="80" id="pC1-lD-58f"/>
                 <constraint firstAttribute="trailing" secondItem="DdH-TP-BFT" secondAttribute="trailing" constant="16" id="xVq-r4-Ehk"/>
                 <constraint firstItem="DdH-TP-BFT" firstAttribute="top" secondItem="WUE-b6-9N4" secondAttribute="bottom" constant="8" id="xjM-u9-viX"/>
@@ -65,6 +83,9 @@
             <point key="canvasLocation" x="304" y="320.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="TipsBackImg_LaunchScreen3" width="640" height="1136"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

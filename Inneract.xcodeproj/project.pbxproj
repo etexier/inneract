@@ -19,7 +19,6 @@
 		329F00311AA81B180089C0E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00301AA81B180089C0E2 /* main.m */; };
 		329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00331AA81B180089C0E2 /* AppDelegate.m */; };
 		329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329F003B1AA81B180089C0E2 /* Images.xcassets */; };
-		329F003F1AA81B180089C0E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F003D1AA81B180089C0E2 /* LaunchScreen.xib */; };
 		329F004B1AA81B180089C0E2 /* InneractTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F004A1AA81B180089C0E2 /* InneractTests.m */; };
 		329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F005A1AA81E550089C0E2 /* ProfilesViewController.m */; };
 		329F005D1AA81E550089C0E2 /* ProfilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329F005B1AA81E550089C0E2 /* ProfilesViewController.xib */; };
@@ -49,6 +48,7 @@
 		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
 		33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330656776BEB2AF56D2540BB /* FeedsViewController.xib */; };
 		33065EAFB6D45024FCC40393 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33065CDAFD2FE9A5F6C42180 /* Helper.m */; };
+		33065FEB1301227C2B1D8711 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33065CB10BD641D546420524 /* LaunchScreen.xib */; };
 		382FFD251AB935DD00FE51D0 /* BasicInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD231AB935DD00FE51D0 /* BasicInfoCell.m */; };
 		382FFD261AB935DD00FE51D0 /* BasicInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD241AB935DD00FE51D0 /* BasicInfoCell.xib */; };
 		382FFD2A1AB93CC300FE51D0 /* BadgesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD281AB93CC300FE51D0 /* BadgesCell.m */; };
@@ -109,7 +109,6 @@
 		329F00321AA81B180089C0E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		329F00331AA81B180089C0E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		329F003B1AA81B180089C0E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		329F003E1AA81B180089C0E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		329F00441AA81B180089C0E2 /* InneractTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InneractTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		329F00491AA81B180089C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329F004A1AA81B180089C0E2 /* InneractTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InneractTests.m; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		330656776BEB2AF56D2540BB /* FeedsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedsViewController.xib; sourceTree = "<group>"; };
 		33065960353F636E5711A196 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
+		33065CB10BD641D546420524 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		33065CDAFD2FE9A5F6C42180 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		382FFD221AB935DD00FE51D0 /* BasicInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoCell.h; sourceTree = "<group>"; };
 		382FFD231AB935DD00FE51D0 /* BasicInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoCell.m; sourceTree = "<group>"; };
@@ -298,9 +298,9 @@
 				329F00321AA81B180089C0E2 /* AppDelegate.h */,
 				329F00331AA81B180089C0E2 /* AppDelegate.m */,
 				329F003B1AA81B180089C0E2 /* Images.xcassets */,
-				329F003D1AA81B180089C0E2 /* LaunchScreen.xib */,
 				329F002E1AA81B180089C0E2 /* Supporting Files */,
 				33065DF4CA1569613FDDCD48 /* Utils */,
+				33065CB10BD641D546420524 /* LaunchScreen.xib */,
 			);
 			path = Inneract;
 			sourceTree = "<group>";
@@ -653,7 +653,6 @@
 				329F00671AA81EC90089C0E2 /* LandingViewController.xib in Resources */,
 				38973B6B1AABA09E00FE3707 /* MainViewController.xib in Resources */,
 				38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */,
-				329F003F1AA81B180089C0E2 /* LaunchScreen.xib in Resources */,
 				329F00801AA820300089C0E2 /* RegisterClassViewController.xib in Resources */,
 				382FFD311AB9522300FE51D0 /* ActivityCell.xib in Resources */,
 				382FFD261AB935DD00FE51D0 /* BasicInfoCell.xib in Resources */,
@@ -673,6 +672,7 @@
 				330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */,
 				FADAEF641AAE44870098E030 /* arrow.png in Resources */,
 				33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */,
+				33065FEB1301227C2B1D8711 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,17 +779,6 @@
 			targetProxy = 329F00451AA81B180089C0E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		329F003D1AA81B180089C0E2 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				329F003E1AA81B180089C0E2 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		329F004C1AA81B180089C0E2 /* Debug */ = {

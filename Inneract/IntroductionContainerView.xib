@@ -17,23 +17,23 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg3-5O-EBp">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="531"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DyQ-R3-S3d">
                     <rect key="frame" x="141" y="531" width="39" height="37"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="4GK-kh-WaH"/>
                     </constraints>
-                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="currentPageIndicatorTintColor" red="1" green="0.92558426810000005" blue="0.13604983840000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="pageIndicatorTintColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
             </subviews>
             <constraints>
                 <constraint firstItem="wg3-5O-EBp" firstAttribute="leading" secondItem="TRf-0R-hdN" secondAttribute="leading" id="513-Sk-xZd"/>
                 <constraint firstAttribute="centerX" secondItem="DyQ-R3-S3d" secondAttribute="centerX" id="Dpe-kJ-hPk"/>
+                <constraint firstAttribute="bottom" secondItem="wg3-5O-EBp" secondAttribute="bottom" id="NQV-MU-ebh"/>
                 <constraint firstAttribute="bottom" secondItem="DyQ-R3-S3d" secondAttribute="bottom" id="O8d-rK-1gA"/>
                 <constraint firstItem="wg3-5O-EBp" firstAttribute="top" secondItem="TRf-0R-hdN" secondAttribute="top" id="fDS-tZ-gjN"/>
-                <constraint firstItem="DyQ-R3-S3d" firstAttribute="top" secondItem="wg3-5O-EBp" secondAttribute="bottom" id="ivZ-Tc-JQJ"/>
                 <constraint firstAttribute="trailing" secondItem="wg3-5O-EBp" secondAttribute="trailing" id="yxV-Yv-lvk"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

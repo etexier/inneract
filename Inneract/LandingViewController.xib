@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CircularStd-Book.otf">
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController">
             <connections>
@@ -16,45 +22,84 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VB-Av-8AH">
-                    <rect key="frame" x="0.0" y="519" width="328" height="49"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VB-Av-8AH" userLabel="bar view">
+                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wg-BU-E81">
-                            <rect key="frame" x="60" y="10" width="54" height="30"/>
-                            <state key="normal" title="Join us!">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onJoin:" destination="-1" eventType="touchUpInside" id="ukP-Bk-Mdk"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doc-pU-JMG">
-                            <rect key="frame" x="230" y="10" width="38" height="30"/>
-                            <state key="normal" title="Login">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="an5-8R-HEV"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgp-G4-ci2" userLabel="middle line view">
+                            <rect key="frame" x="160" y="0.0" width="1" height="49"/>
+                            <color key="backgroundColor" red="0.61176470589999998" green="0.61960784310000006" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="oeF-te-9iM"/>
+                                <constraint firstAttribute="height" constant="49" id="r0A-X6-kvR"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivV-vz-woC" userLabel="join us container view">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="49"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wg-BU-E81">
+                                    <rect key="frame" x="54" y="9" width="53" height="31"/>
+                                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="15"/>
+                                    <state key="normal" title="Join us!">
+                                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onJoin:" destination="-1" eventType="touchUpInside" id="ukP-Bk-Mdk"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="0wg-BU-E81" secondAttribute="centerY" id="eRe-L7-H2n"/>
+                                <constraint firstAttribute="centerX" secondItem="0wg-BU-E81" secondAttribute="centerX" id="jY7-Ht-70s"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuN-M6-QYA" userLabel="login container view">
+                            <rect key="frame" x="161" y="0.0" width="159" height="49"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doc-pU-JMG">
+                                    <rect key="frame" x="61" y="9" width="38" height="31"/>
+                                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="15"/>
+                                    <state key="normal" title="Login">
+                                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="an5-8R-HEV"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="Doc-pU-JMG" secondAttribute="centerX" id="E3v-Hz-p4g"/>
+                                <constraint firstAttribute="centerY" secondItem="Doc-pU-JMG" secondAttribute="centerY" id="fQ9-zT-Khm"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="0wg-BU-E81" firstAttribute="leading" secondItem="4VB-Av-8AH" secondAttribute="leading" constant="60" id="Q88-jF-ayf"/>
-                        <constraint firstAttribute="centerY" secondItem="0wg-BU-E81" secondAttribute="centerY" id="dTG-VI-neH"/>
-                        <constraint firstAttribute="centerY" secondItem="Doc-pU-JMG" secondAttribute="centerY" id="hhs-Ew-DjU"/>
-                        <constraint firstAttribute="trailing" secondItem="Doc-pU-JMG" secondAttribute="trailing" constant="60" id="poC-eo-gcB"/>
+                        <constraint firstItem="Wgp-G4-ci2" firstAttribute="leading" secondItem="ivV-vz-woC" secondAttribute="trailing" id="0Ag-fQ-DFj"/>
+                        <constraint firstItem="ivV-vz-woC" firstAttribute="leading" secondItem="4VB-Av-8AH" secondAttribute="leading" id="1TI-4q-j96"/>
+                        <constraint firstAttribute="trailing" secondItem="TuN-M6-QYA" secondAttribute="trailing" id="Gex-BD-mtY"/>
+                        <constraint firstAttribute="bottom" secondItem="ivV-vz-woC" secondAttribute="bottom" id="Ggc-yA-lx3"/>
+                        <constraint firstAttribute="bottom" secondItem="Wgp-G4-ci2" secondAttribute="bottom" id="IS0-rG-LW1"/>
+                        <constraint firstAttribute="centerX" secondItem="Wgp-G4-ci2" secondAttribute="centerX" id="P0i-MZ-aK8"/>
+                        <constraint firstItem="TuN-M6-QYA" firstAttribute="top" secondItem="4VB-Av-8AH" secondAttribute="top" id="QPF-7t-vpI"/>
+                        <constraint firstItem="TuN-M6-QYA" firstAttribute="leading" secondItem="Wgp-G4-ci2" secondAttribute="trailing" id="apJ-bJ-N80"/>
+                        <constraint firstItem="ivV-vz-woC" firstAttribute="top" secondItem="4VB-Av-8AH" secondAttribute="top" id="gIr-c4-uLw"/>
+                        <constraint firstAttribute="bottom" secondItem="TuN-M6-QYA" secondAttribute="bottom" id="gaf-i2-sz4"/>
+                        <constraint firstItem="Wgp-G4-ci2" firstAttribute="leading" secondItem="ivV-vz-woC" secondAttribute="trailing" id="sZJ-TS-yOd"/>
                         <constraint firstAttribute="height" constant="49" id="yMf-wA-iqp"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="4VB-Av-8AH" secondAttribute="trailing" constant="-8" id="5WB-rP-yip"/>
+                <constraint firstAttribute="trailing" secondItem="4VB-Av-8AH" secondAttribute="trailing" id="5WB-rP-yip"/>
                 <constraint firstAttribute="bottom" secondItem="4VB-Av-8AH" secondAttribute="bottom" id="Oom-bm-Ipj"/>
                 <constraint firstItem="4VB-Av-8AH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hud-PE-fPg"/>
             </constraints>
-            <point key="canvasLocation" x="322" y="367"/>
+            <point key="canvasLocation" x="336" y="367"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
