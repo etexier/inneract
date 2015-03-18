@@ -1,0 +1,58 @@
++Name getVimeoVideoConfig
++Request
+GET https://player.vimeo.com/video/{id:109933873}/config
+
+
+
+
++Response
+
++Body
+{
+  "video" : {
+    "thumbs" : {
+      "640" : "https:\/\/i.vimeocdn.com\/video\/494016254_640.jpg",
+      "960" : "https:\/\/i.vimeocdn.com\/video\/494016254_960.jpg",
+      "base" : "https:\/\/i.vimeocdn.com\/video\/494016254",
+      "1280" : "https:\/\/i.vimeocdn.com\/video\/494016254_1280.jpg"
+    },
+    "id" : 109933873,
+    "title" : "Designed: Liz Ogbu teaser",
+    "duration" : 76,
+    "embed_code" : "<iframe src=\"https:\/\/player.vimeo.com\/video\/109933873\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen><\/iframe>",
+    "share_url" : "https:\/\/vimeo.com\/109933873",
+    "url" : "https:\/\/vimeo.com\/109933873"
+  },
+  "request" : {
+    "files" : {
+      "hls" : {
+        "all" : "https:\/\/av00vimeo-i.akamaihd.net\/i\/,48754\/974\/300615239,16374\/672\/300615240,.mp4.csmil\/master.m3u8?primaryToken=1426716598_d12ddce3bca8f95df3fb2054673d06d8",
+        "cdn" : "akamai",
+        "origin" : "ns",
+        "hd" : "https:\/\/av00vimeo-i.akamaihd.net\/i\/,16374\/672\/300615240,.mp4.csmil\/master.m3u8?primaryToken=1426716598_89b342e80533e74fd443841a6dd0eb7b"
+      },
+      "h264" : {
+        "sd" : {
+          "origin" : "ns3.pdl-secure",
+          "height" : 360,
+          "availability" : 60,
+          "id" : 300615239,
+          "width" : 640,
+          "profile" : 112,
+          "bitrate" : 566,
+          "url" : "https:\/\/pdlvimeocdn-a.akamaihd.net\/48754\/974\/300615239.mp4?token2=1426716598_e85d54f6b53e46dedcb97ae2955614f7&aksessionid=c5dc23a0b55d7ba6"
+        },
+        "hd" : {
+          "origin" : "ns3.pdl-secure",
+          "height" : 720,
+          "availability" : 60,
+          "id" : 300615240,
+          "width" : 1280,
+          "profile" : 113,
+          "bitrate" : 2000,
+          "url" : "https:\/\/pdlvimeocdn-a.akamaihd.net\/16374\/672\/300615240.mp4?token2=1426716598_8beae397015e499f13d64060861ed211&aksessionid=8e7a325cc378d4b4"
+        }
+      }
+    }
+  }
+}

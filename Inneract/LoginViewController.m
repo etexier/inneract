@@ -18,7 +18,7 @@
 #import "JoinUsViewController.h"
 #import "EditProfileViewController.h"
 
-@interface LoginViewController () <FBLoginViewDelegate>
+@interface LoginViewController () <FBLoginViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet FBLoginView *loginViewFB;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
@@ -33,7 +33,6 @@
 @end
 
 @implementation LoginViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -43,6 +42,7 @@
 	self.loginViewFB.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 	
 	self.inProgress = NO;
+    self.passwordText.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -222,4 +222,8 @@
 }
 
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 @end
