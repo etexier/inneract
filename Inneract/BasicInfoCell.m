@@ -45,8 +45,6 @@
     // for performance
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    
-    [self updateUI];
 }
 
 - (void) updateUI {
@@ -67,7 +65,8 @@
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]];
     self.designatoinLabel.text = [self.user objectForKey:@"designation"];
     self.profession.text = [self.user objectForKey:@"profession"];
-    self.profession.sizeToFit;
+    //self.profession.sizeToFit;
+    self.profession.preferredMaxLayoutWidth = self.bounds.size.width - 16;
     
     [self.aboutButton setTitle:[NSString stringWithFormat:@"  About %@  ", self.nameLabel.text] forState:UIControlStateNormal];
     

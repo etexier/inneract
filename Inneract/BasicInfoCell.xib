@@ -61,7 +61,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Developer at Magnet" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3g-Cu-hQJ">
-                        <rect key="frame" x="79" y="146" width="162" height="17"/>
+                        <rect key="frame" x="8" y="146" width="304" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                     <constraint firstItem="eVy-oI-e1d" firstAttribute="top" secondItem="VgP-Gp-xe5" secondAttribute="bottom" constant="8" id="0sI-rp-s4O"/>
                     <constraint firstItem="VgP-Gp-xe5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="120" id="1HF-ze-Ukf"/>
                     <constraint firstAttribute="centerX" secondItem="oSE-3v-s6c" secondAttribute="centerX" id="3fl-Vz-V7o"/>
-                    <constraint firstItem="g3g-Cu-hQJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="5fy-ww-PQV"/>
+                    <constraint firstItem="g3g-Cu-hQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="5fy-ww-PQV"/>
                     <constraint firstAttribute="centerX" secondItem="eVy-oI-e1d" secondAttribute="centerX" id="9NM-dB-T9h"/>
                     <constraint firstAttribute="centerX" secondItem="g3g-Cu-hQJ" secondAttribute="centerX" id="Ey4-VD-6Ju"/>
                     <constraint firstAttribute="centerX" secondItem="AWd-dK-ciP" secondAttribute="centerX" id="PjR-uu-cdk"/>
@@ -80,7 +80,7 @@
                     <constraint firstItem="g3g-Cu-hQJ" firstAttribute="top" secondItem="oSE-3v-s6c" secondAttribute="bottom" constant="8" id="YfY-y8-yaB"/>
                     <constraint firstItem="VgP-Gp-xe5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="YtJ-cL-Foe"/>
                     <constraint firstItem="oSE-3v-s6c" firstAttribute="top" secondItem="eVy-oI-e1d" secondAttribute="bottom" constant="8" id="ZYD-lI-crD"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g3g-Cu-hQJ" secondAttribute="trailing" constant="8" id="aTF-Rw-Bvh"/>
+                    <constraint firstAttribute="trailing" secondItem="g3g-Cu-hQJ" secondAttribute="trailing" constant="8" id="aTF-Rw-Bvh"/>
                     <constraint firstItem="Wzc-KJ-3vq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="av9-mQ-frg"/>
                     <constraint firstAttribute="trailing" secondItem="Wzc-KJ-3vq" secondAttribute="trailing" constant="8" id="fLb-Hi-dJs"/>
                     <constraint firstItem="AWd-dK-ciP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="kvN-6J-5oh"/>
