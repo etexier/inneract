@@ -20,3 +20,6 @@ pod 'Facebook-iOS-SDK'
 
 # for image gallery
 pod 'MWPhotoBrowser'
+
+#for REST invocation
+pod 'Rest2Mobile', '~> 1.1'

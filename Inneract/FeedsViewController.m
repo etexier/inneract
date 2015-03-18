@@ -59,6 +59,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     if (self) {
         if([category isEqualToString:@"bookmark"]) {
             _isForBookmark = YES;
+            self.title = @"My Bookmarks"; // TODO : font and color
         } else {
             self.feedCategory = category;
 
@@ -195,7 +196,10 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
     // highlighted feeds at bottom of headerview
 
-    BOOL hasHeader = [self setupHighlightedFeedsForHeaderView:headerView];
+    BOOL hasHeader = NO;
+    if (!self.isForBookmark) {
+        hasHeader = [self setupHighlightedFeedsForHeaderView:headerView];
+    }
 
     if (!hasHeader && !hasSearchBar) {
         self.tableView.tableHeaderView = nil;
@@ -391,13 +395,12 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 - (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject *) feed {
+    NSLog(@"bookmarking feed...");
     if(feed) {
         [feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
         [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(error) {
                 NSLog(@"failed to save %@ for feed \n%@", kFeedBookmarkRelationshipName, feed);
-            } else {
-                //NSLog(@"User %@ bookmarked feed \n%@", [PFUser currentUser], feed);
             }
         }];
     }

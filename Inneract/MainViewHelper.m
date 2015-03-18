@@ -21,6 +21,7 @@
 
     FeedsViewController *bookmarkVc = [[FeedsViewController alloc] initWithCategory:@"bookmark"];
     UINavigationController *bookmarkNvc = [[UINavigationController alloc] initWithRootViewController:bookmarkVc];
+    bookmarkNvc.navigationBar.translucent = NO; // so it does not hide details views
     bookmarkNvc.title = @"Bookmarked";
 
     ProfilesViewController *peopleVc = [[ProfilesViewController alloc] init];

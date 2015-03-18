@@ -30,6 +30,14 @@
                             <constraint firstAttribute="height" constant="80" id="ERx-hu-rfJ"/>
                         </constraints>
                     </imageView>
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
+                        <rect key="frame" x="229" y="141" width="20" height="20"/>
+                        <color key="tintColor" red="0.52941176469999995" green="0.8862745098" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="JmR-AJ-JCf"/>
+                            <constraint firstAttribute="height" constant="20" id="NTu-wL-hwI"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-T2-wEE">
                         <rect key="frame" x="96" y="8" width="70" height="13"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="10"/>
@@ -71,13 +79,17 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kb-bG6">
-                        <rect key="frame" x="229" y="141" width="20" height="20"/>
-                        <color key="tintColor" red="0.52941176469999995" green="0.8862745098" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmarkOnImg" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-a1-z7q">
+                        <rect key="frame" x="64" y="8" width="20" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="JmR-AJ-JCf"/>
-                            <constraint firstAttribute="height" constant="20" id="NTu-wL-hwI"/>
+                            <constraint firstAttribute="width" constant="20" id="iHn-Gi-ARy"/>
+                            <constraint firstAttribute="height" constant="16" id="tSy-9S-Evd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iHn-Gi-ARy"/>
+                            </mask>
+                        </variation>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -100,18 +112,27 @@
                     <constraint firstAttribute="bottom" secondItem="Omc-iC-8wI" secondAttribute="bottom" constant="8" id="aKc-jd-VGc"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="8" id="blH-fi-IyZ"/>
                     <constraint firstItem="S3k-es-wEL" firstAttribute="centerY" secondItem="7Do-qD-8IQ" secondAttribute="centerY" id="hea-aK-hVq"/>
+                    <constraint firstItem="l4R-a1-z7q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="huA-lz-ETq"/>
+                    <constraint firstItem="EgW-T2-wEE" firstAttribute="leading" secondItem="l4R-a1-z7q" secondAttribute="trailing" constant="12" id="hwW-rf-85d"/>
                     <constraint firstItem="OuB-Jo-Ib5" firstAttribute="leading" secondItem="rsu-rp-GfW" secondAttribute="leading" id="lQQ-Us-uZL"/>
                     <constraint firstItem="tts-yH-mFW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="lnV-Vj-Tms"/>
+                    <constraint firstItem="tts-yH-mFW" firstAttribute="top" secondItem="l4R-a1-z7q" secondAttribute="top" id="n7k-9U-LW7"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="8o0-NB-2KQ" secondAttribute="trailing" constant="8" id="sRr-Fb-Q1p"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="top" secondItem="EgW-T2-wEE" secondAttribute="bottom" constant="8" id="tkg-ca-59E"/>
                     <constraint firstItem="Omc-iC-8wI" firstAttribute="top" secondItem="OuB-Jo-Ib5" secondAttribute="bottom" constant="8" id="uMy-ZJ-TCs"/>
                     <constraint firstItem="MTr-Kb-bG6" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="19" id="vTc-is-D93"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="huA-lz-ETq"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <gestureRecognizers/>
             <connections>
                 <outlet property="bookMarkLabel" destination="S3k-es-wEL" id="caD-JC-x5W"/>
                 <outlet property="bookmarkImage" destination="MTr-Kb-bG6" id="y9D-W1-NKe"/>
+                <outlet property="bookmarkOnImgView" destination="l4R-a1-z7q" id="h1x-07-REq"/>
                 <outlet property="mediaImage" destination="Omc-iC-8wI" id="nae-fa-Egd"/>
                 <outlet property="postedDateLabel" destination="EgW-T2-wEE" id="MDK-Lc-fkb"/>
                 <outlet property="shareImage" destination="OuB-Jo-Ib5" id="bKr-PA-tIC"/>
@@ -119,7 +140,10 @@
                 <outlet property="thumbnail" destination="tts-yH-mFW" id="ygS-lq-FbB"/>
                 <outlet property="titleLabel" destination="8o0-NB-2KQ" id="oXP-7A-1NV"/>
             </connections>
-            <point key="canvasLocation" x="185" y="420"/>
+            <point key="canvasLocation" x="185" y="419"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="bookmarkOnImg" width="20" height="32"/>
+    </resources>
 </document>

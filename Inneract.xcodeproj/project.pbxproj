@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A4031E33B5636FC7A01963C /* H264.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA0F2C3F453A62DE3588 /* H264.m */; };
+		278A2FB813A16F13F2A6A14B /* Files.m in Sources */ = {isa = PBXBuildFile; fileRef = B825A950A2CE52ED4742DAC3 /* Files.m */; };
 		3246E6EF1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */; };
 		3246E6F21AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */; };
 		3246E6F91AB8A27B00F5DFC2 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6F51AB8A1CD00F5DFC2 /* CircularStd-Black.otf */; };
@@ -68,7 +70,15 @@
 		38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE371AAC349600930AFE /* IPShareManager.m */; };
 		38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE3D1AAD714100930AFE /* PeopleCell.m */; };
 		38DAAE401AAD714100930AFE /* PeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DAAE3E1AAD714100930AFE /* PeopleCell.xib */; };
+		3D0358B6DDBD9E8855AB210F /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1FC79B91D1F524D009FF51 /* Video.m */; };
+		4A3C9DC8EBBFA15EFF92D570 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DDE9BB80B790EB312CA703 /* Request.m */; };
 		55DC7EF816D4A88069AEE296 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A086406A431B260C1E9CB0 /* libPods.a */; };
+		5A66AD259D313321DE36B1FE /* VimeoVideoConfigResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6532918FC5344A8EF172D0 /* VimeoVideoConfigResult.m */; };
+		87121E43249CE5D381442993 /* Sd.m in Sources */ = {isa = PBXBuildFile; fileRef = 77865D79E4B3AB0A5EBE65A2 /* Sd.m */; };
+		90FF6AAB4ED575785E5E02AF /* Hls.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3FF86E3CCD530491A7B567 /* Hls.m */; };
+		C60561EFFF48E508EC4BCE10 /* Thumbs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E59FC5B605337A70CC2A5E6 /* Thumbs.m */; };
+		D34B25A6117F0BB908C3E590 /* Hd.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C27AC052F8D036B4BB4B9FC /* Hd.m */; };
+		F0EE7A20A61A9501D5F8F1EA /* VimeoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 802427BF540A979B7F0BD3ED /* VimeoController.m */; };
 		FACFAB661AAA5B9C003D874F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFAB641AAA5B9C003D874F /* LoginViewController.m */; };
 		FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACFAB651AAA5B9C003D874F /* LoginViewController.xib */; };
 		FADAEF641AAE44870098E030 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = FADAEF601AAE44870098E030 /* arrow.png */; };
@@ -88,6 +98,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1540BA0F2C3F453A62DE3588 /* H264.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264.m; sourceTree = "<group>"; };
+		1D7A76274F71555DC16C65D0 /* VimeoVideoConfigResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimeoVideoConfigResult.h; sourceTree = "<group>"; };
+		1E59FC5B605337A70CC2A5E6 /* Thumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbs.m; sourceTree = "<group>"; };
+		27C9C7D67581C26E39638452 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHighlightedFeedView.xib; sourceTree = "<group>"; };
 		3246E6F01AB7D85A00F5DFC2 /* SingleHighlightedFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleHighlightedFeedView.h; sourceTree = "<group>"; };
 		3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleHighlightedFeedView.m; sourceTree = "<group>"; };
@@ -186,8 +200,24 @@
 		38DAAE3C1AAD714100930AFE /* PeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleCell.h; sourceTree = "<group>"; };
 		38DAAE3D1AAD714100930AFE /* PeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleCell.m; sourceTree = "<group>"; };
 		38DAAE3E1AAD714100930AFE /* PeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleCell.xib; sourceTree = "<group>"; };
+		43990034D5DA067290877DE9 /* Sd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sd.h; sourceTree = "<group>"; };
+		4E6532918FC5344A8EF172D0 /* VimeoVideoConfigResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VimeoVideoConfigResult.m; sourceTree = "<group>"; };
 		4ECDD04D533F5A98F8FDB7F6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4FFBB01DEC630261E9501D77 /* Thumbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbs.h; sourceTree = "<group>"; };
+		552E6023E58B1776D988765E /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		5C27AC052F8D036B4BB4B9FC /* Hd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hd.m; sourceTree = "<group>"; };
+		77865D79E4B3AB0A5EBE65A2 /* Sd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sd.m; sourceTree = "<group>"; };
 		7943AFF2952E65725200025B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		802427BF540A979B7F0BD3ED /* VimeoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VimeoController.m; sourceTree = "<group>"; };
+		8346738C3FD9A5E4F4626CBA /* H264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264.h; sourceTree = "<group>"; };
+		8EE171A8BA68457AB85208A0 /* Hls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hls.h; sourceTree = "<group>"; };
+		B825A950A2CE52ED4742DAC3 /* Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Files.m; sourceTree = "<group>"; };
+		BD3FF86E3CCD530491A7B567 /* Hls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hls.m; sourceTree = "<group>"; };
+		CD31A1AD56C3116942F16E22 /* Hd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hd.h; sourceTree = "<group>"; };
+		DC1FC79B91D1F524D009FF51 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		E0DDE9BB80B790EB312CA703 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		E230F8C3F10A0DC59DD7B0B6 /* Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Files.h; sourceTree = "<group>"; };
+		F1AA66273C5BEED84EBE3DC9 /* VimeoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimeoController.h; sourceTree = "<group>"; };
 		F3A086406A431B260C1E9CB0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACFAB631AAA5B9C003D874F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FACFAB641AAA5B9C003D874F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -296,6 +326,7 @@
 				329F002E1AA81B180089C0E2 /* Supporting Files */,
 				33065DF4CA1569613FDDCD48 /* Utils */,
 				33065CB10BD641D546420524 /* LaunchScreen.xib */,
+				E88C2A853162FAF56F9DA325 /* r2m */,
 			);
 			path = Inneract;
 			sourceTree = "<group>";
@@ -524,6 +555,40 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		5C2A4D93CB614714FDB889ED /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				E230F8C3F10A0DC59DD7B0B6 /* Files.h */,
+				B825A950A2CE52ED4742DAC3 /* Files.m */,
+				8346738C3FD9A5E4F4626CBA /* H264.h */,
+				1540BA0F2C3F453A62DE3588 /* H264.m */,
+				CD31A1AD56C3116942F16E22 /* Hd.h */,
+				5C27AC052F8D036B4BB4B9FC /* Hd.m */,
+				8EE171A8BA68457AB85208A0 /* Hls.h */,
+				BD3FF86E3CCD530491A7B567 /* Hls.m */,
+				27C9C7D67581C26E39638452 /* Request.h */,
+				E0DDE9BB80B790EB312CA703 /* Request.m */,
+				43990034D5DA067290877DE9 /* Sd.h */,
+				77865D79E4B3AB0A5EBE65A2 /* Sd.m */,
+				4FFBB01DEC630261E9501D77 /* Thumbs.h */,
+				1E59FC5B605337A70CC2A5E6 /* Thumbs.m */,
+				552E6023E58B1776D988765E /* Video.h */,
+				DC1FC79B91D1F524D009FF51 /* Video.m */,
+				1D7A76274F71555DC16C65D0 /* VimeoVideoConfigResult.h */,
+				4E6532918FC5344A8EF172D0 /* VimeoVideoConfigResult.m */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		64E2F09664C4994DA0D021E2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1AA66273C5BEED84EBE3DC9 /* VimeoController.h */,
+				802427BF540A979B7F0BD3ED /* VimeoController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8372CF58B7B63BE8B175E59B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +596,15 @@
 				F3A086406A431B260C1E9CB0 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E88C2A853162FAF56F9DA325 /* r2m */ = {
+			isa = PBXGroup;
+			children = (
+				64E2F09664C4994DA0D021E2 /* Controllers */,
+				5C2A4D93CB614714FDB889ED /* Nodes */,
+			);
+			path = r2m;
 			sourceTree = "<group>";
 		};
 		FADAEF5E1AAE44530098E030 /* Views */ = {
@@ -749,6 +823,16 @@
 				3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */,
 				3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */,
 				33065EAFB6D45024FCC40393 /* Helper.m in Sources */,
+				F0EE7A20A61A9501D5F8F1EA /* VimeoController.m in Sources */,
+				278A2FB813A16F13F2A6A14B /* Files.m in Sources */,
+				1A4031E33B5636FC7A01963C /* H264.m in Sources */,
+				D34B25A6117F0BB908C3E590 /* Hd.m in Sources */,
+				90FF6AAB4ED575785E5E02AF /* Hls.m in Sources */,
+				4A3C9DC8EBBFA15EFF92D570 /* Request.m in Sources */,
+				87121E43249CE5D381442993 /* Sd.m in Sources */,
+				C60561EFFF48E508EC4BCE10 /* Thumbs.m in Sources */,
+				3D0358B6DDBD9E8855AB210F /* Video.m in Sources */,
+				5A66AD259D313321DE36B1FE /* VimeoVideoConfigResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

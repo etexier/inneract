@@ -11,10 +11,18 @@
 #import <Parse/PFObject.h>
 #import "Helper.h"
 #import "IPColors.h"
+#import "VimeoController.h"
+#import "VimeoVideoConfigResult.h"
+#import "Request.h"
+#import "Files.h"
+#import "H264.h"
+#import "Hd.h"
+#import "Sd.h"
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface FeedDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bookmarkOnImageView;
 @property(weak, nonatomic) IBOutlet UIView *topImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *playImageView;
 
@@ -52,6 +60,8 @@
     self = [super init];
     if (self) {
         _feed = feed;
+        self.bookmarkOnImageView.hidden = YES;
+
     }
     return self;
 }
@@ -109,16 +119,25 @@
 
 #pragma mark - tap gesture
 - (IBAction)onTopImageViewTap:(id)sender {
-    NSLog(@"Tap on top image : if any media link, will display it (%@)", self.videoUrl);
-//    UIWebView *v  = [[UIWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    [v sizeToFit];
-//    [Helper embedVimeoVideoId:@"109561086" inView:v];
-//    [self.view addSubview:v];
+    if (!self.videoUrl) {
+        return;
+    }
+    NSLog(@"Tap on top image : will play %@", self.videoUrl);
+    VimeoController *controller = [[VimeoController alloc] init];
+    NSString *videoId = [self.videoUrl lastPathComponent];
+    [controller getVimeoVideoConfig:videoId success:^(VimeoVideoConfigResult *response) {
+//        NSString *movieUrlString = response.request.files.h264.hd.url; // hd may be slow to download
+        NSString *movieUrlString = response.request.files.h264.sd.url;
+        NSURL *movieURL = [NSURL URLWithString:movieUrlString];
+        NSLog(@"Playing video at URL: %@", movieURL);
+        MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+        [self presentMoviePlayerViewControllerAnimated:movieController];
+        [movieController.moviePlayer play];
 
-    NSURL *movieURL = self.videoUrl;
-    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
-    [self presentMoviePlayerViewControllerAnimated:movieController];
-    [movieController.moviePlayer play];
+        // code
+    } failure:^(NSError *error) {
+        NSLog(@"Couldn't open video url");
+    }];
 
 
 }

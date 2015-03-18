@@ -24,6 +24,7 @@
 @property(weak, nonatomic) IBOutlet UILabel *bookMarkLabel;
 
 @property(weak, nonatomic) IBOutlet UIImageView *mediaImage;
+@property (weak, nonatomic) IBOutlet UIImageView *bookmarkOnImgView;
 @end
 
 @implementation FeedCell
@@ -59,7 +60,6 @@
 
 
 
-
 - (void)setFeed:(PFObject *)feed {
     _feed = feed;
 
@@ -88,9 +88,11 @@
         self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGreenButton"];
         UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
         [self.bookmarkImage addGestureRecognizer:bookmarkTap];
+        self.bookmarkOnImgView.hidden = YES;
     } else {
         self.bookmarkImage.hidden = YES;
         self.bookMarkLabel.hidden = YES;
+        self.bookmarkOnImgView.hidden = NO;
     }
 
     // share
