@@ -27,7 +27,7 @@ static NSDateFormatter *_dateFormatter = nil;
 
 
 + (NSString *) embeddedVimeoIFrameForId:(NSString *) id {
-    static NSString *const kTemplate = @"<iframe src=\"https://player.vimeo.com/video/%@?badge=0&byline=0&portrait=0&title=0&color=ffb302\" width=\"320\" height=\"200\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+    static NSString *const kTemplate = @"<iframe src=\"https://player.vimeo.com/video/%@?autoplay=1&badge=0&byline=0&portrait=0&title=0&color=ffb302\" width=\"320\" height=\"200\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
     return [NSString stringWithFormat:kTemplate, id];
 }
 

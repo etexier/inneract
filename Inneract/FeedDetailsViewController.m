@@ -11,9 +11,12 @@
 #import <Parse/PFObject.h>
 #import "Helper.h"
 #import "IPColors.h"
+#import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface FeedDetailsViewController ()
 @property(weak, nonatomic) IBOutlet UIView *topImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *playImageView;
 
 @property(weak, nonatomic) IBOutlet UIImageView *nestedImageView;
 
@@ -27,6 +30,8 @@
 @property(weak, nonatomic) IBOutlet UIImageView *shareImage;
 
 @property(weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
+
+@property(strong, nonatomic) NSURL *videoUrl;
 
 
 @end
@@ -87,6 +92,15 @@
     // share
     self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
 
+    // play image
+    NSString *url = [self.feed objectForKey:@"videoUrl"];
+    if (nil != url) {
+        self.videoUrl = [NSURL URLWithString:url];
+    } else {
+//        self.videoUrl = nil;
+        self.playImageView.hidden = YES;
+    }
+    
     // web link
 //    self.webLinkLabel.textColor = ipPrimaryMidnightBlue;
     // tap registered in IB
@@ -94,6 +108,20 @@
 }
 
 #pragma mark - tap gesture
+- (IBAction)onTopImageViewTap:(id)sender {
+    NSLog(@"Tap on top image : if any media link, will display it (%@)", self.videoUrl);
+//    UIWebView *v  = [[UIWebView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [v sizeToFit];
+//    [Helper embedVimeoVideoId:@"109561086" inView:v];
+//    [self.view addSubview:v];
+
+    NSURL *movieURL = self.videoUrl;
+    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+    [self presentMoviePlayerViewControllerAnimated:movieController];
+    [movieController.moviePlayer play];
+
+
+}
 
 - (IBAction)onWebLinkTap:(UITapGestureRecognizer *)sender {
     UIViewController *webViewController = [[UIViewController alloc] init];

@@ -19,6 +19,7 @@
             <connections>
                 <outlet property="bookmarkImage" destination="im3-da-IWJ" id="BLi-FP-nxw"/>
                 <outlet property="nestedImageView" destination="TfY-bs-f2v" id="uYH-aw-4NW"/>
+                <outlet property="playImageView" destination="lhC-Gw-B60" id="rlY-sU-YM0"/>
                 <outlet property="postedLabel" destination="zxm-Ig-lKH" id="08Q-tp-VNZ"/>
                 <outlet property="shareImage" destination="cJh-Fb-HpW" id="Ymt-ed-jOH"/>
                 <outlet property="summaryLabel" destination="qtd-zV-OOK" id="o4M-hQ-nKx"/>
@@ -38,16 +39,30 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-bs-f2v">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                            <gestureRecognizers/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoPlayIcon_Big" translatesAutoresizingMaskIntoConstraints="NO" id="lhC-Gw-B60">
+                            <rect key="frame" x="105" y="50" width="110" height="130"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="130" id="V6O-Bg-WnW"/>
+                                <constraint firstAttribute="width" constant="110" id="eJG-Rk-ctY"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="230" id="DeI-NG-Vmj"/>
                         <constraint firstItem="TfY-bs-f2v" firstAttribute="leading" secondItem="IA1-yW-70u" secondAttribute="leading" id="Er4-Bl-24j"/>
                         <constraint firstItem="TfY-bs-f2v" firstAttribute="top" secondItem="IA1-yW-70u" secondAttribute="top" id="W0k-Wc-2Hl"/>
+                        <constraint firstAttribute="centerX" secondItem="lhC-Gw-B60" secondAttribute="centerX" id="YX5-tI-IaP"/>
                         <constraint firstAttribute="trailing" secondItem="TfY-bs-f2v" secondAttribute="trailing" id="ggQ-Sr-xRT"/>
+                        <constraint firstAttribute="centerY" secondItem="lhC-Gw-B60" secondAttribute="centerY" id="jwA-js-BXT"/>
                         <constraint firstAttribute="bottom" secondItem="TfY-bs-f2v" secondAttribute="bottom" id="v1y-Jq-8vA"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="vGh-q6-79z" appends="YES" id="Oir-2a-AdB"/>
+                    </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-zV-OOK">
                     <rect key="frame" x="8" y="325" width="304" height="142"/>
@@ -138,7 +153,15 @@
                 <action selector="onWebLinkTap:" destination="-1" id="iMT-wJ-PYd"/>
             </connections>
         </tapGestureRecognizer>
+        <tapGestureRecognizer id="vGh-q6-79z">
+            <connections>
+                <action selector="onTopImageViewTap:" destination="-1" id="ZXN-VB-4DW"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="videoPlayIcon_Big" width="148" height="171"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
