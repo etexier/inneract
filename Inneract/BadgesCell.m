@@ -45,6 +45,8 @@
 
 - (IBAction)didGiveBadge:(id)sender {
     [self.profileDelegate onGiveBadge];
+    self.badgeNumber++;
+    self.badgeLabel.text = [NSString stringWithFormat:@"%lu", self.badgeNumber];
 }
 
 
