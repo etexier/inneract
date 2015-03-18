@@ -37,7 +37,7 @@
 - (void)awakeFromNib {
 
     // round image
-    self.thumbnail.layer.cornerRadius = 5; // self.thumbnail.frame.size.width / 2.0f;
+//    self.thumbnail.layer.cornerRadius = 5; // self.thumbnail.frame.size.width / 2.0f;
     self.thumbnail.clipsToBounds = YES;
     // for performance
     self.thumbnail.layer.shouldRasterize = YES;
