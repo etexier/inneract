@@ -44,7 +44,7 @@
 
     UIImage *bookmarkImage = [UIImage imageNamed:@"bookmarkNavB"];
     UIImage *bookmarkSelectedImage = [UIImage imageNamed:@"bookmarkNavA"];
-    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTitle:@"Bookmark" image:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[bookmarkSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    UITabBarItem *barItem2 = [[UITabBarItem alloc] initWithTitle:@"Bookmarks" image:[bookmarkImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[bookmarkSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     bookmarkNvc.tabBarItem = barItem2;
 
     UIImage *peopleImage = [UIImage imageNamed:@"peopleNavB"];
