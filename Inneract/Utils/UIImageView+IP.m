@@ -26,7 +26,7 @@
 
 - (void)ip_setImageWithURL:(NSURL *)url {
 
-    if ([url.absoluteString hasSuffix:@".webp"]) {
+    if ([[url absoluteString] hasSuffix:@".webp"]) {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
         

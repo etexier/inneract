@@ -60,19 +60,13 @@ NSString *const kSingleHighlightedFeedViewId = @"SingleHighlightedFeedView";
 - (void) setFeed:(PFObject *)feed {
     _feed = feed;
     
-    [self.thumbnailView ip_setImageWithURL:feed[@"imageUrl"]];
+    [self.thumbnailView ip_setImageWithURL:[NSURL URLWithString:feed[@"imageUrl"]]];
     self.titleLabel.text = feed[@"title"];
     self.postedLabel.text = feed[@"createdAt"];
     
 }
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

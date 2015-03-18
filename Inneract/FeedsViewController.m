@@ -16,6 +16,12 @@
 
 NSString *const kFeedCellNibId = @"FeedCell";
 NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
+const CGFloat ksearchBarHeight = 44;
+const CGFloat kHighlightedFeedsHeight = 200;
+//    const CGFloat highlightedFeedsViewOffset = ksearchBarHeight;
+const CGFloat highlightedFeedsViewOffset = 0;
+
+
 
 typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
@@ -176,16 +182,49 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 - (void)setupHeaderView {
 
-    static const CGFloat ksearchBarHeight = 44;
-    static const CGFloat kHighlightedFeedsHeight = 200;
 
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ksearchBarHeight + kHighlightedFeedsHeight)];
+    CGFloat height =  highlightedFeedsViewOffset +  kHighlightedFeedsHeight;
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, height)];
     [self.view addSubview:headerView];
 
 
     // search bar on top of header
 
+    BOOL hasSearchBar = NO;
+    //[self setupSearchBarForHeaderView:headerView];
 
+    // highlighted feeds at bottom of headerview
+
+    BOOL hasHeader = [self setupHighlightedFeedsForHeaderView:headerView];
+
+    if (!hasHeader && !hasSearchBar) {
+        self.tableView.tableHeaderView = nil;
+        [headerView removeFromSuperview];
+        return;
+    }
+    self.tableView.tableHeaderView = headerView;
+}
+
+- (BOOL)setupHighlightedFeedsForHeaderView:(UIView *)headerView {
+
+    CGRect frame = CGRectMake(0, highlightedFeedsViewOffset, self.tableView.bounds.size.width, kHighlightedFeedsHeight);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"renderingStyle=%@", @"highlighted"];
+    NSMutableArray *highlightedFeeds = [[self.feedsOfCurrentCategory filteredArrayUsingPredicate:predicate] mutableCopy];
+    if (highlightedFeeds.count == 0) {
+        return NO;
+    }
+    HighlightedFeedsView *highlightedFeedsView = [[HighlightedFeedsView alloc] initWithFrame:frame];
+    [headerView addSubview:highlightedFeedsView];
+    highlightedFeedsView.delegate = self;
+    [self.highlightedFeeds removeAllObjects];
+    self.highlightedFeeds = highlightedFeeds;
+    highlightedFeedsView.feeds = self.highlightedFeeds;
+    return YES;
+
+
+}
+
+- (void)setupSearchBarForHeaderView:(UIView *) headerView {
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ksearchBarHeight)];
     [headerView addSubview:self.searchBar];
 
@@ -208,23 +247,6 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     [self.searchController.searchResultsTableView registerNib:[UINib nibWithNibName:kFeedCellNibId bundle:nil] forCellReuseIdentifier:kFeedCellNibId];
 
 
-    // highlighted feeds at bottom of headerview
-
-    CGRect frame = CGRectMake(0, ksearchBarHeight, self.tableView.bounds.size.width, kHighlightedFeedsHeight);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"renderingStyle=%@", @"highlighted"];
-    NSMutableArray *highlightedFeeds = [[self.feedsOfCurrentCategory filteredArrayUsingPredicate:predicate] mutableCopy];
-    if (highlightedFeeds.count == 0) {
-        self.tableView.tableHeaderView = nil;
-        return;
-    }
-    HighlightedFeedsView *highlightedFeedsView = [[HighlightedFeedsView alloc] initWithFrame:frame];
-    [headerView addSubview:highlightedFeedsView];
-    highlightedFeedsView.delegate = self;
-    [self.highlightedFeeds removeAllObjects];
-    self.highlightedFeeds = highlightedFeeds;
-    highlightedFeedsView.feeds = self.highlightedFeeds;
-
-    self.tableView.tableHeaderView = headerView;
 }
 
 

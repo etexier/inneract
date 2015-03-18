@@ -23,13 +23,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BO1-Ls-Z1a">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BO1-Ls-Z1a">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                 </imageView>
+                <view opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vy9-Tb-18U">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                    <color key="backgroundColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCy-Yl-AHC">
                     <rect key="frame" x="115" y="53" width="91" height="17"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designed: An interview with Maurice" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmG-n4-9Tm">
@@ -42,9 +46,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="cmG-n4-9Tm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="20b-Fi-gWX"/>
+                <constraint firstAttribute="trailing" secondItem="Vy9-Tb-18U" secondAttribute="trailing" id="21y-Kl-c3v"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cmG-n4-9Tm" secondAttribute="trailing" constant="30" id="2fg-6s-GqC"/>
                 <constraint firstAttribute="bottom" secondItem="BO1-Ls-Z1a" secondAttribute="bottom" id="60p-kt-U9G"/>
                 <constraint firstItem="xCy-Yl-AHC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="6D9-On-Ib2"/>
+                <constraint firstItem="Vy9-Tb-18U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GQN-5g-cs4"/>
                 <constraint firstItem="BO1-Ls-Z1a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gzu-El-j3c"/>
                 <constraint firstItem="BO1-Ls-Z1a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QZA-io-0qU"/>
                 <constraint firstAttribute="trailing" secondItem="BO1-Ls-Z1a" secondAttribute="trailing" id="cdF-OX-gmx"/>
@@ -53,6 +59,8 @@
                 <constraint firstAttribute="centerX" secondItem="xCy-Yl-AHC" secondAttribute="centerX" id="hhd-Xc-JSU"/>
                 <constraint firstItem="cmG-n4-9Tm" firstAttribute="top" secondItem="xCy-Yl-AHC" secondAttribute="bottom" constant="8" id="nX6-Tu-uD1"/>
                 <constraint firstAttribute="centerX" secondItem="cmG-n4-9Tm" secondAttribute="centerX" id="nkI-5J-W1N"/>
+                <constraint firstAttribute="bottom" secondItem="Vy9-Tb-18U" secondAttribute="bottom" id="qgG-sQ-VJc"/>
+                <constraint firstItem="Vy9-Tb-18U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wF6-qi-X73"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="406" y="307"/>

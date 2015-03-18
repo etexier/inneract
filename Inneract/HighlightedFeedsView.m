@@ -7,9 +7,7 @@
 //
 
 #import "HighlightedFeedsView.h"
-#import "Helper.h"
-#import "IPColors.h"
-#import "UIImageView+IP.h"
+#import "SingleHighlightedFeedView.h"
 
 NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
 
@@ -78,19 +76,8 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
         [singleTap setNumberOfTapsRequired:1];
         [singleTap setNumberOfTouchesRequired:1];
-        UIImageView *v = [[UIImageView alloc] initWithFrame:[self frameByIndex:i]];
-        NSString *urlString = feed[@"imageUrl"];
-        [v ip_setImageWithURL:[NSURL URLWithString:urlString]];
-
-        // label
-//        UILabel *label = [[UILabel alloc] initWithFrame:v.frame];
-//        label.text = feed[@"title"];
-//        [label sizeToFit];
-//        [label setCenter:CGPointMake(v.frame.size.width / 2, v.frame.size.height / 2)];
-//        label.textColor = [UIColor blackColor];
-//        label.font = [UIFont boldSystemFontOfSize:14];
-//        [v addSubview:label];
-
+        SingleHighlightedFeedView *v = [[SingleHighlightedFeedView alloc] initWithFrame:[self frameByIndex:i]];
+        v.feed = feed;
 
         [_panels addObject:v];
         [self.scrollView addSubview:v];
@@ -110,8 +97,8 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
     
     // page control
     
-//    self.pageControl.currentPageIndicatorTintColor = ipPrimaryOrange; // done in XIB
-//    self.pageControl.tintColor = ipSecondaryGrey;
+//    self.pageControl.currentPageIndicatorTintColor = ipPrimaryOrange; // set in XIB
+//    self.pageControl.tintColor = ipSecondaryGrey; // set in XIB
     
     [self.pageControl addTarget:self action:@selector(showVideoPane) forControlEvents:UIControlEventValueChanged];
     self.pageControl.numberOfPages = self.panels.count;
