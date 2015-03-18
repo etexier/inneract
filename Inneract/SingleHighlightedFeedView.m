@@ -8,6 +8,7 @@
 
 #import "SingleHighlightedFeedView.h"
 #import "UIImageView+IP.h"
+#import "Helper.h"
 
 @interface SingleHighlightedFeedView()
 @property (strong, nonatomic) IBOutlet UIView *contentView;
@@ -60,9 +61,11 @@ NSString *const kSingleHighlightedFeedViewId = @"SingleHighlightedFeedView";
 - (void) setFeed:(PFObject *)feed {
     _feed = feed;
     
-    [self.thumbnailView ip_setImageWithURL:[NSURL URLWithString:feed[@"imageUrl"]]];
-    self.titleLabel.text = feed[@"title"];
-    self.postedLabel.text = feed[@"createdAt"];
+    [self.thumbnailView ip_setImageWithURL:[NSURL URLWithString:[feed objectForKey:@"imageUrl"]]];
+    self.titleLabel.text = [feed objectForKey:@"title"];
+        NSDate *createdAt = feed.createdAt;
+    NSString *dateString = [Helper postedDate:createdAt];
+    self.postedLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
     
 }
 
