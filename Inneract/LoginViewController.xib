@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CircularStd-Book.otf">
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
@@ -17,27 +24,26 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="LaunchImgBlurred" translatesAutoresizingMaskIntoConstraints="NO" id="VKn-Rk-jIc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1136"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login using Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-SS-NTh">
-                    <rect key="frame" x="75" y="118" width="170" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="77" y="118" width="167" height="22"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="17"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-CN-Bco">
-                    <rect key="frame" x="8" y="367" width="304" height="30"/>
-                    <state key="normal" title="Login">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="KXL-9S-7hN"/>
-                    </connections>
-                </button>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ipAppIcon_2X_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-hu-f1d">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Login_Create_IPlogo" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-hu-f1d">
                     <rect key="frame" x="124" y="50" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="84C-yJ-gOT"/>
+                        <constraint firstAttribute="width" constant="60" id="jlg-kF-2qC"/>
+                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aG-er-xqg">
                     <rect key="frame" x="8" y="499" width="304" height="30"/>
                     <state key="normal" title="Create an account">
+                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -45,18 +51,30 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i92-3F-zOX">
-                    <rect key="frame" x="15" y="313" width="290" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <rect key="frame" x="15" y="315" width="290" height="30"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xXG-3d-PGt">
-                    <rect key="frame" x="15" y="242" width="290" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <rect key="frame" x="15" y="244" width="290" height="30"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-CN-Bco">
+                    <rect key="frame" x="8" y="369" width="304" height="30"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="KXL-9S-7hN"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-ML-dU9" customClass="FBLoginView">
-                    <rect key="frame" x="15" y="146" width="290" height="45"/>
-                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="15" y="148" width="290" height="45"/>
+                    <color key="backgroundColor" red="0.2274509804" green="0.46274509800000002" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="8aB-li-rp9"/>
                     </constraints>
@@ -86,8 +104,10 @@
                 <constraint firstAttribute="centerX" secondItem="pC0-hu-f1d" secondAttribute="centerX" constant="6" id="gTH-ro-rjY"/>
                 <constraint firstItem="0IV-SS-NTh" firstAttribute="top" secondItem="pC0-hu-f1d" secondAttribute="bottom" constant="8" id="j5L-Sb-iWE"/>
                 <constraint firstAttribute="trailing" secondItem="xXG-3d-PGt" secondAttribute="trailing" constant="15" id="ndc-8o-4mM"/>
+                <constraint firstAttribute="trailing" secondItem="VKn-Rk-jIc" secondAttribute="trailing" id="t61-Jr-GaQ"/>
                 <constraint firstItem="xXG-3d-PGt" firstAttribute="top" secondItem="wDC-ML-dU9" secondAttribute="bottom" constant="51" id="u38-8H-q38"/>
                 <constraint firstItem="xXG-3d-PGt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wAQ-Xf-TjN"/>
+                <constraint firstItem="VKn-Rk-jIc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yKd-pp-RrQ"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="vHl-fd-iaW" appends="YES" id="SKB-ct-6Wu"/>
@@ -101,7 +121,8 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="ipAppIcon_2X_iPhone" width="60" height="60"/>
+        <image name="LaunchImgBlurred" width="640" height="1136"/>
+        <image name="Login_Create_IPlogo" width="81" height="97"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

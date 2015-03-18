@@ -3,6 +3,18 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="CircularStd-Book.otf">
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JoinUsViewController">
             <connections>
@@ -19,10 +31,13 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImgBlurred" translatesAutoresizingMaskIntoConstraints="NO" id="iK2-LJ-Bre">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Login using Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-iU-XHD">
-                    <rect key="frame" x="103" y="90" width="114" height="14"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <rect key="frame" x="96" y="87" width="128" height="17"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skW-tD-Yfe" customClass="FBLoginView">
@@ -36,54 +51,60 @@
                     <rect key="frame" x="0.0" y="180" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLd-Aa-Jqg">
-                    <rect key="frame" x="15" y="207" width="290" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5w-X8-HNj">
                     <rect key="frame" x="15" y="252" width="290" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TTA-0w-USZ">
                     <rect key="frame" x="15" y="297" width="290" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-cb-oNE">
                     <rect key="frame" x="15" y="342" width="290" height="30"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9X1-r0-URI">
                     <rect key="frame" x="15" y="387" width="290" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDL-RU-VaO">
-                    <rect key="frame" x="15" y="437" width="290" height="28"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <rect key="frame" x="15" y="437" width="290" height="29"/>
+                    <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Join Us!">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.61176470589999998" green="0.61960784310000006" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="onJoinUs:" destination="-1" eventType="touchUpInside" id="Skp-Vv-rWq"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyX-zZ-IrK">
-                    <rect key="frame" x="143" y="515" width="34" height="28"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <rect key="frame" x="144" y="514" width="33" height="29"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                     <state key="normal" title="Login">
+                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="3kD-Wd-EcN"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLd-Aa-Jqg">
+                    <rect key="frame" x="15" y="207" width="290" height="30"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -93,6 +114,8 @@
                 <constraint firstItem="TTA-0w-USZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="56w-cw-rrc"/>
                 <constraint firstItem="9X1-r0-URI" firstAttribute="top" secondItem="ucr-cb-oNE" secondAttribute="bottom" constant="15" id="5NR-JU-MYc"/>
                 <constraint firstAttribute="centerX" secondItem="kD2-iU-XHD" secondAttribute="centerX" id="7oQ-7y-URn"/>
+                <constraint firstAttribute="trailing" secondItem="iK2-LJ-Bre" secondAttribute="trailing" id="F6k-bL-LOc"/>
+                <constraint firstItem="iK2-LJ-Bre" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="H8d-MR-ODC"/>
                 <constraint firstItem="ucr-cb-oNE" firstAttribute="top" secondItem="TTA-0w-USZ" secondAttribute="bottom" constant="15" id="MN7-wK-hmf"/>
                 <constraint firstItem="YDL-RU-VaO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="O9C-NA-1qh"/>
                 <constraint firstAttribute="trailing" secondItem="YDL-RU-VaO" secondAttribute="trailing" constant="15" id="V32-uW-FUe"/>
@@ -112,14 +135,19 @@
                 <constraint firstItem="A5w-X8-HNj" firstAttribute="top" secondItem="vLd-Aa-Jqg" secondAttribute="bottom" constant="15" id="pO9-aD-1Sj"/>
                 <constraint firstAttribute="trailing" secondItem="9X1-r0-URI" secondAttribute="trailing" constant="15" id="tel-kV-oSe"/>
                 <constraint firstItem="fEg-4l-Kau" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="180" id="tzc-IE-RMs"/>
+                <constraint firstItem="iK2-LJ-Bre" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vAk-6P-Bzs"/>
                 <constraint firstItem="ucr-cb-oNE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wtX-Wf-xzC"/>
                 <constraint firstAttribute="trailing" secondItem="fEg-4l-Kau" secondAttribute="trailing" id="xOG-Kf-hjC"/>
+                <constraint firstAttribute="bottom" secondItem="iK2-LJ-Bre" secondAttribute="bottom" id="xXI-rW-itW"/>
                 <constraint firstItem="TTA-0w-USZ" firstAttribute="top" secondItem="A5w-X8-HNj" secondAttribute="bottom" constant="15" id="z4n-iO-qAA"/>
                 <constraint firstAttribute="trailing" secondItem="ucr-cb-oNE" secondAttribute="trailing" constant="15" id="zhU-hf-CMe"/>
             </constraints>
             <point key="canvasLocation" x="384" y="383"/>
         </view>
     </objects>
+    <resources>
+        <image name="LaunchImgBlurred" width="640" height="1136"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
