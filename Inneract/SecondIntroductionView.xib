@@ -7,6 +7,8 @@
         <mutableArray key="CircularStd-Book.otf">
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -24,27 +26,45 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-Lm-5We">
-                    <rect key="frame" x="58" y="120" width="204" height="26"/>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="20"/>
+                    <rect key="frame" x="78" y="100" width="164" height="21"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsV-aL-RQu">
-                    <rect key="frame" x="16" y="162" width="288" height="243"/>
+                    <rect key="frame" x="16" y="129" width="288" height="243"/>
                     <string key="text">Inneract Project offers underresourced youth skills and experiences that create early interest and access to the field of design, while also encouraging parents and communities to be engaged as well. We believe that youth learn better when they can relate to a subject, so rather than just developing a learning curriculum for students, we also focus on educating parents, the public at large and engaging current designers to teach students about their professions</string>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khb-vV-nmJ">
+                    <rect key="frame" x="127" y="396" width="66" height="21"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to volunteer oppotunities, classes for youth, and the latest IP news" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcg-kF-lG2">
+                    <rect key="frame" x="16" y="425" width="288" height="41"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
+                <constraint firstItem="Pcg-kF-lG2" firstAttribute="leading" secondItem="kUQ-jW-xKu" secondAttribute="leading" constant="16" id="93r-my-ScM"/>
                 <constraint firstItem="bsV-aL-RQu" firstAttribute="leading" secondItem="kUQ-jW-xKu" secondAttribute="leading" constant="16" id="AnN-Ik-BaX"/>
                 <constraint firstAttribute="centerX" secondItem="4DO-Lm-5We" secondAttribute="centerX" id="EXY-BB-okX"/>
-                <constraint firstItem="4DO-Lm-5We" firstAttribute="top" secondItem="kUQ-jW-xKu" secondAttribute="top" constant="120" id="JZC-fU-yjP"/>
+                <constraint firstAttribute="centerX" secondItem="khb-vV-nmJ" secondAttribute="centerX" id="HD5-Ul-xHk"/>
+                <constraint firstItem="4DO-Lm-5We" firstAttribute="top" secondItem="kUQ-jW-xKu" secondAttribute="top" constant="100" id="JZC-fU-yjP"/>
                 <constraint firstItem="UZg-9J-uaF" firstAttribute="top" secondItem="kUQ-jW-xKu" secondAttribute="top" id="KWn-6u-LX0"/>
                 <constraint firstAttribute="trailing" secondItem="UZg-9J-uaF" secondAttribute="trailing" id="MdD-PA-Qgh"/>
-                <constraint firstItem="bsV-aL-RQu" firstAttribute="top" secondItem="4DO-Lm-5We" secondAttribute="bottom" constant="16" id="Xab-1B-C8W"/>
+                <constraint firstItem="khb-vV-nmJ" firstAttribute="top" secondItem="bsV-aL-RQu" secondAttribute="bottom" constant="24" id="ObM-tH-FQU"/>
+                <constraint firstItem="bsV-aL-RQu" firstAttribute="top" secondItem="4DO-Lm-5We" secondAttribute="bottom" constant="8" id="Xab-1B-C8W"/>
                 <constraint firstAttribute="trailing" secondItem="bsV-aL-RQu" secondAttribute="trailing" constant="16" id="ZRW-pi-SKH"/>
+                <constraint firstItem="Pcg-kF-lG2" firstAttribute="top" secondItem="khb-vV-nmJ" secondAttribute="bottom" constant="8" id="hfd-D7-ZGZ"/>
+                <constraint firstAttribute="trailing" secondItem="Pcg-kF-lG2" secondAttribute="trailing" constant="16" id="mRS-9s-h79"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pcg-kF-lG2" secondAttribute="bottom" constant="16" id="uhl-aJ-skg"/>
                 <constraint firstItem="UZg-9J-uaF" firstAttribute="leading" secondItem="kUQ-jW-xKu" secondAttribute="leading" id="whC-KC-Hrl"/>
                 <constraint firstAttribute="bottom" secondItem="UZg-9J-uaF" secondAttribute="bottom" id="zaR-cr-iCW"/>
             </constraints>
