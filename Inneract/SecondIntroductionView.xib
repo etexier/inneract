@@ -20,6 +20,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutIP_LaunchScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="UZg-9J-uaF">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-Lm-5We">
                     <rect key="frame" x="58" y="120" width="204" height="26"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="20"/>
@@ -33,9 +36,6 @@
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutIP_LaunchScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="UZg-9J-uaF">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="bsV-aL-RQu" firstAttribute="leading" secondItem="kUQ-jW-xKu" secondAttribute="leading" constant="16" id="AnN-Ik-BaX"/>

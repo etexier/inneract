@@ -27,32 +27,32 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-eO-0ah">
-                    <rect key="frame" x="16" y="80" width="288" height="26"/>
+                    <rect key="frame" x="16" y="120" width="288" height="26"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="20"/>
                     <color key="textColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Connect parents to classes for youth" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-TH-T2B">
-                    <rect key="frame" x="16" y="171" width="288" height="21"/>
+                    <rect key="frame" x="16" y="211" width="288" height="21"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Display the latest IP news or social events" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-b6-9N4">
-                    <rect key="frame" x="16" y="200" width="288" height="41"/>
+                    <rect key="frame" x="16" y="240" width="288" height="41"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-TP-BFT">
-                    <rect key="frame" x="16" y="249" width="288" height="114"/>
+                    <rect key="frame" x="16" y="289" width="288" height="114"/>
                     <string key="text">Whether you are a parent, volunteer, or just interested in what we are doing, stay connected to all our design initiatives throughout the year.</string>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="18"/>
                     <color key="textColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Connect volunteers to IP opportunities" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtB-MV-L6n">
-                    <rect key="frame" x="16" y="122" width="288" height="41"/>
+                    <rect key="frame" x="16" y="162" width="288" height="41"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                 <constraint firstAttribute="trailing" secondItem="Aww-Zs-8bb" secondAttribute="trailing" id="h19-rb-WZp"/>
                 <constraint firstItem="lbQ-eO-0ah" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="hrY-uN-tEm"/>
                 <constraint firstItem="Aww-Zs-8bb" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" id="naa-Da-SlU"/>
-                <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="80" id="pC1-lD-58f"/>
+                <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="120" id="pC1-lD-58f"/>
                 <constraint firstAttribute="trailing" secondItem="DdH-TP-BFT" secondAttribute="trailing" constant="16" id="xVq-r4-Ehk"/>
                 <constraint firstItem="DdH-TP-BFT" firstAttribute="top" secondItem="WUE-b6-9N4" secondAttribute="bottom" constant="8" id="xjM-u9-viX"/>
             </constraints>
