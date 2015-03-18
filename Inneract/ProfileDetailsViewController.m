@@ -47,6 +47,7 @@ NSString * const kActivityCell = @"ActivityCell";
 		self.fromAccountCreation = fromAccountCreation;
 		if(user) {
 			_user = user;
+            self.title = [self getUserName];
 		} else {
 			_isSelfProfile = YES;
 			PFQuery *query = [PFUser query];
@@ -56,6 +57,7 @@ NSString * const kActivityCell = @"ActivityCell";
 			[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 				if(!error && objects.count == 1) {
 					_user = objects[0];
+                    //self.title = [self getUserName];
                     [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 1)] withRowAnimation:YES];
 				}
 			}];
@@ -234,6 +236,10 @@ NSString * const kActivityCell = @"ActivityCell";
 - (IBAction)onLogout:(id)sender {
     [PFUser logOut];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLogoutNotification" object:nil];
+}
+
+- (NSString *) getUserName {
+    return [NSString stringWithFormat:@"%@ %@", [self.user valueForKey:@"firstName"], [self.user valueForKey:@"lastName"]];
 }
 
 
