@@ -64,8 +64,6 @@
 		38973B441AA97EC800FE3707 /* SecondIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B431AA97EC800FE3707 /* SecondIntroductionView.xib */; };
 		38973B471AA9802000FE3707 /* ThirdIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B461AA9802000FE3707 /* ThirdIntroductionView.m */; };
 		38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B481AA9803100FE3707 /* ThirdIntroductionView.xib */; };
-		38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B681AABA09E00FE3707 /* MainViewController.m */; };
-		38973B6B1AABA09E00FE3707 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B691AABA09E00FE3707 /* MainViewController.xib */; };
 		38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE1F1AAC215300930AFE /* MainViewHelper.m */; };
 		38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE371AAC349600930AFE /* IPShareManager.m */; };
 		38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DAAE3D1AAD714100930AFE /* PeopleCell.m */; };
@@ -181,9 +179,6 @@
 		38973B451AA9802000FE3707 /* ThirdIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdIntroductionView.h; sourceTree = "<group>"; };
 		38973B461AA9802000FE3707 /* ThirdIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdIntroductionView.m; sourceTree = "<group>"; };
 		38973B481AA9803100FE3707 /* ThirdIntroductionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdIntroductionView.xib; sourceTree = "<group>"; };
-		38973B671AABA09E00FE3707 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		38973B681AABA09E00FE3707 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		38973B691AABA09E00FE3707 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		38DAAE1E1AAC215300930AFE /* MainViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewHelper.h; sourceTree = "<group>"; };
 		38DAAE1F1AAC215300930AFE /* MainViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewHelper.m; sourceTree = "<group>"; };
 		38DAAE361AAC349600930AFE /* IPShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPShareManager.h; sourceTree = "<group>"; };
@@ -382,9 +377,6 @@
 				329F00631AA81EC90089C0E2 /* LandingViewController.h */,
 				329F00641AA81EC90089C0E2 /* LandingViewController.m */,
 				329F00651AA81EC90089C0E2 /* LandingViewController.xib */,
-				38973B671AABA09E00FE3707 /* MainViewController.h */,
-				38973B681AABA09E00FE3707 /* MainViewController.m */,
-				38973B691AABA09E00FE3707 /* MainViewController.xib */,
 				38DAAE1E1AAC215300930AFE /* MainViewHelper.h */,
 				38DAAE1F1AAC215300930AFE /* MainViewHelper.m */,
 			);
@@ -651,7 +643,6 @@
 				329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */,
 				38973B441AA97EC800FE3707 /* SecondIntroductionView.xib in Resources */,
 				329F00671AA81EC90089C0E2 /* LandingViewController.xib in Resources */,
-				38973B6B1AABA09E00FE3707 /* MainViewController.xib in Resources */,
 				38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */,
 				329F00801AA820300089C0E2 /* RegisterClassViewController.xib in Resources */,
 				382FFD311AB9522300FE51D0 /* ActivityCell.xib in Resources */,
@@ -730,7 +721,6 @@
 				329F00751AA81F0F0089C0E2 /* JoinUsViewController.m in Sources */,
 				382FFD251AB935DD00FE51D0 /* BasicInfoCell.m in Sources */,
 				329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */,
-				38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */,
 				329F00311AA81B180089C0E2 /* main.m in Sources */,
 				38973B471AA9802000FE3707 /* ThirdIntroductionView.m in Sources */,
 				3246E6F21AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m in Sources */,
