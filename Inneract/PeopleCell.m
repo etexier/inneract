@@ -84,8 +84,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)didShare:(id)sender {
-    [self.userCellHandler peopleCell:self didSharePeople:self.user];
-}
-
 @end

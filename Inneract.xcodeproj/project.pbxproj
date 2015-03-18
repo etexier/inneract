@@ -50,6 +50,12 @@
 		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
 		33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330656776BEB2AF56D2540BB /* FeedsViewController.xib */; };
 		33065EAFB6D45024FCC40393 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33065CDAFD2FE9A5F6C42180 /* Helper.m */; };
+		382FFD251AB935DD00FE51D0 /* BasicInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD231AB935DD00FE51D0 /* BasicInfoCell.m */; };
+		382FFD261AB935DD00FE51D0 /* BasicInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD241AB935DD00FE51D0 /* BasicInfoCell.xib */; };
+		382FFD2A1AB93CC300FE51D0 /* BadgesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD281AB93CC300FE51D0 /* BadgesCell.m */; };
+		382FFD2B1AB93CC300FE51D0 /* BadgesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD291AB93CC300FE51D0 /* BadgesCell.xib */; };
+		382FFD301AB9522300FE51D0 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD2E1AB9522300FE51D0 /* ActivityCell.m */; };
+		382FFD311AB9522300FE51D0 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD2F1AB9522300FE51D0 /* ActivityCell.xib */; };
 		387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 387EB76B1AB5547200EDD7A0 /* IPColorManager.m */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
@@ -153,6 +159,16 @@
 		33065960353F636E5711A196 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
 		33065CDAFD2FE9A5F6C42180 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		382FFD221AB935DD00FE51D0 /* BasicInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoCell.h; sourceTree = "<group>"; };
+		382FFD231AB935DD00FE51D0 /* BasicInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoCell.m; sourceTree = "<group>"; };
+		382FFD241AB935DD00FE51D0 /* BasicInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicInfoCell.xib; sourceTree = "<group>"; };
+		382FFD271AB93CC300FE51D0 /* BadgesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgesCell.h; sourceTree = "<group>"; };
+		382FFD281AB93CC300FE51D0 /* BadgesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgesCell.m; sourceTree = "<group>"; };
+		382FFD291AB93CC300FE51D0 /* BadgesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgesCell.xib; sourceTree = "<group>"; };
+		382FFD2C1AB9493F00FE51D0 /* ProfileDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileDelegate.h; sourceTree = "<group>"; };
+		382FFD2D1AB9522300FE51D0 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
+		382FFD2E1AB9522300FE51D0 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
+		382FFD2F1AB9522300FE51D0 /* ActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 		387EB76A1AB5547200EDD7A0 /* IPColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPColorManager.h; sourceTree = "<group>"; };
 		387EB76B1AB5547200EDD7A0 /* IPColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPColorManager.m; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
@@ -343,6 +359,7 @@
 		329F00791AA81FD40089C0E2 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
+				382FFD211AB9358A00FE51D0 /* Cell */,
 				329F00681AA81ED90089C0E2 /* ProfileDetailsViewController.h */,
 				329F00691AA81ED90089C0E2 /* ProfileDetailsViewController.m */,
 				329F006A1AA81ED90089C0E2 /* ProfileDetailsViewController.xib */,
@@ -355,6 +372,7 @@
 				38DAAE3C1AAD714100930AFE /* PeopleCell.h */,
 				38DAAE3D1AAD714100930AFE /* PeopleCell.m */,
 				38DAAE3E1AAD714100930AFE /* PeopleCell.xib */,
+				382FFD2C1AB9493F00FE51D0 /* ProfileDelegate.h */,
 			);
 			name = Profiles;
 			sourceTree = "<group>";
@@ -467,6 +485,22 @@
 				330651719605A51AB3D91F51 /* FeedDetailsViewController.m */,
 			);
 			name = Details;
+			sourceTree = "<group>";
+		};
+		382FFD211AB9358A00FE51D0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				382FFD221AB935DD00FE51D0 /* BasicInfoCell.h */,
+				382FFD231AB935DD00FE51D0 /* BasicInfoCell.m */,
+				382FFD241AB935DD00FE51D0 /* BasicInfoCell.xib */,
+				382FFD271AB93CC300FE51D0 /* BadgesCell.h */,
+				382FFD281AB93CC300FE51D0 /* BadgesCell.m */,
+				382FFD291AB93CC300FE51D0 /* BadgesCell.xib */,
+				382FFD2D1AB9522300FE51D0 /* ActivityCell.h */,
+				382FFD2E1AB9522300FE51D0 /* ActivityCell.m */,
+				382FFD2F1AB9522300FE51D0 /* ActivityCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		38973B351AA978D800FE3707 /* Introduction */ = {
@@ -625,6 +659,8 @@
 				38973B491AA9803100FE3707 /* ThirdIntroductionView.xib in Resources */,
 				329F003F1AA81B180089C0E2 /* LaunchScreen.xib in Resources */,
 				329F00801AA820300089C0E2 /* RegisterClassViewController.xib in Resources */,
+				382FFD311AB9522300FE51D0 /* ActivityCell.xib in Resources */,
+				382FFD261AB935DD00FE51D0 /* BasicInfoCell.xib in Resources */,
 				FACFAB671AAA5B9C003D874F /* LoginViewController.xib in Resources */,
 				32C4397A1AAA19550011FEA0 /* FeedCell.xib in Resources */,
 				329F006C1AA81ED90089C0E2 /* ProfileDetailsViewController.xib in Resources */,
@@ -637,6 +673,7 @@
 				329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */,
 				FADAEF661AAE44870098E030 /* ComboBox.xib in Resources */,
 				32FF1C751AB65B9B00238E19 /* HighlightedFeedsView.xib in Resources */,
+				382FFD2B1AB93CC300FE51D0 /* BadgesCell.xib in Resources */,
 				330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */,
 				FADAEF641AAE44870098E030 /* arrow.png in Resources */,
 				33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */,
@@ -692,8 +729,10 @@
 			files = (
 				32C439791AAA19550011FEA0 /* FeedCell.m in Sources */,
 				32C8EAEE1AB69A0B008CC10D /* UIImageView+IP.m in Sources */,
+				382FFD301AB9522300FE51D0 /* ActivityCell.m in Sources */,
 				32D552381AB5182200250219 /* NSString+HTML.m in Sources */,
 				329F00751AA81F0F0089C0E2 /* JoinUsViewController.m in Sources */,
+				382FFD251AB935DD00FE51D0 /* BasicInfoCell.m in Sources */,
 				329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */,
 				38973B6A1AABA09E00FE3707 /* MainViewController.m in Sources */,
 				329F00311AA81B180089C0E2 /* main.m in Sources */,
@@ -709,6 +748,7 @@
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
 				FADAEF691AB42A7D0098E030 /* NIDropDown.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
+				382FFD2A1AB93CC300FE51D0 /* BadgesCell.m in Sources */,
 				38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
 				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,

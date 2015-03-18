@@ -16,7 +16,7 @@
 
 NSString *const kPeopleCellNibId = @"PeopleCell";
 
-@interface ProfilesViewController ()  <UISearchDisplayDelegate, UISearchBarDelegate, PeopleCellProtocol>
+@interface ProfilesViewController ()  <UISearchDisplayDelegate, UISearchBarDelegate>
 @property(nonatomic, strong) UISearchBar *searchBar;
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
@@ -137,8 +137,6 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
             }
         }
     }
-    
-    cell.userCellHandler = self;
 
     if (tableView == self.tableView) {
         cell.user = object;

@@ -11,23 +11,27 @@
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
 #import "MainViewHelper.h"
+#import "BasicInfoCell.h"
+#import "BadgesCell.h"
+#import "ProfileDelegate.h"
+#import "ActivityCell.h"
+#import <Parse/PFQuery.h>
 
+NSString * const kBasicInfoCell = @"BasicInfoCell";
+NSString * const kBadgeCell = @"BadgesCell";
+NSString * const kActivityCell = @"ActivityCell";
 
-@interface ProfileDetailsViewController ()
+@interface ProfileDetailsViewController () <UITableViewDataSource, UITableViewDelegate, ProfileDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *designatoinLabel;
-@property (weak, nonatomic) IBOutlet UIButton *aboutButton;
-@property (weak, nonatomic) IBOutlet UILabel *profession;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (assign, nonatomic) BOOL fromAccountCreation;
-
 @property (nonatomic, assign) BOOL isSelfProfile;
 
 - (IBAction)onLogout:(id)sender;
-- (IBAction)onProfileLink:(id)sender;
 
+@property (nonatomic, strong, readonly) NSArray *sectionCells;
+@property (nonatomic, strong) NSArray *activities;
 
 @end
 
@@ -52,6 +56,7 @@
 			[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 				if(!error && objects.count == 1) {
 					_user = objects[0];
+                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 1)] withRowAnimation:YES];
 				}
 			}];
 		}
@@ -59,24 +64,38 @@
 	return self;
 }
 
+- (void) getUserActivities {
+    PFQuery *activitiesQuery = [PFQuery queryWithClassName:@"Activity"];
+    [activitiesQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [activitiesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            self.activities = objects;
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:YES];
+        }
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-    // round image
-    self.profileImage.layer.cornerRadius = 40; // self.thumbnail.frame.size.width / 2.0f;
-    self.profileImage.clipsToBounds = YES;
-    // for performance
-    self.profileImage.layer.shouldRasterize = YES;
-    self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    _sectionCells = @[kBasicInfoCell, kBadgeCell, kActivityCell];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 150;
+    
+    for(NSString *cellname in self.sectionCells) {
+        [self.tableView registerNib:[UINib nibWithNibName:cellname bundle:nil] forCellReuseIdentifier:cellname];
+    }
 	
     if(!self.isSelfProfile) {
-        self.editProfileButton.hidden = YES;
-        
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
 
 		if(self.fromAccountCreation){
-			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit Profile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile:)];
+			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit Profile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile)];
 			
 			//[self.confirmPopupView setHidden:NO];
             UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Thanks for joining the Inneract Project Family!"
@@ -87,37 +106,9 @@
             [theAlert show];
             
 		}
-        //Share is removed from new design
-//        else {
-//			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"shareYellowButton"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didShared:)];
-//		}
     } else {
 		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
     }
-    
-    // thumbnail
-    PFFile *profileFile = [self.user objectForKey:@"profileImage"];
-    if(profileFile) {
-        [self.profileImage setImageWithURL:[NSURL URLWithString:profileFile.url]];
-//        [profileFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//            if (!error) {
-//                self.profileImage.image = [UIImage imageWithData:data];
-//            }
-//        }];
-    } else {
-        self.profileImage.image = [UIImage imageNamed:@"user"];
-    }
-    
-    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.user objectForKey:@"firstName"], [self.user objectForKey:@"lastName"]];
-    self.designatoinLabel.text = [self.user objectForKey:@"designation"];
-    self.profession.text = [self.user objectForKey:@"profession"];
-    self.profession.sizeToFit;
-    
-    [self.aboutButton setTitle:[NSString stringWithFormat:@"About %@", self.nameLabel.text] forState:UIControlStateNormal];
-    
-    self.nameLabel.textColor = ipPrimaryMidnightBlue;
-    self.designatoinLabel.textColor = ipPrimaryMidnightBlue;
-    self.profession.textColor = ipPrimaryMidnightBlue;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,6 +118,85 @@
 
 - (void)setUser:(PFObject *)user {
     _user = user;
+}
+
+#pragma mark - table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+        case 1:
+            return 1;
+        case 2:
+            return self.activities.count;
+        default:
+            return 0;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:self.sectionCells[indexPath.section]];
+    switch (indexPath.section) {
+        case 0: {
+            BasicInfoCell *basicInfoCell = (BasicInfoCell *) cell;
+            [basicInfoCell setUser:self.user fromAccountCreation:self.fromAccountCreation isSelf:self.isSelfProfile];
+            basicInfoCell.profileDelegate = self;
+            break;
+        }
+        case 1: {
+            BadgesCell *badgeCell = (BadgesCell *) cell;
+            [badgeCell setBadgeNumber:[[_user valueForKey:@"badges"] integerValue]];
+            badgeCell.isSelfProfile = self.isSelfProfile;
+            badgeCell.profileDelegate = self;
+            break;
+        }
+        case 2: {
+            ActivityCell *activityCell = (ActivityCell *) cell;
+            [activityCell setActivity:self.activities[indexPath.row]];
+            break;
+        }
+        default:
+            return nil;
+    }
+    
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Basic Information";
+        case 1:
+            return @"Badges";
+        case 2:
+            return @"Activities";
+        default:
+            return nil;
+    }
+}
+
+#pragma mark - table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+#pragma mark - profile delegate
+- (void) onViewProfileLink {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]]; 
+}
+
+- (void) onGiveBadge {
+    [self.user setValue:@([[self.user valueForKey:@"badges"] integerValue] + 1) forKey:@"badges"];
+    [self.user saveInBackground];
+}
+
+- (void) onEditProfile {
+    [self.navigationController pushViewController:[[EditProfileViewController alloc] initWithUser:self.user] animated:YES];  
 }
 
 /*
@@ -165,12 +235,5 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLogoutNotification" object:nil];
 }
 
-- (IBAction)onProfileLink:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]];
-}
-
-- (IBAction)onEditProfile:(id)sender {
-    [self.navigationController pushViewController:[[EditProfileViewController alloc] initWithUser:self.user] animated:YES];
-}
 
 @end
