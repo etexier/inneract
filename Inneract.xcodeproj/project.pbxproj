@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A4031E33B5636FC7A01963C /* H264.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA0F2C3F453A62DE3588 /* H264.m */; };
 		278A2FB813A16F13F2A6A14B /* Files.m in Sources */ = {isa = PBXBuildFile; fileRef = B825A950A2CE52ED4742DAC3 /* Files.m */; };
+		3244F3561ABA97F300BE6EEA /* FeedDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3244F3551ABA97F300BE6EEA /* FeedDetailsHeaderView.m */; };
 		3246E6EF1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */; };
 		3246E6F21AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */; };
 		3246E6F91AB8A27B00F5DFC2 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3246E6F51AB8A1CD00F5DFC2 /* CircularStd-Black.otf */; };
@@ -18,6 +19,8 @@
 		325243F81AB7A58900757638 /* ImageToWebPDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F51AB7A58900757638 /* ImageToWebPDataTransformer.m */; };
 		325243F91AB7A58900757638 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 325243F71AB7A58900757638 /* UIImage+WebP.m */; };
 		325243FB1AB7A5A700757638 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325243FA1AB7A5A700757638 /* WebP.framework */; };
+		327D8EAE1ABAA0240013477E /* FeedDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 327D8EAC1ABAA0240013477E /* FeedDetailsCell.m */; };
+		327D8EB01ABAAA100013477E /* FeedDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327D8EAD1ABAA0240013477E /* FeedDetailsCell.xib */; };
 		329F00311AA81B180089C0E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00301AA81B180089C0E2 /* main.m */; };
 		329F00341AA81B180089C0E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 329F00331AA81B180089C0E2 /* AppDelegate.m */; };
 		329F003C1AA81B180089C0E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329F003B1AA81B180089C0E2 /* Images.xcassets */; };
@@ -45,6 +48,7 @@
 		32D5523B1AB5184300250219 /* NSMutableString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D5523A1AB5184300250219 /* NSMutableString+HTML.m */; };
 		32FF1C6D1AB6490B00238E19 /* HighlightedFeedsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF1C6C1AB6490B00238E19 /* HighlightedFeedsView.m */; };
 		32FF1C751AB65B9B00238E19 /* HighlightedFeedsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */; };
+		330650C0FD537DC8C72C62E9 /* FeedDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330652B7E632979E9D9B0AEC /* FeedDetailsHeaderView.xib */; };
 		3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330651719605A51AB3D91F51 /* FeedDetailsViewController.m */; };
 		3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3306545DC4732F14585ECAAC /* FeedsViewController.m */; };
 		330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */; };
@@ -102,6 +106,8 @@
 		1D7A76274F71555DC16C65D0 /* VimeoVideoConfigResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimeoVideoConfigResult.h; sourceTree = "<group>"; };
 		1E59FC5B605337A70CC2A5E6 /* Thumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbs.m; sourceTree = "<group>"; };
 		27C9C7D67581C26E39638452 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		3244F3541ABA97F300BE6EEA /* FeedDetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailsHeaderView.h; sourceTree = "<group>"; };
+		3244F3551ABA97F300BE6EEA /* FeedDetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailsHeaderView.m; sourceTree = "<group>"; };
 		3246E6EE1AB7D49500F5DFC2 /* SingleHighlightedFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHighlightedFeedView.xib; sourceTree = "<group>"; };
 		3246E6F01AB7D85A00F5DFC2 /* SingleHighlightedFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleHighlightedFeedView.h; sourceTree = "<group>"; };
 		3246E6F11AB7D85A00F5DFC2 /* SingleHighlightedFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleHighlightedFeedView.m; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 		325243F71AB7A58900757638 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+WebP.m"; path = "WebP-UIImage/Classes/UIImage+WebP.m"; sourceTree = "<group>"; };
 		325243FA1AB7A5A700757638 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = "WebP-UIImage/WebP.framework"; sourceTree = "<group>"; };
 		326EA4411AAD102E00C6B51B /* IPColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPColors.h; sourceTree = "<group>"; };
+		327D8EAB1ABAA0240013477E /* FeedDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailsCell.h; sourceTree = "<group>"; };
+		327D8EAC1ABAA0240013477E /* FeedDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailsCell.m; sourceTree = "<group>"; };
+		327D8EAD1ABAA0240013477E /* FeedDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailsCell.xib; sourceTree = "<group>"; };
 		329F002B1AA81B180089C0E2 /* Inneract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inneract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329F002F1AA81B180089C0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		329F00301AA81B180089C0E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -162,6 +171,7 @@
 		32FF1C741AB65B9B00238E19 /* HighlightedFeedsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighlightedFeedsView.xib; sourceTree = "<group>"; };
 		330651719605A51AB3D91F51 /* FeedDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailsViewController.m; sourceTree = "<group>"; };
 		33065203601594D7AF42A0C0 /* FeedDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailsViewController.h; sourceTree = "<group>"; };
+		330652B7E632979E9D9B0AEC /* FeedDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedDetailsHeaderView.xib; sourceTree = "<group>"; };
 		3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedDetailsViewController.xib; sourceTree = "<group>"; };
 		3306545DC4732F14585ECAAC /* FeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedsViewController.m; sourceTree = "<group>"; };
 		330656776BEB2AF56D2540BB /* FeedsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedsViewController.xib; sourceTree = "<group>"; };
@@ -257,6 +267,16 @@
 				4ECDD04D533F5A98F8FDB7F6 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3244F3531ABA7EBD00BE6EEA /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */,
+				33065203601594D7AF42A0C0 /* FeedDetailsViewController.h */,
+				330651719605A51AB3D91F51 /* FeedDetailsViewController.m */,
+			);
+			name = Details;
 			sourceTree = "<group>";
 		};
 		3246E6F31AB8A19000F5DFC2 /* Resources */ = {
@@ -446,6 +466,7 @@
 		32FF1C6F1AB6495900238E19 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				33065FB310028CB75047974D /* Details */,
 				32C439761AAA19550011FEA0 /* FeedCell.h */,
 				32C439771AAA19550011FEA0 /* FeedCell.m */,
 				32C439781AAA19550011FEA0 /* FeedCell.xib */,
@@ -456,6 +477,7 @@
 		33065002B0EF57E4FCF180F7 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
+				3244F3531ABA7EBD00BE6EEA /* Details */,
 				330656776BEB2AF56D2540BB /* FeedsViewController.xib */,
 				33065BC05E3CA4A7835A44E2 /* FeedsViewController.h */,
 				3306545DC4732F14585ECAAC /* FeedsViewController.m */,
@@ -467,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				33065002B0EF57E4FCF180F7 /* Feeds */,
-				33065FB310028CB75047974D /* Details */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -500,9 +521,12 @@
 		33065FB310028CB75047974D /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				3306541FA360D8CCB347F2B8 /* FeedDetailsViewController.xib */,
-				33065203601594D7AF42A0C0 /* FeedDetailsViewController.h */,
-				330651719605A51AB3D91F51 /* FeedDetailsViewController.m */,
+				330652B7E632979E9D9B0AEC /* FeedDetailsHeaderView.xib */,
+				3244F3541ABA97F300BE6EEA /* FeedDetailsHeaderView.h */,
+				3244F3551ABA97F300BE6EEA /* FeedDetailsHeaderView.m */,
+				327D8EAB1ABAA0240013477E /* FeedDetailsCell.h */,
+				327D8EAC1ABAA0240013477E /* FeedDetailsCell.m */,
+				327D8EAD1ABAA0240013477E /* FeedDetailsCell.xib */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -734,10 +758,12 @@
 				FADAEF661AAE44870098E030 /* ComboBox.xib in Resources */,
 				32FF1C751AB65B9B00238E19 /* HighlightedFeedsView.xib in Resources */,
 				382FFD2B1AB93CC300FE51D0 /* BadgesCell.xib in Resources */,
+				327D8EB01ABAAA100013477E /* FeedDetailsCell.xib in Resources */,
 				330657D3A4F5CBF47983D041 /* FeedDetailsViewController.xib in Resources */,
 				FADAEF641AAE44870098E030 /* arrow.png in Resources */,
 				33065BC08738FAD577A914CB /* FeedsViewController.xib in Resources */,
 				33065FEB1301227C2B1D8711 /* LaunchScreen.xib in Resources */,
+				330650C0FD537DC8C72C62E9 /* FeedDetailsHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +835,7 @@
 				FADAEF691AB42A7D0098E030 /* NIDropDown.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
 				382FFD2A1AB93CC300FE51D0 /* BadgesCell.m in Sources */,
+				327D8EAE1ABAA0240013477E /* FeedDetailsCell.m in Sources */,
 				38DAAE201AAC215300930AFE /* MainViewHelper.m in Sources */,
 				329F00661AA81EC90089C0E2 /* LandingViewController.m in Sources */,
 				329F008E1AA8DC3C0089C0E2 /* EditProfileViewController.m in Sources */,
@@ -833,6 +860,7 @@
 				C60561EFFF48E508EC4BCE10 /* Thumbs.m in Sources */,
 				3D0358B6DDBD9E8855AB210F /* Video.m in Sources */,
 				5A66AD259D313321DE36B1FE /* VimeoVideoConfigResult.m in Sources */,
+				3244F3561ABA97F300BE6EEA /* FeedDetailsHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

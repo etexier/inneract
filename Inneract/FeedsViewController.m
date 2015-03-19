@@ -283,9 +283,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] init];
+
     PFObject *feed = [self feedForTableView:tableView atIndexPath:indexPath];
-    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:feed isBookmarked:[self isBookmarked:[feed valueForKey:@"objectId"]]];
-    
+    detailsVc.feed = feed;
+    detailsVc.isBookmarked = [self isBookmarked:[feed valueForKey:@"objectId"]];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
     
@@ -453,8 +455,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 #pragma - HighlightedFeedsViewDelegate
 - (void) onHeaderTap:(PFObject *)object {
-    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:object isBookmarked:[self isBookmarked:[object valueForKey:@"objectId"]]];
-    
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] init];
+    detailsVc.feed = object;
+    detailsVc.isBookmarked = [self isBookmarked:[object valueForKey:@"objectId"]];
+
+
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
 
