@@ -51,6 +51,9 @@
                         <constraint firstItem="C5n-Bf-zix" firstAttribute="top" secondItem="TfY-bs-f2v" secondAttribute="top" id="v5C-BH-B41"/>
                         <constraint firstAttribute="trailing" secondItem="C5n-Bf-zix" secondAttribute="trailing" constant="12" id="xGW-v6-3QC"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="K8Q-J6-LB0" appends="YES" id="Fft-Ci-6JN"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -63,6 +66,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="199" y="283"/>
         </view>
+        <tapGestureRecognizer id="K8Q-J6-LB0">
+            <connections>
+                <action selector="onTap:" destination="-1" id="6jk-JF-GxG"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="bookmarkOnImg" width="20" height="32"/>

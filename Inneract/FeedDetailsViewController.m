@@ -30,8 +30,6 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 @implementation FeedDetailsViewController
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -44,19 +42,19 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+
     [self setupHeaderView];
-    
+
 }
 
-- (void) setupHeaderView {
+- (void)setupHeaderView {
     // header view: thumbnail image (mostly)
     CGRect headerFrame = CGRectMake(0, 0, self.tableView.bounds.size.width, 230.0);
     FeedDetailsHeaderView *headerView = [[FeedDetailsHeaderView alloc] initWithFrame:headerFrame];
     headerView.feed = self.feed;
     headerView.delegate = self;
     self.tableView.tableHeaderView = headerView;
-    
+
 }
 
 
@@ -81,7 +79,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 #pragma FeedDetailsHeaderViewDelegate
 
-- (void) didTapOnHeaderView:(FeedDetailsHeaderView *) headerView {
+- (void)didTapOnHeaderView:(FeedDetailsHeaderView *)headerView {
     if (!headerView.videoUrl) {
         return;
     }
@@ -96,46 +94,72 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
         MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
         [self presentMoviePlayerViewControllerAnimated:movieController];
         [movieController.moviePlayer play];
-        
+
         // code
-    } failure:^(NSError *error) {
+    }                       failure:^(NSError *error) {
         NSLog(@"Couldn't open video url");
     }];
 }
 
 #pragma FeedDetailsCellDelegate
 
--(void) didSelectReadFullStory:(FeedDetailsCell *) cell {
-    NSLog(@"Did select full story"); // TODO
-    UIViewController *webViewController = [[UIViewController alloc] init];
-    
-    
+- (void)didSelectReadFullStory:(FeedDetailsCell *)cell {
+    NSLog(@"Did select full story");
     NSString *urlAddress = [cell.feed objectForKey:@"link"];
     NSURL *url = [NSURL URLWithString:urlAddress];
+
+    [self openWebLink:url];
+
+}
+
+- (void)didBookmark:(FeedDetailsCell *)cell {
+    NSLog(@"Did Bookmark feed"); // TODO
+}
+
+- (void)didShare:(FeedDetailsCell *)cell {
+    NSLog(@"Did share feed"); // TODO
+
+}
+
+- (void)didRsvp:(FeedDetailsCell *)cell {
+    NSLog(@"Did rsvp feed");
+    NSString *urlAddress = [cell.feed objectForKey:@"rsvpUrl"];
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    [self openWebLink:url];
+}
+
+- (void)didRegister:(FeedDetailsCell *)cell {
+    NSLog(@"Did register feed");
+    NSString *urlAddress = [cell.feed objectForKey:@"registerUrl"];
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    [self openWebLink:url];
+}
+
+- (void)didVolunteer:(FeedDetailsCell *)cell {
+    NSString *urlAddress = [cell.feed objectForKey:@"volunteerUrl"];
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSLog(@"Did volunteer feed");
+    [self openWebLink:url];
+}
+
+
+- (void)openWebLink:(NSURL *)url {
+
     NSLog(@"opening web link: %@", url);
+    UIViewController *webViewController = [[UIViewController alloc] init];
+
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    
+
     UIWebView *uiWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     uiWebView.dataDetectorTypes = UIDataDetectorTypeAll;
     uiWebView.scalesPageToFit = YES;
-    
+
     [uiWebView loadRequest:urlRequest];
-    
+
     [webViewController.view addSubview:uiWebView];
-    
-    [self.navigationController
-     pushViewController:webViewController animated:YES];
 
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
-
--(void) didBookmark:(FeedDetailsCell *) cell {
-    NSLog(@"Did Bookmark feed"); // TODO
-}
--(void) didShare:(FeedDetailsCell *) cell {
-    NSLog(@"Did share feed"); // TODO
-    
-}
-
 
 
 @end

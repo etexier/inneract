@@ -16,6 +16,9 @@
 -(void) didSelectReadFullStory:(FeedDetailsCell *) cell;
 -(void) didBookmark:(FeedDetailsCell *) cell;
 -(void) didShare:(FeedDetailsCell *) cell;
+-(void)didRsvp:(FeedDetailsCell *) cell;
+-(void)didRegister:(FeedDetailsCell *) cell;
+-(void)didVolunteer:(FeedDetailsCell *) cell;
 
 @end
 

@@ -63,6 +63,8 @@ NSString *const kFeedDetailsHeaderViewNibId = @"FeedDetailsHeaderView";
 
 - (void)setFeed:(PFObject *)feed {
     
+    _feed = feed;
+    
     self.bookmarkOnImg.hidden = YES;
     
     // thumbnail
@@ -72,7 +74,7 @@ NSString *const kFeedDetailsHeaderViewNibId = @"FeedDetailsHeaderView";
     
     
     // play button image
-    NSString *url = [self.feed objectForKey:@"videoUrl"];
+    NSString *url = [_feed objectForKey:@"videoUrl"];
     if (nil != url) {
         self.videoUrl = [NSURL URLWithString:url];
         self.videoPlayButtonImageView.hidden = NO;
@@ -85,6 +87,7 @@ NSString *const kFeedDetailsHeaderViewNibId = @"FeedDetailsHeaderView";
 
 #pragma mark - tap gesture
 - (IBAction)onTap:(id)sender {
+    NSLog(@"on Tap");
     [self.delegate didTapOnHeaderView:self];
 }
 

@@ -23,6 +23,7 @@
 
 @property(weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
 
+@property (weak, nonatomic) IBOutlet UIButton *onApplyButton;
 
 
 @end
@@ -31,6 +32,34 @@
 
 - (void)awakeFromNib {
     // Initialization code
+
+    [self setupGestureRecognizer];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.userInteractionEnabled = YES;
+
+}
+
+- (void)setupGestureRecognizer {
+    self.shareImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onShareTap:)];
+    [shareTap setNumberOfTapsRequired:1];
+    [shareTap setNumberOfTouchesRequired:1];
+    [self.shareImage addGestureRecognizer:shareTap];
+
+
+    self.bookmarkImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onBookmarkTap:)];
+    [bookmarkTap setNumberOfTapsRequired:1];
+    [bookmarkTap setNumberOfTouchesRequired:1];
+    [self.bookmarkImage addGestureRecognizer:bookmarkTap];
+
+
+    self.webLinkLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *webLinkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onWebLinkTap:)];
+    [webLinkTap setNumberOfTapsRequired:1];
+    [webLinkTap setNumberOfTouchesRequired:1];
+    [self.webLinkLabel addGestureRecognizer:webLinkTap];
+
 }
 
 
@@ -42,7 +71,7 @@
 
 - (void)setFeed:(PFObject *)feed {
     
-    
+    _feed = feed;
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
     
@@ -54,9 +83,22 @@
     self.postedLabel.text = [NSString stringWithFormat:@"posted %@", dateString];
     
     // summary
-    self.summaryLabel.text = [feed objectForKey:@"summary"];
-    
-    
+    self.summaryLabel.text = [_feed objectForKey:@"summary"];
+
+    if ([_feed objectForKey:@"rsvpUrl"]) {
+        [self.onApplyButton setTitle:@"RSVP" forState:UIControlStateNormal];
+
+    } else if ([_feed objectForKey:@"registerUrl"]) {
+        [self.onApplyButton setTitle:@"Register" forState:UIControlStateNormal];
+
+    } else if ([_feed objectForKey:@"volunteerUrl"]) {
+        [self.onApplyButton setTitle:@"Volunteer" forState:UIControlStateNormal];
+    } else {
+        self.onApplyButton.hidden = YES;
+    }
+
+
+
 }
 
 
@@ -73,6 +115,19 @@
     [self.delegate didSelectReadFullStory:self];
 }
 
+- (IBAction)onApply:(UIButton *)sender {
+    NSLog(@"On Apply");
+    if ([_feed objectForKey:@"rsvpUrl"]) {
+        [self.delegate didRsvp:self];
+
+    } else if ([_feed objectForKey:@"registerUrl"]) {
+        [self.delegate didRegister:self];
+
+    } else if ([_feed objectForKey:@"volunteerUrl"]) {
+        [self.delegate didVolunteer:self];
+    }
+
+}
 
 
 @end
