@@ -37,7 +37,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 @property(nonatomic, strong) NSMutableArray *highlightedFeeds;
 @property(nonatomic, strong) NSMutableArray *feedsOfCurrentCategory;
 @property(nonatomic, strong) NSMutableArray *searchResults;
-@property(nonatomic, strong) NSSet *myBookmarkIds; // id of bookmarked articles
+@property(nonatomic, strong) NSMutableSet *myBookmarkIds; // id of bookmarked articles
 
 @property (nonatomic, assign) BOOL isForBookmark;
 @property(nonatomic, strong) NSString *parseClassName;
@@ -140,7 +140,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(objects) {
-            self.myBookmarkIds = [NSSet setWithArray:[objects valueForKeyPath:@"objectId"]];
+            self.myBookmarkIds = [[NSSet setWithArray:[objects valueForKeyPath:@"objectId"]] mutableCopy];
         }
     }];
 }
@@ -285,6 +285,29 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
     
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.isForBookmark && tableView == self.tableView) {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            //remove relationship
+            PFObject *feedToBeDeleted = self.feedsOfCurrentCategory[indexPath.row];
+            [[feedToBeDeleted valueForKey:kFeedBookmarkRelationshipName] removeObject:[PFUser currentUser]];
+            [feedToBeDeleted saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if(error) {
+                    NSLog(@"failed to update bookmarked feeds");
+                } else {
+                    [self.feedsOfCurrentCategory removeObjectAtIndex:indexPath.row];
+                }
+            }];
+            
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.isForBookmark && tableView == self.tableView;
 }
 
 
