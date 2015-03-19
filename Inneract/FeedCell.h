@@ -22,7 +22,10 @@
 
 @interface FeedCell : PFTableViewCell
 @property (weak, nonatomic) PFObject *feed;
+@property (nonatomic, assign) BOOL isBookmarked;
 @property (nonatomic, weak) id<FeedCellProtocol> feedCellHandler;
 @property (nonatomic, assign) BOOL isForBookmark;
+
+- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark;
 
 @end

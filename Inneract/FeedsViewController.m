@@ -37,6 +37,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 @property(nonatomic, strong) NSMutableArray *highlightedFeeds;
 @property(nonatomic, strong) NSMutableArray *feedsOfCurrentCategory;
 @property(nonatomic, strong) NSMutableArray *searchResults;
+@property(nonatomic, strong) NSSet *myBookmarkIds; // id of bookmarked articles
 
 @property (nonatomic, assign) BOOL isForBookmark;
 @property(nonatomic, strong) NSString *parseClassName;
@@ -131,6 +132,19 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     }];
 }
 
+- (void)queryUserBookmarks {
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query whereKey:kFeedBookmarkRelationshipName equalTo:[PFUser currentUser]];
+    [query selectKeys:@[@"objectId"]];
+    [query orderByDescending:@"createdAt"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(objects) {
+            self.myBookmarkIds = [NSSet setWithArray:[objects valueForKeyPath:@"objectId"]];
+        }
+    }];
+}
+
 - (void) filterFeedsByCategory{
     [self.feedsOfCurrentCategory removeAllObjects];
     if (self.feedCategory) {
@@ -147,9 +161,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
     [self setupTableView];
     
-
     // navigation bar
     if(!self.isForBookmark) {
+        // get user's bookmarks
+        [self queryUserBookmarks];
+        
         UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
         //[statFilter setSegmentedControlStyle:UISegmentedControlStyleBar];
         segmentedControl.frame = CGRectMake(0, 22, [UIScreen mainScreen].bounds.size.width, 40);
@@ -168,7 +184,6 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         
         segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
     }
-
 
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
         [self reloadData];
@@ -224,8 +239,6 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     self.highlightedFeeds = highlightedFeeds;
     highlightedFeedsView.feeds = self.highlightedFeeds;
     return YES;
-
-
 }
 
 - (void)setupSearchBarForHeaderView:(UIView *) headerView {
@@ -249,8 +262,6 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
     // cell registration
     [self.searchController.searchResultsTableView registerNib:[UINib nibWithNibName:kFeedCellNibId bundle:nil] forCellReuseIdentifier:kFeedCellNibId];
-
-
 }
 
 
@@ -268,7 +279,8 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:[self feedForTableView:tableView atIndexPath:indexPath]];
+    PFObject *feed = [self feedForTableView:tableView atIndexPath:indexPath];
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:feed isBookmarked:[self isBookmarked:[feed valueForKey:@"objectId"]]];
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
@@ -285,9 +297,10 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         cell = [[FeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kFeedCellNibId];
     }
     
+    PFObject *feed = [self feedForTableView:tableView atIndexPath:indexPath];
+    
     cell.feedCellHandler = self;
-    cell.isForBookmark = self.isForBookmark;
-    cell.feed = [self feedForTableView:tableView atIndexPath:indexPath];
+    [cell setData:feed isBookmarked:[self isBookmarked:[feed valueForKey:@"objectId"]] isForBookmakr:self.isForBookmark];
     
     return cell;
 }
@@ -407,7 +420,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 #pragma - HighlightedFeedsViewDelegate
 - (void) onHeaderTap:(PFObject *)object {
-    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:object];
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:object isBookmarked:[self isBookmarked:[object valueForKey:@"objectId"]]];
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
@@ -419,6 +432,10 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
         [self reloadData];
     }];
+}
+
+-(BOOL) isBookmarked:(NSString *) objectId {
+    return [self.myBookmarkIds containsObject:objectId];
 }
 
 @end

@@ -12,5 +12,6 @@
 
 @interface FeedDetailsViewController : UIViewController
 @property (weak, nonatomic) PFObject *feed;
-- (id)initWithFeed:(PFObject *)feed;
+@property (nonatomic, assign) BOOL isBookmarked;
+- (id)initWithFeed:(PFObject *)feed isBookmarked:(BOOL) isBookmarked;
 @end

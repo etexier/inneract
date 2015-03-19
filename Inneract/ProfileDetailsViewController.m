@@ -196,7 +196,11 @@ NSString * const kActivityCell = @"ActivityCell";
 
 - (void) onGiveBadge {
     [self.user setValue:@([[self.user valueForKey:@"badges"] integerValue] + 1) forKey:@"badges"];
-    [self.user saveInBackground];
+    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(error) {
+            NSLog(@"----self.user saveInBackgroundWithBlock error : %@", error);
+        }
+    }];
 }
 
 - (void) onEditProfile {

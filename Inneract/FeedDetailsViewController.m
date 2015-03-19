@@ -56,10 +56,11 @@
     //[[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 }
 
-- (id)initWithFeed:(PFObject *)feed {
+- (id)initWithFeed:(PFObject *)feed isBookmarked:(BOOL) isBookmarked {
     self = [super init];
     if (self) {
         _feed = feed;
+        _isBookmarked = isBookmarked;
         self.bookmarkOnImageView.hidden = YES;
 
     }
@@ -97,7 +98,7 @@
     self.summaryLabel.textColor = ipSecondaryGrey;
 
     // bookmark
-    self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGreenButton"];
+    self.bookmarkImage.image = [UIImage imageNamed:(self.isBookmarked ? @"bookmarkGrayButton" : @"bookmarkGreenButton")];
 
     // share
     self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];

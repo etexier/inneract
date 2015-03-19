@@ -48,26 +48,16 @@
 
 }
 
-//- (void)prepareForReuse {
-//    self.thumbnail.image = nil;
-//    self.mediaImage.image = nil;
-//
-//    self.titleLabel.text = nil;
-////    self.postedDateLabel = nil;
-//    self.summaryLabel.text = nil;
-//
-//}
 
-
-
-- (void)setFeed:(PFObject *)feed {
+- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark {
     _feed = feed;
+    _isBookmarked = isBookmarked;
+    _isForBookmark = isForBookmark;
 
     // thumbnail
     NSString *imageUrlString = [feed objectForKey:@"imageUrl"];
     NSURL *imageUrl = [NSURL URLWithString:imageUrlString];
     [self.thumbnail ip_setImageWithURL:imageUrl];
-
 
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
@@ -85,9 +75,11 @@
 
     // bookmark
     if (!self.isForBookmark) {
-        self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGreenButton"];
-        UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
-        [self.bookmarkImage addGestureRecognizer:bookmarkTap];
+        self.bookmarkImage.image = [UIImage imageNamed:(isBookmarked ? @"bookmarkGrayButton" : @"bookmarkGreenButton")];
+        if(!isBookmarked) {
+            UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
+            [self.bookmarkImage addGestureRecognizer:bookmarkTap];
+        }
         self.bookmarkOnImgView.hidden = YES;
     } else {
         self.bookmarkImage.hidden = YES;
@@ -100,8 +92,6 @@
 
     UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
     [self.shareImage addGestureRecognizer:shareTap];
-
-
 }
 
 - (IBAction)didShare:(id)sender {
