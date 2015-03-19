@@ -100,6 +100,7 @@
 
 - (IBAction)didBookmark:(id)sender {
     [self.feedCellHandler feedCell:self didBookmarkFeed:self.feed];
+    self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGrayButton"];
 }
 
 

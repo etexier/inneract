@@ -15,7 +15,7 @@
 #import "HighlightedFeedsView.h"
 
 NSString *const kFeedCellNibId = @"FeedCell";
-NSString *const kFeedBookmarkRelationshipName = @"feedsBookmarkedBy";
+NSString *const kFeedBookmarkRelationshipName = @"bookmarks";
 const CGFloat ksearchBarHeight = 44;
 const CGFloat kHighlightedFeedsHeight = 200;
 //    const CGFloat highlightedFeedsViewOffset = ksearchBarHeight;
@@ -103,8 +103,12 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void)queryForFeedsWithCompletion:(FeedQueryCompletion) block {
     PFQuery *query;
     if(self.isForBookmark) {
-        query = [PFQuery queryWithClassName:self.parseClassName];
-        [query whereKey:kFeedBookmarkRelationshipName equalTo:[PFUser currentUser]];
+//        query = [PFQuery queryWithClassName:self.parseClassName];
+//        [query whereKey:kFeedBookmarkRelationshipName equalTo:[PFUser currentUser]];
+        PFRelation *relation = [[PFUser currentUser] relationforKey:kFeedBookmarkRelationshipName];
+        
+        // generate a query based on that relation
+        query = [relation query];
     } else {
         query = [PFQuery queryWithClassName:self.parseClassName];
     }
@@ -133,8 +137,8 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 - (void)queryUserBookmarks {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:kFeedBookmarkRelationshipName equalTo:[PFUser currentUser]];
+    PFRelation *relation = [[PFUser currentUser] relationforKey:kFeedBookmarkRelationshipName];
+    PFQuery *query = [relation query];
     [query selectKeys:@[@"objectId"]];
     [query orderByDescending:@"createdAt"];
     
@@ -292,15 +296,18 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             //remove relationship
             PFObject *feedToBeDeleted = self.feedsOfCurrentCategory[indexPath.row];
-            [[feedToBeDeleted valueForKey:kFeedBookmarkRelationshipName] removeObject:[PFUser currentUser]];
-            [feedToBeDeleted saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            PFUser *currentUser = [PFUser currentUser];
+            PFRelation *relation = [currentUser relationforKey:kFeedBookmarkRelationshipName];
+            [relation removeObject:feedToBeDeleted];
+            //[[feedToBeDeleted valueForKey:kFeedBookmarkRelationshipName] removeObject:[PFUser currentUser]];
+            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if(error) {
                     NSLog(@"failed to update bookmarked feeds");
                 } else {
-                    [self.feedsOfCurrentCategory removeObjectAtIndex:indexPath.row];
+                    //[self.feedsOfCurrentCategory removeObjectAtIndex:indexPath.row];
                 }
             }];
-            
+            [self.feedsOfCurrentCategory removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
@@ -433,8 +440,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject *) feed {
     NSLog(@"bookmarking feed...");
     if(feed) {
-        [feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
-        [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFUser *currentUser = [PFUser currentUser];
+        PFRelation *relation = [currentUser relationforKey:kFeedBookmarkRelationshipName];
+        [relation addObject:feed];
+        //[feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(error) {
                 NSLog(@"failed to save %@ for feed \n%@", kFeedBookmarkRelationshipName, feed);
             }
