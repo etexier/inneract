@@ -48,6 +48,7 @@ NSString * const kActivityCell = @"ActivityCell";
 		if(user) {
 			_user = user;
             self.title = [self getUserName];
+            _isSelfProfile = [[user valueForKey:@"username"] isEqualToString:[[PFUser currentUser] valueForKey:@"username"]];
 		} else {
 			_isSelfProfile = YES;
 			PFQuery *query = [PFUser query];
