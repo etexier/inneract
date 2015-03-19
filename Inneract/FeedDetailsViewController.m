@@ -106,6 +106,7 @@
     NSString *url = [self.feed objectForKey:@"videoUrl"];
     if (nil != url) {
         self.videoUrl = [NSURL URLWithString:url];
+        self.playImageView.hidden = NO;
     } else {
 //        self.videoUrl = nil;
         self.playImageView.hidden = YES;
