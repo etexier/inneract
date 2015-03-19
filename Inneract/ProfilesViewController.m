@@ -172,38 +172,45 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 #pragma mark - search method
 
 - (void)filterResults:(NSString *)searchTerm {
+    
+    //Do a local filter first
+    NSArray *localFilterResult = [self.objects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstName CONTAINS[cd] %@ OR lastName CONTAINS[cd] %@ OR userType CONTAINS[cd] %@ OR profession CONTAINS[cd] %@", searchTerm, searchTerm, searchTerm, searchTerm]];
+    if(localFilterResult.count) {
+        [self.searchResults removeAllObjects];
+        [self.searchResults addObjectsFromArray:localFilterResult];
+        [self.searchController.searchResultsTableView reloadData];
+        return;
+    } else {
+        // search in first name
+        PFQuery *firstNameQuery = [PFUser query];
+        [firstNameQuery whereKey:@"firstName" hasPrefix:searchTerm];
 
-    [self.searchResults removeAllObjects];
+        // search in last name
+        PFQuery *lastNameQuery = [PFUser query];
+        [firstNameQuery whereKey:@"lastName" hasPrefix:searchTerm];
 
-    // search in first name
-    PFQuery *firstNameQuery = [PFUser query];
-    [firstNameQuery whereKey:@"firstName" hasPrefix:searchTerm];
+        // search in designation
+        PFQuery *designationQuery = [PFQuery queryWithClassName:self.parseClassName];
+        [designationQuery whereKey:@"userType" containsString:searchTerm];
 
-    // search in last name
-    PFQuery *lastNameQuery = [PFUser query];
-    [firstNameQuery whereKey:@"lastName" hasPrefix:searchTerm];
+        // search in professionQuery
+        PFQuery *professionQuery = [PFQuery queryWithClassName:self.parseClassName];
+        [professionQuery whereKey:@"profession" containsString:searchTerm];
 
-    // search in designation
-    PFQuery *designationQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [designationQuery whereKey:@"designation" containsString:searchTerm];
+        // or' queries
+        PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[firstNameQuery, lastNameQuery/**, designationQuery, professionQuery*/]];
+        //mainQuery.trace = YES;
+        [mainQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if(!error) {
+                    NSLog(@"people search result for query: %@ \n%@", mainQuery, objects);
+                    NSLog(@"%lu", (unsigned long)objects.count);
 
-    // search in professionQuery
-    PFQuery *professionQuery = [PFQuery queryWithClassName:self.parseClassName];
-    [professionQuery whereKey:@"profession" containsString:searchTerm];
-
-    // or' queries
-    PFQuery *mainQuery = [PFQuery orQueryWithSubqueries:@[firstNameQuery, lastNameQuery/**, designationQuery, professionQuery*/]];
-    //mainQuery.trace = YES;
-    [mainQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if(!error) {
-                NSLog(@"people search result for query: %@ \n%@", mainQuery, objects);
-                NSLog(@"%lu", (unsigned long)objects.count);
-        
-                [self.searchResults removeAllObjects];
-                [self.searchResults addObjectsFromArray:objects];
-                [self.searchController.searchResultsTableView reloadData];
-        }
-    }];
+                    [self.searchResults removeAllObjects];
+                    [self.searchResults addObjectsFromArray:objects];
+                    [self.searchController.searchResultsTableView reloadData];
+            }
+        }];
+    }
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
