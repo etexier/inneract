@@ -21,9 +21,9 @@
 ## Group Milestones
 - [x] __Milestone 1 (due March 4):  Wireframes complete.__  
     These don't have to be visually polished, but they have to be "use case" complete. They should cover new user and existing user states. Don't use lorem ipsum text, it should be detailed enough to derive the app schema based on the wireframes.
-- [X] __Milestone 2: (due March 11): Basic functionality complete.__
+- [x] __Milestone 2: (due March 11): Basic functionality complete.__
    Models implemented, backed by Parse. Can achieve the use cases. May be visually simple using stock controls and navigation.
-- [ ] __Milestone 3: (due March 18): Iteration sprint.__
+- [x] __Milestone 3: (due March 18): Iteration sprint.__
    Start adding visual polish, augment and basic user stories with additional features.
 - [ ] __Milestone 4: (due March 25): Polish sprint.__
    Add final visual polish, add any bells and whistles (custom transitions, WatchKit integration, Push notification, etc).
@@ -47,12 +47,13 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x] User can log in with IP login
   - [x] and go to feeds page (ip news feeds) upon success​
 - [x] User can log in with FB
-  - [ ] and go to feeds page (ip news feeds) upon success​ (Syed)
+  - [x] and go to feeds page (ip news feeds) upon success​ (Syed)
 - [x]  User can browse "IpNews" "feeds". Click to show details view with media (video, text, images​, buttons​)
-  - [ ] media and photo gallery support (Manu). Try with: https://vimeo.com/109561086 and https://vimeo.com/109933873
-  - [ ] support for highlighted feed (different cell) (Manu). Will need paging controller where all highlighted feed are on top. See specs sheet for details.
+  - [x] media  (Manu). Try with: https://vimeo.com/109561086 and https://vimeo.com/109933873
+  - [ ] photo gallery support (manu)
+  - [x] support for highlighted feed (different cell) (Manu). Will need paging controller where all highlighted feed are on top. See specs sheet for details.
   - [ ] Need optional support for list of videos/articles within details view
-  - [ ] need support for RSVP (with link to EventBrite for instance)badge
+  - [x] need support for RSVP (with link to EventBrite for instance)badge
 - [x] User can search feeds/volunteer/classes/profiles
   - [ ] support for "no matching feed found" (different cell) (Manu)
   - [ ] support for global search (on all fields, not only title) (Manu)
@@ -66,7 +67,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x] class, volunteer feeds can be shared 
 - [x]  class, volunteer feeds can be bookmarked. 
 - [x] User can view her profile, and log out​ 
-  - [ ] finish edit profile (combo box etc..) (Syed)
+  - [x] finish edit profile (combo box etc..) (Syed)
   - [ ] user can get see her activities (Need to ask Maurice: Manu)
 - [x] User can browse people list, click to view details (same as profile but non editable)​
 
@@ -74,13 +75,13 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ### Bugs
 - [X] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
 - [ ] global search (Manu)
-- [ ] support for user "badge" (ex: gold/silver/bronze user) (Jim)
-- [ ] see spec sheet, no badge but ability to give points. Based on number of points the border of the profile will change color.
-- [ ] use official colors/icons/rendering from Inneract (All)
-- [ ] need real bookmark and share image, change state when clicked, and make it larger (button 40x40) (Syed)
+- [x] support for user "badge" (ex: gold/silver/bronze user) (Jim)
+- [x] see spec sheet, no badge but ability to give points. Based on number of points the border of the profile will change color.
+- [x] use official colors/icons/rendering from Inneract (All)
+- [x] need real bookmark and share image, change state when clicked, and make it larger (button 40x40) (Syed)
 - [x] need real image for tab bar (Jim)
 - [x] filter existing data for volunteer and classes (do not make again a network call) (Jim)
-- [ ] do not hide view when loading data, wheel at the top (Syed)
+- [x] do not hide view when loading data, wheel at the top (Syed)
 
 Credits
 ---------
@@ -88,6 +89,7 @@ Credits
 * [Parse API] (https://www.parse.com/docs/ios_guide)
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
 * [SVProgressHUD](https://github.com/TransitApp/SVProgressHUD)
+* [Rest2Mobile](https://github.com/magnetsystems/Rest2Mobile)
 
 ## Q&A
 - What are the target devices?
