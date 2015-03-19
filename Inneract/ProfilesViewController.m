@@ -234,11 +234,6 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     [SVProgressHUD dismiss];
 }
 
-#pragma mark - feed cell protocol
-- (void) peopleCell:(PeopleCell *) tweetCell didSharePeople:(PFObject *) user {
-    [[IPShareManager sharedInstance] shareItemWithTitle:[NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]] andUrl:[user objectForKey:@"profileLink"] fromViewController:self];
-}
-
 /*
 #pragma mark - Navigation
 

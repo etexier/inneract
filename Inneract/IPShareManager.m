@@ -7,6 +7,7 @@
 //
 
 #import "IPShareManager.h"
+#import "IPEventTracker.h"
 
 @implementation IPShareManager
 
@@ -23,18 +24,22 @@
     return _instance;
 }
 
-- (void) shareItemWithTitle:(NSString *) title andUrl:(NSString *) url fromViewController:(UIViewController *) viewController {
-    if(!url) {
+- (void) shareFeed:(PFObject *) feed fromViewController:(UIViewController *) viewController {
+    NSString *title = [feed objectForKey:@"title"];
+    NSString *link = [feed objectForKey:@"link"];
+    if(!link) {
         return;
     }
     
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[title, [NSURL URLWithString:url]]
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[title, [NSURL URLWithString:link]]
                                       applicationActivities:nil];
     [viewController presentViewController:activityViewController
                                        animated:YES
                                      completion:^{
                                          // ...
                                      }];
+
+    [[IPEventTracker sharedInstance] onShareFeed:feed];
 }
 
 

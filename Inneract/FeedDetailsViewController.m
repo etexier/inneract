@@ -16,6 +16,7 @@
 #import "Files.h"
 #import "H264.h"
 #import "Sd.h"
+#import "IPEventTracker.h"
 
 #import <MediaPlayer/MediaPlayer.h>
 
@@ -126,6 +127,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     NSString *urlAddress = [cell.feed objectForKey:@"rsvpUrl"];
     NSURL *url = [NSURL URLWithString:urlAddress];
     [self openWebLink:url];
+
+    [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
 }
 
 - (void)didRegister:(FeedDetailsCell *)cell {
@@ -133,6 +136,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     NSString *urlAddress = [cell.feed objectForKey:@"registerUrl"];
     NSURL *url = [NSURL URLWithString:urlAddress];
     [self openWebLink:url];
+
+    [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }
 
 - (void)didVolunteer:(FeedDetailsCell *)cell {
@@ -140,6 +145,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSLog(@"Did volunteer feed");
     [self openWebLink:url];
+
+    [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
 }
 
 
@@ -159,6 +166,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     [webViewController.view addSubview:uiWebView];
 
     [self.navigationController pushViewController:webViewController animated:YES];
+
+    [[IPEventTracker sharedInstance] onReadFeed:self.feed];
 }
 
 

@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+@class PFObject;
 
 @interface IPShareManager : NSObject
 
 + (IPShareManager *)sharedInstance;
 
-- (void) shareItemWithTitle:(NSString *) title andUrl:(NSString *) url fromViewController:(UIViewController *) viewController;
+- (void) shareFeed:(PFObject *) feed fromViewController:(UIViewController *) viewController;
 
 @end

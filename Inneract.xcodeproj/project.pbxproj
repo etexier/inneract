@@ -61,6 +61,7 @@
 		382FFD2B1AB93CC300FE51D0 /* BadgesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD291AB93CC300FE51D0 /* BadgesCell.xib */; };
 		382FFD301AB9522300FE51D0 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD2E1AB9522300FE51D0 /* ActivityCell.m */; };
 		382FFD311AB9522300FE51D0 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD2F1AB9522300FE51D0 /* ActivityCell.xib */; };
+		382FFD3F1ABB782300FE51D0 /* IPEventTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD3E1ABB782300FE51D0 /* IPEventTracker.m */; };
 		387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 387EB76B1AB5547200EDD7A0 /* IPColorManager.m */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
@@ -189,6 +190,8 @@
 		382FFD2D1AB9522300FE51D0 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
 		382FFD2E1AB9522300FE51D0 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
 		382FFD2F1AB9522300FE51D0 /* ActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
+		382FFD3D1ABB782300FE51D0 /* IPEventTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPEventTracker.h; sourceTree = "<group>"; };
+		382FFD3E1ABB782300FE51D0 /* IPEventTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPEventTracker.m; sourceTree = "<group>"; };
 		387EB76A1AB5547200EDD7A0 /* IPColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPColorManager.h; sourceTree = "<group>"; };
 		387EB76B1AB5547200EDD7A0 /* IPColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPColorManager.m; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
@@ -575,6 +578,8 @@
 				38DAAE371AAC349600930AFE /* IPShareManager.m */,
 				387EB76A1AB5547200EDD7A0 /* IPColorManager.h */,
 				387EB76B1AB5547200EDD7A0 /* IPColorManager.m */,
+				382FFD3D1ABB782300FE51D0 /* IPEventTracker.h */,
+				382FFD3E1ABB782300FE51D0 /* IPEventTracker.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */,
 				38973B3D1AA97C6500FE3707 /* FirstIntroductionView.m in Sources */,
 				329F005C1AA81E550089C0E2 /* ProfilesViewController.m in Sources */,
+				382FFD3F1ABB782300FE51D0 /* IPEventTracker.m in Sources */,
 				FADAEF691AB42A7D0098E030 /* NIDropDown.m in Sources */,
 				329F006B1AA81ED90089C0E2 /* ProfileDetailsViewController.m in Sources */,
 				382FFD2A1AB93CC300FE51D0 /* BadgesCell.m in Sources */,

@@ -15,6 +15,7 @@
 #import "BadgesCell.h"
 #import "ProfileDelegate.h"
 #import "ActivityCell.h"
+#import "IPEventTracker.h"
 #import <Parse/PFQuery.h>
 
 NSString * const kBasicInfoCell = @"BasicInfoCell";
@@ -201,6 +202,8 @@ NSString * const kActivityCell = @"ActivityCell";
             NSLog(@"----self.user saveInBackgroundWithBlock error : %@", error);
         }
     }];
+
+    [[IPEventTracker sharedInstance] onGiveBadgeToUser:self.user];
 }
 
 - (void) onEditProfile {

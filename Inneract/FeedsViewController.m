@@ -436,7 +436,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 #pragma mark - feed cell protocol
 - (void) feedCell:(FeedCell *) tweetCell didShareFeed:(PFObject *) feed {
-    [[IPShareManager sharedInstance] shareItemWithTitle:[feed objectForKey:@"title"] andUrl:[feed objectForKey:@"link"] fromViewController:self];
+    [[IPShareManager sharedInstance] shareFeed:feed fromViewController:self];
 }
 
 - (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject *) feed {
