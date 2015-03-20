@@ -19,13 +19,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meX-Q5-gYx">
+                    <rect key="frame" x="0.0" y="0.0" width="5" height="568"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="06I-aA-pLQ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKx-58-cUw">
+                    <rect key="frame" x="315" y="0.0" width="5" height="568"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="7D1-EM-aY5"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="5" id="dW6-GY-t1a"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="T3P-5q-PZ4" secondAttribute="bottom" id="3IG-Cg-TsB"/>
+                <constraint firstItem="meX-Q5-gYx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="F8q-iv-ILe"/>
+                <constraint firstAttribute="trailing" secondItem="dKx-58-cUw" secondAttribute="trailing" id="W1I-ri-swL"/>
                 <constraint firstAttribute="trailing" secondItem="T3P-5q-PZ4" secondAttribute="trailing" id="WHm-8G-HLd"/>
                 <constraint firstItem="T3P-5q-PZ4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YkV-gS-PSI"/>
+                <constraint firstItem="meX-Q5-gYx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kan-Gp-wrg"/>
+                <constraint firstAttribute="bottom" secondItem="meX-Q5-gYx" secondAttribute="bottom" id="raj-nZ-jcm"/>
+                <constraint firstAttribute="bottom" secondItem="dKx-58-cUw" secondAttribute="bottom" id="sSg-Lj-xyc"/>
                 <constraint firstItem="T3P-5q-PZ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sxX-KX-FXT"/>
+                <constraint firstItem="dKx-58-cUw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uQz-O2-TEn"/>
             </constraints>
             <point key="canvasLocation" x="199" y="283"/>
         </view>

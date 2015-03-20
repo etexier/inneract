@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedsViewController">
@@ -19,11 +19,31 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVW-tE-UDK">
+                    <rect key="frame" x="0.0" y="0.0" width="5" height="568"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="T8M-y0-kIS"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Gu-5G-Ukd">
+                    <rect key="frame" x="315" y="0.0" width="5" height="568"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="E3W-6Z-Xng"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="EVW-tE-UDK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6X3-Fm-8JN"/>
+                <constraint firstAttribute="trailing" secondItem="1Gu-5G-Ukd" secondAttribute="trailing" id="Ew3-MI-HP5"/>
+                <constraint firstItem="1Gu-5G-Ukd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KLf-UO-fsQ"/>
                 <constraint firstAttribute="trailing" secondItem="SWt-E0-Jf9" secondAttribute="trailing" id="TlV-z6-Fxx"/>
+                <constraint firstAttribute="bottom" secondItem="1Gu-5G-Ukd" secondAttribute="bottom" id="VMc-F2-t0G"/>
                 <constraint firstItem="SWt-E0-Jf9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XT2-fn-zkp"/>
+                <constraint firstItem="EVW-tE-UDK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bKn-gd-6Wf"/>
+                <constraint firstAttribute="bottom" secondItem="EVW-tE-UDK" secondAttribute="bottom" id="rb7-KG-dSl"/>
                 <constraint firstItem="SWt-E0-Jf9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yuZ-mT-oNy"/>
                 <constraint firstAttribute="bottom" secondItem="SWt-E0-Jf9" secondAttribute="bottom" id="zIo-mY-6aS"/>
             </constraints>
