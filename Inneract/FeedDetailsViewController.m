@@ -23,7 +23,7 @@
 
 NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
-@interface FeedDetailsViewController () <UITableViewDataSource, UITableViewDelegate, FeedDetailsHeaderViewDelegate, FeedDetailsCellDelegate>
+@interface FeedDetailsViewController () <UITableViewDataSource, UITableViewDelegate, FeedDetailsHeaderViewDelegate, FeedDetailsCellDelegate, UIWebViewDelegate>
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -160,6 +160,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     UIWebView *uiWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     uiWebView.dataDetectorTypes = UIDataDetectorTypeAll;
     uiWebView.scalesPageToFit = YES;
+    uiWebView.delegate = self;
 
     [uiWebView loadRequest:urlRequest];
 
@@ -168,6 +169,23 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     [self.navigationController pushViewController:webViewController animated:YES];
 
     [[IPEventTracker sharedInstance] onReadFeed:self.feed];
+}
+
+#pragma mark - UIWebView delegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSLog(@"webView shouldStartLoadWithRequest %@, navigationType : %lu", request, navigationType);
+    
+    return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"webViewDidStartLoad");
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"webViewDidFinishLoad");
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"didFailLoadWithError");
 }
 
 
