@@ -9,12 +9,15 @@
 #import "BadgesCell.h"
 #import "IPColors.h"
 #import "PFQuery.h"
+#import "Helper.h"
 
 @interface BadgesCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *appreciationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *badgeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *giveButton;
+@property (weak, nonatomic) IBOutlet UILabel *alreadyBadgedLabel;
+
 
 @end
 
@@ -24,11 +27,13 @@
     // Initialization code
     
     self.appreciationLabel.textColor = ipSecondaryGrey;
+    self.alreadyBadgedLabel.textColor = ipSecondaryGrey;
     self.badgeLabel.textColor = ipPrimaryMidnightBlue;
     self.giveButton.tintColor = ipPrimaryOrange;
     self.giveButton.backgroundColor = ipPrimaryLightGrey;
 
     self.giveButton.hidden = YES;
+    self.alreadyBadgedLabel.hidden = YES;
 }
 
 - (void)setUser:(PFObject *)user isSelfProfile:(BOOL) isSelfProfile {
@@ -43,6 +48,9 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error && objects.count == 0 && !self.isSelfProfile) {
             self.giveButton.hidden = NO;
+        } else if(objects.count > 0) {
+            self.alreadyBadgedLabel.text = [NSString stringWithFormat:@"You gave %@ %@ a badge on %@", [self.user valueForKey:@"firstName"], [self.user valueForKey:@"lastName"], [Helper postedDate:[objects[0] valueForKey:@"createdAt"]]];
+            self.alreadyBadgedLabel.hidden = NO;
         }
     }];
 }
