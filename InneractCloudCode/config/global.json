@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "IPiOS": {
+            "applicationId": "fqoCAqnAX9dcjrJSpxENnHsOkt1WTuFv8aJhfPH6", 
+            "masterKey": "YVgF9aHIDtMrQCoxcYnIrpDnCAWqKAF2JvHbaL91"
+        }, 
+        "_default": {
+            "link": "IPiOS"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.5"
+    }
+}
