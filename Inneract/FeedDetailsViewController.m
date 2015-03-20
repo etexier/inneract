@@ -17,7 +17,7 @@
 #import "H264.h"
 #import "Sd.h"
 #import "IPEventTracker.h"
-
+#import "IPWebViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 
@@ -106,11 +106,9 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 - (void)didSelectReadFullStory:(FeedDetailsCell *)cell {
     NSLog(@"Did select full story");
-    NSString *urlAddress = [cell.feed objectForKey:@"link"];
-    NSURL *url = [NSURL URLWithString:urlAddress];
 
-    [self openWebLink:url];
-
+    [self openWebLink:[cell.feed objectForKey:@"link"] title:[cell.feed objectForKey:@"title"]];
+    [[IPEventTracker sharedInstance] onReadFeed:self.feed];
 }
 
 - (void)didBookmark:(FeedDetailsCell *)cell {
@@ -124,18 +122,16 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 - (void)didRsvp:(FeedDetailsCell *)cell {
     NSLog(@"Did rsvp feed");
-    NSString *urlAddress = [cell.feed objectForKey:@"rsvpUrl"];
-    NSURL *url = [NSURL URLWithString:urlAddress];
-    [self openWebLink:url];
+
+    [self openWebLink:[cell.feed objectForKey:@"rsvpUrl"] title:[cell.feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
 }
 
 - (void)didRegister:(FeedDetailsCell *)cell {
     NSLog(@"Did register feed");
-    NSString *urlAddress = [cell.feed objectForKey:@"registerUrl"];
-    NSURL *url = [NSURL URLWithString:urlAddress];
-    [self openWebLink:url];
+
+    [self openWebLink:[cell.feed objectForKey:@"registerUrl"] title:[cell.feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }
@@ -144,49 +140,15 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     NSString *urlAddress = [cell.feed objectForKey:@"volunteerUrl"];
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSLog(@"Did volunteer feed");
-    [self openWebLink:url];
+    [self openWebLink:[cell.feed objectForKey:@"volunteerUrl"] title:[cell.feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
 }
 
 
-- (void)openWebLink:(NSURL *)url {
-
-    NSLog(@"opening web link: %@", url);
-    UIViewController *webViewController = [[UIViewController alloc] init];
-
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-
-    UIWebView *uiWebView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    uiWebView.dataDetectorTypes = UIDataDetectorTypeAll;
-    uiWebView.scalesPageToFit = YES;
-    uiWebView.delegate = self;
-
-    [uiWebView loadRequest:urlRequest];
-
-    [webViewController.view addSubview:uiWebView];
-
-    [self.navigationController pushViewController:webViewController animated:YES];
-
-    [[IPEventTracker sharedInstance] onReadFeed:self.feed];
+- (void)openWebLink:(NSString *)urlStr title:(NSString *) title {
+    NSLog(@"opening web link: %@", urlStr);
+    [self.navigationController pushViewController:[[IPWebViewController alloc] initWithUrl:urlStr title:title] animated:YES];
 }
-
-#pragma mark - UIWebView delegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"webView shouldStartLoadWithRequest %@, navigationType : %lu", request, navigationType);
-    
-    return YES;
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidStartLoad");
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidFinishLoad");
-}
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"didFailLoadWithError");
-}
-
 
 @end
