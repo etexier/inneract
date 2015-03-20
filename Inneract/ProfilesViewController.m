@@ -8,11 +8,11 @@
 
 #import "ProfilesViewController.h"
 #import <Parse/PFQuery.h>
-#import "IPShareManager.h"
 #import "IPColors.h"
 #import "ProfileDetailsViewController.h"
 #import "PeopleCell.h"
 #import <SVProgressHUD.h>
+#import "IPConstants.h"
 
 NSString *const kPeopleCellNibId = @"PeopleCell";
 
@@ -21,6 +21,8 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
 @property(nonatomic, strong) NSMutableArray *searchResults;
+
+@property (nonatomic, assign) BOOL isInSearchMode;
 
 @end
 
@@ -97,6 +99,8 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     self.tableView.contentOffset = offset;
 
     self.searchResults = [NSMutableArray array];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserBadgeds) name:kDidUpdateUserBadgesNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -165,8 +169,13 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     [self filterResults:self.searchBar.text];
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.isInSearchMode = YES;
+}
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder]; // hide keyboard
+    self.isInSearchMode = NO;
 }
 
 #pragma mark - search method
@@ -232,6 +241,14 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     [super objectsDidLoad:error];
 
     [SVProgressHUD dismiss];
+}
+
+- (void) didUpdateUserBadgeds {
+    if(self.isInSearchMode) {
+        [self.searchController.searchResultsTableView reloadData];
+    } else {
+        [self.tableView reloadData];
+    }
 }
 
 /*

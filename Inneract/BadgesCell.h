@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ProfileDelegate.h"
+#import <Parse/Parse.h>
 
 @interface BadgesCell : UITableViewCell
 
+@property (nonatomic, strong) PFObject *user;
 @property (nonatomic, assign) NSInteger badgeNumber;
 @property (nonatomic, assign) BOOL isSelfProfile;
 @property (nonatomic, weak) id<ProfileDelegate> profileDelegate;
+
+- (void)setUser:(PFObject *)user isSelfProfile:(BOOL) isSelfProfile;
 
 @end

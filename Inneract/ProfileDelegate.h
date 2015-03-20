@@ -9,13 +9,15 @@
 #ifndef Inneract_ProfileDelegate_h
 #define Inneract_ProfileDelegate_h
 
+typedef void (^ProfileDelegateCompletion)(NSError *error);
+
 @protocol ProfileDelegate <NSObject>
 
 - (void) onEditProfile;
 
 - (void) onViewProfileLink;
 
-- (void) onGiveBadge;
+- (void) onGiveBadge:(NSInteger) newBadges WithCompletion:(ProfileDelegateCompletion) block;
 
 @end
 

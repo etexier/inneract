@@ -16,6 +16,7 @@
 #import "ProfileDelegate.h"
 #import "ActivityCell.h"
 #import "IPEventTracker.h"
+#import "IPConstants.h"
 #import <Parse/PFQuery.h>
 
 NSString * const kBasicInfoCell = @"BasicInfoCell";
@@ -151,8 +152,7 @@ NSString * const kActivityCell = @"ActivityCell";
         }
         case 1: {
             BadgesCell *badgeCell = (BadgesCell *) cell;
-            [badgeCell setBadgeNumber:[[_user valueForKey:@"badges"] integerValue]];
-            badgeCell.isSelfProfile = self.isSelfProfile;
+            [badgeCell setUser:self.user isSelfProfile:self.isSelfProfile];
             badgeCell.profileDelegate = self;
             break;
         }
@@ -195,15 +195,29 @@ NSString * const kActivityCell = @"ActivityCell";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]]; 
 }
 
-- (void) onGiveBadge {
-    [self.user setValue:@([[self.user valueForKey:@"badges"] integerValue] + 1) forKey:@"badges"];
-    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(error) {
-            NSLog(@"----self.user saveInBackgroundWithBlock error : %@", error);
-        }
-    }];
+- (void) onGiveBadge:(NSInteger) newBadges WithCompletion:(ProfileDelegateCompletion) block {
+//    [self.user setValue:@([[self.user valueForKey:@"badges"] integerValue] + 1) forKey:@"badges"];
+//    [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if(error) {
+//            NSLog(@"----self.user saveInBackgroundWithBlock error : %@", error);
+//        }
+//    }];
 
-    [[IPEventTracker sharedInstance] onGiveBadgeToUser:self.user];
+    [PFCloud callFunctionInBackground:@"giveBadge"
+                       withParameters:@{@"toUserId": [self.user valueForKey:@"objectId"]}
+                                block:^(NSArray *results, NSError *error) {
+                                    if (!error) {
+                                        // update list view
+                                        [self.user setValue:@(newBadges) forKey:@"badges"];
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:kDidUpdateUserBadgesNotification object:nil];
+
+                                        [[IPEventTracker sharedInstance] onGiveBadgeToUser:self.user];
+                                    }
+
+                                    if(block) {
+                                        block(error);
+                                    }
+                                }];
 }
 
 - (void) onEditProfile {

@@ -8,6 +8,7 @@
 
 #import "BadgesCell.h"
 #import "IPColors.h"
+#import "PFQuery.h"
 
 @interface BadgesCell ()
 
@@ -26,27 +27,34 @@
     self.badgeLabel.textColor = ipPrimaryMidnightBlue;
     self.giveButton.tintColor = ipPrimaryOrange;
     self.giveButton.backgroundColor = ipPrimaryLightGrey;
+
+    self.giveButton.hidden = YES;
 }
 
-- (void) setBadgeNumber:(NSInteger)badgeNumber {
-    _badgeNumber = badgeNumber;
-    self.badgeLabel.text = [NSString stringWithFormat:@"%lu", self.badgeNumber];
-}
-
-- (void) setIsSelfProfile:(BOOL)isSelfProfile {
+- (void)setUser:(PFObject *)user isSelfProfile:(BOOL) isSelfProfile {
+    _user = user;
     _isSelfProfile = isSelfProfile;
-    
-    if(isSelfProfile) {
-        self.giveButton.hidden = YES;
-    } else {
-        self.giveButton.hidden = NO;
-    }
+    _badgeNumber = [[_user valueForKey:@"badges"] integerValue];
+    self.badgeLabel.text = [NSString stringWithFormat:@"%lu", _badgeNumber];
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Badge"];
+    [query whereKey:@"fromUserId" equalTo:[PFUser currentUser].objectId];
+    [query whereKey:@"toUserId" equalTo: self.user.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error && objects.count == 0 && !self.isSelfProfile) {
+            self.giveButton.hidden = NO;
+        }
+    }];
 }
 
 - (IBAction)didGiveBadge:(id)sender {
-    [self.profileDelegate onGiveBadge];
-    self.badgeNumber++;
-    self.badgeLabel.text = [NSString stringWithFormat:@"%lu", self.badgeNumber];
+    [self.profileDelegate onGiveBadge:(self.badgeNumber + 1) WithCompletion:^(NSError *error) {
+        if(!error) {
+            self.badgeNumber++;
+            self.badgeLabel.text = [NSString stringWithFormat:@"%lu", self.badgeNumber];
+            self.giveButton.hidden = YES;
+        }
+    }];
 }
 
 

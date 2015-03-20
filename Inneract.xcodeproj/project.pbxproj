@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19B0EFF0AB199E5D35BCAF03 /* IPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B0E5383B2158E1CFBCD09D /* IPConstants.m */; };
 		1A4031E33B5636FC7A01963C /* H264.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA0F2C3F453A62DE3588 /* H264.m */; };
 		278A2FB813A16F13F2A6A14B /* Files.m in Sources */ = {isa = PBXBuildFile; fileRef = B825A950A2CE52ED4742DAC3 /* Files.m */; };
 		3244F3561ABA97F300BE6EEA /* FeedDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3244F3551ABA97F300BE6EEA /* FeedDetailsHeaderView.m */; };
@@ -104,6 +105,8 @@
 
 /* Begin PBXFileReference section */
 		1540BA0F2C3F453A62DE3588 /* H264.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264.m; sourceTree = "<group>"; };
+		19B0E5383B2158E1CFBCD09D /* IPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPConstants.m; sourceTree = "<group>"; };
+		19B0EFBDFD8A86B8B420B7A9 /* IPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPConstants.h; sourceTree = "<group>"; };
 		1D7A76274F71555DC16C65D0 /* VimeoVideoConfigResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimeoVideoConfigResult.h; sourceTree = "<group>"; };
 		1E59FC5B605337A70CC2A5E6 /* Thumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbs.m; sourceTree = "<group>"; };
 		27C9C7D67581C26E39638452 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
@@ -580,6 +583,8 @@
 				387EB76B1AB5547200EDD7A0 /* IPColorManager.m */,
 				382FFD3D1ABB782300FE51D0 /* IPEventTracker.h */,
 				382FFD3E1ABB782300FE51D0 /* IPEventTracker.m */,
+				19B0E5383B2158E1CFBCD09D /* IPConstants.m */,
+				19B0EFBDFD8A86B8B420B7A9 /* IPConstants.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -867,6 +872,7 @@
 				3D0358B6DDBD9E8855AB210F /* Video.m in Sources */,
 				5A66AD259D313321DE36B1FE /* VimeoVideoConfigResult.m in Sources */,
 				3244F3561ABA97F300BE6EEA /* FeedDetailsHeaderView.m in Sources */,
+				19B0EFF0AB199E5D35BCAF03 /* IPConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,7 +105,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     if(self.isForBookmark) {
 //        query = [PFQuery queryWithClassName:self.parseClassName];
 //        [query whereKey:kFeedBookmarkRelationshipName equalTo:[PFUser currentUser]];
-        PFRelation *relation = [[PFUser currentUser] relationforKey:kFeedBookmarkRelationshipName];
+        PFRelation *relation = [[PFUser currentUser] relationForKey:kFeedBookmarkRelationshipName];
         
         // generate a query based on that relation
         query = [relation query];
@@ -137,7 +137,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 - (void)queryUserBookmarks {
-    PFRelation *relation = [[PFUser currentUser] relationforKey:kFeedBookmarkRelationshipName];
+    PFRelation *relation = [[PFUser currentUser] relationForKey:kFeedBookmarkRelationshipName];
     PFQuery *query = [relation query];
     [query selectKeys:@[@"objectId"]];
     [query orderByDescending:@"createdAt"];
