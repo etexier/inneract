@@ -8,6 +8,37 @@
 
 #import "IPWebViewController.h"
 
+#define CocoaJSHandler  @"mpAjaxHandler"
+
+static NSString *JSHandler;
+
+@interface FormURLProtocol : NSURLProtocol
+
+@end
+
+@implementation FormURLProtocol
+
++ (BOOL)canInitWithRequest:(NSURLRequest *)request {
+    //return [request.URL.host isEqualToString:@"localhost"];
+    NSLog(@"canInitWithRequest : %@", [request URL]);
+    return YES;
+}
+
++ (NSURLRequest *) canonicalRequestForRequest:(NSURLRequest *)request {
+    NSLog(@"canonicalRequestForRequest : %@", [request URL]);
+    return request;
+}
+
+- (void) startLoading {
+    NSLog(@"startLoading");
+}
+
+- (void)stopLoading {
+    NSLog(@"stopLoading");
+}
+
+@end
+
 @interface IPWebViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -18,10 +49,15 @@
 @implementation IPWebViewController
 
 - (instancetype) initWithUrl:(NSString *) url title:(NSString *) title {
+   return [self initWithUrl:url title:title callback:nil];
+}
+
+- (instancetype) initWithUrl:(NSString *) url title:(NSString *) title callback:(IPWebviewCallback) block {
     self = [super init];
     if(self) {
         _urlStr = url;
         self.title = title;
+        _callback = block;
     }
 
     return self;
@@ -31,14 +67,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    if(self.callback) {
+        //FIXME
+        //[NSURLProtocol registerClass:[FormURLProtocol class]];
+    }
+
+    JSHandler = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ajax_handler" withExtension:@"js"] encoding:NSUTF8StringEncoding error:nil];
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]];
     self.webView.dataDetectorTypes = UIDataDetectorTypeAll;
     self.webView.scalesPageToFit = YES;
-    self.webView.delegate = self;
+
+    if(self.callback) {
+        self.webView.delegate = self;
+    }
 
     [self.webView loadRequest:urlRequest];
+}
+
+- (void)viewDidUnload {
+    if(self.callback) {
+        [NSURLProtocol unregisterClass:[FormURLProtocol class]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +102,19 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"webView shouldStartLoadWithRequest %@, navigationType : %lu", request, navigationType);
 
+    if ([[[request URL] scheme] isEqual:CocoaJSHandler]) {
+        NSString *requestedURLString = [[[request URL] absoluteString] substringFromIndex:[CocoaJSHandler length] + 3];
+
+        NSLog(@"ajax request: %@", requestedURLString);
+        return YES;
+    }
+    
+    if([[[request URL] absoluteString] isEqualToString:self.urlStr]) {
+        if(self.callback) {
+            [webView stringByEvaluatingJavaScriptFromString:JSHandler];
+        }
+    }
+
     return YES;
 }
 
@@ -60,7 +125,7 @@
     NSLog(@"webViewDidFinishLoad");
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"didFailLoadWithError");
+    NSLog(@"didFailLoadWithError : %@", error);
 }
 
 

@@ -131,7 +131,10 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 - (void)didRegister:(FeedDetailsCell *)cell {
     NSLog(@"Did register feed");
 
-    [self openWebLink:[cell.feed objectForKey:@"registerUrl"] title:[cell.feed objectForKey:@"title"]];
+    IPWebViewController *webViewController = [[IPWebViewController alloc] initWithUrl:[cell.feed objectForKey:@"registerUrl"] title:[cell.feed objectForKey:@"title"] callback:^(NSError *error) {
+
+    }];
+    [self.navigationController pushViewController:webViewController animated:YES];
 
     [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }

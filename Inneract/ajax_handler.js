@@ -1,3 +1,4 @@
+<script type='text/javascript'>
 var s_ajaxListener = new Object();
 s_ajaxListener.tempOpen = XMLHttpRequest.prototype.open;
 s_ajaxListener.tempSend = XMLHttpRequest.prototype.send;
@@ -24,3 +25,4 @@ XMLHttpRequest.prototype.send = function(a,b) {
     if(s_ajaxListener.method.toLowerCase() == 'post')s_ajaxListener.data = a;
     s_ajaxListener.callback();
 }
+</script>
