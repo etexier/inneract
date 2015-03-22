@@ -25,10 +25,26 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 			badge.save(null, {
 			  success: function(badge) {
 			    // Execute any logic that should take place after the object is saved.
-			    alert('New badge created with objectId: ' + badge.id);
+			    console.log('New badge created with objectId: ' + badge.id);
 			    response.success("badge created");
 
-			    //TODO send notification
+			    // send notification
+			    var query = new Parse.Query(Parse.Installation);
+				query.equalTo('userId', request.params.toUserId);
+				 
+				Parse.Push.send({
+				  where: query, // Set our Installation query
+				  data: {
+				    alert: currentUser.firstName + ' ' + currentUser.lastName + ' gave you a badge.'
+				  }
+				}, {
+				  success: function() {
+				    console.log('notification sent successfully');
+				  },
+				  error: function(error) {
+				    alert('Failed to send notification to : ' + currentUser.username);
+				  }
+				});
 
 			  },
 			  error: function(badge, error) {
