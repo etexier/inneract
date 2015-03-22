@@ -440,11 +440,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 #pragma mark - feed cell protocol
-- (void) feedCell:(FeedCell *) tweetCell didShareFeed:(PFObject *) feed {
+- (void) feedCell:(FeedCell *) feedCell didShareFeed:(PFObject *) feed {
     [[IPShareManager sharedInstance] shareFeed:feed fromViewController:self];
 }
 
-- (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject *) feed {
+- (void) feedCell:(FeedCell *) feedCell didBookmarkFeed:(PFObject *) feed {
     NSLog(@"bookmarking feed...");
     if(feed) {
         PFUser *currentUser = [PFUser currentUser];

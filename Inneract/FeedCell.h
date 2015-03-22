@@ -14,9 +14,9 @@
 
 @protocol FeedCellProtocol <NSObject>
 
-- (void) feedCell:(FeedCell *) tweetCell didShareFeed:(PFObject*) feed;
+- (void) feedCell:(FeedCell *) feedCell didShareFeed:(PFObject*) feed;
 
-- (void) feedCell:(FeedCell *) tweetCell didBookmarkFeed:(PFObject*) feed;
+- (void) feedCell:(FeedCell *) feedCell didBookmarkFeed:(PFObject*) feed;
 
 @end
 
