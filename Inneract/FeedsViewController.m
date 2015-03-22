@@ -319,6 +319,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     return self.isForBookmark && tableView == self.tableView;
 }
 
+// This removes the extra separators in TableView and adds empty footer
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+	return [UIView new];
+}
 
 #pragma mark - Table View Data source methods
 
