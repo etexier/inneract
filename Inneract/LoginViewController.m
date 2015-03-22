@@ -196,7 +196,12 @@
     [PFUser logInWithUsernameInBackground:self.userNameText.text password:self.passwordText.text
         block:^(PFUser *user, NSError *error) {
             if (user) {
-                // TODO save current user in UserDefaults
+                // update installation
+                PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+                [currentInstallation setValue:user.objectId forKey:@"userId"];
+                //[currentInstallation addUniqueObject:[user valueForKey:@""] forKey:@"channels"];
+                [currentInstallation saveInBackground];
+
                 [self presentViewController:[MainViewHelper setupMainViewTabBar] animated:YES completion:nil];
             } else {
                 // The login failed. Check error to see why.
