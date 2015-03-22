@@ -3,7 +3,7 @@ platform :ios, '7.0'
 pod 'AFNetworking'
 pod 'SVProgressHUD'
 pod 'stripe'
-
+pod 'PayPal-iOS-SDK'
 pod 'Mantle'
 #pod 'SVPullToRefresh'
 

@@ -17,10 +17,19 @@
 #import <Parse/Parse.h>
 #import <ParseCrashReporting/ParseCrashReporting.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <PayPalMobile.h>
 
 //Parse Keys
 NSString *kParseApplicationId = @"fqoCAqnAX9dcjrJSpxENnHsOkt1WTuFv8aJhfPH6";
 NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
+
+//PayPal Keys
+NSString *kPayPalClientId = @"AYIrAAhanrQ2f5I5oE1ks213YFi4Y5YVxXLZE8VwBN94idvUZ3NfIQeRv2z75ilRdLiRFXCK6V39z9XC";
+NSString *kPayPalSecretId = @"EL5ZgD8cf34aiM3rQX4EH0g_xpAR-HaBr7B5W9nVl73zfMLVRJDT1wiX_RWzjJRxgjcUXLU4qEhiMslG";
+NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id3tkoFoF2XzUwqUsZ7gIRv4OQHFYjdYicSiiMt__B";
+
+
+
 
 @interface AppDelegate ()
 
@@ -37,7 +46,12 @@ NSString *kParseClientKey = @"YQiC2C7HYWIz6rZOjYWDe0jDwGjvc3CD4FtplZsr";
     [self parseInit:launchOptions];
 	// Override point for customization after application launch.
 	[FBLoginView class];
-    
+
+	[PayPalMobile initializeWithClientIdsForEnvironments:@{
+		PayPalEnvironmentSandbox : kPayPalClientId,
+		PayPalEnvironmentProduction : kPayPalProductionClientId}];
+	
+	
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout) name:@"UserDidLogoutNotification" object:nil];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

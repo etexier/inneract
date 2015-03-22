@@ -48,6 +48,7 @@ PODS:
   - ParseUI (1.1.1):
     - Parse (~> 1.6)
     - ParseFacebookUtils (~> 1.6)
+  - PayPal-iOS-SDK (2.9.0)
   - PSTCollectionView (1.2.3)
   - Rest2Mobile (1.1.4):
     - Rest2Mobile/Categories (= 1.1.4)
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - ParseCrashReporting
   - ParseFacebookUtils
   - ParseUI
+  - PayPal-iOS-SDK
   - Rest2Mobile (~> 1.1)
   - stripe
   - SVProgressHUD
@@ -105,6 +107,7 @@ SPEC CHECKSUMS:
   ParseCrashReporting: 8be6e6000eb8dbcde9e077674f561ecda78df6a8
   ParseFacebookUtils: 00833ccf6fec7d6429e2403fe457496a5089358b
   ParseUI: f7e9e0e5271f75a19c74ead8fdd95d36160e268e
+  PayPal-iOS-SDK: 11e0adaee51c9edef35d6864ecfa927a8cf673cd
   PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
   Rest2Mobile: 27864054c95bda8e765ef27f17d782da25f3f202
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
