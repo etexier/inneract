@@ -68,6 +68,8 @@
 		382FFD4B1ABCA36400FE51D0 /* IPWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD491ABCA36400FE51D0 /* IPWebViewController.xib */; };
 		3864F4981ABF84BC002E7934 /* IPSocialActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864F4971ABF84BC002E7934 /* IPSocialActionView.m */; };
 		3864F49A1ABF84D0002E7934 /* IPSocialActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3864F4991ABF84D0002E7934 /* IPSocialActionView.xib */; };
+		3864F4A01ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864F49D1ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.m */; };
+		3864F4A11ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864F49F1ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 387EB76B1AB5547200EDD7A0 /* IPColorManager.m */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
@@ -208,6 +210,10 @@
 		3864F4961ABF84BC002E7934 /* IPSocialActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPSocialActionView.h; sourceTree = "<group>"; };
 		3864F4971ABF84BC002E7934 /* IPSocialActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPSocialActionView.m; sourceTree = "<group>"; };
 		3864F4991ABF84D0002E7934 /* IPSocialActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPSocialActionView.xib; sourceTree = "<group>"; };
+		3864F49C1ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		3864F49D1ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		3864F49E1ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		3864F49F1ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		387EB76A1AB5547200EDD7A0 /* IPColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPColorManager.h; sourceTree = "<group>"; };
 		387EB76B1AB5547200EDD7A0 /* IPColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPColorManager.m; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 		329F00221AA81B180089C0E2 = {
 			isa = PBXGroup;
 			children = (
+				3864F49B1ABFE6C9002E7934 /* KeyboardAvoiding */,
 				325243F31AB7A4CA00757638 /* WebP */,
 				329F002D1AA81B180089C0E2 /* Inneract */,
 				329F00471AA81B180089C0E2 /* InneractTests */,
@@ -569,6 +576,17 @@
 				382FFD2F1AB9522300FE51D0 /* ActivityCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		3864F49B1ABFE6C9002E7934 /* KeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				3864F49C1ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.h */,
+				3864F49D1ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.m */,
+				3864F49E1ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				3864F49F1ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = KeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		38973B351AA978D800FE3707 /* Introduction */ = {
@@ -861,6 +879,7 @@
 				387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */,
 				FADAEF651AAE44870098E030 /* ComboBox.m in Sources */,
 				38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */,
+				3864F4A01ABFE6E2002E7934 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				325243F81AB7A58900757638 /* ImageToWebPDataTransformer.m in Sources */,
 				38DAAE381AAC349600930AFE /* IPShareManager.m in Sources */,
 				38DAAE3F1AAD714100930AFE /* PeopleCell.m in Sources */,
@@ -885,6 +904,7 @@
 				3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */,
 				3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */,
 				3864F4981ABF84BC002E7934 /* IPSocialActionView.m in Sources */,
+				3864F4A11ABFE6E2002E7934 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				382FFD4A1ABCA36400FE51D0 /* IPWebViewController.m in Sources */,
 				33065EAFB6D45024FCC40393 /* Helper.m in Sources */,
 				F0EE7A20A61A9501D5F8F1EA /* VimeoController.m in Sources */,
