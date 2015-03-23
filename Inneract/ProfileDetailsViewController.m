@@ -262,6 +262,11 @@ NSString * const kActivityCell = @"ActivityCell";
 
 - (IBAction)onLogout:(id)sender {
     [PFUser logOut];
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setValue:[NSNull null] forKey:@"userId"];
+    [currentInstallation saveInBackground];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLogoutNotification" object:nil];
 }
 
