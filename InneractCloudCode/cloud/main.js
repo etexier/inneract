@@ -4,6 +4,7 @@ Parse.Cloud.define("giveBadge", function(request, response) {
   var query = new Parse.Query("Badge");
   var currentUser = Parse.User.current();
   console.log('current user : ' + currentUser + ', currentUser id : ' + currentUser.id);
+  console.log('current user details : ' + currentUser.get("firstName") + ' ' + currentUser.get("lastName"));
   query.equalTo("fromUserId", currentUser.id);
   query.equalTo("toUserId", request.params.toUserId);
   query.find({
@@ -29,13 +30,10 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 			    response.success("badge created");
 
 			    // send notification
-			    var query = new Parse.Query(Parse.Installation);
-				query.equalTo('userId', request.params.toUserId);
-				 
 				Parse.Push.send({
 				  where: query, // Set our Installation query
 				  data: {
-				    alert: currentUser.firstName + ' ' + currentUser.lastName + ' gave you a badge.'
+				    alert: currentUser.get("firstName") + ' ' + currentUser.get("lastName") + ' gave you a badge.'
 				  }
 				}, {
 				  success: function() {
@@ -45,7 +43,6 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 				    alert('Failed to send notification to : ' + currentUser.username);
 				  }
 				});
-
 			  },
 			  error: function(badge, error) {
 			    // Execute any logic that should take place if the save fails.
