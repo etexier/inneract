@@ -17,6 +17,7 @@
 #import "ActivityCell.h"
 #import "IPEventTracker.h"
 #import "IPConstants.h"
+#import "IPWebViewController.h"
 #import <Parse/PFQuery.h>
 
 NSString * const kBasicInfoCell = @"BasicInfoCell";
@@ -192,7 +193,8 @@ NSString * const kActivityCell = @"ActivityCell";
 
 #pragma mark - profile delegate
 - (void) onViewProfileLink {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]]; 
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.user objectForKey:@"profileLink"]]];
+    [self.navigationController pushViewController:[[IPWebViewController alloc] initWithUrl:[self.user objectForKey:@"profileLink"] title:[self getUserName]] animated:YES];
 }
 
 - (void) onGiveBadge:(NSInteger) newBadges WithCompletion:(ProfileDelegateCompletion) block {
