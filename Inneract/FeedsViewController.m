@@ -33,6 +33,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 @property (nonatomic, strong) UIRefreshControl *refreshController;
 @property(nonatomic, strong) UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UILabel *noBookmarkLabel;
 
 @property(nonatomic, strong) UISearchDisplayController *searchController;
 @property(nonatomic, strong) NSMutableArray *feeds;
@@ -133,6 +134,10 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
                 block(objects, error);
             }
             
+            if(self.isForBookmark && objects.count > 0) {
+                self.noBookmarkLabel.hidden = YES;
+            }
+            
             [self.refreshController endRefreshing];
         }
     }];
@@ -167,6 +172,9 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
     [self setupTableView];
     
+    self.noBookmarkLabel.hidden = YES;
+    self.noBookmarkLabel.textColor = ipPrimaryOrange;
+    
     // navigation bar
     if(!self.isForBookmark) {
         // get user's bookmarks
@@ -193,7 +201,15 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
     [SVProgressHUD show];
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
-        [self reloadData];
+        if(objects) {
+            if(objects.count > 0) {
+                [self reloadData];
+            } else {
+                if(self.isForBookmark) {
+                    self.noBookmarkLabel.hidden = NO;
+                }
+            }
+        }
         [SVProgressHUD dismiss];
     }];
     
