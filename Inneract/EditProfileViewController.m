@@ -34,8 +34,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameEdit;
 @property (weak, nonatomic) IBOutlet UITextField *firstLastNameEdit;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressEdit;
-@property (weak, nonatomic) IBOutlet UIButton *finishedButton;
 
+@property (nonatomic, assign) BOOL isUserCreation;
 
 @end
 
@@ -65,7 +65,10 @@ NIDropDown *dropDown;
 	//self.profileTypePicker.delegate = self;
 	//self.profileTypePicker.dataSource = self;
 
-	// Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(onSave)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+
+    // Do any additional setup after loading the view from its nib.
 	self.profileSelectButton.layer.borderWidth = 1;
 	self.profileSelectButton.layer.borderColor = [[UIColor blackColor] CGColor];
 	self.profileSelectButton.layer.cornerRadius = 5;
@@ -94,24 +97,15 @@ NIDropDown *dropDown;
 		CALayer *layer = [self.profileImageView layer];
 		[layer setMasksToBounds:YES];
 		[layer setCornerRadius:32.0];
-		
-		self.finishedButton.hidden = YES;
-		
-		UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(onSave)];
-		self.navigationItem.rightBarButtonItem = rightButton;
-		
-		
 	} else {
-		self.finishedButton.hidden = NO;
+        self.isUserCreation = YES;
 		[self.profileSelectButton setTitle: @"Select a profile type *" forState: UIControlStateNormal];
 	}
 	
 	self.firstNameEdit.text = self.firstName;
 	self.lastNameEdit.text = self.lastName;
 	self.emailAddressEdit.text = self.email;
-	
-
-	
+		
 	self.profileNames = @[@"IP Teacher/TA", @"Parent/Guardian",
 						  @"Follower"];
 	[self showEditMode:YES];
@@ -170,7 +164,18 @@ NIDropDown *dropDown;
 -(void) onSave{
 	
 	[self saveUserInfo];
-	[self.navigationController popViewControllerAnimated:YES];
+    
+    if(self.isUserCreation) {
+        PFUser *parseUser = [PFUser currentUser];
+        
+        // finished button will be visible only when we will land here view account creation.
+        ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] initWithUser:parseUser fromAccountCreation:YES];
+        UINavigationController *profileNvc = [[UINavigationController alloc] initWithRootViewController:profileVc];
+        profileVc.title = @"My Profile";
+        [self presentViewController:profileNvc animated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark PickerView DataSource
@@ -296,17 +301,6 @@ NIDropDown *dropDown;
 	[self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
-- (IBAction)onFinished:(UIButton *)sender {
-	[self saveUserInfo];
-	
-	PFUser *parseUser = [PFUser currentUser];
-	
-	// finished button will be visible only when we will land here view account creation.
-	ProfileDetailsViewController *profileVc = [[ProfileDetailsViewController alloc] initWithUser:parseUser fromAccountCreation:YES];
-	UINavigationController *profileNvc = [[UINavigationController alloc] initWithRootViewController:profileVc];
-	profileVc.title = @"My Profile";
-	[self presentViewController:profileNvc animated:YES completion:nil];
-}
 
 - (IBAction)selectedClicked:(UIButton *)sender {
 	if(dropDown == nil) {

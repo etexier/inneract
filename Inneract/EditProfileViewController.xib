@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileViewController">
             <connections>
                 <outlet property="emailAddressEdit" destination="wiA-9i-8ge" id="Prx-1f-z1u"/>
-                <outlet property="finishedButton" destination="OmJ-5F-3Fa" id="M8A-Ma-mvf"/>
                 <outlet property="firstLastNameEdit" destination="yoQ-9G-6DY" id="s1X-xN-BVy"/>
                 <outlet property="firstNameEdit" destination="PUj-du-dcF" id="x4a-hw-sdo"/>
                 <outlet property="lastNameEdit" destination="12q-J9-deV" id="207-SV-HVk"/>
@@ -45,18 +44,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmJ-5F-3Fa">
-                    <rect key="frame" x="20" y="505" width="280" height="28"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Finished!">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onFinished:" destination="-1" eventType="touchUpInside" id="UIj-RU-CPo"/>
-                    </connections>
-                </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUf-eE-MaE">
                     <rect key="frame" x="20" y="308" width="280" height="150"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,12 +54,12 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUj-du-dcF">
-                    <rect key="frame" x="94" y="80" width="92" height="30"/>
+                    <rect key="frame" x="94" y="80" width="91.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12q-J9-deV">
-                    <rect key="frame" x="187" y="80" width="113" height="30"/>
+                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12q-J9-deV">
+                    <rect key="frame" x="187.5" y="80" width="112.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -99,7 +86,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIf-Oa-hLj">
                     <rect key="frame" x="20" y="284" width="280" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -113,11 +100,9 @@
                 <constraint firstAttribute="trailing" secondItem="goS-QF-GPx" secondAttribute="trailing" constant="20" id="DVa-8U-6Ei"/>
                 <constraint firstItem="wiA-9i-8ge" firstAttribute="top" secondItem="PUj-du-dcF" secondAttribute="bottom" constant="8" id="G52-u4-v4A"/>
                 <constraint firstItem="yoQ-9G-6DY" firstAttribute="leading" secondItem="71y-cl-yoX" secondAttribute="trailing" constant="8" id="GDg-2l-oXX"/>
-                <constraint firstItem="OmJ-5F-3Fa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Hdz-e5-rQF"/>
                 <constraint firstAttribute="trailing" secondItem="yoQ-9G-6DY" secondAttribute="trailing" constant="20" id="Jjk-Pb-4K5"/>
                 <constraint firstItem="71y-cl-yoX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="LyQ-Xh-Tbu"/>
                 <constraint firstItem="cEx-zy-MbJ" firstAttribute="top" secondItem="N0U-wL-4dY" secondAttribute="bottom" constant="16" id="MRU-ie-4WU"/>
-                <constraint firstAttribute="trailing" secondItem="OmJ-5F-3Fa" secondAttribute="trailing" constant="20" id="QGl-le-7Nl"/>
                 <constraint firstAttribute="trailing" secondItem="12q-J9-deV" secondAttribute="trailing" constant="20" id="RDh-nh-h9k"/>
                 <constraint firstItem="wiA-9i-8ge" firstAttribute="leading" secondItem="71y-cl-yoX" secondAttribute="trailing" constant="8" id="UeI-lh-cJs"/>
                 <constraint firstItem="wiA-9i-8ge" firstAttribute="top" secondItem="12q-J9-deV" secondAttribute="bottom" constant="8" id="Whd-Xz-JJq"/>
@@ -127,6 +112,7 @@
                 <constraint firstItem="goS-QF-GPx" firstAttribute="top" secondItem="cEx-zy-MbJ" secondAttribute="bottom" constant="14" id="ZzA-bU-3Hc"/>
                 <constraint firstAttribute="trailing" secondItem="cEx-zy-MbJ" secondAttribute="trailing" constant="20" id="c4i-fa-oN8"/>
                 <constraint firstItem="12q-J9-deV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="cEx-fy-VLG"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LUf-eE-MaE" secondAttribute="bottom" constant="100" id="cIl-qn-wF3"/>
                 <constraint firstAttribute="trailing" secondItem="eIf-Oa-hLj" secondAttribute="trailing" constant="20" id="cPl-aG-CHD"/>
                 <constraint firstItem="eIf-Oa-hLj" firstAttribute="top" secondItem="goS-QF-GPx" secondAttribute="bottom" constant="22" id="dpr-At-rNQ"/>
                 <constraint firstItem="cEx-zy-MbJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fPV-Wt-xqP"/>
@@ -134,7 +120,6 @@
                 <constraint firstAttribute="trailing" secondItem="LUf-eE-MaE" secondAttribute="trailing" constant="20" id="gBG-N9-duM"/>
                 <constraint firstItem="N0U-wL-4dY" firstAttribute="top" secondItem="71y-cl-yoX" secondAttribute="bottom" constant="4" id="hxZ-sI-zYr"/>
                 <constraint firstItem="N0U-wL-4dY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="kfy-WW-M3J"/>
-                <constraint firstAttribute="bottom" secondItem="OmJ-5F-3Fa" secondAttribute="bottom" constant="35" id="lWm-J0-FUD"/>
                 <constraint firstItem="goS-QF-GPx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="pfI-DU-dWo"/>
                 <constraint firstItem="yoQ-9G-6DY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="uKH-F7-dLh"/>
                 <constraint firstItem="eIf-Oa-hLj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="x6s-Ch-Huo"/>
