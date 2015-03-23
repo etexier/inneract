@@ -3,8 +3,8 @@
 Parse.Cloud.define("giveBadge", function(request, response) {
   var query = new Parse.Query("Badge");
   var currentUser = Parse.User.current();
-  console.log('current user : ' + currentUser + ', currentUser id : ' + currentUser.id);
-  console.log('current user details : ' + currentUser.get("firstName") + ' ' + currentUser.get("lastName"));
+  //console.log('current user : ' + currentUser + ', currentUser id : ' + currentUser.id);
+  //console.log('current user details : ' + currentUser.get("firstName") + ' ' + currentUser.get("lastName"));
   query.equalTo("fromUserId", currentUser.id);
   query.equalTo("toUserId", request.params.toUserId);
   query.find({
@@ -30,8 +30,10 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 			    response.success("badge created");
 
 			    // send notification
+			    var notificationQuery = new Parse.Query(Parse.Installation);
++				notificationQuery.equalTo('userId', request.params.toUserId);
 				Parse.Push.send({
-				  where: query, // Set our Installation query
+				  where: notificationQuery, // Set our Installation query
 				  data: {
 				    alert: currentUser.get("firstName") + ' ' + currentUser.get("lastName") + ' gave you a badge.'
 				  }
