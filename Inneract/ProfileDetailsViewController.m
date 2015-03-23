@@ -54,6 +54,7 @@ NSString * const kActivityCell = @"ActivityCell";
             _isSelfProfile = [[user valueForKey:@"username"] isEqualToString:[[PFUser currentUser] valueForKey:@"username"]];
 		} else {
 			_isSelfProfile = YES;
+            _isMyProfileView = YES;
 			PFQuery *query = [PFUser query];
 			PFUser *parseUser = [PFUser currentUser];
 			NSString *username = parseUser.username;
@@ -98,7 +99,9 @@ NSString * const kActivityCell = @"ActivityCell";
         [self.tableView registerNib:[UINib nibWithNibName:cellname bundle:nil] forCellReuseIdentifier:cellname];
     }
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
+    if(!self.isMyProfileView) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
+    }
 	
     if(self.isSelfProfile) {
 		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];

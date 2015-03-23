@@ -68,7 +68,12 @@
     //self.profession.sizeToFit;
     self.profession.preferredMaxLayoutWidth = self.bounds.size.width - 16;
     
-    [self.aboutButton setTitle:[NSString stringWithFormat:@"  About %@  ", self.nameLabel.text] forState:UIControlStateNormal];
+    NSString *profileLink = [self.user objectForKey:@"profileLink"];
+    if(!profileLink) {
+        [self.aboutButton setTitle:[NSString stringWithFormat:@"  About %@  ", self.nameLabel.text] forState:UIControlStateNormal];
+    } else {
+        self.aboutButton.hidden = YES;
+    }
     
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
     self.designatoinLabel.textColor = ipPrimaryMidnightBlue;

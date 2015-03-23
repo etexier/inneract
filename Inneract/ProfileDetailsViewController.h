@@ -11,6 +11,7 @@
 
 @interface ProfileDetailsViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isMyProfileView;
 @property (nonatomic, strong) PFObject *user;
 
 - (instancetype)initWithUser:(PFObject *)user;
