@@ -81,6 +81,9 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
     [self initSearchBar];
     
     self.title = @"People";
+    
+    // Only show for first loading
+    [SVProgressHUD show];
 }
 
 - (void)initSearchBar {
@@ -234,7 +237,6 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    [SVProgressHUD show];
 }
 
 - (void)objectsDidLoad:(NSError *)error {
