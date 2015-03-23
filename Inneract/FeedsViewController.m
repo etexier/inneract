@@ -10,6 +10,7 @@
 #import "FeedCell.h"
 #import "FeedDetailsViewController.h"
 #import <Parse/PFQuery.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "IPShareManager.h"
 #import "IPColors.h"
 #import "HighlightedFeedsView.h"
@@ -190,8 +191,10 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
     }
 
+    [SVProgressHUD show];
     [self queryForFeedsWithCompletion:^(NSArray *objects, NSError *error) {
         [self reloadData];
+        [SVProgressHUD dismiss];
     }];
     
 }
