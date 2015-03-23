@@ -67,7 +67,7 @@
                             <rect key="frame" x="8" y="247" width="304" height="30"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i92-3F-zOX">
                             <rect key="frame" x="8" y="293" width="304" height="30"/>
@@ -87,10 +87,10 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="pC0-hu-f1d" firstAttribute="top" secondItem="EP2-ZG-mCQ" secondAttribute="top" constant="48" id="8Ee-S6-acw"/>
                         <constraint firstItem="i92-3F-zOX" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="8" id="E8l-UJ-VFi"/>
                         <constraint firstItem="0IV-SS-NTh" firstAttribute="top" secondItem="pC0-hu-f1d" secondAttribute="bottom" constant="16" id="EAh-70-ZjO"/>
                         <constraint firstItem="xXG-3d-PGt" firstAttribute="top" secondItem="wDC-ML-dU9" secondAttribute="bottom" constant="48" id="FZb-cy-Y87"/>
-                        <constraint firstItem="pC0-hu-f1d" firstAttribute="top" secondItem="EP2-ZG-mCQ" secondAttribute="top" constant="48" id="FwY-AS-HVN"/>
                         <constraint firstItem="i92-3F-zOX" firstAttribute="top" secondItem="xXG-3d-PGt" secondAttribute="bottom" constant="16" id="PhH-I9-qKs"/>
                         <constraint firstAttribute="trailing" secondItem="wDC-ML-dU9" secondAttribute="trailing" constant="8" id="QjU-K6-fNc"/>
                         <constraint firstAttribute="trailing" secondItem="xXG-3d-PGt" secondAttribute="trailing" constant="8" id="Tq7-dJ-FRR"/>
@@ -110,7 +110,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="1aG-er-xqg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EP2-ZG-mCQ" secondAttribute="bottom" constant="110" id="24z-vn-0Rh"/>
+                <constraint firstItem="1aG-er-xqg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EP2-ZG-mCQ" secondAttribute="bottom" constant="40" id="24z-vn-0Rh"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1aG-er-xqg" secondAttribute="bottom" constant="25" id="5Ri-uv-aNi"/>
                 <constraint firstAttribute="trailing" secondItem="1aG-er-xqg" secondAttribute="trailing" constant="8" id="6Rm-7a-rb0"/>
                 <constraint firstAttribute="trailing" secondItem="VKn-Rk-jIc" secondAttribute="trailing" id="A83-SN-9VU"/>
