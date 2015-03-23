@@ -8,8 +8,10 @@
 
 #import "FeedDetailsCell.h"
 #import "Helper.h"
+#import "IPSocialActionView.h"
+#import "IPFeedDelegate.h"
 
-@interface FeedDetailsCell()
+@interface FeedDetailsCell()<IPSocialActionDelegate>
 
 
 @property(weak, nonatomic) IBOutlet UILabel *postedLabel;
@@ -19,11 +21,11 @@
 
 @property(weak, nonatomic) IBOutlet UILabel *webLinkLabel;
 
-@property(weak, nonatomic) IBOutlet UIImageView *shareImage;
-
-@property(weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
+@property (weak, nonatomic) IBOutlet UIView *socialActionView;
 
 @property (weak, nonatomic) IBOutlet UIButton *onApplyButton;
+
+@property (nonatomic, strong) IPSocialActionView *ipSocailActionView;
 
 
 @end
@@ -36,30 +38,20 @@
     [self setupGestureRecognizer];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.userInteractionEnabled = YES;
+    
+    // set up social action view
+    self.ipSocailActionView = [[IPSocialActionView alloc] initWithFrame:self.socialActionView.bounds];
+    self.ipSocailActionView.delegate = self;
+    [self.socialActionView addSubview:self.ipSocailActionView];
 
 }
 
 - (void)setupGestureRecognizer {
-    self.shareImage.userInteractionEnabled = YES;
-    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onShareTap:)];
-    [shareTap setNumberOfTapsRequired:1];
-    [shareTap setNumberOfTouchesRequired:1];
-    [self.shareImage addGestureRecognizer:shareTap];
-
-
-    self.bookmarkImage.userInteractionEnabled = YES;
-    UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onBookmarkTap:)];
-    [bookmarkTap setNumberOfTapsRequired:1];
-    [bookmarkTap setNumberOfTouchesRequired:1];
-    [self.bookmarkImage addGestureRecognizer:bookmarkTap];
-
-
     self.webLinkLabel.userInteractionEnabled = YES;
     UITapGestureRecognizer *webLinkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onWebLinkTap:)];
     [webLinkTap setNumberOfTapsRequired:1];
     [webLinkTap setNumberOfTouchesRequired:1];
     [self.webLinkLabel addGestureRecognizer:webLinkTap];
-
 }
 
 
@@ -69,9 +61,11 @@
     // Configure the view for the selected state
 }
 
-- (void)setFeed:(PFObject *)feed {
-    
+- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark {
     _feed = feed;
+    _isBookmarked = isBookmarked;
+    _isForBookmark = isForBookmark;
+    
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
     
@@ -96,37 +90,39 @@
     } else {
         self.onApplyButton.hidden = YES;
     }
-
-
-
+    
+    [self.ipSocailActionView setBookmarkNeeded:!self.isForBookmark isBookmarked:isBookmarked];
 }
 
 
 #pragma mark - tap gesture
-- (IBAction)onShareTap:(UITapGestureRecognizer *)sender {
-    [self.delegate didShare:self];
-}
-
-- (IBAction)onBookmarkTap:(UITapGestureRecognizer *)sender {
-    [self.delegate didBookmark:self];
-}
 
 - (IBAction)onWebLinkTap:(UITapGestureRecognizer *)sender {
-    [self.delegate didSelectReadFullStory:self];
+    [self.delegate didSelectReadFullStory:self.feed];
 }
 
 - (IBAction)onApply:(UIButton *)sender {
     NSLog(@"On Apply");
     if ([_feed objectForKey:@"rsvpUrl"]) {
-        [self.delegate didRsvp:self];
+        [self.delegate didRsvp:self.feed];
 
     } else if ([_feed objectForKey:@"registerUrl"]) {
-        [self.delegate didRegister:self];
+        [self.delegate didRegister:self.feed];
 
     } else if ([_feed objectForKey:@"volunteerUrl"]) {
-        [self.delegate didVolunteer:self];
+        [self.delegate didVolunteer:self.feed];
     }
 
+}
+
+#pragma mark - IPSocialActionDelegate
+
+- (void) onShareFeed {
+    [self.delegate didShareFeed:self.feed];
+}
+
+- (void) onBookmarkFeed {
+    [self.delegate didBookmarkFeed:self.feed];
 }
 
 

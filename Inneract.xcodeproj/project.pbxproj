@@ -66,6 +66,8 @@
 		382FFD411ABCA04800FE51D0 /* ajax_handler.js in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD401ABCA04800FE51D0 /* ajax_handler.js */; };
 		382FFD4A1ABCA36400FE51D0 /* IPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFD481ABCA36400FE51D0 /* IPWebViewController.m */; };
 		382FFD4B1ABCA36400FE51D0 /* IPWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FFD491ABCA36400FE51D0 /* IPWebViewController.xib */; };
+		3864F4981ABF84BC002E7934 /* IPSocialActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3864F4971ABF84BC002E7934 /* IPSocialActionView.m */; };
+		3864F49A1ABF84D0002E7934 /* IPSocialActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3864F4991ABF84D0002E7934 /* IPSocialActionView.xib */; };
 		387EB76C1AB5547200EDD7A0 /* IPColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 387EB76B1AB5547200EDD7A0 /* IPColorManager.m */; };
 		38973B381AA9791B00FE3707 /* IntroductionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38973B371AA9791B00FE3707 /* IntroductionContainerView.m */; };
 		38973B3A1AA9793A00FE3707 /* IntroductionContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38973B391AA9793A00FE3707 /* IntroductionContainerView.xib */; };
@@ -108,6 +110,7 @@
 
 /* Begin PBXFileReference section */
 		1540BA0F2C3F453A62DE3588 /* H264.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264.m; sourceTree = "<group>"; };
+		19B0E2450AED1E527473ABAC /* IPFeedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPFeedDelegate.h; sourceTree = "<group>"; };
 		19B0E5383B2158E1CFBCD09D /* IPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPConstants.m; sourceTree = "<group>"; };
 		19B0EFBDFD8A86B8B420B7A9 /* IPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPConstants.h; sourceTree = "<group>"; };
 		1D7A76274F71555DC16C65D0 /* VimeoVideoConfigResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimeoVideoConfigResult.h; sourceTree = "<group>"; };
@@ -202,6 +205,9 @@
 		382FFD471ABCA36400FE51D0 /* IPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPWebViewController.h; sourceTree = "<group>"; };
 		382FFD481ABCA36400FE51D0 /* IPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPWebViewController.m; sourceTree = "<group>"; };
 		382FFD491ABCA36400FE51D0 /* IPWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPWebViewController.xib; sourceTree = "<group>"; };
+		3864F4961ABF84BC002E7934 /* IPSocialActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPSocialActionView.h; sourceTree = "<group>"; };
+		3864F4971ABF84BC002E7934 /* IPSocialActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPSocialActionView.m; sourceTree = "<group>"; };
+		3864F4991ABF84D0002E7934 /* IPSocialActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPSocialActionView.xib; sourceTree = "<group>"; };
 		387EB76A1AB5547200EDD7A0 /* IPColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPColorManager.h; sourceTree = "<group>"; };
 		387EB76B1AB5547200EDD7A0 /* IPColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPColorManager.m; sourceTree = "<group>"; };
 		38973B361AA9791B00FE3707 /* IntroductionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionContainerView.h; sourceTree = "<group>"; };
@@ -410,6 +416,7 @@
 			children = (
 				33065DFA3D4D3200A0D7982D /* Views */,
 				3306506D42372ED963AB1E56 /* Controllers */,
+				19B0E2450AED1E527473ABAC /* IPFeedDelegate.h */,
 			);
 			name = Feeds;
 			sourceTree = "<group>";
@@ -528,6 +535,9 @@
 			children = (
 				32FF1C6F1AB6495900238E19 /* Cells */,
 				32FF1C6E1AB6494200238E19 /* HighlightedFeeds */,
+				3864F4961ABF84BC002E7934 /* IPSocialActionView.h */,
+				3864F4971ABF84BC002E7934 /* IPSocialActionView.m */,
+				3864F4991ABF84D0002E7934 /* IPSocialActionView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -758,6 +768,7 @@
 				3246E6FA1AB8A27B00F5DFC2 /* CircularStd-Bold.otf in Resources */,
 				3246E6FB1AB8A27B00F5DFC2 /* CircularStd-Book.otf in Resources */,
 				3246E6FC1AB8A27B00F5DFC2 /* CircularStd-Medium.otf in Resources */,
+				3864F49A1ABF84D0002E7934 /* IPSocialActionView.xib in Resources */,
 				329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */,
 				329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */,
 				329F008A1AA8207F0089C0E2 /* TeachOrTAViewController.xib in Resources */,
@@ -873,6 +884,7 @@
 				FACFAB661AAA5B9C003D874F /* LoginViewController.m in Sources */,
 				3306560C3D6F9F462FE636A2 /* FeedDetailsViewController.m in Sources */,
 				3306568A9ABB77106F2E7150 /* FeedsViewController.m in Sources */,
+				3864F4981ABF84BC002E7934 /* IPSocialActionView.m in Sources */,
 				382FFD4A1ABCA36400FE51D0 /* IPWebViewController.m in Sources */,
 				33065EAFB6D45024FCC40393 /* Helper.m in Sources */,
 				F0EE7A20A61A9501D5F8F1EA /* VimeoController.m in Sources */,

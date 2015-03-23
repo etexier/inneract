@@ -8,23 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "IPFeedDelegate.h"
 
 @class FeedDetailsCell;
-
-@protocol FeedDetailsCellDelegate<NSObject>
-
--(void) didSelectReadFullStory:(FeedDetailsCell *) cell;
--(void) didBookmark:(FeedDetailsCell *) cell;
--(void) didShare:(FeedDetailsCell *) cell;
--(void)didRsvp:(FeedDetailsCell *) cell;
--(void)didRegister:(FeedDetailsCell *) cell;
--(void)didVolunteer:(FeedDetailsCell *) cell;
-
-@end
 
 @interface FeedDetailsCell : UITableViewCell
 
 @property (weak, nonatomic) PFObject *feed;
-@property (weak, nonatomic) id<FeedDetailsCellDelegate> delegate;
+@property (weak, nonatomic) id<IPFeedDelegate> delegate;
+@property (nonatomic, assign) BOOL isBookmarked;
+@property (nonatomic, assign) BOOL isForBookmark;
+
+- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark;
 
 @end

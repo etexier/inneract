@@ -10,21 +10,24 @@
 #import "Helper.h"
 #import "IPColors.h"
 #import "UIImageView+IP.h"
+#import "IPSocialActionView.h"
+#import "IPFeedDelegate.h"
 
 
-
-@interface FeedCell ()
+@interface FeedCell () <IPSocialActionDelegate>
 @property(weak, nonatomic) IBOutlet UIImageView *thumbnail;
 @property(weak, nonatomic) IBOutlet UILabel *postedDateLabel;
 @property(weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 @property(weak, nonatomic) IBOutlet UILabel *summaryLabel;
-@property(weak, nonatomic) IBOutlet UIImageView *shareImage;
-@property(weak, nonatomic) IBOutlet UIImageView *bookmarkImage;
-@property(weak, nonatomic) IBOutlet UILabel *bookMarkLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *socialActionView;
+
 
 @property(weak, nonatomic) IBOutlet UIImageView *mediaImage;
 @property (weak, nonatomic) IBOutlet UIImageView *bookmarkOnImgView;
+
+@property (nonatomic, strong) IPSocialActionView *ipSocailActionView;
+
 @end
 
 @implementation FeedCell
@@ -43,7 +46,12 @@
     // for performance
     self.thumbnail.layer.shouldRasterize = YES;
     self.thumbnail.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-
+    
+    // set up social action view
+    self.ipSocailActionView = [[IPSocialActionView alloc] initWithFrame:self.socialActionView.bounds];
+    self.ipSocailActionView.delegate = self;
+    [self.socialActionView addSubview:self.ipSocailActionView];
+    
 //    [self prepareForReuse];
 
 }
@@ -73,35 +81,19 @@
     self.summaryLabel.text = [feed objectForKey:@"summary"];
 //    self.summaryLabel.textColor = ipSecondaryGrey;
 
-    // bookmark
-    if (!self.isForBookmark) {
-        self.bookmarkImage.image = [UIImage imageNamed:(isBookmarked ? @"bookmarkGrayButton" : @"bookmarkGreenButton")];
-        if(!isBookmarked) {
-            UITapGestureRecognizer *bookmarkTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didBookmark:)];
-            [self.bookmarkImage addGestureRecognizer:bookmarkTap];
-        }
-        self.bookmarkOnImgView.hidden = YES;
-    } else {
-        self.bookmarkImage.hidden = YES;
-        self.bookMarkLabel.hidden = YES;
-        self.bookmarkOnImgView.hidden = NO;
-    }
-
-    // share
-    self.shareImage.image = [UIImage imageNamed:@"shareYellowButton"];
-
-    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
-    [self.shareImage addGestureRecognizer:shareTap];
+    self.bookmarkOnImgView.hidden = !self.isForBookmark;
+    
+    [self.ipSocailActionView setBookmarkNeeded:!self.isForBookmark isBookmarked:isBookmarked];
 }
 
-- (IBAction)didShare:(id)sender {
-    [self.feedCellHandler feedCell:self didShareFeed:self.feed];
+#pragma mark - IPSocialActionDelegate
+
+- (void) onShareFeed {
+   [self.feedCellHandler didShareFeed:self.feed];
 }
 
-- (IBAction)didBookmark:(id)sender {
-    [self.feedCellHandler feedCell:self didBookmarkFeed:self.feed];
-    self.bookmarkImage.image = [UIImage imageNamed:@"bookmarkGrayButton"];
+- (void) onBookmarkFeed {
+    [self.feedCellHandler didBookmarkFeed:self.feed];
 }
-
 
 @end

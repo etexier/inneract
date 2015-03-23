@@ -13,6 +13,7 @@
 #import "IPShareManager.h"
 #import "IPColors.h"
 #import "HighlightedFeedsView.h"
+#import "IPFeedDelegate.h"
 
 NSString *const kFeedCellNibId = @"FeedCell";
 NSString *const kFeedBookmarkRelationshipName = @"bookmarks";
@@ -25,7 +26,7 @@ const CGFloat highlightedFeedsViewOffset = 0;
 
 typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
-@interface FeedsViewController () <UITableViewDataSource, UITableViewDelegate,UISearchDisplayDelegate, UISearchBarDelegate, FeedCellProtocol, HighlightedFeedsViewDelegate>
+@interface FeedsViewController () <UITableViewDataSource, UITableViewDelegate,UISearchDisplayDelegate, UISearchBarDelegate, IPFeedDelegate, HighlightedFeedsViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -283,11 +284,8 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] init];
-
     PFObject *feed = [self feedForTableView:tableView atIndexPath:indexPath];
-    detailsVc.feed = feed;
-    detailsVc.isBookmarked = [self isBookmarked:[feed valueForKey:@"objectId"]];
+    FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:feed isBookmarked:[self isBookmarked:[feed valueForKey:@"objectId"]] isForBookmark:self.isForBookmark delegate:self];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:detailsVc animated:YES];
     
@@ -439,16 +437,16 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 }
 
-#pragma mark - feed cell protocol
-- (void) feedCell:(FeedCell *) feedCell didShareFeed:(PFObject *) feed {
+#pragma mark - feed  protocol
+- (void) didShareFeed:(PFObject *) feed {
     [[IPShareManager sharedInstance] shareFeed:feed fromViewController:self];
 }
 
-- (void) feedCell:(FeedCell *) feedCell didBookmarkFeed:(PFObject *) feed {
+- (void) didBookmarkFeed:(PFObject *) feed {
     NSLog(@"bookmarking feed...");
     if(feed) {
         PFUser *currentUser = [PFUser currentUser];
-        PFRelation *relation = [currentUser relationforKey:kFeedBookmarkRelationshipName];
+        PFRelation *relation = [currentUser relationForKey:kFeedBookmarkRelationshipName];
         [relation addObject:feed];
         //[feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -462,6 +460,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 - (void) onHeaderTap:(PFObject *)object {
     FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] init];
     detailsVc.feed = object;
+    detailsVc.delegate = self;
     detailsVc.isBookmarked = [self isBookmarked:[object valueForKey:@"objectId"]];
 
 

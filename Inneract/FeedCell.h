@@ -11,19 +11,12 @@
 #import <Parse/PFObject.h>
 
 @class FeedCell;
-
-@protocol FeedCellProtocol <NSObject>
-
-- (void) feedCell:(FeedCell *) feedCell didShareFeed:(PFObject*) feed;
-
-- (void) feedCell:(FeedCell *) feedCell didBookmarkFeed:(PFObject*) feed;
-
-@end
+@protocol IPFeedDelegate;
 
 @interface FeedCell : PFTableViewCell
 @property (weak, nonatomic) PFObject *feed;
 @property (nonatomic, assign) BOOL isBookmarked;
-@property (nonatomic, weak) id<FeedCellProtocol> feedCellHandler;
+@property (nonatomic, weak) id<IPFeedDelegate> feedCellHandler;
 @property (nonatomic, assign) BOOL isForBookmark;
 
 - (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark;

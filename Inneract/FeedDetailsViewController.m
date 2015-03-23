@@ -18,6 +18,7 @@
 #import "Sd.h"
 #import "IPEventTracker.h"
 #import "IPWebViewController.h"
+#import "IPShareManager.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 #import <PayPalMobile.h>
@@ -28,7 +29,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 @interface FeedDetailsViewController () <UITableViewDataSource,
 										UITableViewDelegate,
 										FeedDetailsHeaderViewDelegate,
-										FeedDetailsCellDelegate,
+										IPFeedDelegate,
 										UIWebViewDelegate,
 										PayPalPaymentDelegate>
 
@@ -48,6 +49,17 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 @implementation FeedDetailsViewController
 
+- (instancetype) initWithFeed:(PFObject *) feed isBookmarked:(BOOL) isBookmarked isForBookmark:(BOOL) isForBookmark delegate:(id<IPFeedDelegate>) delegate {
+    self = [super init];
+    if(self) {
+        _feed = feed;
+        _isBookmarked = isBookmarked;
+        _isForBookmark = isForBookmark;
+        _delegate = delegate;
+    }
+
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -91,7 +103,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedDetailsCell *cell = (FeedDetailsCell *) [tableView dequeueReusableCellWithIdentifier:kFeedDetailsCellNibId forIndexPath:indexPath];
-    cell.feed = self.feed;
+    [cell setData:self.feed isBookmarked:self.isBookmarked isForBookmakr:self.isForBookmark];
     cell.delegate = self;
     return cell;
 }
@@ -122,31 +134,31 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 #pragma FeedDetailsCellDelegate
 
-- (void)didSelectReadFullStory:(FeedDetailsCell *)cell {
+- (void)didSelectReadFullStory:(PFObject *)feed {
     NSLog(@"Did select full story");
 
-    [self openWebLink:[cell.feed objectForKey:@"link"] title:[cell.feed objectForKey:@"title"]];
+    [self openWebLink:[feed objectForKey:@"link"] title:[feed objectForKey:@"title"]];
     [[IPEventTracker sharedInstance] onReadFeed:self.feed];
 }
 
-- (void)didBookmark:(FeedDetailsCell *)cell {
-    NSLog(@"Did Bookmark feed"); // TODO
+- (void)didBookmarkFeed:(PFObject *)feed {
+    [self.delegate didBookmarkFeed:feed];
 }
 
-- (void)didShare:(FeedDetailsCell *)cell {
-    NSLog(@"Did share feed"); // TODO
-
+- (void)didShareFeed:(PFObject *)feed {
+    [[IPShareManager sharedInstance] shareFeed:feed fromViewController:self];
+    //[self.delegate didShareFeed:feed];
 }
 
-- (void)didRsvp:(FeedDetailsCell *)cell {
+- (void)didRsvp:(PFObject *)feed {
     NSLog(@"Did rsvp feed");
 
-    [self openWebLink:[cell.feed objectForKey:@"rsvpUrl"] title:[cell.feed objectForKey:@"title"]];
+    [self openWebLink:[feed objectForKey:@"rsvpUrl"] title:[feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
 }
 
-- (void)didRegister:(FeedDetailsCell *)cell {
+- (void)didRegister:(PFObject *)feed {
     NSLog(@"Did register feed");
 	[self pay];
 	
@@ -158,11 +170,11 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 //    [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }
 
-- (void)didVolunteer:(FeedDetailsCell *)cell {
-    NSString *urlAddress = [cell.feed objectForKey:@"volunteerUrl"];
+- (void)didVolunteer:(PFObject *)feed {
+    NSString *urlAddress = [feed objectForKey:@"volunteerUrl"];
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSLog(@"Did volunteer feed");
-    [self openWebLink:[cell.feed objectForKey:@"volunteerUrl"] title:[cell.feed objectForKey:@"title"]];
+    [self openWebLink:[feed objectForKey:@"volunteerUrl"] title:[feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
 }

@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IPFeedDelegate.h"
 
 @class PFObject;
 
 @interface FeedDetailsViewController : UIViewController
 @property (weak, nonatomic) PFObject *feed;
 @property (assign, nonatomic) BOOL isBookmarked;
+@property (assign, nonatomic) BOOL isForBookmark;
+@property (nonatomic, weak) id<IPFeedDelegate> delegate;
+
+- (instancetype) initWithFeed:(PFObject *) feed isBookmarked:(BOOL) isBookmarked isForBookmark:(BOOL) isForBookmark delegate:(id<IPFeedDelegate>) delegate;
+
 @end
