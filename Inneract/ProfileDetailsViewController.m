@@ -97,24 +97,24 @@ NSString * const kActivityCell = @"ActivityCell";
     for(NSString *cellname in self.sectionCells) {
         [self.tableView registerNib:[UINib nibWithNibName:cellname bundle:nil] forCellReuseIdentifier:cellname];
     }
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
 	
-    if(!self.isSelfProfile) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
-
-		if(self.fromAccountCreation){
-			self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit Profile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile)];
-			
-			//[self.confirmPopupView setHidden:NO];
-            UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Thanks for joining the Inneract Project Family!"
-                                                               message:@"You have successfully created your profile. An email confirmation has been sent to your email address. Please verify your account. Your email confirmation helps to maintain an honest IP community."
-                                                              delegate:self
-                                                     cancelButtonTitle:@"OK"
-                                                     otherButtonTitles:nil];
-            [theAlert show];
-            
-		}
-    } else {
+    if(self.isSelfProfile) {
 		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout:)];
+    }
+    
+    if(self.fromAccountCreation){
+        //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit Profile" style:UIBarButtonItemStylePlain target:self action:@selector(onEditProfile)];
+        
+        //[self.confirmPopupView setHidden:NO];
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Thanks for joining the Inneract Project Family!"
+                                                           message:@"You have successfully created your profile. An email confirmation has been sent to your email address. Please verify your account. Your email confirmation helps to maintain an honest IP community."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
+        
     }
 }
 
