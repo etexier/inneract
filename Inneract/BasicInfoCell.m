@@ -69,7 +69,7 @@
     self.profession.preferredMaxLayoutWidth = self.bounds.size.width - 16;
     
     NSString *profileLink = [self.user objectForKey:@"profileLink"];
-    if(!profileLink) {
+    if(profileLink) {
         [self.aboutButton setTitle:[NSString stringWithFormat:@"  About %@  ", self.nameLabel.text] forState:UIControlStateNormal];
     } else {
         self.aboutButton.hidden = YES;
