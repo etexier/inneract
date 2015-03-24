@@ -13,6 +13,8 @@
 
 @interface FeedDetailsCell()<IPSocialActionDelegate>
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *applyButtonHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *payButtonHeightConstraint;
 
 @property(weak, nonatomic) IBOutlet UILabel *postedLabel;
 
@@ -90,12 +92,14 @@
         [self.onApplyButton setTitle:@"Volunteer" forState:UIControlStateNormal];
     } else {
         self.onApplyButton.hidden = YES;
+        self.applyButtonHeightConstraint.constant = 0;
     }
 
     if ([_feed objectForKey:@"paymentInfo"]) {
         self.onPayButton.hidden = NO;
     } else {
         self.onPayButton.hidden = YES;
+        self.payButtonHeightConstraint.constant = 0;
     }
     
     [self.ipSocailActionView setBookmarkNeeded:!self.isForBookmark isBookmarked:isBookmarked];
