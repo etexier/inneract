@@ -64,7 +64,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 320;
+    self.tableView.estimatedRowHeight = 400;
 
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:kFeedDetailsCellNibId bundle:nil] forCellReuseIdentifier:kFeedDetailsCellNibId];
@@ -103,10 +103,39 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedDetailsCell *cell = (FeedDetailsCell *) [tableView dequeueReusableCellWithIdentifier:kFeedDetailsCellNibId forIndexPath:indexPath];
-    [cell setData:self.feed isBookmarked:self.isBookmarked isForBookmakr:self.isForBookmark];
-    cell.delegate = self;
+    [self configureBasicCell:cell];
     return cell;
 }
+
+#pragma recalculate height for details cell
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self heightForFeedDetailsCell];
+}
+
+- (CGFloat)heightForFeedDetailsCell {
+    static FeedDetailsCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:kFeedDetailsCellNibId];
+    });
+    
+    [self configureBasicCell:sizingCell];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + 1.0f; // Add 1.0f for the cell separator height
+}
+
+- (void)configureBasicCell:(FeedDetailsCell *)cell {
+    [cell setData:self.feed isBookmarked:self.isBookmarked isForBookmakr:self.isForBookmark];
+    cell.delegate = self;
+}
+
 
 #pragma FeedDetailsHeaderViewDelegate
 
@@ -158,25 +187,29 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
 }
 
-- (void)didRegister:(PFObject *)feed {
-    // uncomment to link button to pay
-    NSLog(@"Did register feed");
-	[self pay];
+- (void)didPay:(PFObject *)feed {
+    NSLog(@"Did pay for feed");
+    [self pay];
 
-    // uncomment to link button to register
-//    IPWebViewController *webViewController = [[IPWebViewController alloc] initWithUrl:[feed objectForKey:@"registerUrl"] title:[feed objectForKey:@"title"] callback:^(NSError *error) {
-//
-//    }];
-//    [self.navigationController pushViewController:webViewController animated:YES];
-//
-//    [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
+}
+
+- (void)didRegister:(PFObject *)feed {
+    NSLog(@"Did register feed");
+
+    IPWebViewController *webViewController = [[IPWebViewController alloc] initWithUrl:[feed objectForKey:@"registerUrl"]
+                                                                                title:[feed objectForKey:@"title"]
+                                                                             callback:^(NSError *error) {
+
+    }];
+    [self.navigationController pushViewController:webViewController animated:YES];
+
+    [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }
 
 - (void)didVolunteer:(PFObject *)feed {
     NSString *urlAddress = [feed objectForKey:@"volunteerUrl"];
-    NSURL *url = [NSURL URLWithString:urlAddress];
     NSLog(@"Did volunteer feed");
-    [self openWebLink:[feed objectForKey:@"volunteerUrl"] title:[feed objectForKey:@"title"]];
+    [self openWebLink:urlAddress title:[feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
 }

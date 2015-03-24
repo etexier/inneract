@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *onApplyButton;
 
 @property (nonatomic, strong) IPSocialActionView *ipSocailActionView;
+@property (weak, nonatomic) IBOutlet UIButton *onPayButton;
 
 
 @end
@@ -90,6 +91,12 @@
     } else {
         self.onApplyButton.hidden = YES;
     }
+
+    if ([_feed objectForKey:@"paymentInfo"]) {
+        self.onPayButton.hidden = NO;
+    } else {
+        self.onPayButton.hidden = YES;
+    }
     
     [self.ipSocailActionView setBookmarkNeeded:!self.isForBookmark isBookmarked:isBookmarked];
 }
@@ -113,6 +120,11 @@
         [self.delegate didVolunteer:self.feed];
     }
 
+}
+- (IBAction)onPay:(UIButton *)sender {
+    if ([_feed objectForKey:@"paymentInfo"]) {
+        [self.delegate didPay:self.feed];
+    }
 }
 
 #pragma mark - IPSocialActionDelegate

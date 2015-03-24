@@ -14,6 +14,7 @@
 @optional
 -(void) didSelectReadFullStory:(PFObject *) feed;
 -(void) didRsvp:(PFObject *) feed;
+-(void) didPay:(PFObject *) feed;
 -(void) didRegister:(PFObject *) feed;
 -(void) didVolunteer:(PFObject *) feed;
 
