@@ -159,10 +159,12 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 }
 
 - (void)didRegister:(PFObject *)feed {
+    // uncomment to link button to pay
     NSLog(@"Did register feed");
 	[self pay];
-	
-//    IPWebViewController *webViewController = [[IPWebViewController alloc] initWithUrl:[cell.feed objectForKey:@"registerUrl"] title:[cell.feed objectForKey:@"title"] callback:^(NSError *error) {
+
+    // uncomment to link button to register
+//    IPWebViewController *webViewController = [[IPWebViewController alloc] initWithUrl:[feed objectForKey:@"registerUrl"] title:[feed objectForKey:@"title"] callback:^(NSError *error) {
 //
 //    }];
 //    [self.navigationController pushViewController:webViewController animated:YES];
@@ -276,6 +278,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 	[self showSuccess];
 	
 	[self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
+    [[[UIAlertView alloc] initWithTitle:@"Transaction complete" message:@"Complete" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
