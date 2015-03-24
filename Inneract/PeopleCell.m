@@ -31,7 +31,7 @@
     // Initialization code
 
     // round image
-    self.profileImage.layer.cornerRadius = 40; // self.thumbnail.frame.size.width / 2.0f;
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2.0f;
     self.profileImage.clipsToBounds = YES;
     // for performance
     self.profileImage.layer.shouldRasterize = YES;
