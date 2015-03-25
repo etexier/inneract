@@ -39,8 +39,6 @@
     [super viewDidLoad];
 	
     // Do any additional setup after loading the view from its nib.
-	
-	// In your viewDidLoad method:
 	self.loginViewFB.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 	
 	self.inProgress = NO;
@@ -90,7 +88,7 @@
 			[self presentViewController:nvc animated:YES completion:nil];
 		} else if([error.userInfo[@"code"] intValue]== 202){
 			NSLog(@"FAIL: %@", error.userInfo);
-			[self showSpinnerWithText:@"Login..."];
+			//[self showSpinnerWithText:@"Login..."];
 			
 			//User is already signed up. We will try to login as using FB credentials.
 			[PFUser logInWithUsernameInBackground:user[@"email"] password:user[@"id"]

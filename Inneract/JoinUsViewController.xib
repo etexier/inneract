@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -22,6 +22,7 @@
                 <outlet property="emailAddress" destination="TTA-0w-USZ" id="qFz-pb-S5g"/>
                 <outlet property="firstName" destination="vLd-Aa-Jqg" id="o66-v3-skX"/>
                 <outlet property="lastName" destination="A5w-X8-HNj" id="pdy-1e-LF6"/>
+                <outlet property="loginViewFB" destination="skW-tD-Yfe" id="BEP-Hb-CEP"/>
                 <outlet property="password" destination="ucr-cb-oNE" id="azf-7o-hxt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -60,6 +61,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="pBi-oZ-efA"/>
                             </constraints>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="P9W-Qz-oXv"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEg-4l-Kau">
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
