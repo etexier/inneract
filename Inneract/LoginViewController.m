@@ -17,6 +17,7 @@
 #import "LoginViewController.h"
 #import "JoinUsViewController.h"
 #import "EditProfileViewController.h"
+#import "ResetPasswordViewController.h"
 
 #import "IPColors.h"
 
@@ -230,5 +231,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (IBAction)forgotPassword:(id)sender {
+	ResetPasswordViewController *epvc = [[ResetPasswordViewController alloc]init];
+	UINavigationController *rpvc = [[UINavigationController alloc] initWithRootViewController:epvc];
+	
+	[self presentViewController:rpvc animated:YES completion:nil];
 }
 @end

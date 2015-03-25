@@ -98,6 +98,8 @@
 		FADAEF651AAE44870098E030 /* ComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAEF621AAE44870098E030 /* ComboBox.m */; };
 		FADAEF661AAE44870098E030 /* ComboBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADAEF631AAE44870098E030 /* ComboBox.xib */; };
 		FADAEF691AB42A7D0098E030 /* NIDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAEF681AB42A7D0098E030 /* NIDropDown.m */; };
+		FADD47E51AC2A20600530280 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD47E31AC2A20600530280 /* ResetPasswordViewController.m */; };
+		FADD47E61AC2A20600530280 /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADD47E41AC2A20600530280 /* ResetPasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +265,9 @@
 		FADAEF631AAE44870098E030 /* ComboBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboBox.xib; sourceTree = "<group>"; };
 		FADAEF671AB42A7D0098E030 /* NIDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIDropDown.h; sourceTree = "<group>"; };
 		FADAEF681AB42A7D0098E030 /* NIDropDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIDropDown.m; sourceTree = "<group>"; };
+		FADD47E21AC2A20600530280 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		FADD47E31AC2A20600530280 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
+		FADD47E41AC2A20600530280 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +419,9 @@
 				329F00721AA81F0F0089C0E2 /* JoinUsViewController.h */,
 				329F00731AA81F0F0089C0E2 /* JoinUsViewController.m */,
 				329F00741AA81F0F0089C0E2 /* JoinUsViewController.xib */,
+				FADD47E21AC2A20600530280 /* ResetPasswordViewController.h */,
+				FADD47E31AC2A20600530280 /* ResetPasswordViewController.m */,
+				FADD47E41AC2A20600530280 /* ResetPasswordViewController.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -787,6 +795,7 @@
 				3246E6FA1AB8A27B00F5DFC2 /* CircularStd-Bold.otf in Resources */,
 				3246E6FB1AB8A27B00F5DFC2 /* CircularStd-Book.otf in Resources */,
 				3246E6FC1AB8A27B00F5DFC2 /* CircularStd-Medium.otf in Resources */,
+				FADD47E61AC2A20600530280 /* ResetPasswordViewController.xib in Resources */,
 				3864F49A1ABF84D0002E7934 /* IPSocialActionView.xib in Resources */,
 				329F008F1AA8DC3C0089C0E2 /* EditProfileViewController.xib in Resources */,
 				329F00761AA81F0F0089C0E2 /* JoinUsViewController.xib in Resources */,
@@ -910,6 +919,7 @@
 				33065EAFB6D45024FCC40393 /* Helper.m in Sources */,
 				F0EE7A20A61A9501D5F8F1EA /* VimeoController.m in Sources */,
 				278A2FB813A16F13F2A6A14B /* Files.m in Sources */,
+				FADD47E51AC2A20600530280 /* ResetPasswordViewController.m in Sources */,
 				1A4031E33B5636FC7A01963C /* H264.m in Sources */,
 				D34B25A6117F0BB908C3E590 /* Hd.m in Sources */,
 				90FF6AAB4ED575785E5E02AF /* Hls.m in Sources */,

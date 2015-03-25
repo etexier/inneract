@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -48,7 +48,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login using Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-SS-NTh">
-                            <rect key="frame" x="77" y="124" width="167" height="22"/>
+                            <rect key="frame" x="77" y="124" width="166.5" height="22"/>
                             <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="17"/>
                             <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -106,6 +106,16 @@
                         <constraint firstAttribute="centerX" secondItem="pC0-hu-f1d" secondAttribute="centerX" id="wPc-JF-Q5H"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbj-Cg-Opf">
+                    <rect key="frame" x="8" y="397" width="304" height="30"/>
+                    <state key="normal" title="Forgot Password">
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="4qJ-Sq-Zx1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
@@ -113,8 +123,11 @@
                 <constraint firstItem="1aG-er-xqg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EP2-ZG-mCQ" secondAttribute="bottom" constant="40" id="24z-vn-0Rh"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1aG-er-xqg" secondAttribute="bottom" constant="25" id="5Ri-uv-aNi"/>
                 <constraint firstAttribute="trailing" secondItem="1aG-er-xqg" secondAttribute="trailing" constant="8" id="6Rm-7a-rb0"/>
+                <constraint firstItem="hbj-Cg-Opf" firstAttribute="top" secondItem="EP2-ZG-mCQ" secondAttribute="bottom" constant="8" id="6Yt-be-raQ"/>
                 <constraint firstAttribute="trailing" secondItem="VKn-Rk-jIc" secondAttribute="trailing" id="A83-SN-9VU"/>
+                <constraint firstItem="hbj-Cg-Opf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="DXI-CE-XjI"/>
                 <constraint firstItem="VKn-Rk-jIc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GbA-KY-6ZA"/>
+                <constraint firstAttribute="trailing" secondItem="hbj-Cg-Opf" secondAttribute="trailing" constant="8" id="Nsb-qK-Gwr"/>
                 <constraint firstAttribute="bottom" secondItem="1aG-er-xqg" secondAttribute="bottom" constant="39" id="OgC-ih-gAU"/>
                 <constraint firstAttribute="bottom" secondItem="VKn-Rk-jIc" secondAttribute="bottom" id="RMm-C8-VNm"/>
                 <constraint firstItem="1aG-er-xqg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="XrS-Sz-FXt"/>
