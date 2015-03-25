@@ -15,9 +15,11 @@
 #import "IPColors.h"
 #import "HighlightedFeedsView.h"
 #import "IPFeedDelegate.h"
+#import "IPConstants.h"
 
 NSString *const kFeedCellNibId = @"FeedCell";
 NSString *const kFeedBookmarkRelationshipName = @"bookmarks";
+NSString *const kParseClassName = @"IPNews";
 const CGFloat ksearchBarHeight = 44;
 const CGFloat kHighlightedFeedsHeight = 200;
 //    const CGFloat highlightedFeedsViewOffset = ksearchBarHeight;
@@ -34,7 +36,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 @property (nonatomic, strong) UIRefreshControl *refreshController;
 @property(nonatomic, strong) UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *noBookmarkLabel;
-
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property(nonatomic, strong) UISearchDisplayController *searchController;
 @property(nonatomic, strong) NSMutableArray *feeds;
 @property(nonatomic, strong) NSMutableArray *highlightedFeeds;
@@ -66,24 +68,22 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
             self.title = @"My Bookmarks"; // TODO : font and color
         } else {
             self.feedCategory = category;
-
-            if([category isEqualToString:@"news"]) {
-                self.preselectedCategoryIndex = 0;
-            } else if([category isEqualToString:@"volunteer"]) {
-                self.preselectedCategoryIndex = 1;
-            } else if([category isEqualToString:@"classes"]) {
-                self.preselectedCategoryIndex = 2;
-            }
+            [self setSegmentIndexFromCategory:category];
         }
         //[self setupTableView];
     }
-    
+
     return self;
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidReceiveNewFeedRemoteNotification object:nil];
+    //[super dealloc];
 }
 
 - (void) setupTableView {
     // This table displays items in the Todo class
-    self.parseClassName = @"IPNews";
+    self.parseClassName = kParseClassName;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -169,6 +169,11 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Handle remote notification
+    if(!self.isForBookmark) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNewFeedRemoteNotification:) name:kDidReceiveNewFeedRemoteNotification object:nil];
+    }
 
     [self setupTableView];
     
@@ -180,23 +185,23 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         // get user's bookmarks
         [self queryUserBookmarks];
         
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
+        self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
         //[statFilter setSegmentedControlStyle:UISegmentedControlStyleBar];
-        segmentedControl.frame = CGRectMake(0, 22, [UIScreen mainScreen].bounds.size.width, 40);
+        self.segmentedControl.frame = CGRectMake(0, 22, [UIScreen mainScreen].bounds.size.width, 40);
         //[segmentedControl sizeToFit];
-        [segmentedControl addTarget:self action:@selector(categoryDidSelected:) forControlEvents:UIControlEventValueChanged];
+        [self.segmentedControl addTarget:self action:@selector(categoryDidSelected:) forControlEvents:UIControlEventValueChanged];
         
         NSDictionary *attributesNormalState = @{NSForegroundColorAttributeName : ipPrimaryMidnightBlue};
-        [segmentedControl setTitleTextAttributes:attributesNormalState forState:UIControlStateNormal];
+        [self.segmentedControl setTitleTextAttributes:attributesNormalState forState:UIControlStateNormal];
         
         NSDictionary *attributesHighlightedState = @{NSForegroundColorAttributeName : ipPrimaryMidnightBlue};
-        [segmentedControl setTitleTextAttributes:attributesHighlightedState forState:UIControlStateHighlighted];
+        [self.segmentedControl setTitleTextAttributes:attributesHighlightedState forState:UIControlStateHighlighted];
         
-        segmentedControl.tintColor = ipPrimaryOrange; // done in XIB
+        self.segmentedControl.tintColor = ipPrimaryOrange; // done in XIB
         
-        self.navigationItem.titleView = segmentedControl;
+        self.navigationItem.titleView = self.segmentedControl;
         
-        segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
+        self.segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
     }
 
     [SVProgressHUD show];
@@ -495,8 +500,36 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     }];
 }
 
+- (void) setSegmentIndexFromCategory:(NSString *) category {
+    if([category isEqualToString:@"news"]) {
+        self.preselectedCategoryIndex = 0;
+    } else if([category isEqualToString:@"volunteer"]) {
+        self.preselectedCategoryIndex = 1;
+    } else if([category isEqualToString:@"classes"]) {
+        self.preselectedCategoryIndex = 2;
+    }
+}
+
 -(BOOL) isBookmarked:(NSString *) objectId {
     return [self.myBookmarkIds containsObject:objectId];
+}
+
+- (void) didReceiveNewFeedRemoteNotification:(NSNotification *) notification {
+    NSString *feedId = [notification.userInfo valueForKey:@"fId"];
+    [self setSegmentIndexFromCategory:[notification.userInfo valueForKey:@"fc"]];
+    self.segmentedControl.selectedSegmentIndex = self.preselectedCategoryIndex;
+    if(feedId) {
+        PFQuery *query = [PFQuery queryWithClassName:kParseClassName];
+        [query getObjectInBackgroundWithId:feedId block:^(PFObject *object, NSError *error) {
+            if(object && !error) {
+                NSLog(@"--feed pushed : %@", object);
+                FeedDetailsViewController *detailsVc = [[FeedDetailsViewController alloc] initWithFeed:object isBookmarked:[self isBookmarked:[object valueForKey:@"objectId"]] isForBookmark:self.isForBookmark delegate:self];
+                [self.navigationController pushViewController:detailsVc animated:YES];
+            } else {
+                NSLog(@"didReceiveNewFeedRemoteNotification error : %@", error);
+            }
+        }];
+    }
 }
 
 @end

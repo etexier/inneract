@@ -43,6 +43,12 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"didFinishLaunchingWithOptions : %@", launchOptions);
+    
+    if (launchOptions) { //launchOptions is not nil
+        NSDictionary *userInfo = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+
+       NSLog(@"UIApplicationLaunchOptionsRemoteNotificationKey : %@", userInfo);
+    }
     // init parse
     [self parseInit:launchOptions];
 	// Override point for customization after application launch.
@@ -111,10 +117,25 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"didReceiveRemoteNotification : %@", userInfo);
     [PFPush handlePush:userInfo];
 
-    if([@"giveBadge" isEqualToString:[userInfo valueForKey:@"type"]]) {
-        self.window.rootViewController = [MainViewHelper setupMainViewTabBarWithSelectedTab:2 andSubSegmentName:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDidReceiveUserBadgeRemoteNotification object:nil userInfo:userInfo];
+    NSString *notificationName;
+    UITabBarController *tabController = self.window.rootViewController;
+    if([@"giveBadge" isEqualToString:[userInfo valueForKey:@"t"]]) {
+        //self.window.rootViewController = [MainViewHelper setupMainViewTabBarWithSelectedTab:2 andSubSegmentName:nil];
+        tabController.selectedIndex = 2;
+        notificationName = kDidReceiveUserBadgeRemoteNotification;
+    } else if([@"newFeed" isEqualToString:[userInfo valueForKey:@"t"]]) {
+        tabController.selectedIndex = 0;
+        //self.window.rootViewController = [MainViewHelper setupMainViewTabBarWithSelectedTab:0 andSubSegmentName:[userInfo valueForKey:@"fc"]];
+        notificationName = kDidReceiveNewFeedRemoteNotification;
     }
+    if(notificationName) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:userInfo];
+        // reset badge to 0
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation setBadge:0];
+        [currentInstallation saveInBackground];
+    }
+
 }
 
 - (void) userDidLogout {

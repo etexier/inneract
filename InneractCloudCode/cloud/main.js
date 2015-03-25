@@ -37,7 +37,7 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 				  data: {
 				    alert: currentUser.get("firstName") + ' ' + currentUser.get("lastName") + ' gave you a badge.',
 				    badge : "Increment",
-				    type : "giveBadge",
+				    t : "giveBadge",
 				    userId : currentUser.id
 				  }
 				}, {
@@ -73,4 +73,49 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 		response.error("failed to lookup badge");
     }
   });
+});
+
+Parse.Cloud.job("sendNewFeedNotification", function(request, status) {
+	console.log("sendNewFeedNotification started");
+
+	var feedQuery = new Parse.Query("IPNews");
+	feedQuery.equalTo("isPushed", false);
+	feedQuery.each(function(feed) {
+		Parse.Push.send({
+		  channels: [ "" ],
+		  data: {
+		    alert: 'A ' + feed.get("feedCategory") + ' "' + feed.get("title").substring(1, 72) + '" just published.',
+		    badge : "Increment",
+		    t : "newFeed",
+		    fId : feed.id,
+		    fc : feed.get("feedCategory")
+		  }
+		}, {
+		  success: function() {
+		    console.log('sendNewFeedNotification successfully for feed : ' + feed.id);
+		  },
+		  error: function(error) {
+		    alert('Failed sendNewFeedNotification for feed : ' + feed.id);
+		  }
+		});
+
+		feed.set("isPushed", true);
+		feed.save(null, {
+		  success: function(feedSaved) {
+		    // Execute any logic that should take place after the object is saved.
+		    console('updated isPushed of feed : ' + feed.id);
+		  },
+		  error: function(feedSaved, error) {
+		    // Execute any logic that should take place if the save fails.
+		    // error is a Parse.Error with an error code and message.
+		    status.error('Failed to update isPushed of feed : ' + feed.id);
+		  }
+		});
+    }).then(function() {
+    		// Set the job's success status
+    		status.success("sendNewFeedNotification completed successfully.");
+		}, function(error) {
+	    // Set the job's error status
+	    status.error("Uh oh, something went wrong.");
+	  });
 });

@@ -84,17 +84,19 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 }
 
 - (void) fetchFeedActivity {
-    PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
-    [query whereKey:@"userId" equalTo:[PFUser currentUser].objectId];
-    [query whereKey:@"event" equalTo: self.feed];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error && objects.count == 1) {
-            self.feedActivity = objects[0];
-            [self.tableView reloadData];
-        } else {
-
-        }
-    }];
+    if(self.feed) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+        [query whereKey:@"userId" equalTo:[PFUser currentUser].objectId];
+        [query whereKey:@"event" equalTo: self.feed];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(!error && objects.count == 1) {
+                self.feedActivity = objects[0];
+                [self.tableView reloadData];
+            } else {
+                
+            }
+        }];
+    }
 }
 
 - (void)setupHeaderView {

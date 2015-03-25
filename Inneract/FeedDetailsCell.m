@@ -77,7 +77,6 @@
     self.titleLabel.text = [feed objectForKey:@"title"];
     [self.titleLabel sizeToFit];
     
-    
     // posted date
     NSDate *createdAt = feed.createdAt;
     NSString *dateString = [Helper postedDate:createdAt];

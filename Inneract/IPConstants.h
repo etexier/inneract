@@ -7,3 +7,4 @@
 
 FOUNDATION_EXPORT NSString * const kDidUpdateUserBadgesNotification;
 FOUNDATION_EXPORT NSString * const kDidReceiveUserBadgeRemoteNotification;
+FOUNDATION_EXPORT NSString * const kDidReceiveNewFeedRemoteNotification;

@@ -7,3 +7,4 @@
 
 NSString * const kDidUpdateUserBadgesNotification = @"DidUpdateUserBadgesNotification";
 NSString * const kDidReceiveUserBadgeRemoteNotification = @"DidReceiveUserBadgeRemoteNotification";
+NSString * const kDidReceiveNewFeedRemoteNotification = @"DidReceiveNewFeedRemoteNotification";

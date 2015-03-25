@@ -66,8 +66,8 @@
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cM-7Z-nHW">
-                        <rect key="frame" x="16" y="279" width="288" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cM-7Z-nHW">
+                        <rect key="frame" x="16" y="283.5" width="288" height="16.5"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -85,6 +85,8 @@
                     <constraint firstAttribute="trailing" secondItem="8cM-7Z-nHW" secondAttribute="trailing" constant="16" id="2vq-rp-Ezm"/>
                     <constraint firstItem="xiZ-Oi-7Oj" firstAttribute="top" secondItem="iOd-Rj-8ab" secondAttribute="bottom" constant="8" id="5vd-WA-lTc"/>
                     <constraint firstItem="wlT-nX-IIi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9Lo-D0-yxe"/>
+                    <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="16" id="AId-CT-ETO"/>
+                    <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="22" id="AfE-bW-xh8"/>
                     <constraint firstItem="1nP-GR-Mwd" firstAttribute="top" secondItem="8cM-7Z-nHW" secondAttribute="bottom" constant="23" id="COO-Ys-HCR"/>
                     <constraint firstAttribute="trailing" secondItem="1nP-GR-Mwd" secondAttribute="trailing" constant="16" id="Gdd-QN-MlP"/>
                     <constraint firstAttribute="trailing" secondItem="xiZ-Oi-7Oj" secondAttribute="trailing" constant="8" id="Ghb-cW-LYq"/>
@@ -105,6 +107,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="AfE-bW-xh8"/>
                         <exclude reference="cGR-Uv-DVG"/>
                     </mask>
                 </variation>

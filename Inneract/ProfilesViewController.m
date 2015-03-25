@@ -36,9 +36,12 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
         [self setupTableView];
     }
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUserBadgeRemoteNotification:) name:kDidReceiveUserBadgeRemoteNotification object:nil];
-
     return self;
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidReceiveNewFeedRemoteNotification object:nil];
+    //[super dealloc];
 }
 
 - (void) setupTableView {
@@ -75,6 +78,9 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // Handle remote notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUserBadgeRemoteNotification:) name:kDidReceiveUserBadgeRemoteNotification object:nil];
 
     // cell registration
     [self.tableView registerNib:[UINib nibWithNibName:kPeopleCellNibId bundle:nil] forCellReuseIdentifier:kPeopleCellNibId];
