@@ -19,6 +19,7 @@
 #import "IPConstants.h"
 #import "IPWebViewController.h"
 #import <Parse/PFQuery.h>
+#import <FBSession.h>
 
 NSString * const kBasicInfoCell = @"BasicInfoCell";
 NSString * const kBadgeCell = @"BadgesCell";
@@ -267,6 +268,12 @@ NSString * const kActivityCell = @"ActivityCell";
     [currentInstallation setValue:[NSNull null] forKey:@"userId"];
     [currentInstallation saveInBackground];
 
+	// if we logged in via facbook, close and clear that information.
+	if (FBSession.activeSession.isOpen)
+	{
+		[FBSession.activeSession closeAndClearTokenInformation];
+	}
+	
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UserDidLogoutNotification" object:nil];
 }
 
