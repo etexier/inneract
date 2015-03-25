@@ -14,6 +14,7 @@
 #import "JoinUsViewController.h"
 #import "EditProfileViewController.h"
 
+#import "IPColors.h"
 
 @interface JoinUsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -43,7 +44,7 @@
 -(void) showSpinnerWithText:(NSString *)text{
 	[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 	[SVProgressHUD showWithStatus:text maskType:SVProgressHUDMaskTypeNone];
-	[SVProgressHUD setBackgroundColor:[UIColor blueColor]];
+	[SVProgressHUD setBackgroundColor:ipPrimaryOrange];
 }
 
 -(void) showAlert:(NSString *)title withMessage:(NSString *) message{

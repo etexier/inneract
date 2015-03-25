@@ -18,6 +18,8 @@
 #import "JoinUsViewController.h"
 #import "EditProfileViewController.h"
 
+#import "IPColors.h"
+
 @interface LoginViewController () <FBLoginViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet FBLoginView *loginViewFB;
 
@@ -171,7 +173,7 @@
 -(void) showSpinnerWithText:(NSString *)text{
 	[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 	[SVProgressHUD showWithStatus:text maskType:SVProgressHUDMaskTypeNone];
-	[SVProgressHUD setBackgroundColor:[UIColor blueColor]];
+	[SVProgressHUD setBackgroundColor:ipPrimaryOrange];
 }
 
 - (IBAction)onLogin:(id)sender {
