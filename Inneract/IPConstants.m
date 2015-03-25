@@ -6,3 +6,4 @@
 #import "IPConstants.h"
 
 NSString * const kDidUpdateUserBadgesNotification = @"DidUpdateUserBadgesNotification";
+NSString * const kDidReceiveUserBadgeRemoteNotification = @"DidReceiveUserBadgeRemoteNotification";

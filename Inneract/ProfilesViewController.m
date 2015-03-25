@@ -36,6 +36,8 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
         [self setupTableView];
     }
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUserBadgeRemoteNotification:) name:kDidReceiveUserBadgeRemoteNotification object:nil];
+
     return self;
 }
 
@@ -250,6 +252,19 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
         [self.searchController.searchResultsTableView reloadData];
     } else {
         [self.tableView reloadData];
+    }
+}
+
+- (void) didReceiveUserBadgeRemoteNotification:(NSNotification *) notification {
+    NSString *userId = [notification.userInfo valueForKey:@"userId"];
+    if(userId) {
+        PFQuery *query = [PFUser query];
+        [query getObjectInBackgroundWithId:userId block:^(PFObject *object, NSError *error) {
+            if(object) {
+                ProfileDetailsViewController *detailsVc = [[ProfileDetailsViewController alloc] initWithUser:object];
+                [self.navigationController pushViewController:detailsVc animated:YES];
+            }
+        }];
     }
 }
 

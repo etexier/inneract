@@ -6,3 +6,4 @@
 #import <Foundation/Foundation.h>
 
 FOUNDATION_EXPORT NSString * const kDidUpdateUserBadgesNotification;
+FOUNDATION_EXPORT NSString * const kDidReceiveUserBadgeRemoteNotification;

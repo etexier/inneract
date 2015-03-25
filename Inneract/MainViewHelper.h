@@ -13,6 +13,8 @@
 
 + (UITabBarController *)setupMainViewTabBar;
 
++ (UITabBarController *)setupMainViewTabBarWithSelectedTab:(NSInteger) tabIndex andSubSegmentName:(NSString *) subSegmentName;
+
 + (UITabBarController *)setupMainViewTabBarWithSelectedFeedsCategory:(NSString *) category;
 
 @end

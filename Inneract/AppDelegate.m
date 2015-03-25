@@ -13,6 +13,7 @@
 #import "EditProfileViewController.h"
 #import "FeedsViewController.h"
 #import "MainViewHelper.h"
+#import "IPConstants.h"
 
 #import <Parse/Parse.h>
 #import <ParseCrashReporting/ParseCrashReporting.h>
@@ -41,7 +42,7 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    NSLog(@"didFinishLaunchingWithOptions : %@", launchOptions);
     // init parse
     [self parseInit:launchOptions];
 	// Override point for customization after application launch.
@@ -95,9 +96,25 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Store the deviceToken in the current Installation and save it to Parse.
+    NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken : %@", deviceToken);
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation addUniqueObject:@"" forKey:@"channels"];
+    // reset badge to 0
+    [currentInstallation setBadge:0];
     [currentInstallation saveInBackground];
+}
+
+// handle push notification arrives when app is open
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"didReceiveRemoteNotification : %@", userInfo);
+    [PFPush handlePush:userInfo];
+
+    if([@"giveBadge" isEqualToString:[userInfo valueForKey:@"type"]]) {
+        self.window.rootViewController = [MainViewHelper setupMainViewTabBarWithSelectedTab:2 andSubSegmentName:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDidReceiveUserBadgeRemoteNotification object:nil userInfo:userInfo];
+    }
 }
 
 - (void) userDidLogout {

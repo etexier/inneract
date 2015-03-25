@@ -13,8 +13,8 @@
 
 @implementation MainViewHelper
 
-+ (UITabBarController *)setupMainViewTabBarWithSelectedFeedsCategory:(NSString *) category {
-    FeedsViewController *feedsVc = [[FeedsViewController alloc] initWithCategory:category];
++ (UITabBarController *)setupMainViewTabBarWithSelectedTab:(NSInteger) tabIndex andSubSegmentName:(NSString *) subSegmentName {
+    FeedsViewController *feedsVc = [[FeedsViewController alloc] initWithCategory:subSegmentName ? : @"news"];
     UINavigationController *feedsNvc = [[UINavigationController alloc] initWithRootViewController:feedsVc];
     feedsNvc.title = @"Feeds";
     feedsNvc.navigationBar.translucent = NO; // so it does not hide details views
@@ -64,12 +64,17 @@
     //tabBarController.tabBar.items = [NSArray arrayWithObjects:barItem1, barItem2, barItem3, barItem4, nil];
     NSArray* controllers = [NSArray arrayWithObjects:feedsNvc, bookmarkNvc, peopleNvc, profileNvc, nil];
     tabBarController.viewControllers = controllers;
+    tabBarController.selectedIndex = tabIndex;
 
     return tabBarController;
 }
 
 + (UITabBarController *)setupMainViewTabBar {
     return [MainViewHelper setupMainViewTabBarWithSelectedFeedsCategory:@"news"];
+}
+
++ (UITabBarController *)setupMainViewTabBarWithSelectedFeedsCategory:(NSString *) category {
+    return [MainViewHelper setupMainViewTabBarWithSelectedTab:0 andSubSegmentName:category];
 }
 
 @end

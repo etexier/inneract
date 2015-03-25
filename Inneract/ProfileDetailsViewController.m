@@ -276,6 +276,8 @@ NSString * const kActivityCell = @"ActivityCell";
             self.activities = objects;
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:YES];
         }
+
+        [self.refreshController endRefreshing];
     }];
 }
 
