@@ -20,9 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *professionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *badgesLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *shareImage;
-
-
 @end
 
 @implementation PeopleCell
@@ -36,9 +33,6 @@
     // for performance
     self.profileImage.layer.shouldRasterize = YES;
     self.profileImage.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    
-    UITapGestureRecognizer *shareTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didShare:)];
-    [self.shareImage addGestureRecognizer:shareTap];
     
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
     //self.designationLabel.textColor = ipPrimaryMidnightBlue;
