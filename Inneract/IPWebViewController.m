@@ -12,54 +12,59 @@
 
 static NSString *JSHandler;
 
-@interface FormURLProtocol : NSURLProtocol
+//@interface FormURLProtocol : NSURLProtocol
+//
+//@end
+//
+//@implementation FormURLProtocol
+//
+//+ (BOOL)canInitWithRequest:(NSURLRequest *)request {
+//    //return [request.URL.host isEqualToString:@"localhost"];
+//    NSLog(@"canInitWithRequest : %@", [request URL]);
+//    return YES;
+//}
+//
+//+ (NSURLRequest *) canonicalRequestForRequest:(NSURLRequest *)request {
+//    NSLog(@"canonicalRequestForRequest : %@", [request URL]);
+//    return request;
+//}
+//
+//- (void) startLoading {
+//    NSLog(@"startLoading");
+//}
+//
+//- (void)stopLoading {
+//    NSLog(@"stopLoading");
+//}
+//
+//@end
 
-@end
-
-@implementation FormURLProtocol
-
-+ (BOOL)canInitWithRequest:(NSURLRequest *)request {
-    //return [request.URL.host isEqualToString:@"localhost"];
-    NSLog(@"canInitWithRequest : %@", [request URL]);
-    return YES;
-}
-
-+ (NSURLRequest *) canonicalRequestForRequest:(NSURLRequest *)request {
-    NSLog(@"canonicalRequestForRequest : %@", [request URL]);
-    return request;
-}
-
-- (void) startLoading {
-    NSLog(@"startLoading");
-}
-
-- (void)stopLoading {
-    NSLog(@"stopLoading");
-}
-
-@end
-
-@interface IPWebViewController () <UIWebViewDelegate>
+@interface IPWebViewController () <UIWebViewDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
 
 @end
 
 @implementation IPWebViewController
 
 - (instancetype) initWithUrl:(NSString *) url title:(NSString *) title {
-   return [self initWithUrl:url title:title callback:nil];
+    return [self initWithUrl:url title:title rightNavigationItem:nil warningMessageBeforeBack:nil callback:nil];
 }
 
 - (instancetype) initWithUrl:(NSString *) url title:(NSString *) title callback:(IPWebviewCallback) block {
+    return [self initWithUrl:url title:title rightNavigationItem:nil warningMessageBeforeBack:nil callback:block];
+}
+
+- (instancetype) initWithUrl:(NSString *) url title:(NSString *) title rightNavigationItem:(NSString *) rightItemTitle warningMessageBeforeBack:(NSString *) warningMessageBeforeBack callback:(IPWebviewCallback) block {
     self = [super init];
     if(self) {
         _urlStr = url;
         self.title = title;
         _callback = block;
+        _rightItemTitle = rightItemTitle;
+        _warningMessageBeforeBack = warningMessageBeforeBack;
     }
-
+    
     return self;
 }
 
@@ -67,6 +72,10 @@ static NSString *JSHandler;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    if(self.rightItemTitle) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.rightItemTitle style:UIBarButtonItemStylePlain target:self action:@selector(onRightBarItem:)];
+    }
+    
     if(self.callback) {
         //FIXME
         //[NSURLProtocol registerClass:[FormURLProtocol class]];
@@ -80,17 +89,17 @@ static NSString *JSHandler;
     self.webView.dataDetectorTypes = UIDataDetectorTypeAll;
     self.webView.scalesPageToFit = YES;
 
-    if(self.callback) {
-        self.webView.delegate = self;
-    }
+//    if(self.callback) {
+//        self.webView.delegate = self;
+//    }
 
     [self.webView loadRequest:urlRequest];
 }
 
 - (void)viewDidUnload {
-    if(self.callback) {
-        [NSURLProtocol unregisterClass:[FormURLProtocol class]];
-    }
+//    if(self.callback) {
+//        [NSURLProtocol unregisterClass:[FormURLProtocol class]];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,9 +119,9 @@ static NSString *JSHandler;
     }
     
     if([[[request URL] absoluteString] isEqualToString:self.urlStr]) {
-        if(self.callback) {
-            [webView stringByEvaluatingJavaScriptFromString:JSHandler];
-        }
+//        if(self.callback) {
+//            [webView stringByEvaluatingJavaScriptFromString:JSHandler];
+//        }
     }
 
     return YES;
@@ -120,6 +129,9 @@ static NSString *JSHandler;
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"webViewDidStartLoad");
+    if(self.callback) {
+        [webView stringByEvaluatingJavaScriptFromString:JSHandler];
+    }
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"webViewDidFinishLoad");
@@ -132,7 +144,39 @@ static NSString *JSHandler;
 #pragma mark - private methods
 
 - (void) didBack:(id) sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    if(self.warningMessageBeforeBack) {
+            if(!self.didCompleteCallback) {
+        [[[UIAlertView alloc] initWithTitle:@"Warning"
+                                                           message:self.warningMessageBeforeBack
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Cancel"
+                                                 otherButtonTitles:@"OK", nil] show];
+        }
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void) onRightBarItem:(id) sender {
+    if(self.callback) {
+        self.didStartCallback = YES;
+        
+        self.callback(nil);
+        
+        if(self.didCompleteCallback) {
+           [self.navigationController popViewControllerAnimated:YES]; 
+        }
+    }
+}
+
+#pragma mark - Alert view delegate
+- (void)alertView:(UIAlertView *)theAlert clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"The %@ button was tapped.", [theAlert buttonTitleAtIndex:buttonIndex]);
+    if(buttonIndex == 1) { // OK
+        [self onRightBarItem:nil];
+    } else { // cancel
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 /*

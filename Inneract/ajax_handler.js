@@ -3,6 +3,7 @@ var s_ajaxListener = new Object();
 s_ajaxListener.tempOpen = XMLHttpRequest.prototype.open;
 s_ajaxListener.tempSend = XMLHttpRequest.prototype.send;
 s_ajaxListener.callback = function () {
+    //alert("got call back");
     window.location='mpAjaxHandler://' + this.url;
 };
 

@@ -10,6 +10,7 @@
 #import "Helper.h"
 #import "IPSocialActionView.h"
 #import "IPFeedDelegate.h"
+#import "IPColors.h"
 
 @interface FeedDetailsCell()<IPSocialActionDelegate>
 
@@ -26,10 +27,10 @@
 @property (weak, nonatomic) IBOutlet UIView *socialActionView;
 
 @property (weak, nonatomic) IBOutlet UIButton *onApplyButton;
+@property (weak, nonatomic) IBOutlet UILabel *alreadyAppliedLabel;
+
 
 @property (nonatomic, strong) IPSocialActionView *ipSocailActionView;
-@property (weak, nonatomic) IBOutlet UIButton *onPayButton;
-
 
 @end
 
@@ -64,13 +65,15 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark {
+- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark feedActivity:(PFObject *)feedActivity{
     _feed = feed;
     _isBookmarked = isBookmarked;
     _isForBookmark = isForBookmark;
+    _feedActivity = feedActivity;
     
     // title
     self.titleLabel.text = [feed objectForKey:@"title"];
+    [self.titleLabel sizeToFit];
     
     
     // posted date
@@ -81,28 +84,50 @@
     
     // summary
     self.summaryLabel.text = [_feed objectForKey:@"summary"];
+    [self.ipSocailActionView setBookmarkNeeded:!self.isForBookmark isBookmarked:isBookmarked];
+    
+    [self setupApplyButton];
+}
 
+- (void) setupApplyButton {
+    self.alreadyAppliedLabel.backgroundColor = ipSecondaryLightGrey;
+    
     if ([_feed objectForKey:@"rsvpUrl"]) {
-        [self.onApplyButton setTitle:@"RSVP" forState:UIControlStateNormal];
-
+        if(!self.feedActivity) {
+            [self.onApplyButton setTitle:@"RSVP" forState:UIControlStateNormal];
+            self.onApplyButton.hidden = NO;
+            self.alreadyAppliedLabel.hidden = YES;
+        } else {
+            self.alreadyAppliedLabel.hidden = NO;
+            self.alreadyAppliedLabel.text = [NSString stringWithFormat:@"You reserved on %@", [Helper postedDate:self.feedActivity.createdAt]];
+            self.onApplyButton.hidden = YES;
+        }
     } else if ([_feed objectForKey:@"registerUrl"]) {
-        [self.onApplyButton setTitle:@"Register" forState:UIControlStateNormal];
-
+        if(!self.feedActivity) {
+            [self.onApplyButton setTitle:@"Register" forState:UIControlStateNormal];
+            self.onApplyButton.hidden = NO;
+            self.alreadyAppliedLabel.hidden = YES;
+        } else {
+            self.alreadyAppliedLabel.hidden = NO;
+            self.alreadyAppliedLabel.text = [NSString stringWithFormat:@"You registered on %@", [Helper postedDate:self.feedActivity.createdAt]];
+            self.onApplyButton.hidden = YES;
+        }
     } else if ([_feed objectForKey:@"volunteerUrl"]) {
-        [self.onApplyButton setTitle:@"Volunteer" forState:UIControlStateNormal];
+        if(!self.feedActivity) {
+            [self.onApplyButton setTitle:@"Volunteer" forState:UIControlStateNormal];
+            self.onApplyButton.hidden = NO;
+            self.alreadyAppliedLabel.hidden = YES;
+        } else {
+            self.alreadyAppliedLabel.hidden = NO;
+            self.alreadyAppliedLabel.text = [NSString stringWithFormat:@"You volunteered on %@", [Helper postedDate:self.feedActivity.createdAt]];
+            self.onApplyButton.hidden = YES;
+        }
     } else {
         self.onApplyButton.hidden = YES;
         self.applyButtonHeightConstraint.constant = 0;
+        
+        self.alreadyAppliedLabel.hidden = YES;
     }
-
-    if ([_feed objectForKey:@"paymentInfo"]) {
-        self.onPayButton.hidden = NO;
-    } else {
-        self.onPayButton.hidden = YES;
-        self.payButtonHeightConstraint.constant = 0;
-    }
-    
-    [self.ipSocailActionView setBookmarkNeeded:!self.isForBookmark isBookmarked:isBookmarked];
 }
 
 
@@ -122,12 +147,6 @@
 
     } else if ([_feed objectForKey:@"volunteerUrl"]) {
         [self.delegate didVolunteer:self.feed];
-    }
-
-}
-- (IBAction)onPay:(UIButton *)sender {
-    if ([_feed objectForKey:@"paymentInfo"]) {
-        [self.delegate didPay:self.feed];
     }
 }
 

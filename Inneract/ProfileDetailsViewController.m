@@ -74,7 +74,8 @@ NSString * const kActivityCell = @"ActivityCell";
 
 - (void) getUserActivities {
     PFQuery *activitiesQuery = [PFQuery queryWithClassName:@"Activity"];
-    [activitiesQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [activitiesQuery whereKey:@"userId" equalTo:self.user.objectId];
+    [activitiesQuery includeKey:@"event"];
     [activitiesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             self.activities = objects;
@@ -118,7 +119,8 @@ NSString * const kActivityCell = @"ActivityCell";
                                                  cancelButtonTitle:@"OK"
                                                  otherButtonTitles:nil];
         [theAlert show];
-        
+    } else {
+        [self getUserActivities];
     }
 }
 

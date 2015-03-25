@@ -14,11 +14,17 @@ typedef void (^IPWebviewCallback)(NSError *error);
 
 @property (nonatomic, strong) NSString *urlStr;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *rightItemTitle;
 @property (nonatomic, strong) IPWebviewCallback callback;
+@property (nonatomic, assign) BOOL didStartCallback;
+@property (nonatomic, assign) BOOL didCompleteCallback;
+@property (nonatomic, strong) NSString *warningMessageBeforeBack;
 
 // For simple web view
 - (instancetype) initWithUrl:(NSString *) url title:(NSString *) title;
 // For form
 - (instancetype) initWithUrl:(NSString *) url title:(NSString *) title callback:(IPWebviewCallback) block;
+
+- (instancetype) initWithUrl:(NSString *) url title:(NSString *) title rightNavigationItem:(NSString *) rightItemTitle warningMessageBeforeBack:(NSString *) warningMessageBeforeBack callback:(IPWebviewCallback) block;
 
 @end

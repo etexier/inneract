@@ -15,10 +15,11 @@
 @interface FeedDetailsCell : UITableViewCell
 
 @property (weak, nonatomic) PFObject *feed;
+@property (weak, nonatomic) PFObject *feedActivity;
 @property (weak, nonatomic) id<IPFeedDelegate> delegate;
 @property (nonatomic, assign) BOOL isBookmarked;
 @property (nonatomic, assign) BOOL isForBookmark;
 
-- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark;
+- (void)setData:(PFObject *)feed isBookmarked:(BOOL)isBookmarked isForBookmakr:(BOOL) isForBookmark feedActivity:(PFObject *)feedActivity;
 
 @end

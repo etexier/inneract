@@ -45,6 +45,10 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 @property(nonatomic, assign, readwrite) BOOL acceptCreditCards;
 @property(nonatomic, strong, readwrite) NSString *resultText;
 
+@property (nonatomic, strong) IPWebViewController *webViewController;
+
+@property (nonatomic, strong) PFObject *feedActivity;
+
 @end
 
 @implementation FeedDetailsViewController
@@ -65,6 +69,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     [super viewDidLoad];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 400;
+    
+    [self fetchFeedActivity];
 
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:kFeedDetailsCellNibId bundle:nil] forCellReuseIdentifier:kFeedDetailsCellNibId];
@@ -75,7 +81,20 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     self.tableView.delegate = self;
 
     [self setupHeaderView];
+}
 
+- (void) fetchFeedActivity {
+    PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+    [query whereKey:@"userId" equalTo:[PFUser currentUser].objectId];
+    [query whereKey:@"event" equalTo: self.feed];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error && objects.count == 1) {
+            self.feedActivity = objects[0];
+            [self.tableView reloadData];
+        } else {
+
+        }
+    }];
 }
 
 - (void)setupHeaderView {
@@ -132,7 +151,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 }
 
 - (void)configureBasicCell:(FeedDetailsCell *)cell {
-    [cell setData:self.feed isBookmarked:self.isBookmarked isForBookmakr:self.isForBookmark];
+    [cell setData:self.feed isBookmarked:self.isBookmarked isForBookmakr:self.isForBookmark feedActivity:self.feedActivity];
     cell.delegate = self;
 }
 
@@ -156,7 +175,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
         [movieController.moviePlayer play];
 
         // code
-    }                       failure:^(NSError *error) {
+    }
+    failure:^(NSError *error) {
         NSLog(@"Couldn't open video url");
     }];
 }
@@ -185,6 +205,9 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     [self openWebLink:[feed objectForKey:@"rsvpUrl"] title:[feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
+    
+    //TODO : need confirmation of rsvp process
+    [self createFeedActivity:@"rsvp"];
 }
 
 - (void)didPay:(PFObject *)feed {
@@ -196,12 +219,18 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 - (void)didRegister:(PFObject *)feed {
     NSLog(@"Did register feed");
 
-    IPWebViewController *webViewController = [[IPWebViewController alloc] initWithUrl:[feed objectForKey:@"registerUrl"]
+    if(!self.webViewController) {
+        self.webViewController = [[IPWebViewController alloc] initWithUrl:[feed objectForKey:@"registerUrl"]
                                                                                 title:[feed objectForKey:@"title"]
+                                                                  rightNavigationItem:@"Pay"
+                                                             warningMessageBeforeBack:@"Please continue with the payment after you finished the form."
                                                                              callback:^(NSError *error) {
+                                                                                 NSLog(@"Did pay for feed");
+                                                                                 [self pay];
 
-    }];
-    [self.navigationController pushViewController:webViewController animated:YES];
+                                                                             }];
+    }
+    [self.navigationController pushViewController:self.webViewController animated:YES];
 
     [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }
@@ -212,6 +241,9 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
     [self openWebLink:urlAddress title:[feed objectForKey:@"title"]];
 
     [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
+    
+    //TODO : need confirmation of volunteer process
+    [self createFeedActivity:@"volunteered"];
 }
 
 
@@ -313,6 +345,9 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 	[self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
     [[[UIAlertView alloc] initWithTitle:@"Transaction complete" message:@"Complete" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 	[self dismissViewControllerAnimated:YES completion:nil];
+    
+    self.webViewController.didCompleteCallback = YES;
+    [self createFeedActivity:@"registered"];
 }
 
 - (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
@@ -320,6 +355,8 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 	self.resultText = nil;
 	self.successView.hidden = YES;
 	[self dismissViewControllerAnimated:YES completion:nil];
+    
+    self.webViewController.didCompleteCallback = NO;
 }
 
 #pragma mark Proof of payment validation
@@ -340,4 +377,22 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 	self.successView.alpha = 0.0f;
 	[UIView commitAnimations];
 }
+
+#pragma mark - private methods
+
+- (void) createFeedActivity:(NSString *) action {
+    PFObject *activity = [PFObject objectWithClassName:@"Activity"];
+    activity[@"userId"] = [PFUser currentUser].objectId;
+    activity[@"event"] = self.feed;
+    activity[@"action"] = action;
+    
+    [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded) {
+            self.feedActivity = activity;
+            
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 @end
