@@ -35,7 +35,10 @@ Parse.Cloud.define("giveBadge", function(request, response) {
 				Parse.Push.send({
 				  where: notificationQuery, // Set our Installation query
 				  data: {
-				    alert: currentUser.get("firstName") + ' ' + currentUser.get("lastName") + ' gave you a badge.'
+				    alert: currentUser.get("firstName") + ' ' + currentUser.get("lastName") + ' gave you a badge.',
+				    badge : "Increment",
+				    type : "giveBadge",
+				    userId : currentUser.id
 				  }
 				}, {
 				  success: function() {
