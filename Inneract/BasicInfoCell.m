@@ -9,6 +9,7 @@
 #import "BasicInfoCell.h"
 #import "IPColors.h"
 #import "UIImageView+AFNetworking.h"
+#import "IPColorManager.h"
 
 @interface BasicInfoCell ()
 
@@ -80,6 +81,12 @@
     self.profession.textColor = ipPrimaryMidnightBlue;
     self.aboutButton.tintColor = ipPrimaryOrange;
     self.aboutButton.backgroundColor = ipPrimaryLightGrey;
+
+    NSInteger badges = [[self.user objectForKey:@"badges"] integerValue];
+    self.profileImage.layer.borderColor = [[[IPColorManager sharedInstance] getUserBadgeColor:badges] CGColor];
+    self.profileImage.layer.borderWidth = 3.0;
+
+    self.designatoinLabel.textColor = [[IPColorManager sharedInstance] getUserBadgeColor:badges];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
