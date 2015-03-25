@@ -39,6 +39,9 @@
 - (void)awakeFromNib {
     // Initialization code
 
+    self.onApplyButton.hidden = YES;
+    self.alreadyAppliedLabel.hidden = YES;
+    
     [self setupGestureRecognizer];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.userInteractionEnabled = YES;
@@ -47,7 +50,6 @@
     self.ipSocailActionView = [[IPSocialActionView alloc] initWithFrame:self.socialActionView.bounds];
     self.ipSocailActionView.delegate = self;
     [self.socialActionView addSubview:self.ipSocailActionView];
-
 }
 
 - (void)setupGestureRecognizer {
@@ -98,9 +100,9 @@
             self.onApplyButton.hidden = NO;
             self.alreadyAppliedLabel.hidden = YES;
         } else {
+            self.onApplyButton.hidden = YES;
             self.alreadyAppliedLabel.hidden = NO;
             self.alreadyAppliedLabel.text = [NSString stringWithFormat:@"You reserved on %@", [Helper postedDate:self.feedActivity.createdAt]];
-            self.onApplyButton.hidden = YES;
         }
     } else if ([_feed objectForKey:@"registerUrl"]) {
         if(!self.feedActivity) {
@@ -108,9 +110,9 @@
             self.onApplyButton.hidden = NO;
             self.alreadyAppliedLabel.hidden = YES;
         } else {
+            self.onApplyButton.hidden = YES;
             self.alreadyAppliedLabel.hidden = NO;
             self.alreadyAppliedLabel.text = [NSString stringWithFormat:@"You registered on %@", [Helper postedDate:self.feedActivity.createdAt]];
-            self.onApplyButton.hidden = YES;
         }
     } else if ([_feed objectForKey:@"volunteerUrl"]) {
         if(!self.feedActivity) {
@@ -118,9 +120,9 @@
             self.onApplyButton.hidden = NO;
             self.alreadyAppliedLabel.hidden = YES;
         } else {
+            self.onApplyButton.hidden = YES;
             self.alreadyAppliedLabel.hidden = NO;
             self.alreadyAppliedLabel.text = [NSString stringWithFormat:@"You volunteered on %@", [Helper postedDate:self.feedActivity.createdAt]];
-            self.onApplyButton.hidden = YES;
         }
     } else {
         self.onApplyButton.hidden = YES;
