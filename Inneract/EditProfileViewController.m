@@ -109,40 +109,6 @@ NIDropDown *dropDown;
 	self.profileNames = @[@"IP Teacher/TA", @"Parent/Guardian",
 						  @"Follower"];
 	[self showEditMode:YES];
-	
-//	NSMutableArray* profileTypeArray = [[NSMutableArray alloc] init];
-//	[profileTypeArray addObject:@"IP Teacher/TA"];
-//	[profileTypeArray addObject:@"Parent/Guardian"];
-//	[profileTypeArray addObject:@"Follower"];
-//	
-//	combo1 = [[ComboBox alloc] init];
-//	[combo1 setComboData:profileTypeArray];  //Assign the array to ComboBox
-//	combo1.view.frame = CGRectMake(self.profileType.frame.origin.x, self.profileType.frame.origin.y, self.profileType.frame.size.width, /*self.profileType.frame.size.height*/ 30);  //ComboBox location and size (x,y,width,height)
-//
-//	
-//	[self.view addSubview:combo1.view];
-//	
-//	NSLog(@"height: %f", combo1.view.frame.size.height);
-//	self.profileType.hidden = YES;
-	
-	
-//	self.firstLastNameEdit.borderStyle = UITextBorderStyleNone;
-//	[self.firstLastNameEdit setBackgroundColor:[UIColor clearColor]];
-//	self.firstLastNameEdit.enabled = NO;
-//	NSString *name = self.firstNameEdit.text;
-//	name = [name stringByAppendingString:@" "];
-//	self.firstLastNameEdit.text = [name stringByAppendingString:self.lastNameEdit.text];
-//	
-//	self.emailAddressEdit.borderStyle = UITextBorderStyleNone;
-//	[self.emailAddressEdit setBackgroundColor:[UIColor clearColor]];
-//	self.emailAddressEdit.enabled = NO;
-//	
-//	self.professionTextView.layer.borderWidth = 1.0f;
-//	self.professionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-//	
-//	UIFont* boldFont = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
-//	[self.firstLastNameEdit setFont:boldFont];
-//	[self.emailAddressEdit setFont:boldFont];
 }
 
 -(void) saveUserInfo{
@@ -177,27 +143,6 @@ NIDropDown *dropDown;
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
-#pragma mark PickerView DataSource
-
-//- (NSInteger)numberOfComponentsInPickerView:
-//(UIPickerView *)pickerView
-//{
-//	return 1;
-//}
-//
-//- (NSInteger)pickerView:(UIPickerView *)pickerView
-//numberOfRowsInComponent:(NSInteger)component
-//{
-//	return self.profileNames.count;
-//}
-//
-//- (NSString *)pickerView:(UIPickerView *)pickerView
-//			 titleForRow:(NSInteger)row
-//			forComponent:(NSInteger)component
-//{
-//	return self.profileNames[row];
-//}
 
 -(void) showAlert:(NSString *)title withMessage:(NSString *) message{
 	[[[UIAlertView alloc] initWithTitle:title
