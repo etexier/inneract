@@ -37,7 +37,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x] people list, profile details, editing profile
 - [x] login/out, join, create account, login with facebook
 - [x] feeds, feeds details, search, share and bookmark
-- [ ] form/payments (deferred as initial design is not mobile friendly (thinking of leveraging typeform)
+- [x] form/payments (deferred as initial design is not mobile friendly (thinking of leveraging typeform)
 
 
 ### scenarios:
@@ -52,28 +52,29 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
   - [x] media  (Manu). Try with: https://vimeo.com/109561086 and https://vimeo.com/109933873
   - [ ] photo gallery support (manu)
   - [x] support for highlighted feed (different cell) (Manu). Will need paging controller where all highlighted feed are on top. See specs sheet for details.
-  - [ ] Need optional support for list of videos/articles within details view
+  - [x] Need optional support for list of videos/articles within details view
   - [x] need support for RSVP (with link to EventBrite for instance)badge
 - [x] User can search feeds/volunteer/classes/profiles
-  - [ ] support for "no matching feed found" (different cell) (Manu)
+  - [x] support for "no matching feed found" (different cell) (Manu)
   - [ ] support for global search (on all fields, not only title) (Manu)
 - [x] User, typically a volunteer, can browse "Volunteer" news from "feeds" 
   - [x] User can click to show details view, 
-  - [ ] User can apply after filling a form​(Jim)
+  - [x] User can apply after filling a form​(Jim)
 - [x] User, typically a parent, can browse "Class" news from "feeds". 
   - [x] User can click to show details view, 
-  - [ ] User can apply after filling a form (Jim)
-  - [ ] User can pay (stripe/paypal SDK) (Syed)
+  - [x] User can apply after filling a form (Jim)
+  - [x] User can pay (stripe/paypal SDK) (Syed)
 - [x] class, volunteer feeds can be shared 
 - [x]  class, volunteer feeds can be bookmarked. 
 - [x] User can view her profile, and log out​ 
   - [x] finish edit profile (combo box etc..) (Syed)
-  - [ ] user can get see her activities (Need to ask Maurice: Manu)
+  - [x] user can get see her activities (Need to ask Maurice: Manu)
 - [x] User can browse people list, click to view details (same as profile but non editable)​
+- [x] notifications: user get notified when a new feed is added, or a user grant a badge to her.
 
 
 ### Bugs
-- [X] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
+- [x] when no user image, it seems to be reloaded from other cells -> may beed a default image (Jim)
 - [ ] global search (Manu)
 - [x] support for user "badge" (ex: gold/silver/bronze user) (Jim)
 - [x] see spec sheet, no badge but ability to give points. Based on number of points the border of the profile will change color.
