@@ -204,12 +204,19 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 - (void)didRsvp:(PFObject *)feed {
     NSLog(@"Did rsvp feed");
 
-    [self openWebLink:[feed objectForKey:@"rsvpUrl"] title:[feed objectForKey:@"title"]];
-
-    [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
-    
-    //TODO : need confirmation of rsvp process
-    [self createFeedActivity:@"rsvp"];
+    //[self openWebLink:[feed objectForKey:@"rsvpUrl"] title:[feed objectForKey:@"title"]];
+    //NSLog(@"opening web link: %@", urlStr);
+    if(!self.webViewController) {
+        self.webViewController = [[IPWebViewController alloc] initWithUrl:[feed objectForKey:@"rsvpUrl"] title:[feed objectForKey:@"title"] rightNavigationItem:@"Done" warningMessageBeforeBack:nil callback:^(NSError *error) {
+            self.webViewController.didCompleteCallback = YES;
+            
+            [[IPEventTracker sharedInstance] onRsvpEvent:self.feed];
+            
+            //TODO : need confirmation of rsvp process
+            [self createFeedActivity:@"rsvp"];
+        }];
+    }
+    [self.navigationController pushViewController:self.webViewController animated:YES];
 }
 
 - (void)didPay:(PFObject *)feed {
@@ -229,29 +236,41 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
                                                                              callback:^(NSError *error) {
                                                                                  NSLog(@"Did pay for feed");
                                                                                  [self pay];
+                                                                                     [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 
                                                                              }];
     }
     [self.navigationController pushViewController:self.webViewController animated:YES];
-
-    [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 }
 
 - (void)didVolunteer:(PFObject *)feed {
     NSString *urlAddress = [feed objectForKey:@"volunteerUrl"];
     NSLog(@"Did volunteer feed");
-    [self openWebLink:urlAddress title:[feed objectForKey:@"title"]];
-
-    [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
+    //[self openWebLink:urlAddress title:[feed objectForKey:@"title"]];
     
-    //TODO : need confirmation of volunteer process
-    [self createFeedActivity:@"volunteered"];
+    if(!self.webViewController) {
+        self.webViewController = [[IPWebViewController alloc] initWithUrl:urlAddress title:[feed objectForKey:@"title"] rightNavigationItem:@"Done" warningMessageBeforeBack:nil callback:^(NSError *error) {
+            self.webViewController.didCompleteCallback = YES;
+            
+            [[IPEventTracker sharedInstance] onVolunteerEvent:self.feed];
+            
+            //TODO : need confirmation of rsvp process
+            [self createFeedActivity:@"volunteered"];
+        }];
+    }
+    [self.navigationController pushViewController:self.webViewController animated:YES];
+
 }
 
 
 - (void)openWebLink:(NSString *)urlStr title:(NSString *) title {
     NSLog(@"opening web link: %@", urlStr);
-    [self.navigationController pushViewController:[[IPWebViewController alloc] initWithUrl:urlStr title:title] animated:YES];
+    if(!self.webViewController) {
+        self.webViewController = [[IPWebViewController alloc] initWithUrl:urlStr title:title rightNavigationItem:@"Done" warningMessageBeforeBack:nil callback:^(NSError *error) {
+            self.webViewController.didCompleteCallback = YES;
+        }];
+    }
+    [self.navigationController pushViewController:self.webViewController animated:YES];
 }
 
 #pragma mark PayPal Payment integration stuff

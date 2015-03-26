@@ -74,6 +74,10 @@ static NSString *JSHandler;
 
     if(self.rightItemTitle) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.rightItemTitle style:UIBarButtonItemStylePlain target:self action:@selector(onRightBarItem:)];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIImageRenderingModeAlwaysOriginal target:self action:@selector(didBack:)];
+    } else {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
     }
     
     if(self.callback) {
@@ -81,9 +85,7 @@ static NSString *JSHandler;
         //[NSURLProtocol registerClass:[FormURLProtocol class]];
     }
 
-    JSHandler = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ajax_handler" withExtension:@"js"] encoding:NSUTF8StringEncoding error:nil];
-
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(didBack:)];
+    //JSHandler = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ajax_handler" withExtension:@"js"] encoding:NSUTF8StringEncoding error:nil];
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]];
     self.webView.dataDetectorTypes = UIDataDetectorTypeAll;
