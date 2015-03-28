@@ -236,6 +236,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
                                                                              callback:^(NSError *error) {
                                                                                  NSLog(@"Did pay for feed");
                                                                                  [self pay];
+                                                                                 self.webViewController.didCompleteCallback = YES;
                                                                                      [[IPEventTracker sharedInstance] onRegisterClass:self.feed];
 
                                                                              }];
@@ -365,7 +366,7 @@ NSString *const kFeedDetailsCellNibId = @"FeedDetailsCell";
 	
 	[self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
     [[[UIAlertView alloc] initWithTitle:@"Transaction complete" message:@"Complete" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-	[self dismissViewControllerAnimated:YES completion:nil];
+	//[self dismissViewControllerAnimated:YES completion:nil];
     
     self.webViewController.didCompleteCallback = YES;
     [self createFeedActivity:@"registered"];
