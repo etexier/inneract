@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="CircularStd-Bold.otf">
@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlT-nX-IIi">
-                        <rect key="frame" x="8" y="8" width="76" height="16.5"/>
+                        <rect key="frame" x="8" y="8" width="76" height="17"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Read Full Story" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiZ-Oi-7Oj">
-                        <rect key="frame" x="217" y="239" width="94.5" height="18"/>
+                        <rect key="frame" x="217" y="239" width="95" height="18"/>
                         <gestureRecognizers/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                         <color key="textColor" red="0.61176470589999998" green="0.61960784310000006" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,13 +61,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Interview with IBM’s Doug Powell about design’s impact on business" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiE-qb-q9Q">
-                        <rect key="frame" x="8" y="33" width="304" height="43.5"/>
+                        <rect key="frame" x="8" y="33" width="304" height="44"/>
                         <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="17"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cM-7Z-nHW">
-                        <rect key="frame" x="16" y="283.5" width="288" height="16.5"/>
+                        <rect key="frame" x="16" y="273" width="288" height="27"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                     <constraint firstAttribute="trailing" secondItem="8cM-7Z-nHW" secondAttribute="trailing" constant="16" id="2vq-rp-Ezm"/>
                     <constraint firstItem="xiZ-Oi-7Oj" firstAttribute="top" secondItem="iOd-Rj-8ab" secondAttribute="bottom" constant="8" id="5vd-WA-lTc"/>
                     <constraint firstItem="wlT-nX-IIi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9Lo-D0-yxe"/>
-                    <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="16" id="AId-CT-ETO"/>
+                    <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="16" id="AId-CT-ETO"/>
                     <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="22" id="AfE-bW-xh8"/>
                     <constraint firstItem="1nP-GR-Mwd" firstAttribute="top" secondItem="8cM-7Z-nHW" secondAttribute="bottom" constant="23" id="COO-Ys-HCR"/>
                     <constraint firstAttribute="trailing" secondItem="1nP-GR-Mwd" secondAttribute="trailing" constant="16" id="Gdd-QN-MlP"/>

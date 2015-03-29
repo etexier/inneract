@@ -50,6 +50,8 @@
     self.ipSocailActionView = [[IPSocialActionView alloc] initWithFrame:self.socialActionView.bounds];
     self.ipSocailActionView.delegate = self;
     [self.socialActionView addSubview:self.ipSocailActionView];
+    self.summaryLabel.preferredMaxLayoutWidth = self.summaryLabel.frame.size.width;
+    self.titleLabel.preferredMaxLayoutWidth = self.titleLabel.frame.size.width;
 }
 
 - (void)setupGestureRecognizer {
