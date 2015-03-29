@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="CircularStd-Bold.otf">
-            <string>CircularStd-Bold</string>
-        </mutableArray>
         <mutableArray key="CircularStd-Book.otf">
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
@@ -14,40 +12,43 @@
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
         </mutableArray>
+        <mutableArray key="CircularStd-Medium.otf">
+            <string>CircularStd-Medium</string>
+        </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="291" id="KGk-i7-Jjw" customClass="FeedDetailsCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="318" id="KGk-i7-Jjw" customClass="FeedDetailsCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted 1/1/15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlT-nX-IIi">
-                        <rect key="frame" x="8" y="8" width="76" height="16.5"/>
+                        <rect key="frame" x="25" y="15" width="76" height="17"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
-                        <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOd-Rj-8ab">
-                        <rect key="frame" x="8" y="89" width="304" height="142"/>
+                        <rect key="frame" x="25" y="168" width="270" height="78"/>
                         <string key="text">Ralph Gilles, the designer of the Chrysler 300 is coming to talk to students at Kennedy High School in Richmond California. His appearance marks the first to connect youth in the community to design, specifically industrial design. We look forward to his appearance, and a long time relation with our friends at Chrysler. Hope to see you there!</string>
-                        <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
-                        <color key="textColor" red="0.61176470589999998" green="0.61960784310000006" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Read Full Story" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiZ-Oi-7Oj">
-                        <rect key="frame" x="217" y="239" width="94.5" height="18"/>
+                        <rect key="frame" x="26" y="254" width="274" height="18"/>
                         <gestureRecognizers/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                         <color key="textColor" red="0.61176470589999998" green="0.61960784310000006" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SS9-ZY-RYT">
-                        <rect key="frame" x="16" y="265" width="288" height="50"/>
-                        <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="25" y="292" width="270" height="50"/>
+                        <color key="backgroundColor" red="1" green="0.70196078429999997" blue="0.0078431372550000003" alpha="0.88" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="1uo-Md-cqC"/>
                         </constraints>
@@ -61,19 +62,19 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Interview with IBM’s Doug Powell about design’s impact on business" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiE-qb-q9Q">
-                        <rect key="frame" x="8" y="33" width="304" height="43.5"/>
-                        <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="17"/>
+                        <rect key="frame" x="25" y="40" width="270" height="122"/>
+                        <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="24"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cM-7Z-nHW">
-                        <rect key="frame" x="16" y="283.5" width="288" height="16.5"/>
+                        <rect key="frame" x="16" y="310" width="288" height="17"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nP-GR-Mwd">
-                        <rect key="frame" x="16" y="323" width="288" height="40"/>
+                        <rect key="frame" x="16" y="350" width="288" height="40"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="qZg-d8-nLK"/>
@@ -81,29 +82,31 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="iOd-Rj-8ab" firstAttribute="top" secondItem="oiE-qb-q9Q" secondAttribute="bottom" constant="12" id="1Qh-mW-JdO"/>
+                    <constraint firstItem="iOd-Rj-8ab" firstAttribute="top" secondItem="oiE-qb-q9Q" secondAttribute="bottom" constant="6" id="1Qh-mW-JdO"/>
                     <constraint firstAttribute="trailing" secondItem="8cM-7Z-nHW" secondAttribute="trailing" constant="16" id="2vq-rp-Ezm"/>
                     <constraint firstItem="xiZ-Oi-7Oj" firstAttribute="top" secondItem="iOd-Rj-8ab" secondAttribute="bottom" constant="8" id="5vd-WA-lTc"/>
-                    <constraint firstItem="wlT-nX-IIi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9Lo-D0-yxe"/>
-                    <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="16" id="AId-CT-ETO"/>
+                    <constraint firstItem="wlT-nX-IIi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="9Lo-D0-yxe"/>
+                    <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="10" id="AId-CT-ETO"/>
                     <constraint firstItem="8cM-7Z-nHW" firstAttribute="top" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="22" id="AfE-bW-xh8"/>
                     <constraint firstItem="1nP-GR-Mwd" firstAttribute="top" secondItem="8cM-7Z-nHW" secondAttribute="bottom" constant="23" id="COO-Ys-HCR"/>
                     <constraint firstAttribute="trailing" secondItem="1nP-GR-Mwd" secondAttribute="trailing" constant="16" id="Gdd-QN-MlP"/>
-                    <constraint firstAttribute="trailing" secondItem="xiZ-Oi-7Oj" secondAttribute="trailing" constant="8" id="Ghb-cW-LYq"/>
+                    <constraint firstAttribute="trailing" secondItem="xiZ-Oi-7Oj" secondAttribute="trailing" constant="20" symbolic="YES" id="Ghb-cW-LYq"/>
+                    <constraint firstItem="xiZ-Oi-7Oj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="18" id="Gxx-he-eMs"/>
                     <constraint firstAttribute="bottom" secondItem="1nP-GR-Mwd" secondAttribute="bottom" constant="8" id="MTj-cP-c3i"/>
                     <constraint firstItem="oiE-qb-q9Q" firstAttribute="top" secondItem="wlT-nX-IIi" secondAttribute="bottom" constant="8" id="NnO-hy-vyj"/>
-                    <constraint firstAttribute="trailing" secondItem="iOd-Rj-8ab" secondAttribute="trailing" constant="8" id="WbS-Fm-iOx"/>
-                    <constraint firstAttribute="trailing" secondItem="oiE-qb-q9Q" secondAttribute="trailing" constant="8" id="YWg-hW-Cg4"/>
+                    <constraint firstAttribute="trailing" secondItem="iOd-Rj-8ab" secondAttribute="trailing" constant="25" id="WbS-Fm-iOx"/>
+                    <constraint firstAttribute="trailing" secondItem="oiE-qb-q9Q" secondAttribute="trailing" constant="25" id="YWg-hW-Cg4"/>
                     <constraint firstItem="8cM-7Z-nHW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ayg-Tx-yFb"/>
                     <constraint firstItem="1nP-GR-Mwd" firstAttribute="top" secondItem="SS9-ZY-RYT" secondAttribute="bottom" constant="8" id="cGR-Uv-DVG"/>
                     <constraint firstItem="1nP-GR-Mwd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="dmt-nN-4Vo"/>
-                    <constraint firstItem="oiE-qb-q9Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="h5F-Fv-BMH"/>
-                    <constraint firstItem="iOd-Rj-8ab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jlV-K6-Bu1"/>
-                    <constraint firstItem="wlT-nX-IIi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="mB0-Bb-r4S"/>
-                    <constraint firstItem="SS9-ZY-RYT" firstAttribute="top" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="8" id="mU2-Si-OEi"/>
+                    <constraint firstItem="oiE-qb-q9Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="h5F-Fv-BMH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xiZ-Oi-7Oj" secondAttribute="trailing" constant="12" id="iN0-C5-gn7"/>
+                    <constraint firstItem="iOd-Rj-8ab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="jlV-K6-Bu1"/>
+                    <constraint firstItem="wlT-nX-IIi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="mB0-Bb-r4S"/>
+                    <constraint firstItem="SS9-ZY-RYT" firstAttribute="top" secondItem="xiZ-Oi-7Oj" secondAttribute="bottom" constant="20" id="mU2-Si-OEi"/>
                     <constraint firstItem="1nP-GR-Mwd" firstAttribute="top" secondItem="SS9-ZY-RYT" secondAttribute="bottom" constant="8" id="p2z-Pw-7KD"/>
-                    <constraint firstAttribute="trailing" secondItem="SS9-ZY-RYT" secondAttribute="trailing" constant="16" id="ywS-9Y-Ppd"/>
-                    <constraint firstItem="SS9-ZY-RYT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="z9i-a8-SjB"/>
+                    <constraint firstAttribute="trailing" secondItem="SS9-ZY-RYT" secondAttribute="trailing" constant="25" id="ywS-9Y-Ppd"/>
+                    <constraint firstItem="SS9-ZY-RYT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="z9i-a8-SjB"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -123,7 +126,7 @@
                 <outlet property="titleLabel" destination="oiE-qb-q9Q" id="pmN-4y-5pb"/>
                 <outlet property="webLinkLabel" destination="xiZ-Oi-7Oj" id="1So-rE-miK"/>
             </connections>
-            <point key="canvasLocation" x="184" y="232"/>
+            <point key="canvasLocation" x="184" y="245.5"/>
         </tableViewCell>
     </objects>
 </document>

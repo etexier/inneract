@@ -37,7 +37,7 @@
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
     //self.designationLabel.textColor = ipPrimaryMidnightBlue;
     self.professionLabel.textColor = ipPrimaryMidnightBlue;
-    self.badgesLabel.textColor = ipPrimaryMidnightBlue;
+    //self.badgesLabel.textColor = ipPrimaryMidnightBlue;
 }
 
 - (void)setUser:(PFObject *)user {
@@ -61,7 +61,7 @@
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"firstName"], [user objectForKey:@"lastName"]];
     
     self.designationLabel.text = [user objectForKey:@"designation"];
-    self.designationLabel.textColor = [[IPColorManager sharedInstance] getUserBadgeColor:badges];
+    //self.designationLabel.textColor = [[IPColorManager sharedInstance] getUserBadgeColor:badges];
     
     self.professionLabel.text = [user objectForKey:@"profession"];
     self.professionLabel.sizeToFit;

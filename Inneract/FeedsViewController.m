@@ -21,7 +21,7 @@ NSString *const kFeedCellNibId = @"FeedCell";
 NSString *const kFeedBookmarkRelationshipName = @"bookmarks";
 NSString *const kParseClassName = @"IPNews";
 const CGFloat ksearchBarHeight = 44;
-const CGFloat kHighlightedFeedsHeight = 200;
+const CGFloat kHighlightedFeedsHeight = 300;
 //    const CGFloat highlightedFeedsViewOffset = ksearchBarHeight;
 const CGFloat highlightedFeedsViewOffset = 0;
 

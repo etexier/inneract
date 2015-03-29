@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="CircularStd-Bold.otf">
-            <string>CircularStd-Bold</string>
-        </mutableArray>
         <mutableArray key="CircularStd-Book.otf">
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
+        </mutableArray>
+        <mutableArray key="CircularStd-Medium.otf">
+            <string>CircularStd-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -31,7 +31,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmarkOnImg" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-a1-z7q">
-                        <rect key="frame" x="66" y="16" width="20" height="16"/>
+                        <rect key="frame" x="70" y="16" width="20" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="iHn-Gi-ARy"/>
                             <constraint firstAttribute="height" constant="16" id="tSy-9S-Evd"/>
@@ -42,8 +42,8 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="posted 1/1/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-T2-wEE">
-                        <rect key="frame" x="98" y="16" width="83.5" height="16.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="posted 1/1/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-T2-wEE">
+                        <rect key="frame" x="102" y="16" width="84" height="16"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,19 +57,19 @@
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Interview with IBM’s " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o0-NB-2KQ">
-                        <rect key="frame" x="98" y="39" width="208" height="20.5"/>
-                        <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="16"/>
+                        <rect key="frame" x="102" y="40" width="192" height="19"/>
+                        <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="16"/>
                         <color key="textColor" red="0.21960784310000001" green="0.24313725489999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Our CEO Ginni Rommetty is " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsu-rp-GfW">
-                        <rect key="frame" x="98" y="67" width="208" height="18"/>
+                        <rect key="frame" x="102" y="67" width="192" height="18"/>
                         <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                         <color key="textColor" red="0.61176470589999998" green="0.61960784310000006" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="bMT-2J-RM3" userLabel="social view">
-                        <rect key="frame" x="98" y="93" width="197" height="40"/>
+                        <rect key="frame" x="102" y="93" width="193" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="rPM-rc-JJJ"/>
                         </constraints>
@@ -79,9 +79,9 @@
                     <constraint firstItem="EgW-T2-wEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="6bs-QL-TPv"/>
                     <constraint firstAttribute="bottom" secondItem="bMT-2J-RM3" secondAttribute="bottom" constant="16" id="8uY-H2-gtB"/>
                     <constraint firstItem="tts-yH-mFW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="9tZ-AI-Wwq"/>
-                    <constraint firstAttribute="trailing" secondItem="rsu-rp-GfW" secondAttribute="trailing" constant="13" id="BYU-21-d7C"/>
+                    <constraint firstAttribute="trailing" secondItem="rsu-rp-GfW" secondAttribute="trailing" constant="25" id="BYU-21-d7C"/>
                     <constraint firstItem="bMT-2J-RM3" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="16" id="C50-f2-g7Z"/>
-                    <constraint firstItem="EgW-T2-wEE" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="8" id="DJP-6V-LiH"/>
+                    <constraint firstItem="EgW-T2-wEE" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="12" id="DJP-6V-LiH"/>
                     <constraint firstItem="bMT-2J-RM3" firstAttribute="top" secondItem="rsu-rp-GfW" secondAttribute="bottom" constant="8" id="Ecr-OV-YMv"/>
                     <constraint firstItem="rsu-rp-GfW" firstAttribute="top" secondItem="8o0-NB-2KQ" secondAttribute="bottom" constant="8" id="Eor-dH-8l4"/>
                     <constraint firstItem="bMT-2J-RM3" firstAttribute="leading" secondItem="rsu-rp-GfW" secondAttribute="leading" id="HtU-ka-3xC"/>
@@ -91,12 +91,12 @@
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="bMT-2J-RM3" secondAttribute="bottom" constant="8" id="N0E-So-b6U"/>
                     <constraint firstItem="rsu-rp-GfW" firstAttribute="top" secondItem="8o0-NB-2KQ" secondAttribute="bottom" constant="8" id="O3o-c2-9xN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bMT-2J-RM3" secondAttribute="trailing" constant="16" id="OkN-5L-6m4"/>
-                    <constraint firstAttribute="trailing" secondItem="8o0-NB-2KQ" secondAttribute="trailing" constant="13" id="Pb2-F4-2Yg"/>
+                    <constraint firstAttribute="trailing" secondItem="8o0-NB-2KQ" secondAttribute="trailing" constant="25" id="Pb2-F4-2Yg"/>
                     <constraint firstItem="tts-yH-mFW" firstAttribute="top" secondItem="EgW-T2-wEE" secondAttribute="top" id="QEV-9w-4Ww"/>
                     <constraint firstItem="rsu-rp-GfW" firstAttribute="top" secondItem="8o0-NB-2KQ" secondAttribute="bottom" constant="8" id="Uig-y8-Nr2"/>
                     <constraint firstItem="rsu-rp-GfW" firstAttribute="top" secondItem="8o0-NB-2KQ" secondAttribute="bottom" constant="8" id="Y58-9j-9SD"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="top" secondItem="EgW-T2-wEE" secondAttribute="bottom" constant="8" id="YQ6-Lp-0SX"/>
-                    <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="8" id="blH-fi-IyZ"/>
+                    <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="tts-yH-mFW" secondAttribute="trailing" constant="12" id="blH-fi-IyZ"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="leading" secondItem="rsu-rp-GfW" secondAttribute="leading" id="cI2-d2-iWO"/>
                     <constraint firstItem="8o0-NB-2KQ" firstAttribute="top" secondItem="EgW-T2-wEE" secondAttribute="bottom" constant="8" id="coW-gZ-Oob"/>
                     <constraint firstAttribute="bottom" secondItem="bMT-2J-RM3" secondAttribute="bottom" constant="16" id="fey-Ud-yun"/>

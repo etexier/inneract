@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -25,18 +25,18 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImg" translatesAutoresizingMaskIntoConstraints="NO" id="AxL-Xe-RES">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IPLogo_LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-68-trg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="IPLogo_LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-68-trg">
                     <rect key="frame" x="103" y="129" width="114" height="136"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U6-Bbg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inneract Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U6-Bbg">
                     <rect key="frame" x="92" y="273" width="137" height="23"/>
                     <fontDescription key="fontDescription" name="CircularStd-Black" family="Circular Std" pointSize="18"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bringing Design to the Community" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc8-Lq-v2z">
-                    <rect key="frame" x="20" y="304" width="280" height="23"/>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bringing Design to the Community" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc8-Lq-v2z">
+                    <rect key="frame" x="51" y="302" width="218" height="18"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -44,7 +44,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="AxL-Xe-RES" secondAttribute="trailing" id="3jC-Z8-j8Y"/>
                 <constraint firstAttribute="centerY" secondItem="SRu-U6-Bbg" secondAttribute="centerY" id="4LI-5i-d29"/>
-                <constraint firstItem="Bc8-Lq-v2z" firstAttribute="top" secondItem="SRu-U6-Bbg" secondAttribute="bottom" constant="8" id="8do-lF-Fg6"/>
+                <constraint firstItem="Bc8-Lq-v2z" firstAttribute="top" secondItem="SRu-U6-Bbg" secondAttribute="bottom" constant="6" id="8do-lF-Fg6"/>
                 <constraint firstItem="AxL-Xe-RES" firstAttribute="leading" secondItem="ZQX-8b-GyF" secondAttribute="leading" id="FpN-HK-vdE"/>
                 <constraint firstAttribute="centerX" secondItem="aCr-68-trg" secondAttribute="centerX" id="SdY-dE-3lC"/>
                 <constraint firstAttribute="bottom" secondItem="AxL-Xe-RES" secondAttribute="bottom" id="VHA-eR-1Rx"/>
