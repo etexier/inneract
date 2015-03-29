@@ -90,7 +90,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     
     // cell auto dim.
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 150;
+    self.tableView.estimatedRowHeight = 100;
     
     self.refreshController = [[UIRefreshControl alloc] init];
     [self.refreshController addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventValueChanged];
