@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="CircularStd-Book.otf">
-            <string>CircularStd-Book</string>
-            <string>CircularStd-Book</string>
+        <mutableArray key="CircularStd-Medium.otf">
+            <string>CircularStd-Medium</string>
+            <string>CircularStd-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -23,28 +23,30 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG9-X6-vg9">
-                    <rect key="frame" x="8" y="0.0" width="80" height="40"/>
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="ZK3-jY-Bmf"/>
+                        <constraint firstAttribute="width" constant="100" id="ZK3-jY-Bmf"/>
                         <constraint firstAttribute="height" constant="40" id="jo8-dW-KmF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="14"/>
                     <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onShareButton:" destination="-1" eventType="touchUpInside" id="SpG-5F-kHv"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bc-Jm-WX0">
-                    <rect key="frame" x="232" y="0.0" width="80" height="40"/>
+                    <rect key="frame" x="220" y="0.0" width="100" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3JC-D5-jmG"/>
-                        <constraint firstAttribute="width" constant="80" id="ldb-uF-hZX"/>
+                        <constraint firstAttribute="width" constant="100" id="ldb-uF-hZX"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Medium" family="Circular Std" pointSize="14"/>
                     <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onBookmarkButton:" destination="-1" eventType="touchUpInside" id="MNT-Bl-CRJ"/>
@@ -54,10 +56,10 @@
             <constraints>
                 <constraint firstItem="5bc-Jm-WX0" firstAttribute="top" secondItem="nca-Db-I8m" secondAttribute="top" id="5eV-hA-t9O"/>
                 <constraint firstAttribute="bottom" secondItem="RG9-X6-vg9" secondAttribute="bottom" id="V5h-x4-TO3"/>
-                <constraint firstItem="RG9-X6-vg9" firstAttribute="leading" secondItem="nca-Db-I8m" secondAttribute="leading" constant="8" id="cQ9-Iu-8Qn"/>
+                <constraint firstItem="RG9-X6-vg9" firstAttribute="leading" secondItem="nca-Db-I8m" secondAttribute="leading" id="cQ9-Iu-8Qn"/>
                 <constraint firstAttribute="bottom" secondItem="5bc-Jm-WX0" secondAttribute="bottom" id="jFi-96-LLw"/>
                 <constraint firstItem="RG9-X6-vg9" firstAttribute="top" secondItem="nca-Db-I8m" secondAttribute="top" id="sDg-Zv-n6V"/>
-                <constraint firstAttribute="trailing" secondItem="5bc-Jm-WX0" secondAttribute="trailing" constant="8" id="uPx-j8-L6S"/>
+                <constraint firstAttribute="trailing" secondItem="5bc-Jm-WX0" secondAttribute="trailing" id="uPx-j8-L6S"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

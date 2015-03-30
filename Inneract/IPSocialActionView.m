@@ -59,13 +59,13 @@ NSString * const kNibName = @"IPSocialActionView";
     [self.shareButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0 , 0)];
     [self.shareButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
-    self.shareButton.tintColor = ipPrimaryOrange;
+    //self.shareButton.tintColor = ipSecondaryLightGrey2;
     
     [self.bookmarkButton setImage: [[UIImage imageNamed:@"bookmarkGreenButton"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     [self.bookmarkButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0 , 0)];
     [self.bookmarkButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [self.bookmarkButton setTitle:@"Bookmark" forState:UIControlStateNormal];
-    self.bookmarkButton.tintColor = ipPrimaryOrange;
+    //self.bookmarkButton.tintColor = ipSecondaryLightGrey2;
 }
 
 - (void) setBookmarkNeeded:(BOOL) isBookmarkNeeded isBookmarked:(BOOL) isBookmarked {

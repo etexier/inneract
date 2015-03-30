@@ -4,6 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="CircularStd-Black.otf">
+            <string>CircularStd-Black</string>
+            <string>CircularStd-Black</string>
+        </mutableArray>
         <mutableArray key="CircularStd-Book.otf">
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
@@ -28,10 +32,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aG-er-xqg">
-                    <rect key="frame" x="8" y="499" width="304" height="30"/>
+                    <rect key="frame" x="8" y="492" width="304" height="37"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Black" family="Circular Std" pointSize="19"/>
                     <state key="normal" title="Create an account">
-                        <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="0.74016879211249986" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onSignUp:" destination="-1" eventType="touchUpInside" id="N5W-jS-eTy"/>
@@ -47,14 +52,8 @@
                                 <constraint firstAttribute="width" constant="60" id="jlg-kF-2qC"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login using Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-SS-NTh">
-                            <rect key="frame" x="77" y="124" width="167" height="22"/>
-                            <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="17"/>
-                            <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-ML-dU9" customClass="FBLoginView">
-                            <rect key="frame" x="8" y="154" width="304" height="45"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-ML-dU9" customClass="FBLoginView">
+                            <rect key="frame" x="20" y="154" width="280" height="45"/>
                             <color key="backgroundColor" red="0.2274509804" green="0.46274509800000002" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="8aB-li-rp9"/>
@@ -63,23 +62,32 @@
                                 <outlet property="delegate" destination="-1" id="CDH-Zi-A6v"/>
                             </connections>
                         </view>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xXG-3d-PGt">
-                            <rect key="frame" x="8" y="247" width="304" height="30"/>
-                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xXG-3d-PGt">
+                            <rect key="frame" x="20" y="247" width="280" height="35"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="zet-5y-LYe"/>
+                            </constraints>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i92-3F-zOX">
-                            <rect key="frame" x="8" y="293" width="304" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i92-3F-zOX">
+                            <rect key="frame" x="20" y="293" width="280" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="eo9-zt-J4C"/>
+                            </constraints>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-CN-Bco">
-                            <rect key="frame" x="141" y="339" width="38" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-CN-Bco">
+                            <rect key="frame" x="133" y="339" width="56" height="39"/>
+                            <fontDescription key="fontDescription" name="CircularStd-Black" family="Circular Std" pointSize="21"/>
                             <state key="normal" title="Login">
                                 <color key="titleColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="KXL-9S-7hN"/>
@@ -88,19 +96,16 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="pC0-hu-f1d" firstAttribute="top" secondItem="EP2-ZG-mCQ" secondAttribute="top" constant="48" id="8Ee-S6-acw"/>
-                        <constraint firstItem="i92-3F-zOX" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="8" id="E8l-UJ-VFi"/>
-                        <constraint firstItem="0IV-SS-NTh" firstAttribute="top" secondItem="pC0-hu-f1d" secondAttribute="bottom" constant="16" id="EAh-70-ZjO"/>
+                        <constraint firstItem="i92-3F-zOX" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="20" id="E8l-UJ-VFi"/>
                         <constraint firstItem="xXG-3d-PGt" firstAttribute="top" secondItem="wDC-ML-dU9" secondAttribute="bottom" constant="48" id="FZb-cy-Y87"/>
-                        <constraint firstItem="i92-3F-zOX" firstAttribute="top" secondItem="xXG-3d-PGt" secondAttribute="bottom" constant="16" id="PhH-I9-qKs"/>
-                        <constraint firstAttribute="trailing" secondItem="wDC-ML-dU9" secondAttribute="trailing" constant="8" id="QjU-K6-fNc"/>
-                        <constraint firstAttribute="trailing" secondItem="xXG-3d-PGt" secondAttribute="trailing" constant="8" id="Tq7-dJ-FRR"/>
-                        <constraint firstItem="xXG-3d-PGt" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="8" id="WTj-b7-DVf"/>
-                        <constraint firstAttribute="bottom" secondItem="x8S-CN-Bco" secondAttribute="bottom" constant="20" id="crj-g0-CCr"/>
-                        <constraint firstAttribute="centerX" secondItem="0IV-SS-NTh" secondAttribute="centerX" id="dOA-Wk-4Nh"/>
-                        <constraint firstAttribute="trailing" secondItem="i92-3F-zOX" secondAttribute="trailing" constant="8" id="dcx-uA-txq"/>
-                        <constraint firstItem="wDC-ML-dU9" firstAttribute="top" secondItem="0IV-SS-NTh" secondAttribute="bottom" constant="8" id="h1G-TF-NaG"/>
-                        <constraint firstAttribute="centerX" secondItem="x8S-CN-Bco" secondAttribute="centerX" id="jzk-JA-WSG"/>
-                        <constraint firstItem="wDC-ML-dU9" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="8" id="lf9-UK-bBL"/>
+                        <constraint firstItem="i92-3F-zOX" firstAttribute="top" secondItem="xXG-3d-PGt" secondAttribute="bottom" constant="11" id="PhH-I9-qKs"/>
+                        <constraint firstAttribute="trailing" secondItem="wDC-ML-dU9" secondAttribute="trailing" constant="20" id="QjU-K6-fNc"/>
+                        <constraint firstAttribute="trailing" secondItem="xXG-3d-PGt" secondAttribute="trailing" constant="20" id="Tq7-dJ-FRR"/>
+                        <constraint firstItem="xXG-3d-PGt" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="20" id="WTj-b7-DVf"/>
+                        <constraint firstAttribute="bottom" secondItem="x8S-CN-Bco" secondAttribute="bottom" constant="11" id="crj-g0-CCr"/>
+                        <constraint firstAttribute="trailing" secondItem="i92-3F-zOX" secondAttribute="trailing" constant="20" id="dcx-uA-txq"/>
+                        <constraint firstAttribute="centerX" secondItem="x8S-CN-Bco" secondAttribute="centerX" constant="-1" id="jzk-JA-WSG"/>
+                        <constraint firstItem="wDC-ML-dU9" firstAttribute="leading" secondItem="EP2-ZG-mCQ" secondAttribute="leading" constant="20" id="lf9-UK-bBL"/>
                         <constraint firstAttribute="centerX" secondItem="wDC-ML-dU9" secondAttribute="centerX" id="sMz-qA-KB7"/>
                         <constraint firstItem="x8S-CN-Bco" firstAttribute="top" secondItem="i92-3F-zOX" secondAttribute="bottom" constant="16" id="uSP-FA-ZYb"/>
                         <constraint firstAttribute="centerX" secondItem="pC0-hu-f1d" secondAttribute="centerX" id="wPc-JF-Q5H"/>
@@ -108,9 +113,10 @@
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbj-Cg-Opf">
                     <rect key="frame" x="8" y="397" width="304" height="30"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                     <state key="normal" title="Forgot Password">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="4qJ-Sq-Zx1"/>

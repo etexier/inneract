@@ -4,8 +4,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="CircularStd-Book.otf">
-            <string>CircularStd-Book</string>
+        <mutableArray key="CircularStd-Black.otf">
+            <string>CircularStd-Black</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -41,22 +41,22 @@
                         <constraint firstAttribute="width" constant="10" id="E3W-6Z-Xng"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any bookmark yet. Please go to Feed tab and bookmark any feed you like and you will see here." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-0P-Ms4">
-                    <rect key="frame" x="18" y="32" width="294" height="57"/>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any bookmark yet. Please go to Feed tab and bookmark any posts you like to save or review later." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-0P-Ms4">
+                    <rect key="frame" x="26" y="15" width="278" height="183"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Black" family="Circular Std" pointSize="24"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="EVW-tE-UDK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6X3-Fm-8JN"/>
-                <constraint firstItem="jPT-0P-Ms4" firstAttribute="leading" secondItem="EVW-tE-UDK" secondAttribute="trailing" constant="8" id="B02-jP-tyq"/>
-                <constraint firstAttribute="trailing" secondItem="jPT-0P-Ms4" secondAttribute="trailing" constant="8" id="B5T-K2-5z0"/>
+                <constraint firstItem="jPT-0P-Ms4" firstAttribute="leading" secondItem="EVW-tE-UDK" secondAttribute="trailing" constant="16" id="B02-jP-tyq"/>
+                <constraint firstAttribute="trailing" secondItem="jPT-0P-Ms4" secondAttribute="trailing" constant="16" id="B5T-K2-5z0"/>
                 <constraint firstAttribute="trailing" secondItem="1Gu-5G-Ukd" secondAttribute="trailing" id="Ew3-MI-HP5"/>
                 <constraint firstItem="1Gu-5G-Ukd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KLf-UO-fsQ"/>
                 <constraint firstAttribute="trailing" secondItem="SWt-E0-Jf9" secondAttribute="trailing" constant="10" id="TlV-z6-Fxx"/>
                 <constraint firstAttribute="bottom" secondItem="1Gu-5G-Ukd" secondAttribute="bottom" id="VMc-F2-t0G"/>
-                <constraint firstItem="jPT-0P-Ms4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="WQj-br-aTD"/>
+                <constraint firstItem="jPT-0P-Ms4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="WQj-br-aTD"/>
                 <constraint firstItem="SWt-E0-Jf9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="XT2-fn-zkp"/>
                 <constraint firstItem="EVW-tE-UDK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bKn-gd-6Wf"/>
                 <constraint firstAttribute="bottom" secondItem="EVW-tE-UDK" secondAttribute="bottom" id="rb7-KG-dSl"/>
