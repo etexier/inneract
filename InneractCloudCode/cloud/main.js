@@ -119,3 +119,30 @@ Parse.Cloud.job("sendNewFeedNotification", function(request, status) {
 	    status.error("Uh oh, something went wrong.");
 	  });
 });
+
+// Parse.Cloud.afterSave("Activity", function(request, response) {
+//   var activity = request.object;
+// 	var currentUser = Parse.User.current();
+// 	if(currentUser.id != 'e1feOLKy5B') {
+// 		var notificationQuery = new Parse.Query(Parse.Installation);
+// 		notificationQuery.equalTo('userId', 'e1feOLKy5B');
+// 		Parse.Push.send({
+// 		  where: notificationQuery, // Set our Installation query
+// 		  data: {
+// 		    alert: currentUser.get("firstName") + ' ' + currentUser.get("lastName") + ' ' + activity.get("action") + ' ' + activity.get("event").get("title"),
+// 		    badge : "Increment",
+// 		    t : "signUpEvent",
+// 		    userId : currentUser.id
+// 		  }
+// 		}, {
+// 		  success: function() {
+// 		    console.log('notification sent successfully');
+// 		  },
+// 		  error: function(error) {
+// 		    alert('Failed to send notification to : ' + currentUser.username);
+// 		  }
+// 		});
+// 	}
+
+//   response.success();
+// });
