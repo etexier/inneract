@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailAddress;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPassword;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @property (weak, nonatomic) IBOutlet FBLoginView *loginViewFB;
 @property (assign, nonatomic) BOOL facebookLoginProgress;
@@ -41,6 +42,13 @@
 	self.loginViewFB.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 	
 	self.facebookLoginProgress = NO;
+    // login button borders:
+    self.loginButton.layer.borderColor = ipPrimaryOrange.CGColor;
+    
+    self.loginButton.layer.borderWidth = 3.0;
+    
+    self.loginButton.layer.cornerRadius = 18;
+
 }
 
 - (void)didReceiveMemoryWarning {
