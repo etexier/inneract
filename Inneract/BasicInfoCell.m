@@ -77,7 +77,7 @@
     }
     
     self.nameLabel.textColor = ipPrimaryMidnightBlue;
-    self.designatoinLabel.textColor = ipPrimaryMidnightBlue;
+    //self.designatoinLabel.textColor = ipPrimaryMidnightBlue;
     self.profession.textColor = ipPrimaryMidnightBlue;
     self.aboutButton.tintColor = ipPrimaryOrange;
     self.aboutButton.backgroundColor = ipPrimaryLightGrey;
@@ -86,7 +86,7 @@
     self.profileImage.layer.borderColor = [[[IPColorManager sharedInstance] getUserBadgeColor:badges] CGColor];
     self.profileImage.layer.borderWidth = 3.0;
 
-    self.designatoinLabel.textColor = [[IPColorManager sharedInstance] getUserBadgeColor:badges];
+    //self.designatoinLabel.textColor = [[IPColorManager sharedInstance] getUserBadgeColor:badges];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

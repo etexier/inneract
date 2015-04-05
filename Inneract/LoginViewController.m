@@ -11,6 +11,8 @@
 #import "SVProgressHUD.h"			// Spinner
 #import <FacebookSDK/FacebookSDK.h>	// Facebook
 #import <FBGraphUser.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 // ViewControllers
 #import "MainViewHelper.h"
@@ -27,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
 @property (assign, nonatomic) BOOL inProgress;
+@property (weak, nonatomic) IBOutlet UIButton *onSignupButton;
 
 - (IBAction)onLogin:(id)sender;
 - (IBAction)onSignUp:(id)sender;
@@ -44,6 +47,14 @@
 	
 	self.inProgress = NO;
     self.passwordText.delegate = self;
+    
+    // sign up button borders:
+    self.onSignupButton.layer.borderColor = ipPrimaryOrange.CGColor;
+    
+    self.onSignupButton.layer.borderWidth = 3.0;
+    
+    self.onSignupButton.layer.cornerRadius = 18;
+    
 }
 
 - (void)didReceiveMemoryWarning {

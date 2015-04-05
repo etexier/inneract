@@ -25,7 +25,8 @@
 #define ipSecondaryCyan [UIColor colorWithRed:0.529 green:0.886 blue:0.82 alpha:1] /*#87e2d1*/
 #define ipSecondaryBlue [UIColor colorWithRed:0.227 green:0.463 blue:0.71 alpha:1] /*#3a76b5*/
 #define ipSecondaryPink [UIColor colorWithRed:1 green:0.573 blue:0.675 alpha:1] /*#ff92ac*/
-#define ipSecondaryLightGrey[UIColor colorWithRed:0.922 green:0.925 blue:0.945 alpha:1] /*#ebecf1*/
+#define ipSecondaryLightGrey [UIColor colorWithRed:0.922 green:0.925 blue:0.945 alpha:1] /*#ebecf1*/
+#define ipSecondaryLightGrey2 [UIColor colorWithRed:0.867 green:0.867 blue:0.867 alpha:1] /*#dddddd*/
 
 
 

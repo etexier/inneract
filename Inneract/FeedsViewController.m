@@ -21,7 +21,7 @@ NSString *const kFeedCellNibId = @"FeedCell";
 NSString *const kFeedBookmarkRelationshipName = @"bookmarks";
 NSString *const kParseClassName = @"IPNews";
 const CGFloat ksearchBarHeight = 44;
-const CGFloat kHighlightedFeedsHeight = 200;
+const CGFloat kHighlightedFeedsHeight = 300;
 //    const CGFloat highlightedFeedsViewOffset = ksearchBarHeight;
 const CGFloat highlightedFeedsViewOffset = 0;
 
@@ -178,7 +178,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
     [self setupTableView];
     
     self.noBookmarkLabel.hidden = YES;
-    self.noBookmarkLabel.textColor = ipPrimaryOrange;
+    self.noBookmarkLabel.textColor = ipSecondaryCyan;
     
     // navigation bar
     if(!self.isForBookmark) {
@@ -187,7 +187,9 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         
         self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"IP News", @"Volunteer", @"Classes"]];
         //[statFilter setSegmentedControlStyle:UISegmentedControlStyleBar];
-        self.segmentedControl.frame = CGRectMake(0, 22, [UIScreen mainScreen].bounds.size.width, 40);
+        //self.segmentedControl.frame = CGRectMake(0, 22, [UIScreen mainScreen].bounds.size.width, 30);
+        self.segmentedControl.frame = CGRectMake(-50, 5, 250, 30);
+        
         //[segmentedControl sizeToFit];
         [self.segmentedControl addTarget:self action:@selector(categoryDidSelected:) forControlEvents:UIControlEventValueChanged];
         

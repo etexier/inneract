@@ -52,6 +52,7 @@
     [self.socialActionView addSubview:self.ipSocailActionView];
     self.summaryLabel.preferredMaxLayoutWidth = self.summaryLabel.frame.size.width;
     self.titleLabel.preferredMaxLayoutWidth = self.titleLabel.frame.size.width;
+
 }
 
 - (void)setupGestureRecognizer {

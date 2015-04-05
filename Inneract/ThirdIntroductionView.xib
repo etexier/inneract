@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -27,67 +27,70 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TipsBackImg_LaunchScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="Aww-Zs-8bb">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIP 1:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-eO-0ah">
-                    <rect key="frame" x="16" y="100" width="288" height="21"/>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip 1:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-eO-0ah">
+                    <rect key="frame" x="16" y="75" width="288" height="31"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="24"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-Gq-fjP">
-                    <rect key="frame" x="68" y="145" width="42" height="21"/>
+                    <rect key="frame" x="88" y="130" width="42" height="21"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLC-Jj-KTG">
-                    <rect key="frame" x="207" y="144" width="73" height="21"/>
+                    <rect key="frame" x="187" y="129" width="73" height="21"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareYellowButton" translatesAutoresizingMaskIntoConstraints="NO" id="7lC-TA-RbK">
-                    <rect key="frame" x="40" y="145" width="20" height="20"/>
+                    <rect key="frame" x="60" y="130" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="8gh-zf-BTx"/>
                         <constraint firstAttribute="height" constant="20" id="NSS-PI-y0y"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIP 2:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4s-EA-V1h">
-                    <rect key="frame" x="140" y="298" width="41" height="21"/>
-                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip 2:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4s-EA-V1h">
+                    <rect key="frame" x="110" y="243" width="100" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="RUI-UI-LY8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="24"/>
                     <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmarkGreenButton" translatesAutoresizingMaskIntoConstraints="NO" id="jsx-vq-QMd">
-                    <rect key="frame" x="179" y="145" width="20" height="20"/>
+                    <rect key="frame" x="159" y="130" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="hXz-d0-h0q"/>
                         <constraint firstAttribute="height" constant="20" id="mZp-Rf-Yvy"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some do something great with Inneract Project? Go to their profile and give'em a badge!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrZ-GY-NWN">
-                    <rect key="frame" x="40" y="425" width="240" height="54"/>
+                    <rect key="frame" x="40" y="372" width="240" height="54"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
-                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GiveABadge_TipGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="EIT-tp-sBN">
-                    <rect key="frame" x="43" y="343" width="235" height="66"/>
+                    <rect key="frame" x="43" y="298" width="235" height="66"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="235" id="dlU-1u-suD"/>
                         <constraint firstAttribute="height" constant="66" id="hsv-3d-Wss"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share posts with friends.Bookmark articles to read later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-b6-9N4">
-                    <rect key="frame" x="48" y="182" width="227" height="36"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share posts with friends. Bookmark articles to save and read later." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-b6-9N4">
+                    <rect key="frame" x="48" y="167" width="227" height="36"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
-                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
                 <constraint firstItem="WUE-b6-9N4" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="48" id="6Ny-Cr-zQ6"/>
-                <constraint firstAttribute="trailing" secondItem="yLC-Jj-KTG" secondAttribute="trailing" constant="40" id="A0R-l9-I7Z"/>
+                <constraint firstAttribute="trailing" secondItem="yLC-Jj-KTG" secondAttribute="trailing" constant="60" id="A0R-l9-I7Z"/>
                 <constraint firstItem="7lC-TA-RbK" firstAttribute="top" secondItem="lbQ-eO-0ah" secondAttribute="bottom" constant="24" id="FHR-qv-nMK"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KrZ-GY-NWN" secondAttribute="bottom" constant="60" id="Fxs-0Y-agg"/>
                 <constraint firstItem="EIT-tp-sBN" firstAttribute="top" secondItem="I4s-EA-V1h" secondAttribute="bottom" constant="24" id="Kd7-IM-x7h"/>
@@ -100,16 +103,16 @@
                 <constraint firstAttribute="bottom" secondItem="Aww-Zs-8bb" secondAttribute="bottom" id="Ura-zg-GnI"/>
                 <constraint firstItem="ibc-Gq-fjP" firstAttribute="leading" secondItem="7lC-TA-RbK" secondAttribute="trailing" constant="8" id="WC5-wY-f2j"/>
                 <constraint firstAttribute="centerX" secondItem="I4s-EA-V1h" secondAttribute="centerX" id="Zux-z7-pCu"/>
-                <constraint firstItem="KrZ-GY-NWN" firstAttribute="top" secondItem="EIT-tp-sBN" secondAttribute="bottom" constant="16" id="dZu-OO-ZMp"/>
+                <constraint firstItem="KrZ-GY-NWN" firstAttribute="top" secondItem="EIT-tp-sBN" secondAttribute="bottom" constant="8" id="dZu-OO-ZMp"/>
                 <constraint firstItem="jsx-vq-QMd" firstAttribute="centerY" secondItem="yLC-Jj-KTG" secondAttribute="centerY" id="elW-Wb-rtq"/>
-                <constraint firstItem="I4s-EA-V1h" firstAttribute="top" secondItem="WUE-b6-9N4" secondAttribute="bottom" constant="80" id="esg-zC-QFG"/>
+                <constraint firstItem="I4s-EA-V1h" firstAttribute="top" secondItem="WUE-b6-9N4" secondAttribute="bottom" constant="40" id="esg-zC-QFG"/>
                 <constraint firstItem="KrZ-GY-NWN" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="40" id="ffK-K3-7md"/>
                 <constraint firstAttribute="trailing" secondItem="Aww-Zs-8bb" secondAttribute="trailing" id="h19-rb-WZp"/>
                 <constraint firstItem="lbQ-eO-0ah" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="16" id="hrY-uN-tEm"/>
-                <constraint firstItem="7lC-TA-RbK" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="40" id="iCZ-4B-lGm"/>
+                <constraint firstItem="7lC-TA-RbK" firstAttribute="leading" secondItem="2dE-kc-ngY" secondAttribute="leading" constant="60" id="iCZ-4B-lGm"/>
                 <constraint firstItem="jsx-vq-QMd" firstAttribute="bottom" secondItem="7lC-TA-RbK" secondAttribute="bottom" id="n9u-yy-uR6"/>
                 <constraint firstItem="Aww-Zs-8bb" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" id="naa-Da-SlU"/>
-                <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="100" id="pC1-lD-58f"/>
+                <constraint firstItem="lbQ-eO-0ah" firstAttribute="top" secondItem="2dE-kc-ngY" secondAttribute="top" constant="75" id="pC1-lD-58f"/>
                 <constraint firstAttribute="trailing" secondItem="WUE-b6-9N4" secondAttribute="trailing" constant="45" id="u3h-2S-fjj"/>
                 <constraint firstItem="WUE-b6-9N4" firstAttribute="top" secondItem="ibc-Gq-fjP" secondAttribute="bottom" constant="16" id="wXh-3J-kaO"/>
             </constraints>

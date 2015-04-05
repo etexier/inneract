@@ -163,18 +163,18 @@ NSString * const kActivityCell = @"ActivityCell";
     return 3;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return @"Basic Information";
-        case 1:
-            return @"Badges";
-        case 2:
-            return @"Activities";
-        default:
-            return nil;
-    }
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    //switch (section) {
+        //case 0:
+            //return @"Basic Information";
+       // case 1:
+           // return @"Badges";
+       // case 2:
+         //   return @"Activities";
+       // default:
+           // return nil;
+   // }
+//}
 
 #pragma mark - table view delegate
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
