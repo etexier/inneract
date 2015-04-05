@@ -44,6 +44,7 @@
 	
 	self.inProgress = NO;
     self.passwordText.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
