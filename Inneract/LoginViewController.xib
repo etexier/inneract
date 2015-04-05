@@ -70,7 +70,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="zet-5y-LYe"/>
                             </constraints>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                             <userDefinedRuntimeAttributes>
@@ -148,7 +148,7 @@
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbj-Cg-Opf">
-                    <rect key="frame" x="8" y="397" width="304" height="30"/>
+                    <rect key="frame" x="20" y="397" width="280" height="30"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                     <state key="normal" title="Forgot Password?">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
