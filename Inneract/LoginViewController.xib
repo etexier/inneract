@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="loginViewFB" destination="wDC-ML-dU9" id="T87-EB-r2T"/>
+                <outlet property="onSignupButton" destination="1aG-er-xqg" id="JQC-sm-XPE"/>
                 <outlet property="passwordText" destination="i92-3F-zOX" id="adv-zO-IRE"/>
                 <outlet property="userNameText" destination="xXG-3d-PGt" id="RGo-Ez-DnM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
