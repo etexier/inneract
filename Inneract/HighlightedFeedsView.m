@@ -10,6 +10,7 @@
 #import "SingleHighlightedFeedView.h"
 
 NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
+CGFloat const kSideOffset = 10.0;
 
 @interface HighlightedFeedsView() <UIScrollViewDelegate>
 
@@ -127,12 +128,12 @@ NSString *const kHighlightedFeedsViewId = @"HighlightedFeedsView";
 - (CGRect) frameByIndex:(NSInteger) index {
     CGRect main = [[UIScreen mainScreen] bounds];
     CGRect rect = self.bounds;
-    return CGRectMake(main.size.width * index, 0, main.size.width, rect.size.height);
+    return CGRectMake(main.size.width * index - (index *2*kSideOffset), 0, main.size.width - (2*kSideOffset), rect.size.height);
 }
 
 - (void)oneTap:(UIGestureRecognizer *)gesture {
     NSLog(@"Tapped on %ld", self.pageControl.currentPage);
-    int index = self.pageControl.currentPage ? self.pageControl.currentPage : 0;
+    int index = self.pageControl.currentPage ? (int) self.pageControl.currentPage : 0;
     PFObject *object = self.feeds[index];
     [self.delegate onHeaderTap:object];
 }

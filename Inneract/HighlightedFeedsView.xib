@@ -38,7 +38,7 @@
                 <constraint firstAttribute="bottom" secondItem="DqP-yV-YWy" secondAttribute="bottom" id="r7S-py-evl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="413" y="423"/>
+            <point key="canvasLocation" x="336" y="310"/>
         </view>
     </objects>
 </document>
