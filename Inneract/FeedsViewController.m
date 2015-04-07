@@ -114,6 +114,8 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         query = [relation query];
     } else {
         query = [PFQuery queryWithClassName:self.parseClassName];
+        //[query whereKey:@"renderingStyle" equalTo:@"normal"];
+        [query whereKey:@"objectId" doesNotMatchKey:@"objectId" inQuery:[[[PFUser currentUser] relationForKey:kFeedBookmarkRelationshipName] query]];
     }
 
     // If no objects are loaded in memory, we look to the cache
@@ -223,8 +225,8 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 - (void) reloadData {
-    [self.tableView reloadData];
     [self setupHeaderView];
+    [self.tableView reloadData];
 }
 
 - (void)setupHeaderView {
@@ -469,14 +471,22 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 - (void) didBookmarkFeed:(PFObject *) feed {
-    NSLog(@"bookmarking feed...");
+    NSLog(@"bookmarking feed...%ld", [self.feeds indexOfObject:feed]);
     if(feed) {
         PFUser *currentUser = [PFUser currentUser];
         PFRelation *relation = [currentUser relationForKey:kFeedBookmarkRelationshipName];
         [relation addObject:feed];
         //[feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if(error) {
+            if(succeeded) {
+                NSInteger indexOfFeed = [self.feeds indexOfObject:feed];
+                [self.feeds removeObject:feed];
+                [self filterFeedsByCategory];
+                //[self reloadData];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfFeed inSection:0];
+                NSLog(@"delete row %ld  section %ld", indexPath.row, indexPath.section);
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            } else {
                 NSLog(@"failed to save %@ for feed \n%@", kFeedBookmarkRelationshipName, feed);
             }
         }];
