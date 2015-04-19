@@ -35,7 +35,7 @@ NSString * const kActivityCell = @"ActivityCell";
 - (IBAction)onLogout:(id)sender;
 
 @property (nonatomic, strong, readonly) NSArray *sectionCells;
-@property (nonatomic, strong) NSArray *activities;
+//@property (nonatomic, strong) NSArray *activities;
 
 @property (nonatomic, strong) UIRefreshControl *refreshController;
 
@@ -100,7 +100,7 @@ NSString * const kActivityCell = @"ActivityCell";
                                                  otherButtonTitles:nil];
         [theAlert show];
     } else {
-        [self getUserActivities];
+        //[self getUserActivities];
     }
     
     self.refreshController = [[UIRefreshControl alloc] init];
@@ -125,8 +125,8 @@ NSString * const kActivityCell = @"ActivityCell";
             return 1;
         case 1:
             return 1;
-        case 2:
-            return self.activities.count;
+//        case 2:
+//            return self.activities.count;
         default:
             return 0;
     }
@@ -147,11 +147,11 @@ NSString * const kActivityCell = @"ActivityCell";
             badgeCell.profileDelegate = self;
             break;
         }
-        case 2: {
-            ActivityCell *activityCell = (ActivityCell *) cell;
-            [activityCell setActivity:self.activities[indexPath.row]];
-            break;
-        }
+//        case 2: {
+//            ActivityCell *activityCell = (ActivityCell *) cell;
+//            [activityCell setActivity:self.activities[indexPath.row]];
+//            break;
+//        }
         default:
             return nil;
     }
@@ -160,7 +160,7 @@ NSString * const kActivityCell = @"ActivityCell";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -267,19 +267,19 @@ NSString * const kActivityCell = @"ActivityCell";
     return [NSString stringWithFormat:@"%@ %@", [self.user valueForKey:@"firstName"], [self.user valueForKey:@"lastName"]];
 }
 
-- (void) getUserActivities {
-    PFQuery *activitiesQuery = [PFQuery queryWithClassName:@"Activity"];
-    [activitiesQuery whereKey:@"userId" equalTo:self.user.objectId];
-    [activitiesQuery includeKey:@"event"];
-    [activitiesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error) {
-            self.activities = objects;
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:YES];
-        }
-
-        [self.refreshController endRefreshing];
-    }];
-}
+//- (void) getUserActivities {
+//    PFQuery *activitiesQuery = [PFQuery queryWithClassName:@"Activity"];
+//    [activitiesQuery whereKey:@"userId" equalTo:self.user.objectId];
+//    [activitiesQuery includeKey:@"event"];
+//    [activitiesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if(!error) {
+//            self.activities = objects;
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:YES];
+//        }
+//
+//        [self.refreshController endRefreshing];
+//    }];
+//}
 
 - (void) fetchUser {
     PFQuery *query = [PFUser query];
@@ -298,9 +298,9 @@ NSString * const kActivityCell = @"ActivityCell";
 }
 
 -(void) onRefresh {
-    if(self.fromAccountCreation){
-        [self getUserActivities];
-    }
+//    if(self.fromAccountCreation){
+//        [self getUserActivities];
+//    }
     
     if(self.isMyProfileView) {
         [self fetchUser];
