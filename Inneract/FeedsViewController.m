@@ -471,7 +471,7 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
 }
 
 - (void) didBookmarkFeed:(PFObject *) feed {
-    NSLog(@"bookmarking feed...%ld", [self.feeds indexOfObject:feed]);
+    NSLog(@"bookmarking feed...%ld", [self.feedsOfCurrentCategory indexOfObject:feed]);
     if(feed) {
         PFUser *currentUser = [PFUser currentUser];
         PFRelation *relation = [currentUser relationForKey:kFeedBookmarkRelationshipName];
@@ -479,13 +479,14 @@ typedef void (^FeedQueryCompletion)(NSArray *objects, NSError *error);
         //[feed addObject:[PFUser currentUser] forKey:kFeedBookmarkRelationshipName];
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(succeeded) {
-                NSInteger indexOfFeed = [self.feeds indexOfObject:feed];
-                [self.feeds removeObject:feed];
-                [self filterFeedsByCategory];
-                //[self reloadData];
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfFeed inSection:0];
-                NSLog(@"delete row %ld  section %ld", indexPath.row, indexPath.section);
-                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                //FIXME 
+//                NSInteger indexOfFeed = [self.feedsOfCurrentCategory indexOfObject:feed];
+//                [self.feedsOfCurrentCategory removeObject:feed];
+//                [self filterFeedsByCategory];
+//                //[self reloadData];
+//                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfFeed inSection:0];
+//                NSLog(@"delete row %ld  section %ld", indexPath.row, indexPath.section);
+//                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             } else {
                 NSLog(@"failed to save %@ for feed \n%@", kFeedBookmarkRelationshipName, feed);
             }
