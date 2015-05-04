@@ -122,7 +122,8 @@ NIDropDown *dropDown;
 	[parseUser setObject:self.profileLinkEditText.text forKey:@"profileLink"];
 	[parseUser setObject:self.professionTextView.text forKey:@"profession"];
 	[parseUser setObject:self.profileSelectButton.titleLabel.text forKey:@"userType"];
-    [parseUser setObject:self.profileSelectButton.titleLabel.text forKey:@"designation"];
+    [parseUser setObject:[self userTypeToDesignation:self.profileSelectButton.titleLabel.text] forKey:@"designation"];
+    //[parseUser setObject:self.profileSelectButton.titleLabel.text forKey:@"designation"];
 	
 	[parseUser saveInBackground];
 	
@@ -261,6 +262,13 @@ NIDropDown *dropDown;
 
 - (void) niDropDownDelegateMethod: (NIDropDown *) sender {
 	dropDown = nil;
+}
+
+- (NSString *) userTypeToDesignation:(NSString *) userType {
+    NSString *desination = [userType stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    desination = [desination stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+    
+    return desination;
 }
 
 
