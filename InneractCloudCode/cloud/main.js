@@ -81,21 +81,36 @@ Parse.Cloud.job("sendNewFeedNotification", function(request, status) {
 	var feedQuery = new Parse.Query("IPNews");
 	feedQuery.equalTo("isPushed", false);
 	feedQuery.each(function(feed) {
+		var feedCategory = feed.get("feedCategory")
+		var pushChannel = ""
+		switch (feedCategory) {
+		    case "classes":
+				pushChannel = "Parent-Guardian"
+		        break;
+		    case "volunteer":
+		        pushChannel = "IP_Teacher-TA"
+		        break;
+		    case "news":
+		        pushChannel = "Follower"
+		        break;
+		    default:
+		    	break;
+		}
 		Parse.Push.send({
-		  channels: [ "" ],
+		  channels: [ pushChannel ],
 		  data: {
-		    alert: 'A ' + feed.get("feedCategory") + ' "' + feed.get("title").substring(1, 72) + '" just published.',
+		    alert: 'A ' + feedCategory + ' "' + feed.get("title").substring(1, 72) + '" just published.',
 		    badge : "Increment",
 		    t : "newFeed",
 		    fId : feed.id,
-		    fc : feed.get("feedCategory")
+		    fc : feedCategory
 		  }
 		}, {
 		  success: function() {
-		    console.log('sendNewFeedNotification successfully for feed : ' + feed.id);
+		    console.log('sendNewFeedNotification successfully to channel' + pushChannel + ' for feed : ' + feed.id);
 		  },
 		  error: function(error) {
-		    alert('Failed sendNewFeedNotification for feed : ' + feed.id);
+		    alert('Failed sendNewFeedNotification to channel' + pushChannel + ' for feed : ' + feed.id);
 		  }
 		});
 
