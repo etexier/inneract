@@ -105,7 +105,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken : %@", deviceToken);
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation addUniqueObject:@"" forKey:@"channels"];
+    //NSLog(@"-----------user type : %@", [PFUser currentUser][@"designation"]);
+    [currentInstallation addUniqueObject:[PFUser currentUser][@"designation"] forKey:@"channels"];
     // reset badge to 0
     [currentInstallation setBadge:0];
     [currentInstallation saveInBackground];
