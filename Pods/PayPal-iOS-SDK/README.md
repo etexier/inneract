@@ -7,6 +7,15 @@ The PayPal iOS SDK makes it easy to add PayPal and credit card payments to mobil
 
 *This documentation is available in Japanese: [日本語のドキュメント](docs/ja/README.md).*
 
+>### Note
+> Version 2.10.0 of the PayPal iOS SDK was built using Xcode 6.3.
+>
+>If you are still using Xcode 6.2, you may experience link errors (duplicate symbols) when using version **2.10.0** of the PayPal iOS SDK.
+>
+> However, version **2.10.1** was built using Xcode 6.2, and should therefore avoid this problem.
+>
+> We are working with Apple to try to resolve this issue going forward.
+
 ## Contents
 
 - [Use Cases](#use-cases)
@@ -83,6 +92,7 @@ pod 'PayPal-iOS-SDK'
   * enable `Enable Modules (C and Objective-C)`
   * enable `Link Frameworks Automatically`
 4. In your project's **Build Phases**, link your project with these libraries. Weak linking for iOS versions back to 6.0 is supported.
+  * `Accelerate.framework`
   * `AudioToolbox.framework`
   * `AVFoundation.framework`
   * `CoreLocation.framework`
