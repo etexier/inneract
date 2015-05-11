@@ -26,6 +26,8 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
 @end
 
+static const CGFloat kTableViewSideOffset = 10.0;
+
 @implementation ProfilesViewController
 
 - (id)init {
@@ -57,6 +59,24 @@ NSString *const kPeopleCellNibId = @"PeopleCell";
 
     self.searchController.searchResultsTableView.rowHeight = UITableViewAutomaticDimension;
     self.searchController.searchResultsTableView.estimatedRowHeight = 120;
+}
+
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 20, 0.0, 20.0);
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:insets];
+    }
+    
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:insets];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:insets];
+    }
+    
 }
 
 - (PFQuery *)queryForTable {
