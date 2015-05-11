@@ -10,6 +10,8 @@
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
             <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
+            <string>CircularStd-Book</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -49,17 +51,17 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add LinkedIn or portfolio link" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goS-QF-GPx">
-                    <rect key="frame" x="20" y="232" width="280" height="30"/>
+                    <rect key="frame" x="20" y="233" width="280" height="30"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUf-eE-MaE">
-                    <rect key="frame" x="20" y="308" width="280" height="150"/>
+                    <rect key="frame" x="20" y="309" width="280" height="150"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="jfs-73-Gad"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUj-du-dcF">
@@ -83,7 +85,8 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEx-zy-MbJ">
-                    <rect key="frame" x="20" y="188" width="280" height="30"/>
+                    <rect key="frame" x="20" y="188" width="280" height="31"/>
+                    <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="15"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +96,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIf-Oa-hLj">
-                    <rect key="frame" x="20" y="284" width="280" height="16"/>
+                    <rect key="frame" x="20" y="285" width="280" height="16"/>
                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
